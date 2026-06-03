@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Comparative level distribution across three synthetic runtimes
+(700 traces each, scenarios drawn uniformly at random with the same seed).
+Each cell is fraction at level (95\,\% bootstrap CI). Aborts are commits
+rejected by the runtime (no \fld{OpRecord} emitted).}
+\label{tab:baseline}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Runtime & $L_0$ & $L_1$ & $L_2$ & $L_3$ & $L_4$ & Aborts \\
+\midrule
+Pessimistic locking & 0.0\% [0.0, 0.0] & 0.0\% [0.0, 0.0] & 0.0\% [0.0, 0.0] & 0.0\% [0.0, 0.0] & 100.0\% [100.0, 100.0] & 285 \\
+Snapshot isolation & 0.0\% [0.0, 0.0] & 0.0\% [0.0, 0.0] & 0.0\% [0.0, 0.0] & 21.1\% [18.3, 24.3] & 78.9\% [75.7, 81.7] & 145 \\
+Vanilla (uninstrumented control) & 20.7\% [18.0, 23.6] & 0.0\% [0.0, 0.0] & 0.0\% [0.0, 0.0] & 21.1\% [18.3, 24.3] & 58.1\% [54.6, 61.6] & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

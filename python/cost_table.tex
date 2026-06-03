@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Per-session token cost by runtime and workload, captured from \texttt{usage} callbacks. Pricing: \$2.50/M input, \$10.00/M output. 95\,\% bootstrap CIs on per-session total cost (1{,}000 resamples). Cost in milli-dollars (m\$ = USD $\times 10^{-3}$).}
+\label{tab:cost-measured}
+\small
+\begin{tabular}{lccc}
+\toprule
+Runtime & edit-review & plan-execute & triage \\
+\midrule
+Vanilla        & \$3.13\,m [3.11, 3.16] & \$1.93\,m [1.88, 1.98] & \$3.23\,m [2.93, 3.55] \\
+Pessimistic    & \$3.28\,m [3.21, 3.38] & \$1.91\,m [1.85, 1.97] & \$5.21\,m [4.90, 5.54] \\
+Snapshot iso.  & \$3.11\,m [3.09, 3.13] & \$1.95\,m [1.91, 1.99] & \$3.13\,m [2.83, 3.46] \\
+\bottomrule
+\end{tabular}
+\end{table}

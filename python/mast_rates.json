@@ -1,0 +1,84 @@
+{
+  "cells": [
+    {
+      "scenario": "ag2",
+      "provider": "mast",
+      "n_sessions": 13,
+      "a1_any_rate": 0.0,
+      "a1_any_ci": [
+        0.0,
+        0.0
+      ],
+      "a1_cross_agent_rate": 0.0,
+      "a1_self_agent_rate": 0.0,
+      "mean_events_per_session": 1.3846153846153846
+    },
+    {
+      "scenario": "chatdev",
+      "provider": "mast",
+      "n_sessions": 130,
+      "a1_any_rate": 0.0,
+      "a1_any_ci": [
+        0.0,
+        0.0
+      ],
+      "a1_cross_agent_rate": 0.0,
+      "a1_self_agent_rate": 0.0,
+      "mean_events_per_session": 17.553846153846155
+    },
+    {
+      "scenario": "hyperagent",
+      "provider": "mast",
+      "n_sessions": 2,
+      "a1_any_rate": 0.0,
+      "a1_any_ci": [
+        0.0,
+        0.0
+      ],
+      "a1_cross_agent_rate": 0.0,
+      "a1_self_agent_rate": 0.0,
+      "mean_events_per_session": 34.5
+    },
+    {
+      "scenario": "magentic",
+      "provider": "mast",
+      "n_sessions": 195,
+      "a1_any_rate": 0.0,
+      "a1_any_ci": [
+        0.0,
+        0.0
+      ],
+      "a1_cross_agent_rate": 0.0,
+      "a1_self_agent_rate": 0.0,
+      "mean_events_per_session": 12.338461538461539
+    },
+    {
+      "scenario": "metagpt",
+      "provider": "mast",
+      "n_sessions": 230,
+      "a1_any_rate": 0.0,
+      "a1_any_ci": [
+        0.0,
+        0.0
+      ],
+      "a1_cross_agent_rate": 0.0,
+      "a1_self_agent_rate": 0.0,
+      "mean_events_per_session": 1
+    },
+    {
+      "scenario": "openmanus",
+      "provider": "mast",
+      "n_sessions": 30,
+      "a1_any_rate": 0.0,
+      "a1_any_ci": [
+        0.0,
+        0.0
+      ],
+      "a1_cross_agent_rate": 0.0,
+      "a1_self_agent_rate": 0.0,
+      "mean_events_per_session": 2.9
+    }
+  ],
+  "n_total_scored": 600,
+  "n_a1_sessions": 0
+}

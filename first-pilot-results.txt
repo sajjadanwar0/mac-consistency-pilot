@@ -1,0 +1,7321 @@
+=== Trace summary ===
+file: ../traces/trace-0000.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0001.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0002.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0003.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0004.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0005.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0006.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0007.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0008.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0009.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0010.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0011.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0012.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0013.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0014.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0015.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0016.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0017.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0018.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0019.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0020.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0021.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0022.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0023.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0024.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0025.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0026.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0027.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0028.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0029.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0030.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0031.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0032.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0033.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0034.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0035.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0036.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0037.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0038.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0039.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0040.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0041.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0042.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0043.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0044.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0045.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0046.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0047.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0048.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0049.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0050.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0051.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0052.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0053.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0054.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0055.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0056.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0057.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0058.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0059.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0060.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0061.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0062.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0063.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0064.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0065.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0066.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0067.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0068.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0069.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0070.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0071.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0072.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0073.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0074.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0075.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0076.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0077.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0078.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0079.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0080.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0081.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0082.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0083.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0084.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0085.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0086.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0087.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0088.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0089.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0090.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0091.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0092.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0093.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0094.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0095.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0096.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0097.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0098.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0099.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0100.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0101.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0102.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0103.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0104.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0105.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0106.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0107.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0108.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0109.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0110.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0111.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0112.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0113.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0114.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0115.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0116.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0117.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0118.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0119.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0120.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0121.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0122.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0123.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0124.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0125.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0126.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0127.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0128.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0129.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0130.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0131.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0132.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0133.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0134.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0135.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0136.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0137.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0138.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0139.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0140.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0141.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0142.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0143.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0144.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0145.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0146.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0147.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0148.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0149.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0150.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0151.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0152.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0153.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0154.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0155.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0156.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0157.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0158.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0159.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0160.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0161.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0162.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0163.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0164.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0165.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0166.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0167.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0168.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0169.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0170.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0171.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0172.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0173.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0174.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0175.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0176.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0177.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0178.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0179.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0180.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0181.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0182.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0183.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0184.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0185.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0186.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0187.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0188.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0189.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0190.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0191.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0192.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0193.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0194.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0195.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0196.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0197.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0198.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0199.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0200.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0201.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0202.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0203.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0204.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0205.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0206.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0207.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0208.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0209.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0210.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0211.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0212.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0213.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0214.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0215.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0216.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0217.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0218.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0219.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0220.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0221.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0222.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0223.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0224.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0225.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0226.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0227.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0228.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0229.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0230.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0231.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0232.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0233.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0234.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0235.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0236.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0237.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0238.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0239.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0240.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0241.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0242.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0243.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0244.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0245.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0246.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0247.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0248.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0249.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0250.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0251.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0252.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0253.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0254.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0255.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0256.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0257.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0258.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0259.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0260.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0261.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0262.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0263.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0264.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0265.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0266.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0267.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0268.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0269.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0270.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0271.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0272.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0273.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0274.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0275.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0276.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0277.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0278.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0279.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0280.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0281.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0282.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0283.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0284.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0285.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0286.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0287.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0288.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0289.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0290.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0291.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0292.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0293.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0294.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0295.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0296.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0297.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0298.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0299.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0300.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0301.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0302.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0303.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0304.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0305.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0306.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0307.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0308.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0309.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0310.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0311.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0312.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0313.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0314.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0315.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0316.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0317.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0318.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0319.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0320.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0321.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0322.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0323.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0324.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0325.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0326.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0327.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0328.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0329.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0330.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0331.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0332.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0333.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0334.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0335.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0336.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0337.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0338.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0339.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0340.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0341.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0342.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0343.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0344.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0345.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0346.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0347.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0348.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0349.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0350.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0351.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0352.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0353.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0354.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0355.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0356.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0357.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0358.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0359.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0360.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0361.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0362.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0363.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0364.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0365.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0366.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0367.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0368.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0369.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0370.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0371.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0372.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0373.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0374.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0375.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0376.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0377.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0378.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0379.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0380.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0381.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0382.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0383.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0384.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0385.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0386.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0387.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0388.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0389.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0390.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0391.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0392.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0393.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0394.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0395.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0396.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0397.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0398.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0399.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0400.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0401.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0402.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0403.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0404.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0405.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0406.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0407.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0408.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0409.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0410.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0411.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0412.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0413.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0414.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0415.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0416.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0417.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0418.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0419.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0420.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0421.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0422.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0423.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0424.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0425.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0426.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0427.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0428.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0429.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0430.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0431.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0432.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0433.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0434.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0435.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0436.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0437.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0438.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0439.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0440.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0441.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0442.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0443.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0444.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0445.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0446.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0447.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0448.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0449.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0450.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0451.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0452.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0453.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0454.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0455.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0456.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0457.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0458.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0459.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0460.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0461.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0462.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0463.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0464.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0465.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0466.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0467.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0468.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0469.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0470.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0471.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0472.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0473.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0474.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0475.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0476.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0477.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0478.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0479.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0480.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0481.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0482.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0483.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0484.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0485.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0486.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent a1 read NULL at t=0, agent a2 wrote draft_v2 at t=1, agent a1 wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../traces/trace-0487.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0488.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0489.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0490.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0491.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0492.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0493.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0494.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0495.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0496.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0497.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           1 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_3
+
+---
+=== Trace summary ===
+file: ../traces/trace-0498.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../traces/trace-0499.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---

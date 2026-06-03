@@ -1,0 +1,1513 @@
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0000.jsonl
+operations: 5
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       3 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=ticket: agent triager read Issue in protocol execution process at t=1, agent reporter wrote The priority of the issue is not set, marked as NULL in the system at t=2, agent triager wrote at t=3
+  i=3 j=1 cell=ticket: agent engineer read Issue in protocol execution process at t=1, agent reporter wrote The priority of the issue is not set, marked as NULL in the system at t=2, agent engineer wrote at t=4
+  i=3 j=2 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=3, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0001.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0002.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0003.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0004.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0005.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0006.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0007.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0008.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0009.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0010.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0011.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0012.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0013.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0014.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0015.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0016.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0017.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0018.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0019.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0020.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0021.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0022.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0023.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0024.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0025.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0026.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0027.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0028.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0029.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0030.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0031.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0032.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0033.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0034.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0035.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0036.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0037.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0038.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0039.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0040.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0041.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0042.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0043.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0044.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0045.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0046.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0047.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0048.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0049.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0050.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0051.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0052.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0053.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0054.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0055.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0056.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       3 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=ticket: agent triager read A bug causing application crashes on startup at t=1, agent reporter wrote Prioritize bug related to application crashes on startup at t=2, agent triager wrote at t=3
+  i=3 j=1 cell=ticket: agent engineer read A bug causing application crashes on startup at t=1, agent reporter wrote Prioritize bug related to application crashes on startup at t=2, agent engineer wrote at t=4
+  i=3 j=2 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=3, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0057.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0058.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       2 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=3 j=1 cell=priority: agent engineer read NULL at t=1, agent reporter wrote High at t=2, agent engineer wrote at t=4
+  i=3 j=2 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=3, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0059.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0060.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0061.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0062.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0063.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0064.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0065.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0066.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0067.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0068.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0069.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0070.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0071.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0072.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0073.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0074.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0075.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0076.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0077.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       3 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=ticket: agent triager read Button does not respond when clicked at t=1, agent reporter wrote Priority for button click issue not assigned at t=2, agent triager wrote at t=3
+  i=3 j=1 cell=ticket: agent engineer read Button does not respond when clicked at t=1, agent reporter wrote Priority for button click issue not assigned at t=2, agent engineer wrote at t=4
+  i=3 j=2 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=3, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0078.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0079.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0080.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0081.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0082.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0083.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0084.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0085.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0086.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0087.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0088.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0089.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0090.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0091.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0092.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0093.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0094.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0095.jsonl
+operations: 5
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       2 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=3 j=1 cell=priority: agent engineer read NULL at t=1, agent reporter wrote high at t=2, agent engineer wrote at t=4
+  i=3 j=2 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=3, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0096.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0097.jsonl
+operations: 6
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0098.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---
+=== Trace summary ===
+file: ../triage-traces/triage-trace-0099.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+---

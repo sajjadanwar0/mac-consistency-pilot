@@ -1,0 +1,24 @@
+{
+  "langgraph|gpt-4o|racy": {
+    "n": 100,
+    "cross_agent_a1": 100,
+    "cross_rate": 1.0,
+    "cross_ci": [
+      0.9637833073548235,
+      1.0
+    ],
+    "any_agent_a1": 100,
+    "any_rate": 1.0
+  },
+  "langgraph|gpt-4o|sequential": {
+    "n": 100,
+    "cross_agent_a1": 0,
+    "cross_rate": 0.0,
+    "cross_ci": [
+      0.0,
+      0.03621669264517641
+    ],
+    "any_agent_a1": 0,
+    "any_rate": 0.0
+  }
+}

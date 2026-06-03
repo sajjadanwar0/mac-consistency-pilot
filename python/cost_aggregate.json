@@ -1,0 +1,117 @@
+{
+  "pricing": {
+    "input_per_m_usd": 2.5,
+    "output_per_m_usd": 10.0,
+    "label": "gpt-4o"
+  },
+  "cells": [
+    {
+      "runtime": "vanilla",
+      "workload": "edit-review",
+      "n_sessions": 100,
+      "mean_cost_usd": 0.0031343,
+      "ci_low_usd": 0.0031136000000000002,
+      "ci_high_usd": 0.0031558249999999997,
+      "mean_prompt_tokens": 862.68,
+      "mean_completion_tokens": 97.76,
+      "mean_total_tokens": 960.44,
+      "median_wall_clock_ms": 8120.0
+    },
+    {
+      "runtime": "vanilla",
+      "workload": "plan-execute",
+      "n_sessions": 100,
+      "mean_cost_usd": 0.0019308749999999999,
+      "ci_low_usd": 0.0018809249999999999,
+      "ci_high_usd": 0.0019771,
+      "mean_prompt_tokens": 523.47,
+      "mean_completion_tokens": 62.22,
+      "mean_total_tokens": 585.69,
+      "median_wall_clock_ms": 6323.5
+    },
+    {
+      "runtime": "vanilla",
+      "workload": "triage",
+      "n_sessions": 100,
+      "mean_cost_usd": 0.003231975,
+      "ci_low_usd": 0.0029306,
+      "ci_high_usd": 0.003551525,
+      "mean_prompt_tokens": 919.51,
+      "mean_completion_tokens": 93.32,
+      "mean_total_tokens": 1012.83,
+      "median_wall_clock_ms": 9023.0
+    },
+    {
+      "runtime": "pessimistic",
+      "workload": "edit-review",
+      "n_sessions": 100,
+      "mean_cost_usd": 0.0032821250000000003,
+      "ci_low_usd": 0.003205175,
+      "ci_high_usd": 0.0033757500000000003,
+      "mean_prompt_tokens": 908.41,
+      "mean_completion_tokens": 101.11,
+      "mean_total_tokens": 1009.52,
+      "median_wall_clock_ms": 8580.0
+    },
+    {
+      "runtime": "pessimistic",
+      "workload": "plan-execute",
+      "n_sessions": 100,
+      "mean_cost_usd": 0.001914575,
+      "ci_low_usd": 0.00184835,
+      "ci_high_usd": 0.00197155,
+      "mean_prompt_tokens": 514.51,
+      "mean_completion_tokens": 62.83,
+      "mean_total_tokens": 577.34,
+      "median_wall_clock_ms": 6292.0
+    },
+    {
+      "runtime": "pessimistic",
+      "workload": "triage",
+      "n_sessions": 100,
+      "mean_cost_usd": 0.00520865,
+      "ci_low_usd": 0.00490085,
+      "ci_high_usd": 0.00554245,
+      "mean_prompt_tokens": 1508.22,
+      "mean_completion_tokens": 143.81,
+      "mean_total_tokens": 1652.03,
+      "median_wall_clock_ms": 14202.0
+    },
+    {
+      "runtime": "snapshot_isolation",
+      "workload": "edit-review",
+      "n_sessions": 100,
+      "mean_cost_usd": 0.0031107,
+      "ci_low_usd": 0.0030899000000000005,
+      "ci_high_usd": 0.0031327,
+      "mean_prompt_tokens": 859.64,
+      "mean_completion_tokens": 96.16,
+      "mean_total_tokens": 955.8,
+      "median_wall_clock_ms": 9330.0
+    },
+    {
+      "runtime": "snapshot_isolation",
+      "workload": "plan-execute",
+      "n_sessions": 100,
+      "mean_cost_usd": 0.001953025,
+      "ci_low_usd": 0.00191455,
+      "ci_high_usd": 0.0019908,
+      "mean_prompt_tokens": 528.85,
+      "mean_completion_tokens": 63.09,
+      "mean_total_tokens": 591.94,
+      "median_wall_clock_ms": 6298.0
+    },
+    {
+      "runtime": "snapshot_isolation",
+      "workload": "triage",
+      "n_sessions": 100,
+      "mean_cost_usd": 0.0031288749999999997,
+      "ci_low_usd": 0.002826925,
+      "ci_high_usd": 0.003457975,
+      "mean_prompt_tokens": 892.59,
+      "mean_completion_tokens": 89.74,
+      "mean_total_tokens": 982.33,
+      "median_wall_clock_ms": 8794.5
+    }
+  ]
+}

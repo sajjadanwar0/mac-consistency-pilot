@@ -1,0 +1,66 @@
+# ---------- Rust / Cargo ----------
+/target/
+**/target/
+*.rlib
+*.rmeta
+
+# ---------- Verus ----------
+*.verus-log
+.verus/
+**/.verus-cache/
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+# ---------- LaTeX build artifacts (keep .tex/.bib) ----------
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+# *.pdf            # uncomment to also exclude the built paper PDF
+
+# ---------- GENERATED DATA / RESULTS (the heavy stuff) ----------
+traces/
+**/traces/
+baseline_runs/
+**/baseline_runs/
+dynamic_oprecords/
+corpus_oprecords/
+*_oprecords/
+oprecords/
+runs/
+results/
+out/
+output/
+*.trace
+# trace / op-record data dumps
+cf_*.jsonl
+*_trace*.jsonl
+*_oprecords*.jsonl
+sessions/
+
+# ---------- Archives & misc large ----------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# ---------- Editors / OS ----------
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store

@@ -1,0 +1,11 @@
+[package]
+name = "verus-detector"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+# Verus is invoked directly: `verus --crate-type=lib src/lib.rs`
+# This Cargo.toml is provided for editor support only. Verus does
+# not currently use cargo for the verification step.

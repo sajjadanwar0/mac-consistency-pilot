@@ -1,0 +1,1700 @@
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0000.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that work together to provide a unified computing service, appearing to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0001.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0002.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0003.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to appear as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0004.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of independent computers that work together as a single entity to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0005.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing systems where components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0006.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of computers that work together to achieve a common goal, appearing to the end-user as a single system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0007.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0008.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that communicate and coordinate their actions by passing messages to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0009.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that cooperate and communicate to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0010.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0011.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0012.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0013.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0014.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0015.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0016.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0017.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0018.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0019.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0020.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of independent computers that work together to achieve a common goal, while appearing to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0021.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, coordinating through communication and data sharing. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0022.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0023.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0024.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote A distributed system is a network of independent computers that work together to appear as a coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0025.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, sharing resources and information. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0026.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of interconnected computers that work together to achieve a common goal, appearing as a single coherent system to the user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0027.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to perform a task or provide a service. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0028.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to appear as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0029.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that work together to appear as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0030.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, often for performance, scalability, and reliability. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0031.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0032.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of interconnected computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0033.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of computers that work together to achieve a common goal, often appearing as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0034.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the user as a single coherent system, working together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0035.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0036.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0037.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0038.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0039.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to users as a single coherent system, allowing seamless resource sharing and communication over a network. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0040.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal by coordinating processes, sharing resources, and communicating over a network. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0041.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0042.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0043.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing systems with components located on different networked computers that communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0044.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0045.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0046.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0047.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0048.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0049.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0050.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of independent computers that work together to achieve a common goal, appearing to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0051.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of independent computers that work together to achieve a common goal, appearing as a single coherent system to the user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0052.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0053.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0054.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0055.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of interconnected computers that collaborate to achieve a common goal by sharing resources and information. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0056.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a collection of independent computers that appear to users as a single coherent system, enabling resource sharing and communication across geographical locations. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0057.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together as a single system to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0058.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0059.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0060.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0061.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are systems where components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0062.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0063.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to appear as a single coherent system to the end user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0064.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing systems consisting of multiple computers that work together as a single system to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0065.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0066.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0067.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are systems where components located on different networked computers communicate and coordinate their actions by passing messages to achieve a common objective. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0068.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to appear as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0069.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0070.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computer systems with components located on networked computers that communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0071.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems consist of multiple autonomous computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0072.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal or task, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0073.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0074.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote A distributed system is a collection of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0075.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0076.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0077.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0078.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0079.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to appear as a single coherent system to end-users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0080.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a model in which components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0081.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of interconnected computers that work together to achieve a common goal, often characterized by resource sharing and decentralized control. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0082.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that work together to appear as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0083.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0084.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of interconnected computers that work together to achieve a common goal, often by sharing resources and responsibilities. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0085.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0086.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0087.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0088.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing systems in which components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0089.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0090.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of interconnected computers that work together to achieve a common goal by sharing resources and responsibilities. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0091.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems involve multiple computers working together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0092.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing systems with multiple components located on different networked computers, which communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0093.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, sharing resources and data while appearing as a single coherent entity to the user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0094.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0095.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0096.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are systems where components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0097.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal, appearing as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0098.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of autonomous computers that communicate and coordinate their actions by passing messages to each other to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---
+=== Trace summary ===
+file: ../edit-review-traces/edit-review-trace-0099.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, often appearing as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+---

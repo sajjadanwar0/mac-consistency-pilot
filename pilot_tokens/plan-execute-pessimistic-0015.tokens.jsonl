@@ -1,0 +1,1 @@
+{"session_id":"plan-execute-pessimistic-0015","runtime":"pessimistic","workload":"plan-execute","agent_id":"","op_index":0,"call_index":0,"model":"gpt-4o-2024-08-06","prompt_tokens":120,"completion_tokens":38,"total_tokens":158,"input_cost_usd":0.0003,"output_cost_usd":0.00038,"total_cost_usd":0.00068,"wall_clock_ms":2833,"timestamp_iso":"2026-05-11T08:59:09.773Z"}

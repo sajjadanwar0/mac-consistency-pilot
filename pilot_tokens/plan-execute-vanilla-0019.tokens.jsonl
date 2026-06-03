@@ -1,0 +1,1 @@
+{"session_id":"plan-execute-vanilla-0019","runtime":"vanilla","workload":"plan-execute","agent_id":"","op_index":0,"call_index":0,"model":"gpt-4o-2024-08-06","prompt_tokens":120,"completion_tokens":36,"total_tokens":156,"input_cost_usd":0.0003,"output_cost_usd":0.00036,"total_cost_usd":0.00066,"wall_clock_ms":4441,"timestamp_iso":"2026-05-11T08:13:35.201Z"}

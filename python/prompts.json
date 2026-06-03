@@ -1,0 +1,335 @@
+[
+  {
+    "name": "concurrent-stale-read",
+    "description": "Two agents read the same cell concurrently, then commit divergent values in different commit orders. Surfaces A_1 (Stale-Generation).",
+    "expected_anomaly": "A_1",
+    "agents": [
+      "a1",
+      "a2"
+    ],
+    "tools": [
+      "search",
+      "code"
+    ],
+    "phases": [
+      {
+        "action": "begin",
+        "agent": "a1",
+        "read": [
+          "doc"
+        ],
+        "tool": "search"
+      },
+      {
+        "action": "begin",
+        "agent": "a2",
+        "read": [
+          "doc"
+        ],
+        "tool": "code"
+      },
+      {
+        "action": "commit",
+        "agent": "a2",
+        "write": {
+          "doc": "draft_v2"
+        },
+        "tool": "code"
+      },
+      {
+        "action": "commit",
+        "agent": "a1",
+        "write": {
+          "doc": "draft_v1"
+        },
+        "tool": "search"
+      }
+    ]
+  },
+  {
+    "name": "tool-deprecation",
+    "description": "Agent plans a tool that is removed before its commit. Surfaces A_2 (Phantom-Tool).",
+    "expected_anomaly": "A_2",
+    "agents": [
+      "a1"
+    ],
+    "tools": [
+      "search",
+      "code"
+    ],
+    "phases": [
+      {
+        "action": "begin",
+        "agent": "a1",
+        "read": [
+          "task"
+        ],
+        "tool": "search"
+      },
+      {
+        "action": "remove_tool",
+        "tool": "search"
+      },
+      {
+        "action": "commit",
+        "agent": "a1",
+        "write": {
+          "task": "complete"
+        },
+        "tool": "search"
+      }
+    ]
+  },
+  {
+    "name": "linear-pipeline-clean",
+    "description": "Three agents in strict sequence: each waits for the prior to commit before reading. No anomaly expected.",
+    "expected_anomaly": "none",
+    "agents": [
+      "a1",
+      "a2",
+      "a3"
+    ],
+    "tools": [
+      "search",
+      "code",
+      "shell"
+    ],
+    "phases": [
+      {
+        "action": "atomic",
+        "agent": "a1",
+        "read": [],
+        "write": {
+          "step": "start"
+        },
+        "tool": "search"
+      },
+      {
+        "action": "atomic",
+        "agent": "a2",
+        "read": [
+          "step"
+        ],
+        "write": {
+          "step": "mid"
+        },
+        "tool": "code"
+      },
+      {
+        "action": "atomic",
+        "agent": "a3",
+        "read": [
+          "step"
+        ],
+        "write": {
+          "step": "end"
+        },
+        "tool": "shell"
+      }
+    ]
+  },
+  {
+    "name": "fan-out-merge",
+    "description": "Coordinator forks two workers writing disjoint cells, then merges. Branching control with no shared write target \u2014 no anomaly expected.",
+    "expected_anomaly": "none",
+    "agents": [
+      "a1",
+      "a2",
+      "a3"
+    ],
+    "tools": [
+      "search",
+      "code",
+      "shell"
+    ],
+    "phases": [
+      {
+        "action": "atomic",
+        "agent": "a1",
+        "read": [],
+        "write": {
+          "task": "init"
+        }
+      },
+      {
+        "action": "begin",
+        "agent": "a2",
+        "read": [
+          "task"
+        ],
+        "tool": "code"
+      },
+      {
+        "action": "begin",
+        "agent": "a3",
+        "read": [
+          "task"
+        ],
+        "tool": "shell"
+      },
+      {
+        "action": "commit",
+        "agent": "a3",
+        "write": {
+          "branch_b": "done"
+        },
+        "tool": "shell"
+      },
+      {
+        "action": "commit",
+        "agent": "a2",
+        "write": {
+          "branch_a": "done"
+        },
+        "tool": "code"
+      },
+      {
+        "action": "atomic",
+        "agent": "a1",
+        "read": [
+          "branch_a",
+          "branch_b"
+        ],
+        "write": {
+          "final": "merged"
+        }
+      }
+    ]
+  },
+  {
+    "name": "single-agent-control",
+    "description": "One agent makes three sequential updates. No anomaly possible (single-agent).",
+    "expected_anomaly": "none",
+    "agents": [
+      "a1"
+    ],
+    "tools": [
+      "code"
+    ],
+    "phases": [
+      {
+        "action": "atomic",
+        "agent": "a1",
+        "read": [],
+        "write": {
+          "x": "1"
+        },
+        "tool": "code"
+      },
+      {
+        "action": "atomic",
+        "agent": "a1",
+        "read": [
+          "x"
+        ],
+        "write": {
+          "x": "2"
+        },
+        "tool": "code"
+      },
+      {
+        "action": "atomic",
+        "agent": "a1",
+        "read": [
+          "x"
+        ],
+        "write": {
+          "x": "3"
+        },
+        "tool": "code"
+      }
+    ]
+  },
+  {
+    "name": "phantom-write-cascade",
+    "description": "An agent reports having read a value of c that no committed write produced (commit-log skew). Surfaces A_3 (Causal-Cascade).",
+    "expected_anomaly": "A_3",
+    "agents": [
+      "a1"
+    ],
+    "tools": [],
+    "phases": [
+      {
+        "action": "raw_emit",
+        "event": {
+          "agent": "a1",
+          "read_set": [
+            "x"
+          ],
+          "read_values": {
+            "x": "ghost_value"
+          },
+          "read_time": 5,
+          "write_set": [
+            "y"
+          ],
+          "write_values": {
+            "y": "derived_from_ghost"
+          },
+          "write_time": 6,
+          "io": [
+            [
+              "y",
+              "derived_from_ghost"
+            ]
+          ],
+          "co": [
+            [
+              "y",
+              "derived_from_ghost"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "tool-effect-reorder",
+    "description": "Agent issues writes in order [x, y] but the store commits them in order [y, x] (async tool execution skew). Surfaces A_6.",
+    "expected_anomaly": "A_6",
+    "agents": [
+      "a1"
+    ],
+    "tools": [],
+    "phases": [
+      {
+        "action": "raw_emit",
+        "event": {
+          "agent": "a1",
+          "read_set": [],
+          "read_values": {},
+          "read_time": 0,
+          "write_set": [
+            "x",
+            "y"
+          ],
+          "write_values": {
+            "x": "1",
+            "y": "2"
+          },
+          "write_time": 1,
+          "io": [
+            [
+              "x",
+              "1"
+            ],
+            [
+              "y",
+              "2"
+            ]
+          ],
+          "co": [
+            [
+              "y",
+              "2"
+            ],
+            [
+              "x",
+              "1"
+            ]
+          ]
+        }
+      }
+    ]
+  }
+]

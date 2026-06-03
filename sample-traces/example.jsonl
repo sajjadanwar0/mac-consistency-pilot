@@ -1,0 +1,2 @@
+{"agent": "a1", "read_set": ["c1"], "read_values": {"c1": "NULL"}, "read_time": 0, "write_set": ["c1"], "write_values": {"c1": "v1"}, "write_time": 2, "planned_tool": "search", "tools_used": ["search"], "tools_visible_at_read": ["code", "search"], "io": [["c1", "v1"]], "co": [["c1", "v1"]]}
+{"agent": "a2", "read_set": ["c1"], "read_values": {"c1": "NULL"}, "read_time": 0, "write_set": ["c1"], "write_values": {"c1": "v2"}, "write_time": 1, "planned_tool": "code", "tools_used": ["code"], "tools_visible_at_read": ["code", "search"], "io": [["c1", "v2"]], "co": [["c1", "v2"]]}

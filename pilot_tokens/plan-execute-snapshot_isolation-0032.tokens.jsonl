@@ -1,0 +1,1 @@
+{"session_id":"plan-execute-snapshot_isolation-0032","runtime":"snapshot_isolation","workload":"plan-execute","agent_id":"","op_index":0,"call_index":0,"model":"gpt-4o-2024-08-06","prompt_tokens":120,"completion_tokens":47,"total_tokens":167,"input_cost_usd":0.0003,"output_cost_usd":0.00047,"total_cost_usd":0.00077,"wall_clock_ms":2771,"timestamp_iso":"2026-05-11T09:56:00.503Z"}
