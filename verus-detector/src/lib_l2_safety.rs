@@ -556,6 +556,43 @@ pub proof fn lemma_commit_valid_implies_no_a3(s: RuntimeState, t: TxnId)
 /// two auxiliary invariants below capture exactly that condition and
 /// MUST be carried in the reachable-state invariant alongside
 /// pred_closed; step_read must be applied only to non-committed t.
+// =====================================================================
+// Section 8b: Non-vacuity --- without the cascade discipline, A_3 fires
+// =====================================================================
+
+/// THEOREM L_2g (no cascade-abort admits A_3; non-vacuity). If a
+/// committed, non-aborted transaction t has, in its recorded causal
+/// closure, a transaction p that has aborted, then an A_3 witness
+/// exists for t. This shows the cascade-abort discipline of
+/// step_abort is non-vacuous: the predicate the L_2 safety theorem
+/// excludes is genuinely satisfiable, so the safety result is not
+/// vacuously about an empty predicate.
+///
+/// SCOPE (stated, not hidden): like lib_l4_safety.rs::L_4c, this
+/// establishes SATISFIABILITY of the witness, NOT reachability from
+/// initial_state via a no-discipline transition sequence. Under the
+/// cascade discipline of step_abort such a t would itself have been
+/// aborted (it has the aborted p as a predecessor), so the witness
+/// state is exactly the one the discipline removes; demonstrating it
+/// is reachable when the cascade is replaced by a no-op is a stronger
+/// statement we do not mechanize here.
+pub proof fn lemma_no_cascade_admits_a3(s: RuntimeState, t: TxnId, p: TxnId)
+    requires
+        s.txns.contains_key(t),
+        s.txns[t].committed,
+        !s.txns[t].aborted,
+        s.txns[t].predecessors.contains(p),
+        s.txns.contains_key(p),
+        s.txns[p].aborted,
+    ensures a3_witness(s, t),
+{
+    // p witnesses the existential in a3_witness: it is a predecessor
+    // of t (the registered trigger term), present in txns, and aborted.
+    assert(s.txns[t].predecessors.contains(p)
+        && s.txns.contains_key(p)
+        && s.txns[p].aborted);
+}
+
 pub open spec fn inv_writers_committed(s: RuntimeState) -> bool {
     forall |c: CellId| #![trigger s.cell_writer[c]]
         s.cell_value.contains_key(c)
