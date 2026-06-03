@@ -26,8 +26,6 @@
 //   states are then proved to admit no A_3 witness on committed
 //   transactions.
 //
-// SCORECARD
-//   8 obligations, 0 axioms (purely structural).
 
 #![allow(unused_imports)]
 #![allow(dead_code)]
