@@ -64,3 +64,13 @@ sessions/
 *.swp
 *~
 .DS_Store
+
+# --- Rust / Cargo ---
+/target/
+**/target/
+*.rs.bk
+
+# --- Verus ---
+.verus/
+.verus-log/
+*.smt2
