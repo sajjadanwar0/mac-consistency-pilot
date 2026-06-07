@@ -657,6 +657,8 @@ proof fn smoke_test_a1_full(h: Seq<OpRecord>)
 
 }  // verus!
 
+fn main() {}
+
 // =============================================================================
 // What's verified (summary):
 //

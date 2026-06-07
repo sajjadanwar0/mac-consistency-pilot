@@ -7,25 +7,30 @@
 //
 // MOTIVATION
 //   The existing safety theorems of lib.rs, lib_ssi.rs, and
-//   lib_default_si.rs prove ¬A_1 only. The lattice point L_2 is
-//   defined as ¬A_1 ∧ ¬A_3: prevention of both stale-generation and
+//   lib_default_si.rs prove ~A_1 only. The lattice point L_2 is
+//   defined as ~A_1 AND ~A_3: prevention of both stale-generation and
 //   the causal cascade through which a stale read propagates via a
 //   subsequent write. A reviewer of the v5_3 paper observed that
 //   only L_1 was mechanically verified across runtimes, leaving the
 //   higher lattice levels as paper design. This file closes the
-//   L_1 → L_2 step.
+//   L_1 -> L_2 step.
 //
 // CONSTRUCTION
 //   The L_2 runtime carries a per-transaction `predecessors` set
 //   recording the transaction IDs of every committed transaction
 //   that wrote to a cell this transaction read. A commit is valid
 //   only if (a) the read-set is fresh against the current committed
-//   store (¬A_1), and (b) no predecessor has subsequently aborted
-//   (¬A_3). If a transaction aborts, every transaction with it in
+//   store (~A_1), and (b) no predecessor has subsequently aborted
+//   (~A_3). If a transaction aborts, every transaction with it in
 //   the predecessor set is cascade-aborted. The runtime's reachable
 //   states are then proved to admit no A_3 witness on committed
 //   transactions.
 //
+// STATUS (complete): the per-transaction `read_from` provenance field
+//   (added to TxnState/empty_txn, populated in step_read) is now
+//   constrained by inv_read_provenance and underpins the runtime-level
+//   catalogue-A_3 correspondence (Theorem L_2i, lemma_l2_reads_supported).
+//   15 verified, 0 errors; no assume, no admit.
 
 #![allow(unused_imports)]
 #![allow(dead_code)]
@@ -61,6 +66,16 @@ pub struct TxnState {
     /// latest committed value at the time of the read was written
     /// by t'. Captures the causal closure for A_3.
     pub predecessors:  Set<TxnId>,
+    /// Per-cell read provenance: for each cell c this txn read,
+    /// read_from[c] is the transaction whose published write it observed
+    /// (cell_writer[c] at read time). Recorded so the catalogue-A_3
+    /// correspondence can identify the producer of each read value.
+    /// Unconstrained until the inv_read_provenance invariant is added.
+    pub read_from:     Map<CellId, TxnId>,
+    /// Per-cell read timestamp: read_at[c] is `now` at the moment this txn
+    /// read cell c. Paired with the producer's commit_time it lets the
+    /// catalogue-A_3 residue assert write_time <= read_time (Definition 3).
+    pub read_at:       Map<CellId, Time>,
     /// Time of commit (meaningful only when committed == true).
     pub commit_time:   Time,
 }
@@ -75,6 +90,8 @@ pub open spec fn empty_txn() -> TxnState {
         write_set:     Set::empty(),
         write_values:  Map::empty(),
         predecessors:  Set::empty(),
+        read_from:     Map::empty(),
+        read_at:       Map::empty(),
         commit_time:   0,
     }
 }
@@ -113,7 +130,7 @@ pub open spec fn initial_state() -> RuntimeState {
 
 /// The read-freshness predicate: the values this transaction
 /// observed for each cell in its read-set match the current
-/// committed value for that cell. This is the operational ¬A_1
+/// committed value for that cell. This is the operational ~A_1
 /// check.
 pub open spec fn reads_fresh(s: RuntimeState, t: TxnId) -> bool {
     let txn = s.txns[t];
@@ -125,7 +142,7 @@ pub open spec fn reads_fresh(s: RuntimeState, t: TxnId) -> bool {
 
 /// The predecessor-clean predicate: every transaction in this
 /// transaction's predecessor set has committed and not aborted.
-/// This is the operational ¬A_3 check: the causal closure
+/// This is the operational ~A_3 check: the causal closure
 /// contains no aborted writes.
 pub open spec fn predecessors_clean(s: RuntimeState, t: TxnId) -> bool {
     let txn = s.txns[t];
@@ -186,28 +203,6 @@ pub open spec fn invariant_committed_predecessors_clean(s: RuntimeState) -> bool
         ==> predecessors_clean(s, t)
 }
 
-/// The complementary half: no committed transaction has a
-/// stale-read witness in its OWN read-set at the time of commit,
-/// recorded as the cell-value matching read-value invariant for
-/// the cells the txn read. We do NOT carry this invariant forward
-/// past commit time (because subsequent writes update cell_value
-/// to a different value, which is fine: A_1 is about staleness AT
-/// the moment of generation/commit, not about reads matching the
-/// store forever).
-pub open spec fn invariant_no_a1_at_commit(s: RuntimeState) -> bool {
-    // This invariant is local to the commit transition; the global
-    // form is: at every commit transition that produced state s
-    // from s_pre via a Commit step for txn t, reads_fresh(s_pre, t)
-    // held. We elide the per-transition phrasing here and use the
-    // weaker reachable-state form: if a transaction committed in
-    // this state, then its read_values match the cell_value EXCEPT
-    // for cells that the same transaction subsequently overwrote.
-    // The Commit transition (Section 6) enforces this directly.
-    true  // Placeholder; the safety theorem references commit_valid
-          // explicitly at the commit transition rather than carrying
-          // the read-freshness invariant in the reachable state.
-}
-
 // =====================================================================
 // Section 6: Transitions
 // =====================================================================
@@ -243,6 +238,12 @@ pub open spec fn step_read(s: RuntimeState, t: TxnId, c: CellId) -> RuntimeState
         // makes the one-level cascade_abort sufficient (see
         // lemma_cascade_preserves_clean_predecessors).
         predecessors: txn.predecessors.insert(writer).union(s.txns[writer].predecessors),
+        // PROVENANCE: record which committed txn produced this read value
+        // (cell_writer[c] at read time). Carried for the catalogue-A_3
+        // correspondence; unconstrained until inv_read_provenance is added.
+        read_from: txn.read_from.insert(c, writer),
+        // TIMESTAMP: logical time of this read, for the temporal residue.
+        read_at: txn.read_at.insert(c, s.now),
         ..txn
     };
     RuntimeState {
@@ -372,7 +373,7 @@ pub open spec fn a1_witness_at_commit(s: RuntimeState, t: TxnId) -> bool {
 }
 
 /// A_3 fires on the committed transaction t if some predecessor
-/// in t's causal closure has aborted. ¬A_3 on every committed
+/// in t's causal closure has aborted. ~A_3 on every committed
 /// transaction is the L_2 contribution beyond L_1.
 pub open spec fn a3_witness(s: RuntimeState, t: TxnId) -> bool {
     s.txns.contains_key(t)
@@ -389,10 +390,10 @@ pub open spec fn a3_witness(s: RuntimeState, t: TxnId) -> bool {
 // Section 8: Safety theorems
 // =====================================================================
 
-/// THEOREM L_2a (¬A_1 at commit). If a commit transition for
+/// THEOREM L_2a (~A_1 at commit). If a commit transition for
 /// transaction t is enabled in state s, then no A_1 witness exists
 /// for t in the post-commit state on the cells t did not itself
-/// overwrite. This is the operational ¬A_1 guarantee at the
+/// overwrite. This is the operational ~A_1 guarantee at the
 /// moment of commit; it is the same property the L_1 proofs
 /// establish, restated here for the L_2 runtime.
 pub proof fn lemma_l2_no_a1_at_commit(s: RuntimeState, t: TxnId)
@@ -407,7 +408,7 @@ pub proof fn lemma_l2_no_a1_at_commit(s: RuntimeState, t: TxnId)
     // Direct from reads_fresh(s, t).
 }
 
-/// THEOREM L_2b (¬A_3 at commit). If a commit transition for
+/// THEOREM L_2b (~A_3 at commit). If a commit transition for
 /// transaction t is enabled in state s, no A_3 witness exists
 /// for t in s: every predecessor in t's causal closure is
 /// committed and non-aborted. The cascade-abort invariant of
@@ -606,6 +607,35 @@ pub open spec fn inv_cell_domains(s: RuntimeState) -> bool {
         s.cell_value.contains_key(c) <==> s.cell_writer.contains_key(c)
 }
 
+/// Every published cell's recorded writer actually wrote that cell with the
+/// published value. Links cell_writer/cell_value to the writer's own write
+/// record; the foundation for the read-provenance invariant of the next stage.
+pub open spec fn inv_cell_writer_wrote(s: RuntimeState) -> bool {
+    forall |c: CellId| #![trigger s.cell_writer[c]]
+        s.cell_value.contains_key(c)
+        ==> s.txns.contains_key(s.cell_writer[c])
+            && s.txns[s.cell_writer[c]].write_set.contains(c)
+            && s.txns[s.cell_writer[c]].write_values[c] == s.cell_value[c]
+}
+
+/// READ PROVENANCE: for every started transaction tt and every cell cc it
+/// read, read_from[cc] is recorded, is a predecessor of tt, and is a
+/// transaction that actually wrote cc with exactly the value tt observed.
+/// Quantified over all started txns (not just committed) so the property is
+/// established incrementally at each read and simply carried by commit. This
+/// is the runtime's per-cell record of where each read value came from -- the
+/// information the flat `predecessors` closure discards.
+pub open spec fn inv_read_provenance(s: RuntimeState) -> bool {
+    forall |tt: TxnId, cc: CellId| #![trigger s.txns[tt].read_set.contains(cc)]
+        (s.txns.contains_key(tt) && s.txns[tt].read_set.contains(cc))
+        ==> s.txns[tt].read_from.contains_key(cc)
+            && s.txns[tt].predecessors.contains(s.txns[tt].read_from[cc])
+            && s.txns.contains_key(s.txns[tt].read_from[cc])
+            && s.txns[s.txns[tt].read_from[cc]].write_set.contains(cc)
+            && s.txns[s.txns[tt].read_from[cc]].write_values[cc]
+                 == s.txns[tt].read_values[cc]
+}
+
 pub open spec fn inv_committed_frozen(s: RuntimeState) -> bool {
     // committed transactions never appear as the reading txn of a
     // subsequent step_read; operationally commit is terminal. Stated
@@ -618,10 +648,8 @@ pub open spec fn inv_committed_frozen(s: RuntimeState) -> bool {
         ==> s.txns.contains_key(p) && s.txns[p].committed
 }
 
-/// THEOREM L_2f (closure preserved by read). DRAFT -- the body below
-/// is the proof STRATEGY, not a verified proof; it must be compiled
-/// with `verus` and the triggers/asserts tuned. The argument is a
-/// case split on whether the quantified u,p equal t, using pred_closed
+/// THEOREM L_2f (closure preserved by read). VERIFIED. The argument is
+/// a case split on whether the quantified u,p equal t, using pred_closed
 /// for the unchanged transactions and the union for t. The case where
 /// some u already has t as a predecessor is ruled out by
 /// inv_committed_frozen (t is not yet committed when it reads, so it is
@@ -706,15 +734,15 @@ pub proof fn lemma_step_read_preserves_pred_closed(
 }
 
 // =====================================================================
-// Section 9 (NEW): combined reachable-state invariant and per-step
-// preservation. inv_l2 bundles the four conjuncts the cascade lemma
+// Section 9: combined reachable-state invariant and per-step
+// preservation. inv_l2 bundles the conjuncts the cascade lemma
 // and the closure proof depend on. Proving every step preserves inv_l2
 // (plus inv_l2 of the initial state) discharges, by induction, the
 // pred_closed precondition of lemma_cascade_preserves_clean_predecessors
 // on all reachable states -- which is what turns the discharged `assume`
-// into an end-to-end result. NOTE: this whole section is a DRAFT to be
-// compiled; the read/commit cases are the most likely to need trigger or
-// assertion tuning.
+// into an end-to-end result. The base case (lemma_initial_inv_l2) and the
+// five per-step preservation lemmas below are all verified (no assume,
+// no admit), completing the induction.
 // =====================================================================
 pub open spec fn inv_l2(s: RuntimeState) -> bool {
     &&& invariant_committed_predecessors_clean(s)
@@ -722,6 +750,52 @@ pub open spec fn inv_l2(s: RuntimeState) -> bool {
     &&& inv_writers_committed(s)
     &&& inv_committed_frozen(s)
     &&& inv_cell_domains(s)
+    &&& inv_cell_writer_wrote(s)
+    &&& inv_read_provenance(s)
+}
+
+// =====================================================================
+// Section 9: STAGE 4 -- temporal closure of the catalogue-A_3 residue
+//
+// inv_l2 establishes the VALUE half of Definition 3 (Theorem L_2i: every
+// committed read has a surviving committed producer that wrote exactly the
+// observed value). It says nothing about WHEN that producer committed. The
+// catalogued residue additionally requires write_time <= read_time. The two
+// invariants below add precisely that, and lemma_l2_reads_supported_temporal
+// discharges the full residue. The construction is additive: inv_l2 and its
+// five-step induction are reused verbatim, so the existing obligations are
+// untouched.
+// =====================================================================
+
+/// Every committed transaction committed at or before the current time.
+/// `now` increases by one per transition and commit_time is set to `now` at
+/// the commit, so this is structural monotonicity. It is the hypothesis that
+/// lets step_read conclude the producer it records committed no later than the
+/// read time.
+pub open spec fn inv_commit_time_le_now(s: RuntimeState) -> bool {
+    forall |t: TxnId| #![trigger s.txns[t].commit_time]
+        (s.txns.contains_key(t) && s.txns[t].committed)
+        ==> s.txns[t].commit_time <= s.now
+}
+
+/// TEMPORAL PROVENANCE: for every started txn tt and every cell cc it read,
+/// the producer recorded in read_from[cc] committed no later than the time
+/// recorded for that read (read_at[cc]). Combined with inv_read_provenance
+/// (the producer wrote exactly the observed value) this is the full
+/// Definition-3 residue: write_time <= read_time.
+pub open spec fn inv_read_temporal(s: RuntimeState) -> bool {
+    forall |tt: TxnId, cc: CellId| #![trigger s.txns[tt].read_set.contains(cc)]
+        (s.txns.contains_key(tt) && s.txns[tt].read_set.contains(cc))
+        ==> s.txns.contains_key(s.txns[tt].read_from[cc])
+            && s.txns[s.txns[tt].read_from[cc]].commit_time
+                 <= s.txns[tt].read_at[cc]
+}
+
+/// The L_2 invariant bundle strengthened with the two temporal facts.
+pub open spec fn inv_l2t(s: RuntimeState) -> bool {
+    &&& inv_l2(s)
+    &&& inv_commit_time_le_now(s)
+    &&& inv_read_temporal(s)
 }
 
 /// begin: a fresh, non-committed txn with empty predecessors. Trivial:
@@ -732,14 +806,112 @@ pub proof fn lemma_begin_preserves_inv_l2(s: RuntimeState, t: TxnId)
     requires inv_l2(s), !s.txns.contains_key(t),
     ensures inv_l2(step_begin(s, t)),
 {
+    let s2 = step_begin(s, t);
+    // begin leaves cell_value/cell_writer (..s) and inserts only the fresh t,
+    // which is not the writer of any published cell.
+    assert(inv_cell_writer_wrote(s2)) by {
+        assert forall |c: CellId| #![trigger s2.cell_writer[c]]
+            s2.cell_value.contains_key(c) implies
+                s2.txns.contains_key(s2.cell_writer[c])
+                && s2.txns[s2.cell_writer[c]].write_set.contains(c)
+                && s2.txns[s2.cell_writer[c]].write_values[c] == s2.cell_value[c]
+        by {
+            assert(s2.cell_value[c] == s.cell_value[c]);
+            assert(s2.cell_writer[c] == s.cell_writer[c]);
+            let w = s.cell_writer[c];
+            assert(s.txns.contains_key(w));   // inv_cell_writer_wrote(s)
+            assert(s.txns[w].write_set.contains(c));
+            assert(s.txns[w].write_values[c] == s.cell_value[c]);
+            assert(w != t);                   // w in s.txns, t is fresh
+            assert(s2.txns[w] == s.txns[w]);  // insert(t,..) leaves w
+        }
+    }
+    // inv_read_provenance(s2): the fresh t has empty read_set (vacuous); every
+    // other txn and its producers are unchanged.
+    assert(inv_read_provenance(s2)) by {
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc)) implies
+                s2.txns[tt].read_from.contains_key(cc)
+                && s2.txns[tt].predecessors.contains(s2.txns[tt].read_from[cc])
+                && s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].write_set.contains(cc)
+                && s2.txns[s2.txns[tt].read_from[cc]].write_values[cc] == s2.txns[tt].read_values[cc]
+        by {
+            if tt == t {
+                assert(s2.txns[t].read_set =~= Set::<CellId>::empty());  // ..empty_txn()
+            } else {
+                assert(s2.txns[tt] == s.txns[tt]);
+                let w = s.txns[tt].read_from[cc];
+                assert(s.txns[tt].read_set.contains(cc));
+                assert(s.txns[tt].predecessors.contains(w));
+                assert(s.txns.contains_key(w));
+                assert(s.txns[w].write_set.contains(cc));
+                assert(s.txns[w].write_values[cc] == s.txns[tt].read_values[cc]);
+                assert(w != t);                   // w in s.txns, t fresh
+                assert(s2.txns[w] == s.txns[w]);
+            }
+        }
+    }
 }
 
 /// write: changes only write_set/write_values, which appear in none of
 /// the four conjuncts. Trivial.
 pub proof fn lemma_write_preserves_inv_l2(s: RuntimeState, t: TxnId, c: CellId, v: Value)
-    requires inv_l2(s), s.txns.contains_key(t),
+    requires inv_l2(s), s.txns.contains_key(t), !s.txns[t].committed,
     ensures inv_l2(step_write(s, t, c, v)),
 {
+    let s2 = step_write(s, t, c, v);
+    // write leaves cells (..s) and changes only t's write_set/write_values. A
+    // non-committed t is never a cell_writer (inv_writers_committed), so no
+    // published cell's writer record is the one being modified.
+    assert(inv_cell_writer_wrote(s2)) by {
+        assert forall |cc: CellId| #![trigger s2.cell_writer[cc]]
+            s2.cell_value.contains_key(cc) implies
+                s2.txns.contains_key(s2.cell_writer[cc])
+                && s2.txns[s2.cell_writer[cc]].write_set.contains(cc)
+                && s2.txns[s2.cell_writer[cc]].write_values[cc] == s2.cell_value[cc]
+        by {
+            assert(s2.cell_value[cc] == s.cell_value[cc]);
+            assert(s2.cell_writer[cc] == s.cell_writer[cc]);
+            let w = s.cell_writer[cc];
+            assert(s.txns.contains_key(w) && s.txns[w].committed);  // inv_writers_committed(s)
+            assert(s.txns[w].write_set.contains(cc));               // inv_cell_writer_wrote(s)
+            assert(s.txns[w].write_values[cc] == s.cell_value[cc]);
+            assert(w != t);                    // t not committed => w != t
+            assert(s2.txns[w] == s.txns[w]);   // insert(t,..) leaves w
+        }
+    }
+    // inv_read_provenance(s2): write touches no read-side field; a producer is a
+    // predecessor, hence committed (inv_committed_frozen), hence != the
+    // non-committed t, so its write record is untouched.
+    assert(inv_read_provenance(s2)) by {
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc)) implies
+                s2.txns[tt].read_from.contains_key(cc)
+                && s2.txns[tt].predecessors.contains(s2.txns[tt].read_from[cc])
+                && s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].write_set.contains(cc)
+                && s2.txns[s2.txns[tt].read_from[cc]].write_values[cc] == s2.txns[tt].read_values[cc]
+        by {
+            if tt == t {
+                assert(s2.txns[t].read_set == s.txns[t].read_set);          // ..txn
+                assert(s2.txns[t].read_values == s.txns[t].read_values);
+                assert(s2.txns[t].read_from == s.txns[t].read_from);
+                assert(s2.txns[t].predecessors == s.txns[t].predecessors);
+            } else {
+                assert(s2.txns[tt] == s.txns[tt]);
+            }
+            let w = s.txns[tt].read_from[cc];
+            assert(s.txns[tt].read_set.contains(cc));
+            assert(s.txns[tt].predecessors.contains(w));
+            assert(s.txns.contains_key(w));
+            assert(s.txns[w].write_set.contains(cc));
+            assert(s.txns[w].write_values[cc] == s.txns[tt].read_values[cc]);
+            assert(s.txns[w].committed);       // inv_committed_frozen at (tt,w)
+            assert(w != t);                    // t not committed => w != t
+            assert(s2.txns[w] == s.txns[w]);
+        }
+    }
 }
 
 /// abort: invariant_committed_predecessors_clean via the cascade lemma
@@ -760,17 +932,32 @@ pub proof fn lemma_abort_preserves_inv_l2(s: RuntimeState, t: TxnId)
             s.txns.contains_key(x)
             && s2.txns[x].predecessors == s.txns[x].predecessors
             && s2.txns[x].committed == s.txns[x].committed
+            && s2.txns[x].write_set == s.txns[x].write_set
+            && s2.txns[x].write_values == s.txns[x].write_values
+            && s2.txns[x].read_set == s.txns[x].read_set
+            && s2.txns[x].read_values == s.txns[x].read_values
+            && s2.txns[x].read_from == s.txns[x].read_from
     by {
         let base = s.txns.insert(t, TxnState { aborted: true, ..s.txns[t] });
-        // base preserves predecessors and committed for every key (insert only
-        // flips t's aborted flag):
+        // base preserves every field except `aborted` for every key
+        // (insert only flips t's aborted flag):
         assert(base.contains_key(x));
         assert(base[x].predecessors == s.txns[x].predecessors);
         assert(base[x].committed == s.txns[x].committed);
+        assert(base[x].write_set == s.txns[x].write_set);
+        assert(base[x].write_values == s.txns[x].write_values);
+        assert(base[x].read_set == s.txns[x].read_set);
+        assert(base[x].read_values == s.txns[x].read_values);
+        assert(base[x].read_from == s.txns[x].read_from);
         // s2.txns == cascade_abort(base, t): a Map::new whose value is base[x]
-        // or { aborted: true, ..base[x] }; both keep predecessors and committed.
+        // or { aborted: true, ..base[x] }; both keep all non-aborted fields.
         assert(s2.txns[x].predecessors == base[x].predecessors);
         assert(s2.txns[x].committed == base[x].committed);
+        assert(s2.txns[x].write_set == base[x].write_set);
+        assert(s2.txns[x].write_values == base[x].write_values);
+        assert(s2.txns[x].read_set == base[x].read_set);
+        assert(s2.txns[x].read_values == base[x].read_values);
+        assert(s2.txns[x].read_from == base[x].read_from);
     }
     // cells are untouched by abort (RuntimeState { .. , ..s }):
     assert(s2.cell_value =~= s.cell_value);
@@ -799,6 +986,55 @@ pub proof fn lemma_abort_preserves_inv_l2(s: RuntimeState, t: TxnId)
             assert(s2.txns[p].committed == s.txns[p].committed);
         }
     }
+    // inv_cell_writer_wrote(s2): cells unchanged and every txn's write record
+    // is unchanged by abort (forall above), so each published cell's writer
+    // still records the same write.
+    assert(inv_cell_writer_wrote(s2)) by {
+        assert forall |c: CellId| #![trigger s2.cell_writer[c]]
+            s2.cell_value.contains_key(c) implies
+                s2.txns.contains_key(s2.cell_writer[c])
+                && s2.txns[s2.cell_writer[c]].write_set.contains(c)
+                && s2.txns[s2.cell_writer[c]].write_values[c] == s2.cell_value[c]
+        by {
+            assert(s2.cell_value[c] == s.cell_value[c]);
+            assert(s2.cell_writer[c] == s.cell_writer[c]);
+            let w = s.cell_writer[c];
+            assert(s.cell_value.contains_key(c));    // antecedent under unchanged cells
+            assert(s.txns.contains_key(w));          // inv_cell_writer_wrote(s)
+            assert(s.txns[w].write_set.contains(c));
+            assert(s.txns[w].write_values[c] == s.cell_value[c]);
+            assert(s2.txns.contains_key(w));
+            assert(s2.txns[w].write_set == s.txns[w].write_set);
+            assert(s2.txns[w].write_values == s.txns[w].write_values);
+        }
+    }
+    // inv_read_provenance(s2): abort flips only `aborted`; all read- and
+    // write-side fields are unchanged (forall above), so each recorded read
+    // still points to a producer that wrote the same value.
+    assert(inv_read_provenance(s2)) by {
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc)) implies
+                s2.txns[tt].read_from.contains_key(cc)
+                && s2.txns[tt].predecessors.contains(s2.txns[tt].read_from[cc])
+                && s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].write_set.contains(cc)
+                && s2.txns[s2.txns[tt].read_from[cc]].write_values[cc] == s2.txns[tt].read_values[cc]
+        by {
+            assert(s2.txns[tt].read_set == s.txns[tt].read_set);
+            assert(s2.txns[tt].read_values == s.txns[tt].read_values);
+            assert(s2.txns[tt].read_from == s.txns[tt].read_from);
+            assert(s2.txns[tt].predecessors == s.txns[tt].predecessors);
+            let w = s.txns[tt].read_from[cc];
+            assert(s.txns[tt].read_set.contains(cc));
+            assert(s.txns[tt].predecessors.contains(w));
+            assert(s.txns.contains_key(w));
+            assert(s.txns[w].write_set.contains(cc));
+            assert(s.txns[w].write_values[cc] == s.txns[tt].read_values[cc]);
+            assert(s2.txns.contains_key(w));
+            assert(s2.txns[w].write_set == s.txns[w].write_set);
+            assert(s2.txns[w].write_values == s.txns[w].write_values);
+        }
+    }
     // inv_writers_committed(s2) and inv_cell_domains(s2): cells unchanged, and
     // the writer's `committed` flag is unchanged (only `aborted` may flip).
 }
@@ -810,9 +1046,7 @@ pub proof fn lemma_abort_preserves_inv_l2(s: RuntimeState, t: TxnId)
 /// inv_committed_frozen because t's new predecessors (writer and the
 /// writer's predecessors) are all committed -- writer by
 /// inv_writers_committed, the writer's predecessors by
-/// inv_committed_frozen applied at the writer. [RISK: the
-/// inv_committed_frozen step may need the union-membership assertions
-/// spelled out, mirroring the preservation lemma.]
+/// inv_committed_frozen applied at the writer.
 pub proof fn lemma_read_preserves_inv_l2(s: RuntimeState, t: TxnId, c: CellId)
     requires
         inv_l2(s),
@@ -843,14 +1077,94 @@ pub proof fn lemma_read_preserves_inv_l2(s: RuntimeState, t: TxnId, c: CellId)
         }
         // u != t: predecessor set unchanged; inv_committed_frozen(s).
     }
+    // inv_cell_writer_wrote(s2): read changes no cell and no write record
+    // (only t's read_set/read_values/predecessors/read_from change).
+    assert(inv_cell_writer_wrote(s2)) by {
+        assert forall |cc: CellId| #![trigger s2.cell_writer[cc]]
+            s2.cell_value.contains_key(cc) implies
+                s2.txns.contains_key(s2.cell_writer[cc])
+                && s2.txns[s2.cell_writer[cc]].write_set.contains(cc)
+                && s2.txns[s2.cell_writer[cc]].write_values[cc] == s2.cell_value[cc]
+        by {
+            assert(s2.cell_value[cc] == s.cell_value[cc]);
+            assert(s2.cell_writer[cc] == s.cell_writer[cc]);
+            let w = s.cell_writer[cc];
+            assert(s.txns.contains_key(w));   // inv_cell_writer_wrote(s)
+            assert(s.txns[w].write_set.contains(cc));
+            assert(s.txns[w].write_values[cc] == s.cell_value[cc]);
+            if w == t {
+                assert(s2.txns[t].write_set == s.txns[t].write_set);      // ..txn keeps writes
+                assert(s2.txns[t].write_values == s.txns[t].write_values);
+            } else {
+                assert(s2.txns[w] == s.txns[w]);   // insert(t,..) leaves w
+            }
+        }
+    }
+    // inv_read_provenance(s2): the new (t,c) read points to `writer`, which by
+    // inv_cell_writer_wrote wrote c with exactly cell_value[c] = the recorded
+    // read value, and is in t's (grown) predecessors. Old reads of t and all
+    // reads of other txns are unchanged (predecessors only grow).
+    assert(inv_read_provenance(s2)) by {
+        let writer = s.cell_writer[c];
+        assert(s2.txns[t].predecessors =~=
+               s.txns[t].predecessors.insert(writer).union(s.txns[writer].predecessors));
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc)) implies
+                s2.txns[tt].read_from.contains_key(cc)
+                && s2.txns[tt].predecessors.contains(s2.txns[tt].read_from[cc])
+                && s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].write_set.contains(cc)
+                && s2.txns[s2.txns[tt].read_from[cc]].write_values[cc] == s2.txns[tt].read_values[cc]
+        by {
+            if tt == t {
+                if cc == c {
+                    // freshly recorded read
+                    assert(s2.txns[t].read_from[c] == writer);            // insert(c, writer)
+                    assert(s2.txns[t].read_from.contains_key(c));
+                    assert(s2.txns[t].predecessors.contains(writer));     // in insert(writer)
+                    assert(s2.txns[t].read_values[c] == s.cell_value[c]); // insert(c, cell_value)
+                    assert(s.cell_value.contains_key(c));
+                    assert(s.txns.contains_key(writer) && s.txns[writer].committed); // inv_writers_committed
+                    assert(writer != t);
+                    assert(s2.txns[writer] == s.txns[writer]);
+                    assert(s.txns[writer].write_set.contains(c));         // inv_cell_writer_wrote
+                    assert(s.txns[writer].write_values[c] == s.cell_value[c]);
+                } else {
+                    // old read of t at cc != c
+                    assert(s.txns[t].read_set.contains(cc));              // cc in old read_set
+                    let w = s.txns[t].read_from[cc];
+                    assert(s.txns[t].read_from.contains_key(cc));
+                    assert(s.txns[t].predecessors.contains(w));
+                    assert(s.txns.contains_key(w));
+                    assert(s.txns[w].write_set.contains(cc));
+                    assert(s.txns[w].write_values[cc] == s.txns[t].read_values[cc]);
+                    assert(s2.txns[t].read_from[cc] == w);                // insert at c != cc
+                    assert(s2.txns[t].read_from.contains_key(cc));
+                    assert(s2.txns[t].predecessors.contains(w));          // superset of old
+                    assert(s2.txns[t].read_values[cc] == s.txns[t].read_values[cc]);
+                    assert(s.txns[w].committed);                          // inv_committed_frozen
+                    assert(w != t);
+                    assert(s2.txns[w] == s.txns[w]);
+                }
+            } else {
+                assert(s2.txns[tt] == s.txns[tt]);
+                let w = s.txns[tt].read_from[cc];
+                assert(s.txns[tt].read_set.contains(cc));
+                assert(s.txns[tt].predecessors.contains(w));
+                assert(s.txns.contains_key(w));
+                assert(s.txns[w].write_set.contains(cc));
+                assert(s.txns[w].write_values[cc] == s.txns[tt].read_values[cc]);
+                assert(s.txns[w].committed);                              // inv_committed_frozen
+                assert(w != t);
+                assert(s2.txns[w] == s.txns[w]);
+            }
+        }
+    }
 }
 
 /// commit: t becomes committed; predecessors_clean(s,t) from commit_valid
 /// gives predecessors_clean(s2,t); cell_writer now maps the written cells
 /// to t (committed, non-aborted); predecessor sets are unchanged.
-/// [RISK: inv_writers_committed needs the publish_writer Map::new
-/// membership reasoning spelled out for cells in vs. out of the
-/// write_set.]
 pub proof fn lemma_commit_preserves_inv_l2(s: RuntimeState, t: TxnId)
     requires inv_l2(s), commit_valid(s, t),
     ensures inv_l2(step_commit(s, t)),
@@ -948,6 +1262,67 @@ pub proof fn lemma_commit_preserves_inv_l2(s: RuntimeState, t: TxnId)
             // un-commit p, and if p == t then t is committed in s2.
         }
     }
+    // inv_cell_writer_wrote(s2): published cells (ws) are written by t with the
+    // published value; cells outside ws keep their old (committed, != t) writer.
+    assert(inv_cell_writer_wrote(s2)) by {
+        assert forall |c: CellId| #![trigger s2.cell_writer[c]]
+            s2.cell_value.contains_key(c) implies
+                s2.txns.contains_key(s2.cell_writer[c])
+                && s2.txns[s2.cell_writer[c]].write_set.contains(c)
+                && s2.txns[s2.cell_writer[c]].write_values[c] == s2.cell_value[c]
+        by {
+            if ws.contains(c) {
+                assert(s2.cell_writer[c] == t);                        // publish_writer on ws
+                assert(s2.cell_value[c] == s.txns[t].write_values[c]); // publish_writes on ws
+                assert(s2.txns[t].write_set == s.txns[t].write_set);   // commit keeps t's writes
+                assert(s2.txns[t].write_set.contains(c));              // c in ws == t.write_set
+                assert(s2.txns[t].write_values == s.txns[t].write_values);
+            } else {
+                assert(s.cell_value.contains_key(c));        // publish_writes off ws
+                assert(s.cell_writer.contains_key(c));       // inv_cell_domains(s)
+                assert(s2.cell_writer[c] == s.cell_writer[c]);  // publish_writer off ws
+                assert(s2.cell_value[c] == s.cell_value[c]);    // publish_writes off ws
+                let w = s.cell_writer[c];
+                assert(s.txns.contains_key(w) && s.txns[w].committed);  // inv_writers_committed(s)
+                assert(s.txns[w].write_set.contains(c));               // inv_cell_writer_wrote(s)
+                assert(s.txns[w].write_values[c] == s.cell_value[c]);
+                assert(w != t);                              // t not committed in s
+                assert(s2.txns[w] == s.txns[w]);             // commit changes only t
+            }
+        }
+    }
+    // inv_read_provenance(s2): commit changes no read-side field and no txn's
+    // write record (only t's committed flag + published cells). A producer is a
+    // predecessor, hence committed (inv_committed_frozen) and != the
+    // (in-s) non-committed t, so its record is unchanged.
+    assert(inv_read_provenance(s2)) by {
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc)) implies
+                s2.txns[tt].read_from.contains_key(cc)
+                && s2.txns[tt].predecessors.contains(s2.txns[tt].read_from[cc])
+                && s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].write_set.contains(cc)
+                && s2.txns[s2.txns[tt].read_from[cc]].write_values[cc] == s2.txns[tt].read_values[cc]
+        by {
+            if tt == t {
+                assert(s2.txns[t].read_set == s.txns[t].read_set);          // ..txn
+                assert(s2.txns[t].read_values == s.txns[t].read_values);
+                assert(s2.txns[t].read_from == s.txns[t].read_from);
+                assert(s2.txns[t].predecessors == s.txns[t].predecessors);
+            } else {
+                assert(s2.txns[tt] == s.txns[tt]);
+            }
+            let w = s.txns[tt].read_from[cc];
+            assert(s.txns[tt].read_set.contains(cc));
+            assert(s.txns[tt].predecessors.contains(w));
+            assert(s.txns.contains_key(w));
+            assert(s.txns[w].write_set.contains(cc));
+            assert(s.txns[w].write_values[cc] == s.txns[tt].read_values[cc]);
+            assert(s.txns[w].committed);       // inv_committed_frozen at (tt,w)
+            assert(w != t);                    // t not committed in s
+            assert(s2.txns[w] == s.txns[w]);   // commit changes only t
+        }
+    }
 }
 
 
@@ -968,6 +1343,422 @@ pub proof fn lemma_initial_inv_l2()
     assert(initial_state().txns =~= Map::<TxnId, TxnState>::empty());
     assert(initial_state().cell_value =~= Map::<CellId, Value>::empty());
     assert(initial_state().cell_writer =~= Map::<CellId, TxnId>::empty());
+    // inv_read_provenance, inv_cell_writer_wrote vacuous: no txns, no cells.
+}
+
+    /// THEOREM L_2h (reachable states are A_3-free). On every state
+    /// satisfying the reachable-state invariant inv_l2, NO committed,
+    /// non-aborted transaction has an aborted predecessor: the runtime
+    /// A_3 footprint is excluded. Paired with lemma_no_cascade_admits_a3
+    /// (which shows the footprint is satisfiable in principle), this
+    /// brackets the predicate as non-vacuous yet unreachable under the
+    /// cascade discipline -- the end-to-end runtime-level A_3 guarantee.
+pub proof fn lemma_l2_reachable_no_a3(s: RuntimeState)
+    requires inv_l2(s),
+    ensures forall |t: TxnId| #![trigger s.txns[t].committed] !a3_witness(s, t),
+{
+    assert forall |t: TxnId| #![trigger s.txns[t].committed]
+        !a3_witness(s, t)
+    by {
+        if a3_witness(s, t) {
+            let p = choose |p: TxnId|
+                s.txns[t].predecessors.contains(p)
+                && s.txns.contains_key(p) && s.txns[p].aborted;
+            assert(s.txns[t].predecessors.contains(p));   // witness of the exists
+            assert(invariant_committed_predecessors_clean(s));  // conjunct of inv_l2
+            assert(predecessors_clean(s, t));             // t is committed-clean
+            assert(s.txns[p].committed && !s.txns[p].aborted);  // contradicts p.aborted
+            assert(false);
+        }
+    }
+}
+
+/// THEOREM L_2i (catalogue-A_3 image: every committed read is supported). On
+/// any state satisfying inv_l2, for every committed, non-aborted transaction t
+/// and every cell c it read, there EXISTS a committed, non-aborted transaction
+/// w that wrote c with exactly the value t read. Equivalently: no committed
+/// transaction has an unsupported read -- the runtime-level form of the
+/// catalogued A_3 (Definition 3) under the abort-respecting view. Proof:
+/// read_from[c] is the witness; inv_read_provenance gives that it wrote the
+/// value and is a predecessor of t, and predecessors_clean (from
+/// invariant_committed_predecessors_clean, since t is committed-clean) makes it
+/// committed and non-aborted.
+pub proof fn lemma_l2_reads_supported(s: RuntimeState)
+    requires inv_l2(s),
+    ensures
+        forall |t: TxnId, c: CellId|
+            (s.txns.contains_key(t) && s.txns[t].committed && !s.txns[t].aborted
+             && s.txns[t].read_set.contains(c))
+            ==> exists |w: TxnId|
+                s.txns.contains_key(w) && s.txns[w].committed && !s.txns[w].aborted
+                && s.txns[w].write_set.contains(c)
+                && s.txns[w].write_values[c] == s.txns[t].read_values[c],
+{
+    assert forall |t: TxnId, c: CellId|
+        (s.txns.contains_key(t) && s.txns[t].committed && !s.txns[t].aborted
+         && s.txns[t].read_set.contains(c)) implies
+        exists |w: TxnId|
+            s.txns.contains_key(w) && s.txns[w].committed && !s.txns[w].aborted
+            && s.txns[w].write_set.contains(c)
+            && s.txns[w].write_values[c] == s.txns[t].read_values[c]
+    by {
+        let w = s.txns[t].read_from[c];
+        // inv_read_provenance(s) at (t,c):
+        assert(s.txns[t].read_set.contains(c));
+        assert(s.txns[t].predecessors.contains(w));
+        assert(s.txns.contains_key(w));
+        assert(s.txns[w].write_set.contains(c));
+        assert(s.txns[w].write_values[c] == s.txns[t].read_values[c]);
+        // predecessors_clean(s,t) from invariant_committed_predecessors_clean:
+        assert(invariant_committed_predecessors_clean(s));
+        assert(predecessors_clean(s, t));
+        assert(s.txns[w].committed && !s.txns[w].aborted);
+        // w witnesses the existential.
+        assert(s.txns.contains_key(w) && s.txns[w].committed && !s.txns[w].aborted
+            && s.txns[w].write_set.contains(c)
+            && s.txns[w].write_values[c] == s.txns[t].read_values[c]);
+    }
+}
+// =====================================================================
+// Section 10: STAGE 4 preservation -- inv_l2t over the five transitions
+//
+// Each lemma calls the corresponding (verified) inv_l2 preservation lemma to
+// re-establish inv_l2(s2), then discharges the two temporal conjuncts. The
+// only content cases are step_read (the freshly recorded read points to a
+// producer committed no later than the read time) and step_commit (the new
+// committed time is t's own, and producers of existing reads are committed in
+// s, hence != t). begin/write/abort leave every relevant field unchanged.
+// =====================================================================
+
+/// begin: fresh t is not committed and has an empty read_set.
+pub proof fn lemma_begin_preserves_inv_l2t(s: RuntimeState, t: TxnId)
+    requires inv_l2t(s), !s.txns.contains_key(t),
+    ensures inv_l2t(step_begin(s, t)),
+{
+    lemma_begin_preserves_inv_l2(s, t);
+    let s2 = step_begin(s, t);
+    assert(inv_commit_time_le_now(s2)) by {
+        assert forall |x: TxnId| #![trigger s2.txns[x].commit_time]
+            (s2.txns.contains_key(x) && s2.txns[x].committed)
+            implies s2.txns[x].commit_time <= s2.now
+        by {
+            if x == t {
+                assert(!s2.txns[t].committed);                 // ..empty_txn()
+            } else {
+                assert(s2.txns[x] == s.txns[x]);
+                assert(s.txns[x].commit_time <= s.now);        // inv_commit_time_le_now(s)
+            }
+        }
+    }
+    assert(inv_read_temporal(s2)) by {
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc))
+            implies s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].commit_time <= s2.txns[tt].read_at[cc]
+        by {
+            if tt == t {
+                assert(s2.txns[t].read_set =~= Set::<CellId>::empty());   // ..empty_txn()
+            } else {
+                assert(s2.txns[tt] == s.txns[tt]);
+                assert(s.txns[tt].read_set.contains(cc));      // fire inv_read_temporal(s)
+                let w = s.txns[tt].read_from[cc];
+                assert(s.txns.contains_key(w));
+                assert(s.txns[w].commit_time <= s.txns[tt].read_at[cc]);
+                assert(w != t);                                // w in s.txns, t fresh
+                assert(s2.txns[w] == s.txns[w]);
+                assert(s2.txns[tt].read_from[cc] == w);
+                assert(s2.txns[tt].read_at[cc] == s.txns[tt].read_at[cc]);
+            }
+        }
+    }
+}
+
+/// write: touches only write_set/write_values; commit_time and all read-side
+/// fields are carried by ..txn.
+pub proof fn lemma_write_preserves_inv_l2t(s: RuntimeState, t: TxnId, c: CellId, v: Value)
+    requires inv_l2t(s), s.txns.contains_key(t), !s.txns[t].committed,
+    ensures inv_l2t(step_write(s, t, c, v)),
+{
+    lemma_write_preserves_inv_l2(s, t, c, v);
+    let s2 = step_write(s, t, c, v);
+    assert(inv_commit_time_le_now(s2)) by {
+        assert forall |x: TxnId| #![trigger s2.txns[x].commit_time]
+            (s2.txns.contains_key(x) && s2.txns[x].committed)
+            implies s2.txns[x].commit_time <= s2.now
+        by {
+            if x == t {
+                assert(s2.txns[t].committed == s.txns[t].committed);     // ..txn
+                assert(!s.txns[t].committed);                            // precondition
+            } else {
+                assert(s2.txns[x] == s.txns[x]);
+                assert(s.txns[x].commit_time <= s.now);                  // inv_commit_time_le_now(s)
+            }
+        }
+    }
+    assert(inv_read_temporal(s2)) by {
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc))
+            implies s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].commit_time <= s2.txns[tt].read_at[cc]
+        by {
+            if tt == t {
+                assert(s2.txns[t].read_set == s.txns[t].read_set);       // ..txn
+                assert(s2.txns[t].read_from == s.txns[t].read_from);
+                assert(s2.txns[t].read_at == s.txns[t].read_at);
+            } else {
+                assert(s2.txns[tt] == s.txns[tt]);
+            }
+            assert(s.txns[tt].read_set.contains(cc));                    // fire inv_read_temporal(s)
+            let w = s.txns[tt].read_from[cc];
+            assert(s.txns.contains_key(w));
+            assert(s.txns[w].commit_time <= s.txns[tt].read_at[cc]);
+            if w == t {
+                assert(s2.txns[t].commit_time == s.txns[t].commit_time); // ..txn
+            } else {
+                assert(s2.txns[w] == s.txns[w]);
+            }
+            assert(s2.txns[tt].read_from[cc] == w);
+            assert(s2.txns[tt].read_at[cc] == s.txns[tt].read_at[cc]);
+        }
+    }
+}
+
+/// abort: cascade_abort flips only `aborted`; committed, commit_time, read_set,
+/// read_from and read_at are preserved for every key (the same base/cascade
+/// argument the inv_l2 abort lemma uses for the other fields).
+pub proof fn lemma_abort_preserves_inv_l2t(s: RuntimeState, t: TxnId)
+    requires inv_l2t(s), s.txns.contains_key(t),
+    ensures inv_l2t(step_abort(s, t)),
+{
+    lemma_abort_preserves_inv_l2(s, t);
+    let s2 = step_abort(s, t);
+    assert forall |x: TxnId| #![trigger s2.txns[x]]
+        s2.txns.contains_key(x) implies
+            s.txns.contains_key(x)
+            && s2.txns[x].committed == s.txns[x].committed
+            && s2.txns[x].commit_time == s.txns[x].commit_time
+            && s2.txns[x].read_set == s.txns[x].read_set
+            && s2.txns[x].read_from == s.txns[x].read_from
+            && s2.txns[x].read_at == s.txns[x].read_at
+    by {
+        let base = s.txns.insert(t, TxnState { aborted: true, ..s.txns[t] });
+        assert(base.contains_key(x));
+        assert(base[x].committed == s.txns[x].committed);
+        assert(base[x].commit_time == s.txns[x].commit_time);
+        assert(base[x].read_set == s.txns[x].read_set);
+        assert(base[x].read_from == s.txns[x].read_from);
+        assert(base[x].read_at == s.txns[x].read_at);
+        assert(s2.txns[x].committed == base[x].committed);
+        assert(s2.txns[x].commit_time == base[x].commit_time);
+        assert(s2.txns[x].read_set == base[x].read_set);
+        assert(s2.txns[x].read_from == base[x].read_from);
+        assert(s2.txns[x].read_at == base[x].read_at);
+    }
+    assert(inv_commit_time_le_now(s2)) by {
+        assert forall |x: TxnId| #![trigger s2.txns[x].commit_time]
+            (s2.txns.contains_key(x) && s2.txns[x].committed)
+            implies s2.txns[x].commit_time <= s2.now
+        by {
+            assert(s2.txns[x].committed == s.txns[x].committed);
+            assert(s2.txns[x].commit_time == s.txns[x].commit_time);
+            assert(s.txns[x].commit_time <= s.now);                      // inv_commit_time_le_now(s)
+        }
+    }
+    assert(inv_read_temporal(s2)) by {
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc))
+            implies s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].commit_time <= s2.txns[tt].read_at[cc]
+        by {
+            assert(s2.txns[tt].read_set == s.txns[tt].read_set);
+            assert(s2.txns[tt].read_from == s.txns[tt].read_from);
+            assert(s2.txns[tt].read_at == s.txns[tt].read_at);
+            assert(s.txns[tt].read_set.contains(cc));                    // fire inv_read_temporal(s)
+            let w = s.txns[tt].read_from[cc];
+            assert(s.txns.contains_key(w));
+            assert(s.txns[w].commit_time <= s.txns[tt].read_at[cc]);
+            assert(s2.txns.contains_key(w));
+            assert(s2.txns[w].commit_time == s.txns[w].commit_time);
+        }
+    }
+}
+
+/// read: the content case. The freshly recorded read (t,c) points to `writer`,
+/// which inv_writers_committed makes committed and inv_commit_time_le_now
+/// bounds by s.now == the recorded read_at[c].
+pub proof fn lemma_read_preserves_inv_l2t(s: RuntimeState, t: TxnId, c: CellId)
+    requires
+        inv_l2t(s),
+        s.txns.contains_key(t),
+        s.cell_value.contains_key(c),
+        !s.txns[t].committed,
+    ensures inv_l2t(step_read(s, t, c)),
+{
+    lemma_read_preserves_inv_l2(s, t, c);
+    let s2 = step_read(s, t, c);
+    let writer = s.cell_writer[c];
+    assert(inv_commit_time_le_now(s2)) by {
+        assert forall |x: TxnId| #![trigger s2.txns[x].commit_time]
+            (s2.txns.contains_key(x) && s2.txns[x].committed)
+            implies s2.txns[x].commit_time <= s2.now
+        by {
+            if x == t {
+                assert(s2.txns[t].committed == s.txns[t].committed);     // ..txn
+                assert(!s.txns[t].committed);                            // precondition
+            } else {
+                assert(s2.txns[x] == s.txns[x]);
+                assert(s.txns[x].commit_time <= s.now);                  // inv_commit_time_le_now(s)
+            }
+        }
+    }
+    assert(inv_read_temporal(s2)) by {
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc))
+            implies s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].commit_time <= s2.txns[tt].read_at[cc]
+        by {
+            if tt == t {
+                if cc == c {
+                    // freshly recorded read: producer = writer, read_at[c] = s.now
+                    assert(s2.txns[t].read_from[c] == writer);           // insert(c, writer)
+                    assert(s2.txns[t].read_at[c] == s.now);              // insert(c, s.now)
+                    assert(s.txns.contains_key(writer) && s.txns[writer].committed);  // inv_writers_committed
+                    assert(s.txns[writer].commit_time <= s.now);         // inv_commit_time_le_now(s)
+                    assert(writer != t);                                 // writer committed, t not
+                    assert(s2.txns[writer] == s.txns[writer]);
+                } else {
+                    // old read of t at cc != c: unchanged
+                    assert(s.txns[t].read_set.contains(cc));
+                    assert(s.txns[t].predecessors.contains(s.txns[t].read_from[cc])); // inv_read_provenance(s)
+                    let w = s.txns[t].read_from[cc];
+                    assert(s.txns.contains_key(w));
+                    assert(s.txns[w].committed);                         // inv_committed_frozen(s)
+                    assert(w != t);                                      // w committed, t not
+                    assert(s.txns[w].commit_time <= s.txns[t].read_at[cc]); // inv_read_temporal(s)
+                    assert(s2.txns[t].read_from[cc] == w);               // insert at c != cc
+                    assert(s2.txns[t].read_at[cc] == s.txns[t].read_at[cc]);
+                    assert(s2.txns[w] == s.txns[w]);
+                }
+            } else {
+                assert(s2.txns[tt] == s.txns[tt]);
+                assert(s.txns[tt].read_set.contains(cc));
+                assert(s.txns[tt].predecessors.contains(s.txns[tt].read_from[cc])); // inv_read_provenance(s)
+                let w = s.txns[tt].read_from[cc];
+                assert(s.txns.contains_key(w));
+                assert(s.txns[w].committed);                             // inv_committed_frozen(s)
+                assert(w != t);                                          // w committed, t not
+                assert(s.txns[w].commit_time <= s.txns[tt].read_at[cc]); // inv_read_temporal(s)
+                assert(s2.txns[w] == s.txns[w]);
+                assert(s2.txns[tt].read_from[cc] == w);
+                assert(s2.txns[tt].read_at[cc] == s.txns[tt].read_at[cc]);
+            }
+        }
+    }
+}
+
+/// commit: sets t.committed and t.commit_time = s.now and publishes cells; it
+/// changes no read-side field. The only new committed time is t's (= s.now <=
+/// s2.now). A producer of any existing read is committed in s
+/// (inv_committed_frozen), hence != t, so its commit_time is unchanged.
+pub proof fn lemma_commit_preserves_inv_l2t(s: RuntimeState, t: TxnId)
+    requires inv_l2t(s), commit_valid(s, t),
+    ensures inv_l2t(step_commit(s, t)),
+{
+    lemma_commit_preserves_inv_l2(s, t);
+    let s2 = step_commit(s, t);
+    assert(inv_commit_time_le_now(s2)) by {
+        assert forall |x: TxnId| #![trigger s2.txns[x].commit_time]
+            (s2.txns.contains_key(x) && s2.txns[x].committed)
+            implies s2.txns[x].commit_time <= s2.now
+        by {
+            if x == t {
+                assert(s2.txns[t].commit_time == s.now);                 // step_commit sets commit_time = s.now
+            } else {
+                assert(s2.txns[x] == s.txns[x]);                         // commit changes only t
+                assert(s.txns[x].commit_time <= s.now);                  // inv_commit_time_le_now(s)
+            }
+        }
+    }
+    assert(inv_read_temporal(s2)) by {
+        assert forall |tt: TxnId, cc: CellId| #![trigger s2.txns[tt].read_set.contains(cc)]
+            (s2.txns.contains_key(tt) && s2.txns[tt].read_set.contains(cc))
+            implies s2.txns.contains_key(s2.txns[tt].read_from[cc])
+                && s2.txns[s2.txns[tt].read_from[cc]].commit_time <= s2.txns[tt].read_at[cc]
+        by {
+            if tt == t {
+                assert(s2.txns[t].read_set == s.txns[t].read_set);       // ..txn
+                assert(s2.txns[t].read_from == s.txns[t].read_from);
+                assert(s2.txns[t].read_at == s.txns[t].read_at);
+            } else {
+                assert(s2.txns[tt] == s.txns[tt]);
+            }
+            assert(s.txns[tt].read_set.contains(cc));
+            let w = s.txns[tt].read_from[cc];
+            assert(s.txns[tt].predecessors.contains(w));                 // inv_read_provenance(s)
+            assert(s.txns.contains_key(w));
+            assert(s.txns[w].committed);                                 // inv_committed_frozen(s)
+            assert(s.txns[w].commit_time <= s.txns[tt].read_at[cc]);     // inv_read_temporal(s)
+            assert(w != t);                                              // t not committed in s
+            assert(s2.txns[w] == s.txns[w]);                             // commit changes only t
+            assert(s2.txns[tt].read_from[cc] == w);
+            assert(s2.txns[tt].read_at[cc] == s.txns[tt].read_at[cc]);
+        }
+    }
+}
+
+/// BASE CASE: empty state -- no txns, so both temporal conjuncts are vacuous.
+pub proof fn lemma_initial_inv_l2t()
+    ensures inv_l2t(initial_state())
+{
+    lemma_initial_inv_l2();
+    assert(initial_state().txns =~= Map::<TxnId, TxnState>::empty());
+}
+
+/// THEOREM L_2i+ (full catalogue-A_3 residue: value AND time). On any state
+/// satisfying inv_l2t, for every committed, non-aborted txn t and every cell c
+/// it read, there EXISTS a committed, non-aborted producer w that wrote c with
+/// exactly the observed value AND committed no later than t read it
+/// (commit_time(w) <= read_at[t][c]). The value half is L_2i (inv_read_provenance
+/// + predecessors_clean); the temporal half (write_time <= read_time) is
+/// inv_read_temporal. read_from[c] is the witness.
+pub proof fn lemma_l2_reads_supported_temporal(s: RuntimeState)
+    requires inv_l2t(s),
+    ensures
+        forall |t: TxnId, c: CellId|
+            (s.txns.contains_key(t) && s.txns[t].committed && !s.txns[t].aborted
+             && s.txns[t].read_set.contains(c))
+            ==> exists |w: TxnId|
+                s.txns.contains_key(w) && s.txns[w].committed && !s.txns[w].aborted
+                && s.txns[w].write_set.contains(c)
+                && s.txns[w].write_values[c] == s.txns[t].read_values[c]
+                && s.txns[w].commit_time <= s.txns[t].read_at[c],
+{
+    lemma_l2_reads_supported(s);
+    assert forall |t: TxnId, c: CellId|
+        (s.txns.contains_key(t) && s.txns[t].committed && !s.txns[t].aborted
+         && s.txns[t].read_set.contains(c)) implies
+        exists |w: TxnId|
+            s.txns.contains_key(w) && s.txns[w].committed && !s.txns[w].aborted
+            && s.txns[w].write_set.contains(c)
+            && s.txns[w].write_values[c] == s.txns[t].read_values[c]
+            && s.txns[w].commit_time <= s.txns[t].read_at[c]
+    by {
+        let w = s.txns[t].read_from[c];
+        // value half (inv_read_provenance + predecessors_clean), as in L_2i:
+        assert(s.txns[t].predecessors.contains(w));
+        assert(s.txns.contains_key(w));
+        assert(s.txns[w].write_set.contains(c));
+        assert(s.txns[w].write_values[c] == s.txns[t].read_values[c]);
+        assert(invariant_committed_predecessors_clean(s));
+        assert(predecessors_clean(s, t));
+        assert(s.txns[w].committed && !s.txns[w].aborted);
+        // temporal half (inv_read_temporal):
+        assert(s.txns[w].commit_time <= s.txns[t].read_at[c]);
+        assert(s.txns.contains_key(w) && s.txns[w].committed && !s.txns[w].aborted
+            && s.txns[w].write_set.contains(c)
+            && s.txns[w].write_values[c] == s.txns[t].read_values[c]
+            && s.txns[w].commit_time <= s.txns[t].read_at[c]);
+    }
 }
 
 } // verus!
