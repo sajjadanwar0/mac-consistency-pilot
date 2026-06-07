@@ -46,14 +46,13 @@ TEXTUAL_REINCLUSION=(
 # Files to EXCLUDE from the distinct total (superseded / not a paper contributor).
 # Seed empty; add a basename here only after deciding a file is superseded.
 EXCLUDE=(
-  "lib_probabilistic_a1.rs"        # superseded by lib_probabilistic_a1_v2.rs (paper counts v2)
   "lib_detect_a1_exec.rs"          # exec helper, not a headline lattice contribution
   "lib_pessimistic_exec.rs"        # exec helper
   "lib_pessimistic_invariant.rs"   # invariant helper (folded into / re-derived by the pessimistic proofs)
   "lib_si_commit_invariant.rs"     # invariant helper (folded into / re-derived by the SSI refinement)
   "verified_a1.rs"                 # exec/test file, no proof obligations
 )
-# Empty EXCLUDE entirely to compute the FULL de-duplicated total (266) across
+# Empty EXCLUDE entirely to compute the FULL de-duplicated total (258, v1 removed) across
 # every verified file instead of the paper's curated headline (237).
 
 log()  { printf "\033[1;34m%s\033[0m\n" "$*"; }
@@ -150,7 +149,7 @@ DISTINCT=$((RAW - REINCLUDED))
 echo
 log "Totals"
 printf "  raw per-file sum (counted files)      %s\n" "$RAW"
-[ "${#EXCLUDE[@]}" -gt 0 ] && printf "  (%s file(s) excluded as superseded/helper — empty EXCLUDE for the full 266)\n" "${#EXCLUDE[@]}"
+[ "${#EXCLUDE[@]}" -gt 0 ] && printf "  (%s file(s) excluded as superseded/helper — empty EXCLUDE for the full 258)\n" "${#EXCLUDE[@]}"
 printf "  re-included (double-counted) removed  -%s\n" "$REINCLUDED"
 printf "  ------------------------------------------\n"
 printf "  DISTINCT obligation total             %s\n" "$DISTINCT"
