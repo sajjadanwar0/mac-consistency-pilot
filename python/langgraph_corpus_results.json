@@ -1,0 +1,66 @@
+{
+  "framework": "LangGraph",
+  "version": "1.2.4",
+  "queries": {
+    "INVALID_CONCURRENT_GRAPH_UPDATE": {
+      "total_count": 50,
+      "distinct_repos": 32
+    },
+    "Can receive only one value per step": {
+      "total_count": 56,
+      "distinct_repos": 28
+    }
+  },
+  "union": {
+    "distinct_repos": 44,
+    "framework_org_repos": [
+      "langchain-ai/deepagents",
+      "langchain-ai/deepagentsjs",
+      "langchain-ai/docs",
+      "langchain-ai/langchain",
+      "langchain-ai/langchain-sandbox",
+      "langchain-ai/langchainjs",
+      "langchain-ai/langgraph",
+      "langchain-ai/langgraph-supervisor-py",
+      "langchain-ai/langgraph-swarm-py",
+      "langchain-ai/langgraphjs"
+    ],
+    "third_party_repos": [
+      "0xMoat/job-hunter-agent",
+      "AdnanAbdulKhaliq/BerkshireBot",
+      "Cohort-based-Learning/cohort12",
+      "CopilotKit/CopilotKit",
+      "FlowiseAI/Flowise",
+      "Hiwot-Beyene/TRP1-Automatos-Auditor",
+      "KDT-Final-4/Final-AI",
+      "PurpleAILAB/Decepticon",
+      "SU-AgenticAI-26/AI-project",
+      "Sla7f-EL-Ninja/Judge-Assistant",
+      "Sumit-07/swarm-traders",
+      "The-Obstacle-Is-The-Way/vibe-check",
+      "VirtualPatientEngine/AIAgents4Pharma",
+      "anchapin/portkit",
+      "aucontraire/cognivault",
+      "bytedance/deer-flow",
+      "davidelaverga/Sophia-Agent",
+      "dsobczynski88/aiswre",
+      "eco2-team/backend",
+      "gdemoni/AI-PR-Review-Assistant",
+      "hakimomarseif-bot/Judge-Assistant",
+      "hwfengcs/SDYJ_Multi_Agents",
+      "jingchengdeng/JobTracker",
+      "kr1shna-exe/Testing",
+      "kreodevs/theforge",
+      "liam-hq/liam",
+      "mifunedev/orchestra",
+      "odanree/semantic-media-pipeline",
+      "realbits-lab/thothy-v1",
+      "sbpak1/Grogi-Ai",
+      "shashamalone/2025_shcard_bigcontest",
+      "sumsam-ali-sac/code-to-documentation-and-diagram",
+      "taucad/tau",
+      "thc1006/competitionops-agent"
+    ],
+    "third_party_count": 34
+  }
+}

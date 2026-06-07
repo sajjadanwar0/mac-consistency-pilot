@@ -18,6 +18,16 @@ USAGE
   python wallclock_cost_study.py --workload plan_execute ...
   python wallclock_cost_study.py --workload triage ...
 
+  # Open-weights replication via Ollama (OpenAI-compatible API):
+  ollama serve &                 # if not already running
+  ollama pull llama3.2
+  python wallclock_cost_study.py --provider ollama --model llama3.2 \\
+      --workload all --n 30 --out wallclock_llama32.json
+  # (no OPENAI_API_KEY needed; dollar cost is ~0, wall-clock is the metric)
+
+  # Smoke-test the harness with no LLM at all:
+  python wallclock_cost_study.py --provider mock --workload all --n 20
+
 OUTPUT
   JSON with per-strategy per-session metrics:
     - wall_clock_seconds: end-to-end session time (best metric for
@@ -181,16 +191,72 @@ WORKLOADS = {
 # concurrency-control discipline applied to tool-call commits.
 # ---------------------------------------------------------------------
 
+def build_model_client(provider: str, model: str, base_url: str,
+                       api_key: str):
+    """Construct an AutoGen model client for the chosen provider.
+
+    openai  -> default OpenAIChatCompletionClient (reads OPENAI_API_KEY)
+    ollama  -> same client pointed at Ollama's OpenAI-compatible endpoint
+               (http://localhost:11434/v1). Ollama ignores the api_key, but
+               AutoGen requires model_info for non-OpenAI model strings, so we
+               declare function_calling=True (llama3.2 supports tools).
+    """
+    from autogen_ext.models.openai import OpenAIChatCompletionClient
+    if provider == "ollama":
+        return OpenAIChatCompletionClient(
+            model=model,
+            base_url=(base_url or "http://localhost:11434/v1"),
+            api_key=(api_key or "ollama"),
+            model_info={
+                "vision": False,
+                "function_calling": True,
+                "json_output": False,
+                "family": "unknown",
+                "structured_output": False,
+            },
+        )
+    return OpenAIChatCompletionClient(model=model)
+
+
+async def run_session_mock(workload: str, strategy: str, seed: int) -> dict:
+    """No-LLM dry run: simulate the per-session call/abort structure so the
+    metrics pipeline can be exercised without any provider. NOT for paper
+    numbers -- wall-clock here is synthetic latency, not model inference."""
+    wl = WORKLOADS[workload]
+    rng = random.Random(seed)
+    prob = {"vanilla": 0.0, "pessimistic": 0.20, "ssi": 0.05}.get(strategy, 0.0)
+    calls = 0
+    aborts = 0
+    start = time.monotonic()
+    for _name, _sysmsg in wl["agents"]:
+        for kind in ("read", "write"):
+            calls += 1
+            await asyncio.sleep(rng.uniform(0.002, 0.008))
+            if kind == "write" and rng.random() < prob:
+                aborts += 1
+                calls += 1  # the retry the agent must issue
+                await asyncio.sleep(rng.uniform(0.002, 0.008))
+    return {
+        "workload": workload,
+        "strategy": strategy,
+        "seed": seed,
+        "wall_clock_seconds": time.monotonic() - start,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "tool_calls_made": calls,
+        "aborts": aborts,
+    }
+
+
 async def run_session(workload: str, strategy: str, model: str,
-                      seed: int) -> dict:
+                      seed: int, provider: str = "openai",
+                      base_url: str = "", api_key: str = "") -> dict:
     """Run one session and return metrics."""
     from autogen_agentchat.agents import AssistantAgent
     from autogen_agentchat.teams import RoundRobinGroupChat
     from autogen_agentchat.conditions import (
         MaxMessageTermination, TextMentionTermination,
     )
-    from autogen_ext.models.openai import OpenAIChatCompletionClient
-
     wl = WORKLOADS[workload]
     tools = wl["tool_factory"](seed)
 
@@ -237,7 +303,7 @@ async def run_session(workload: str, strategy: str, model: str,
                                              "SSI validation failed")
     # vanilla: no wrapping, no aborts
 
-    inner = OpenAIChatCompletionClient(model=model)
+    inner = build_model_client(provider, model, base_url, api_key)
     agents = []
     for name, sysmsg in wl["agents"]:
         agents.append(AssistantAgent(
@@ -307,6 +373,13 @@ def bootstrap_mean_ci(values: list[float], n: int = 1000) -> tuple[float, float,
 async def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="gpt-4o")
+    parser.add_argument("--provider", choices=["openai", "ollama", "mock"],
+                        default="openai")
+    parser.add_argument("--base-url", default="",
+                        help="override base URL (ollama default "
+                             "http://localhost:11434/v1)")
+    parser.add_argument("--api-key", default="",
+                        help="override API key (ollama ignores it)")
     parser.add_argument("--workload",
                         choices=list(WORKLOADS.keys()) + ["all"],
                         default="all")
@@ -317,8 +390,10 @@ async def main() -> None:
                         default=Path("wallclock_results.json"))
     args = parser.parse_args()
 
-    if not os.environ.get("OPENAI_API_KEY"):
+    if args.provider == "openai" and not os.environ.get("OPENAI_API_KEY"):
         raise SystemExit("OPENAI_API_KEY not set")
+    if args.provider == "ollama" and args.model == "gpt-4o":
+        args.model = "llama3.2"  # sensible default for the ollama provider
 
     workloads = ([args.workload] if args.workload != "all"
                  else list(WORKLOADS.keys()))
@@ -330,7 +405,13 @@ async def main() -> None:
             print(f"\n=== {wl} | {strat} ===")
             for i in range(args.n):
                 try:
-                    r = await run_session(wl, strat, args.model, seed=i)
+                    if args.provider == "mock":
+                        r = await run_session_mock(wl, strat, seed=i)
+                    else:
+                        r = await run_session(
+                            wl, strat, args.model, seed=i,
+                            provider=args.provider,
+                            base_url=args.base_url, api_key=args.api_key)
                     results.append(r)
                     if (i + 1) % 5 == 0:
                         print(f"  {i+1}/{args.n}  wall_clock="
