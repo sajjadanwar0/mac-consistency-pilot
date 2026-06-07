@@ -59,7 +59,7 @@ VERUS_TARGETS=(
   "lib_l2_safety.rs|22"                # live-confirmed (README's 13 is stale)
   "lib_l2_exec.rs|49"                  # live-confirmed (self-contained; re-includes L2 model)
   "lib_concurrent_semantics.rs|9"      # live-confirmed: atomic-event lift, 0 axioms
-  "lib_probabilistic_a1.rs|8"          # live-confirmed (3 external_body axioms by design)
+  "lib_probabilistic_a1_v2.rs|6"        # maintained probabilistic refinement (v1 removed)
   "lib_l3_safety.rs|6"                 # live-confirmed
   "lib_l4_safety.rs|5"                 # live-confirmed
   "lib_a4_split_view.rs|5"             # live-confirmed
