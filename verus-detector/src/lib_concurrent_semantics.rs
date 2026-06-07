@@ -1,409 +1,300 @@
 // =====================================================================
-// Verus proof: Probabilistic refinement of the A_1 (stale-generation) predicate.
+// Verus proof: concurrent-semantics lift for the mac-consistency runtime.
 //
 // COMPILE
-//   verus --crate-type=lib src/lib_probabilistic_a1.rs
+//   verus --crate-type=lib src/lib_concurrent_semantics.rs
 //
-// MOTIVATION
-//   The deterministic A_1 predicate of lib.rs uses a string-level
-//   comparison r1.read_values[c] != r2.write_values[c] to detect stale
-//   reads. Under stochastic LLM generation, this comparison is too
-//   strict in one direction (string differences may have no operational
-//   effect) and too lax in another (string equality does not preclude
-//   distributional divergence). This file develops a probabilistic
-//   refinement: an abstract disagreement_probability function captures
-//   the probability that an agent receiving a stale value rather than
-//   a fresh one produces a different downstream output. The
-//   deterministic detector is then proved to be a SOUND OVER-APPROXIMATION
-//   of the probabilistic predicate: every probabilistic A_1 event is
-//   also a deterministic A_1 event, but not vice versa.
+// PURPOSE (paper sec:concurrent-semantics)
+//   Lift the *sequential* refinement proofs to a multi-threaded execution
+//   under an ABSTRACT mutex protocol. We model each runtime step as an
+//   atomic event of one of four kinds -- LockAcquire / LockRelease / Read /
+//   Write -- over a state <holders, values>. A trace is "well-formed" iff
+//   every event is enabled from its preceding state (step_enabled encodes
+//   the abstract Acquire/Release protocol). We then prove that the per-cell
+//   access events of a well-formed trace project to a strictly serialised
+//   sequence -- the sequential shape the refinement proofs consume.
 //
-//   We additionally model an empirical estimator (re-running the agent's
-//   prompt k times with the fresh value substituted) and prove that
-//   under a Hoeffding-style concentration assumption, the empirical
-//   estimator is sound for the probabilistic predicate.
+// WHAT THIS IS / IS NOT
+//   IS:  a mechanically-verified identification of the precise abstract
+//        protocol the sequential refinement needs, with ZERO axioms,
+//        ZERO external_body, ZERO assume, ZERO admit. The lemmas are
+//        structural (induction over the trace).
+//   NOT: a verification that std::sync::Mutex IMPLEMENTS this protocol.
+//        That correspondence is the RustBelt residual (lib_rustbelt_interface.rs),
+//        and the bounded weak-memory soundness of the protocol itself is the
+//        GenMC RC11 check (weakmem/litmus_mutex_a1.c).
 //
-// SCORECARD (target)
-//   Three foundational axioms specific to this file:
-//     - axiom_disagreement_is_percentage
-//     - axiom_equal_values_zero_disagreement
-//     - axiom_empirical_concentration
-//   Zero external_body on safety-bearing proof bodies.
-
+// This file replaces the placeholder that previously duplicated
+// lib_probabilistic_a1.rs.
+// =====================================================================
 #![allow(unused_imports)]
 #![allow(dead_code)]
 use vstd::prelude::*;
 
 verus! {
 
-// =====================================================================
-// Section 1: Carriers
-// =====================================================================
-
-pub type CellId = int;
+// ---------------------------------------------------------------------
+// Carriers
+// ---------------------------------------------------------------------
 pub type AgentId = int;
-pub type Value = int;
-pub type Time = int;
+pub type CellId  = int;
+pub type Value   = int;
+pub type Time    = int;
 
-/// A unique identifier for an agent's invocation context, used as the
-/// argument to the disagreement function. Operationally this corresponds
-/// to a hash or sequence number identifying which prompt-execution
-/// context we are reasoning about.
-pub type PromptId = int;
+pub enum Kind { Acquire, Release, Read, Write }
 
-pub struct OpRecord {
+pub struct Event {
+    pub kind:  Kind,
     pub agent: AgentId,
-    pub read_set: Set<CellId>,
-    pub read_values: Map<CellId, Value>,
-    pub read_time: Time,
-    pub write_set: Set<CellId>,
-    pub write_values: Map<CellId, Value>,
-    pub write_time: Time,
-    /// Identifies the prompt-execution context for the disagreement
-    /// function. Distinct OpRecords have distinct prompt ids unless
-    /// they share the exact same agent invocation context.
-    pub prompt: PromptId,
+    pub cell:  CellId,
+    pub time:  Time,
+    pub val:   Value,
 }
 
-pub struct Trace {
-    pub records: Seq<OpRecord>,
+pub struct State {
+    pub holders: Map<CellId, AgentId>,  // absent key == cell unlocked
+    pub values:  Map<CellId, Value>,    // absent key == cell never written
 }
 
-// =====================================================================
-// Section 2: Disagreement probability (abstract spec)
-// =====================================================================
-
-/// disagreement_probability(p, v_stale, v_fresh) returns the
-/// percentage probability (0..=100) that an agent in prompt-context p,
-/// having observed value v_stale for cell c, would have produced a
-/// different downstream output if it had observed v_fresh instead.
-///
-/// This is abstract over the LLM implementation. Operationally one
-/// can estimate it by re-running the prompt with v_fresh substituted
-/// for v_stale k times and counting the fraction of outputs that
-/// differ from the actual output (see Section 6 for the empirical
-/// estimator and its concentration bound).
-pub uninterp spec fn disagreement_probability(
-    p: PromptId,
-    v_stale: Value,
-    v_fresh: Value,
-) -> nat;
-
-/// Axiom 1: the disagreement probability is a percentage in [0, 100].
-#[verifier::external_body]
-pub broadcast proof fn axiom_disagreement_is_percentage(
-    p: PromptId, v1: Value, v2: Value,
-)
-    ensures
-        #![trigger disagreement_probability(p, v1, v2)]
-        disagreement_probability(p, v1, v2) <= 100,
-{
+pub open spec fn init() -> State {
+    State { holders: Map::empty(), values: Map::empty() }
 }
 
-/// Axiom 2: if the stale value EQUALS the fresh value, there is no
-/// possible disagreement. This is the key bridge between the
-/// deterministic detector's string comparison and the operational
-/// disagreement: string equality forces operational equivalence.
-#[verifier::external_body]
-pub broadcast proof fn axiom_equal_values_zero_disagreement(
-    p: PromptId, v: Value,
-)
-    ensures
-        #![trigger disagreement_probability(p, v, v)]
-        disagreement_probability(p, v, v) == 0,
-{
+// is the event a lock op on cell c?
+pub open spec fn is_lock_on(e: Event, c: CellId) -> bool {
+    (e.kind == Kind::Acquire || e.kind == Kind::Release) && e.cell == c
+}
+// is the event a memory access on cell c?
+pub open spec fn is_access_on(e: Event, c: CellId) -> bool {
+    (e.kind == Kind::Read || e.kind == Kind::Write) && e.cell == c
 }
 
-// =====================================================================
-// Section 3: Deterministic A_1 predicate (compatible with lib.rs)
-// =====================================================================
-
-/// The classical, string-level A_1 predicate. A trace exhibits
-/// deterministic A_1 if there is a pair (i, j) of records and a cell c
-/// such that record i read c before record j wrote c, and the recorded
-/// values differ syntactically.
-pub open spec fn a1_deterministic(t: Trace) -> bool {
-    exists |i: int, j: int, c: CellId|
-        #![trigger t.records[i].read_set.contains(c), t.records[j].write_set.contains(c)]
-        0 <= i < t.records.len()
-        && 0 <= j < t.records.len()
-        && t.records[j].write_time > t.records[i].read_time
-        && t.records[i].read_set.contains(c)
-        && t.records[j].write_set.contains(c)
-        && t.records[i].read_values[c] != t.records[j].write_values[c]
-}
-
-// =====================================================================
-// Section 4: Probabilistic A_1 predicate
-// =====================================================================
-
-/// The probabilistic A_1 predicate at threshold theta. A trace
-/// exhibits probabilistic A_1 if the same structural conditions hold
-/// AND the operational disagreement probability for the witness pair
-/// exceeds theta percent. At theta = 0, ANY non-zero disagreement
-/// fires the predicate; at theta = 100, only certain disagreement
-/// fires.
-pub open spec fn a1_probabilistic(t: Trace, theta: nat) -> bool {
-    exists |i: int, j: int, c: CellId|
-        #![trigger t.records[i].read_set.contains(c), t.records[j].write_set.contains(c)]
-        0 <= i < t.records.len()
-        && 0 <= j < t.records.len()
-        && t.records[j].write_time > t.records[i].read_time
-        && t.records[i].read_set.contains(c)
-        && t.records[j].write_set.contains(c)
-        && disagreement_probability(
-              t.records[i].prompt,
-              t.records[i].read_values[c],
-              t.records[j].write_values[c],
-           ) > theta
-}
-
-// =====================================================================
-// Section 5: Refinement theorems
-// =====================================================================
-
-/// THEOREM 1 (Soundness of the deterministic detector for the
-/// probabilistic predicate). If the probabilistic A_1 predicate fires
-/// at threshold 0, then the deterministic A_1 predicate also fires.
-/// Operationally: any trace flagged by the probabilistic predicate
-/// (under any non-zero disagreement) is also flagged by the
-/// deterministic detector. The deterministic detector therefore
-/// over-approximates the probabilistic predicate from above: it is a
-/// sound screen.
-pub proof fn lemma_prob_implies_det_at_zero(t: Trace)
-    requires a1_probabilistic(t, 0),
-    ensures a1_deterministic(t),
-{
-    broadcast use axiom_equal_values_zero_disagreement;
-    broadcast use axiom_disagreement_is_percentage;
-
-    let (i, j, c) = choose |i: int, j: int, c: CellId|
-        0 <= i < t.records.len()
-        && 0 <= j < t.records.len()
-        && t.records[j].write_time > t.records[i].read_time
-        && #[trigger] t.records[i].read_set.contains(c)
-        && #[trigger] t.records[j].write_set.contains(c)
-        && disagreement_probability(
-              t.records[i].prompt,
-              t.records[i].read_values[c],
-              t.records[j].write_values[c],
-           ) > 0;
-
-    let v_stale = t.records[i].read_values[c];
-    let v_fresh = t.records[j].write_values[c];
-    let p = t.records[i].prompt;
-
-    // If the values were equal, the disagreement probability would be
-    // zero, contradicting the witness.
-    if v_stale == v_fresh {
-        axiom_equal_values_zero_disagreement(p, v_stale);
-        assert(disagreement_probability(p, v_stale, v_stale) == 0);
-        assert(false);
+// ---------------------------------------------------------------------
+// Operational semantics
+// ---------------------------------------------------------------------
+pub open spec fn step(s: State, e: Event) -> State {
+    match e.kind {
+        Kind::Acquire => State { holders: s.holders.insert(e.cell, e.agent), values: s.values },
+        Kind::Release => State { holders: s.holders.remove(e.cell),          values: s.values },
+        Kind::Read    => s,
+        Kind::Write   => State { holders: s.holders, values: s.values.insert(e.cell, e.val) },
     }
-    assert(v_stale != v_fresh);
-
-    // The deterministic predicate's witness is the same (i, j, c).
-    assert(t.records[i].read_set.contains(c));
-    assert(t.records[j].write_set.contains(c));
-    assert(t.records[i].read_values[c] != t.records[j].write_values[c]);
 }
 
-/// THEOREM 2 (Monotonicity in theta). If the probabilistic predicate
-/// fires at a higher threshold, it also fires at any lower threshold.
-/// Operationally: a more permissive threshold catches more events.
-pub proof fn lemma_a1_prob_monotone(t: Trace, theta_low: nat, theta_high: nat)
-    requires theta_low < theta_high, a1_probabilistic(t, theta_high),
-    ensures a1_probabilistic(t, theta_low),
-{
-    let (i, j, c) = choose |i: int, j: int, c: CellId|
-        0 <= i < t.records.len()
-        && 0 <= j < t.records.len()
-        && t.records[j].write_time > t.records[i].read_time
-        && #[trigger] t.records[i].read_set.contains(c)
-        && #[trigger] t.records[j].write_set.contains(c)
-        && disagreement_probability(
-              t.records[i].prompt,
-              t.records[i].read_values[c],
-              t.records[j].write_values[c],
-           ) > theta_high;
-
-    // The same witness (i, j, c) works for theta_low because
-    // disagreement > theta_high > theta_low.
-    assert(disagreement_probability(
-              t.records[i].prompt,
-              t.records[i].read_values[c],
-              t.records[j].write_values[c],
-           ) > theta_low);
+// step_enabled encodes the abstract mutex protocol.
+pub open spec fn step_enabled(s: State, e: Event) -> bool {
+    match e.kind {
+        Kind::Acquire => !s.holders.contains_key(e.cell),
+        Kind::Release => s.holders.contains_key(e.cell) && s.holders[e.cell] == e.agent,
+        Kind::Read    => s.holders.contains_key(e.cell) && s.holders[e.cell] == e.agent
+                         && (s.values.contains_key(e.cell) ==> s.values[e.cell] == e.val),
+        Kind::Write   => s.holders.contains_key(e.cell) && s.holders[e.cell] == e.agent,
+    }
 }
 
-/// THEOREM 3 (Contrapositive form of soundness). If the deterministic
-/// detector does NOT fire, then the probabilistic predicate does not
-/// fire at threshold 0. Equivalent to Theorem 1 by contraposition;
-/// stated explicitly because it is the form that practitioners use:
-/// "the deterministic detector is sufficient to certify the absence of
-/// probabilistic A_1 events."
-pub proof fn lemma_det_negative_implies_prob_negative(t: Trace)
-    requires !a1_deterministic(t),
-    ensures !a1_probabilistic(t, 0),
+// State after the first i events of a trace.
+pub open spec fn state_after(tr: Seq<Event>, i: int) -> State
+    decreases i,
 {
-    if a1_probabilistic(t, 0) {
-        lemma_prob_implies_det_at_zero(t);
-        assert(a1_deterministic(t));
-        assert(false);
+    if i <= 0 { init() } else { step(state_after(tr, i - 1), tr[i - 1]) }
+}
+
+pub open spec fn well_formed(tr: Seq<Event>) -> bool {
+    forall |i: int| #![trigger step_enabled(state_after(tr, i), tr[i])]
+        0 <= i < tr.len() ==> step_enabled(state_after(tr, i), tr[i])
+}
+
+// =====================================================================
+// Lemma A (helper): state_after depends only on the prefix.
+// =====================================================================
+pub proof fn lemma_state_after_prefix(tr: Seq<Event>, m: int, i: int)
+    requires 0 <= i <= m <= tr.len(),
+    ensures  state_after(tr.subrange(0, m), i) == state_after(tr, i),
+    decreases i,
+{
+    if i <= 0 {
+        // both sides are init()
+    } else {
+        lemma_state_after_prefix(tr, m, i - 1);
+        // subrange index: (tr[0..m])[i-1] == tr[i-1] for i-1 < m
+        assert(tr.subrange(0, m)[i - 1] == tr[i - 1]);
+        // state_after(sub, i) = step(state_after(sub,i-1), sub[i-1])
+        //                     = step(state_after(tr,i-1),  tr[i-1]) = state_after(tr,i)
     }
 }
 
 // =====================================================================
-// Section 6: Empirical estimator and its concentration bound
+// Theorem 1: prefix monotonicity.
+// Every prefix of a well-formed trace is well-formed.
 // =====================================================================
-
-/// empirical_disagreement_count(p, v_stale, v_fresh, k) is the number
-/// of sample re-runs (out of k total) in which the agent's output with
-/// v_fresh substituted differs from its output with v_stale. The
-/// empirical estimator is empirical_count / k (as a percentage,
-/// empirical_count * 100 / k).
-pub uninterp spec fn empirical_disagreement_count(
-    p: PromptId,
-    v_stale: Value,
-    v_fresh: Value,
-    k: nat,
-) -> nat;
-
-/// Axiom 3 (Hoeffding-style concentration). For k >= 100 samples, the
-/// empirical estimator's percentage is within 10 percentage points of
-/// the true disagreement probability. This is a deliberately loose
-/// bound chosen to be axiomatized rather than proved; it captures the
-/// essential property that as k grows, the empirical estimate
-/// converges to the true probability. A formal Hoeffding bound in
-/// Verus would require the sampling axioms developed in the
-/// probabilistic-Verus literature (out of scope here).
-///
-/// Formally: for k >= 100, |emp_count * 100 - k * disagreement| <= 10 * k.
-#[verifier::external_body]
-pub broadcast proof fn axiom_empirical_concentration(
-    p: PromptId, v1: Value, v2: Value, k: nat,
-)
-    requires k >= 100,
-    ensures
-        #![trigger empirical_disagreement_count(p, v1, v2, k)]
-        empirical_disagreement_count(p, v1, v2, k) * 100
-            <= k * disagreement_probability(p, v1, v2) + 10 * k,
-        k * disagreement_probability(p, v1, v2)
-            <= empirical_disagreement_count(p, v1, v2, k) * 100 + 10 * k,
+pub proof fn lemma_prefix_monotonicity(tr: Seq<Event>, m: int)
+    requires well_formed(tr), 0 <= m <= tr.len(),
+    ensures  well_formed(tr.subrange(0, m)),
 {
+    let p = tr.subrange(0, m);
+    assert(p.len() == m);
+    assert forall |i: int| #![trigger step_enabled(state_after(p, i), p[i])]
+        0 <= i < p.len() implies step_enabled(state_after(p, i), p[i]) by {
+        lemma_state_after_prefix(tr, m, i);          // state_after(p,i) == state_after(tr,i)
+        assert(p[i] == tr[i]);                        // subrange index
+        assert(step_enabled(state_after(tr, i), tr[i]));   // from well_formed(tr) at i
+    }
 }
 
-/// The empirical A_1 predicate at threshold theta and sample size k.
-/// Mirrors the structure of a1_probabilistic but uses the empirical
-/// estimator in place of the abstract disagreement probability.
-pub open spec fn a1_empirical(t: Trace, theta: nat, k: nat) -> bool {
-    exists |i: int, j: int, c: CellId|
-        #![trigger t.records[i].read_set.contains(c), t.records[j].write_set.contains(c)]
-        0 <= i < t.records.len()
-        && 0 <= j < t.records.len()
-        && t.records[j].write_time > t.records[i].read_time
-        && t.records[i].read_set.contains(c)
-        && t.records[j].write_set.contains(c)
-        && empirical_disagreement_count(
-              t.records[i].prompt,
-              t.records[i].read_values[c],
-              t.records[j].write_values[c],
-              k,
-           ) * 100 > k * theta
-}
-
-/// THEOREM 4 (Soundness of the empirical estimator). If the empirical
-/// estimator fires at threshold (theta + 10) with sample size k >= 100,
-/// then the true probabilistic predicate fires at threshold theta.
-/// In words: empirical detection at a slightly inflated threshold
-/// implies true detection at the original threshold, with the
-/// inflation absorbing the 10-percentage-point sampling error.
-pub proof fn lemma_empirical_sound(t: Trace, theta: nat, k: nat)
+// =====================================================================
+// Theorem 2: mutex exclusion (structural).
+// At any prefix state each cell has at most one lock holder.
+// (Structural consequence of the Map representation; recorded for the
+// narrative role the paper assigns it.)
+// =====================================================================
+pub proof fn lemma_mutex_exclusion(tr: Seq<Event>, i: int, c: CellId, a1: AgentId, a2: AgentId)
     requires
-        k >= 100,
-        a1_empirical(t, theta + 10, k),
-    ensures a1_probabilistic(t, theta),
+        state_after(tr, i).holders.contains_key(c),
+        state_after(tr, i).holders[c] == a1,
+        state_after(tr, i).holders[c] == a2,
+    ensures a1 == a2,
 {
-    broadcast use axiom_empirical_concentration;
-    broadcast use axiom_disagreement_is_percentage;
-
-    let (i, j, c) = choose |i: int, j: int, c: CellId|
-        0 <= i < t.records.len()
-        && 0 <= j < t.records.len()
-        && t.records[j].write_time > t.records[i].read_time
-        && #[trigger] t.records[i].read_set.contains(c)
-        && #[trigger] t.records[j].write_set.contains(c)
-        && empirical_disagreement_count(
-              t.records[i].prompt,
-              t.records[i].read_values[c],
-              t.records[j].write_values[c],
-              k,
-           ) * 100 > k * (theta + 10);
-
-    let p = t.records[i].prompt;
-    let v_stale = t.records[i].read_values[c];
-    let v_fresh = t.records[j].write_values[c];
-
-    // Empirical count * 100 > k * (theta + 10). Distribute the RHS so
-    // Verus sees k * theta + 10 * k explicitly. The concentration
-    // axiom then gives k * disagreement >= emp * 100 - 10 * k.
-    // Combining:
-    //   k * disagreement + 10 * k >= emp * 100 > k * theta + 10 * k
-    // which yields k * disagreement > k * theta, and since k > 0,
-    // disagreement > theta.
-    let emp = empirical_disagreement_count(p, v_stale, v_fresh, k);
-    assert(emp * 100 > k * (theta + 10));
-
-    // Distributivity: k * (theta + 10) == k * theta + 10 * k.
-    assert(k * (theta + 10) == k * theta + k * 10) by (nonlinear_arith);
-    assert(k * 10 == 10 * k) by (nonlinear_arith);
-    assert(k * (theta + 10) == k * theta + 10 * k);
-
-    axiom_empirical_concentration(p, v_stale, v_fresh, k);
-    // The axiom's second ensures clause:
-    //   k * disagreement <= emp * 100 + 10 * k
-    // is the side we DON'T need here. The first one:
-    //   emp * 100 <= k * disagreement + 10 * k
-    // is what we use. So: emp * 100 <= k * disagreement + 10 * k,
-    // and we have emp * 100 > k * theta + 10 * k. Chaining:
-    assert(emp * 100 <= k * disagreement_probability(p, v_stale, v_fresh) + 10 * k);
-    assert(k * disagreement_probability(p, v_stale, v_fresh) + 10 * k > k * theta + 10 * k);
-
-    // Subtract 10 * k from both sides (linear arithmetic over int).
-    assert(k * disagreement_probability(p, v_stale, v_fresh) > k * theta);
-
-    // Since k >= 100 > 0, divide both sides by k.
-    assert(k >= 100);
-    assert(k > 0);
-    if disagreement_probability(p, v_stale, v_fresh) <= theta {
-        // d <= theta and k > 0 implies k*d <= k*theta. Use nonlinear
-        // because multiplication is involved.
-        assert(k * disagreement_probability(p, v_stale, v_fresh) <= k * theta)
-            by (nonlinear_arith)
-            requires disagreement_probability(p, v_stale, v_fresh) <= theta, k > 0;
-        assert(false);
-    }
-    assert(disagreement_probability(p, v_stale, v_fresh) > theta);
+    // a1 == holders[c] == a2.
 }
 
-/// THEOREM 5 (Empirical sufficiency for sound detection). At
-/// theta = 0 and k >= 100, if the deterministic detector does not
-/// fire, neither does the empirical estimator with at least 10% of
-/// samples showing disagreement (the empirical theta = 10 threshold
-/// chosen to absorb sampling error). In words: the deterministic
-/// detector is sufficient to certify the absence of practically-
-/// significant A_1 events under sampling.
-pub proof fn lemma_det_negative_implies_emp_negative(t: Trace, k: nat)
-    requires k >= 100, !a1_deterministic(t),
-    ensures !a1_empirical(t, 10, k),
+// =====================================================================
+// Theorem 3: access implies lock held.
+// Every Read/Write in a well-formed trace is performed by the agent
+// currently holding the accessed cell's lock.
+// =====================================================================
+pub proof fn lemma_access_implies_lock_held(tr: Seq<Event>, i: int)
+    requires
+        well_formed(tr),
+        0 <= i < tr.len(),
+        tr[i].kind == Kind::Read || tr[i].kind == Kind::Write,
+    ensures
+        state_after(tr, i).holders.contains_key(tr[i].cell),
+        state_after(tr, i).holders[tr[i].cell] == tr[i].agent,
 {
-    if a1_empirical(t, 10, k) {
-        lemma_empirical_sound(t, 0, k);
-        assert(a1_probabilistic(t, 0));
-        lemma_prob_implies_det_at_zero(t);
-        assert(a1_deterministic(t));
+    assert(step_enabled(state_after(tr, i), tr[i]));   // instantiate well_formed at i
+}
+
+// =====================================================================
+// Theorem 4: reads observe the current value (no torn reads).
+// =====================================================================
+pub proof fn lemma_reads_observe_current_value(tr: Seq<Event>, i: int)
+    requires
+        well_formed(tr),
+        0 <= i < tr.len(),
+        tr[i].kind == Kind::Read,
+        state_after(tr, i).values.contains_key(tr[i].cell),
+    ensures
+        state_after(tr, i).values[tr[i].cell] == tr[i].val,
+{
+    assert(step_enabled(state_after(tr, i), tr[i]));   // Read case of step_enabled
+}
+
+// =====================================================================
+// Theorem 5 (helper): holder-change requires an intervening lock event.
+// If no LockAcquire/LockRelease on c occurs in [a, b), the lock-holder of
+// c (membership and identity) is unchanged from a to b.
+// =====================================================================
+pub proof fn lemma_holder_unchanged_without_lock_event(tr: Seq<Event>, a: int, b: int, c: CellId)
+    requires
+        0 <= a <= b <= tr.len(),
+        forall |k: int| a <= k < b ==> !(#[trigger] is_lock_on(tr[k], c)),
+    ensures
+        state_after(tr, a).holders.contains_key(c) == state_after(tr, b).holders.contains_key(c),
+        state_after(tr, a).holders.contains_key(c)
+            ==> state_after(tr, a).holders[c] == state_after(tr, b).holders[c],
+    decreases b - a,
+{
+    if b <= a {
+        // a == b
+    } else {
+        // The sub-forall over [a, b-1) holds, so recurse.
+        assert(forall |k: int| a <= k < b - 1 ==> !(#[trigger] is_lock_on(tr[k], c)));
+        lemma_holder_unchanged_without_lock_event(tr, a, b - 1, c);
+
+        let e  = tr[b - 1];
+        let sp = state_after(tr, b - 1);
+        assert(!is_lock_on(e, c));   // instantiate the requires-forall at k = b-1
+
+        // step(sp, e) leaves holders-at-c unchanged in every non-(lock-on-c) case.
+        match e.kind {
+            Kind::Read    => {}                   // holders unchanged entirely
+            Kind::Write   => {}                   // holders unchanged entirely
+            Kind::Acquire => { assert(e.cell != c); }  // insert at e.cell != c
+            Kind::Release => { assert(e.cell != c); }  // remove at e.cell != c
+        }
+        // state_after(tr,b) == step(sp,e); holders-at-c equals sp's; chain with IH.
+    }
+}
+
+// =====================================================================
+// Theorem 6: distinct-agent access separation.
+// Two accesses to the same cell by different agents are separated by a
+// LockAcquire/LockRelease on that cell strictly between them.
+// =====================================================================
+pub proof fn lemma_distinct_agent_access_separation(tr: Seq<Event>, i: int, j: int, c: CellId)
+    requires
+        well_formed(tr),
+        0 <= i < j < tr.len(),
+        is_access_on(tr[i], c),
+        is_access_on(tr[j], c),
+        tr[i].agent != tr[j].agent,
+    ensures
+        exists |k: int| i < k < j && is_lock_on(tr[k], c),
+{
+    lemma_access_implies_lock_held(tr, i);   // holder at state_after(tr,i)[c] == tr[i].agent
+    lemma_access_implies_lock_held(tr, j);   // holder at state_after(tr,j)[c] == tr[j].agent
+
+    if forall |k: int| i <= k < j ==> !(#[trigger] is_lock_on(tr[k], c)) {
+        lemma_holder_unchanged_without_lock_event(tr, i, j, c);
+        // both states contain c, and holders[c] preserved => agents equal
+        assert(state_after(tr, i).holders[c] == state_after(tr, j).holders[c]);
+        assert(tr[i].agent == tr[j].agent);
         assert(false);
     }
+    // hence a lock-on-c event exists in [i, j); it cannot be i (an access),
+    // so it lies strictly between.
+    let k = choose |k: int| i <= k < j && is_lock_on(tr[k], c);
+    assert(is_access_on(tr[i], c));   // tr[i] is an access, not a lock
+    assert(k != i);
+    assert(i < k < j && is_lock_on(tr[k], c));
+}
+
+// =====================================================================
+// Theorem 7 (non-vacuity): a well-formed trace containing a Read exists.
+// Witness: agent 1 acquires cell 0, then reads it (value unconstrained
+// because the cell has never been written). Establishes the universal
+// theorems above are not vacuously true.
+// =====================================================================
+pub proof fn lemma_nonvacuous_witness()
+    ensures
+        exists |tr: Seq<Event>| #![trigger well_formed(tr)]
+            well_formed(tr) && tr.len() == 2 && tr[1].kind == Kind::Read,
+{
+    let e0 = Event { kind: Kind::Acquire, agent: 1, cell: 0, time: 0, val: 0 };
+    let e1 = Event { kind: Kind::Read,    agent: 1, cell: 0, time: 1, val: 7 };
+    let tr = seq![e0, e1];
+
+    assert(tr.len() == 2);
+    assert(tr[0] == e0);
+    assert(tr[1] == e1);
+
+    // i = 0: Acquire on the empty holder map is enabled.
+    assert(state_after(tr, 0) == init());
+    assert(step_enabled(state_after(tr, 0), tr[0]));
+
+    // i = 1: after the acquire, agent 1 holds cell 0; the read is enabled
+    // (cell 0 not in values, so the value clause is vacuous).
+    assert(state_after(tr, 1) == step(init(), e0));
+    assert(state_after(tr, 1).holders.contains_key(0));
+    assert(state_after(tr, 1).holders[0] == 1);
+    assert(!state_after(tr, 1).values.contains_key(0));
+    assert(step_enabled(state_after(tr, 1), tr[1]));
+
+    assert forall |i: int| #![trigger step_enabled(state_after(tr, i), tr[i])]
+        0 <= i < tr.len() implies step_enabled(state_after(tr, i), tr[i]) by {
+        if i == 0 {} else { assert(i == 1); }
+    }
+    assert(well_formed(tr));
 }
 
 } // verus!
