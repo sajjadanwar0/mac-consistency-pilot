@@ -1,310 +1,310 @@
-// =====================================================================
-// Verus proof: Formalization of A_4 (split-view) for multi-replica
-// runtime, with safety theorem under read-from-primary replication.
+// lib_a4_split_view.rs
 //
-// COMPILE
-//   verus --crate-type=lib src/lib_a4_split_view.rs
+// A_4 (split-view) under replication, formalized as a CONTENT property of a
+// monotone, append-only primary -- not as exclusion-by-construction.
 //
-// MOTIVATION
-//   The v5_3 paper defers A_4 (split-view under replication) as
-//   future work, with the explicit acknowledgement that this
-//   "renders our catalogue and the lattice built on it provisional"
-//   for replicated systems. A reviewer flagged this as a critical
-//   omission: replication is "central to deployed multi-agent
-//   infrastructure." This file closes the deferral by providing:
-//     (a) a multi-replica operational model;
-//     (b) the formal A_4 split-view predicate;
-//     (c) a safety theorem for read-from-primary replication
-//         showing that A_4 cannot fire under that strategy.
+// The earlier version of this file proved "read-from-primary => not A_4"
+// by the one-line observation that A_4 requires two distinct replica ids
+// while read-from-primary uses one. That is a structural tautology: if you
+// only ever read one replica you cannot observe two replicas disagreeing.
 //
-//   The eventually-consistent and CRDT-merge strategies are left
-//   as scope-out (they require either eventual-consistency
-//   semantics or merge-function algebra that is orthogonal to
-//   the A_4 prevention argument given here).
+// This version instead proves a property with content:
 //
-// SCORECARD
-//   8 obligations, 0 axioms (purely structural).
+//   The primary is an append-only, monotone-versioned log. Two primary reads
+//   of the same cell that observe the SAME version necessarily observe the
+//   SAME value -- there is no "split view" at a fixed committed version --
+//   and primary read versions are monotone in trace order. The mechanism
+//   (single append-only primary) does work; it is not a definitional dodge.
+//
+// We then exhibit (i) a concrete A_4 witness produced by a LAGGING SECONDARY
+// serving an older log index while the primary has advanced -- the genuine
+// split-view the primary discipline prevents, with its value tied to the
+// model rather than hand-asserted -- and (ii) a cross-version witness showing
+// two primary reads MAY legitimately differ at different versions, so the
+// no-split theorem is non-vacuous (it does not hold merely because all
+// primary reads are forced equal).
+//
+// Trust base: none. Zero `assume`, zero `admit`, zero `external_body`.
 
-#![allow(unused_imports)]
-#![allow(dead_code)]
 use vstd::prelude::*;
 
 verus! {
 
-// =====================================================================
-// Section 1: Carriers
-// =====================================================================
+// ---------------------------------------------------------------------------
+// Domain
+// ---------------------------------------------------------------------------
 
-pub type CellId    = int;
-pub type ReplicaId = int;
-pub type AgentId   = int;
-pub type Time      = int;
-pub type Value     = int;
+// NULL sentinel for "cell never written" (version 0). Distinct from any value
+// written in the witnesses below (10, 5, 7), so no NULL/value collision.
+pub open spec fn nullv() -> int { -1 }
 
-/// Distinguished primary-replica identifier. The read-from-primary
-/// strategy reads exclusively from this replica; eventual
-/// consistency permits reading from any replica.
-pub open spec fn primary_replica() -> ReplicaId { 0 }
-
-// =====================================================================
-// Section 2: Multi-replica runtime state
-// =====================================================================
-
-/// A multi-replica runtime carries, for each (cell, replica) pair,
-/// the value currently visible at that replica. The primary
-/// replica's value is the authoritative one; other replicas may
-/// lag (eventually-consistent propagation) or diverge (concurrent
-/// writes to different replicas).
-pub struct ReplicatedState {
-    pub now:          Time,
-    /// values[(c, r)] is the value of cell c at replica r.
-    pub values:       Map<(CellId, ReplicaId), Value>,
-    /// replicas: the set of replica ids in the system.
-    pub replicas:     Set<ReplicaId>,
+// Runtime events over a single cell. The single-cell model carries the
+// split-view argument without loss: A_4 is a per-cell predicate.
+//   Write(v)         : the primary commits value v, advancing its version.
+//   ReadP(t)         : a read served by the PRIMARY at logical time t.
+//   ReadS(sid,idx,t) : a read served by SECONDARY `sid`, which replicates the
+//                      primary up to log index `idx` (idx <= primary head).
+pub enum Ev {
+    Write(int),
+    ReadP(nat),
+    ReadS(nat, nat, nat),
 }
 
-pub open spec fn initial_state(replicas: Set<ReplicaId>) -> ReplicatedState {
-    ReplicatedState {
-        now: 0,
-        values: Map::empty(),
-        replicas: replicas,
+pub open spec fn is_write(e: Ev) -> bool {
+    match e {
+        Ev::Write(_) => true,
+        Ev::ReadP(_) => false,
+        Ev::ReadS(_, _, _) => false,
     }
 }
 
-// =====================================================================
-// Section 3: Read records on a multi-replica trace
-// =====================================================================
-
-/// A read record on a multi-replica trace captures the (agent,
-/// cell, replica, value, time) tuple of an individual read. The
-/// A_4 predicate quantifies over pairs of read records.
-pub struct ReadRecord {
-    pub agent:   AgentId,
-    pub cell:    CellId,
-    pub replica: ReplicaId,
-    pub value:   Value,
-    pub time:    Time,
+// The primary state is its committed log: log[i] is the value committed at
+// version (i+1). The head version is log.len(); the head value is the last
+// element (or NULL when empty).
+pub open spec fn apply(s: Seq<int>, e: Ev) -> Seq<int> {
+    match e {
+        Ev::Write(v) => s.push(v),
+        Ev::ReadP(_) => s,
+        Ev::ReadS(_, _, _) => s,
+    }
 }
 
-/// A trace is a sequence of read records (writes are not
-/// directly observed in the A_4 predicate; they are abstracted by
-/// the replica values returned to reads).
-pub struct Trace {
-    pub reads: Seq<ReadRecord>,
-}
-
-// =====================================================================
-// Section 4: The A_4 (split-view) predicate
-// =====================================================================
-
-/// A trace exhibits A_4 if there exist two read records that read
-/// the SAME cell from DIFFERENT replicas and observe DIFFERENT
-/// values within a temporal window that excludes the writes
-/// causing the divergence. We use a simplified version: any two
-/// reads of the same cell from different replicas with different
-/// values constitute an A_4 witness. A stricter temporal version
-/// would require both reads to be "within the same logical
-/// transaction window," but the simple version captures the
-/// operational concern: an agent could observe one value while
-/// another agent simultaneously observes a different one.
-pub open spec fn a4_witness(t: Trace) -> bool {
-    exists |i: int, j: int|
-        #![trigger t.reads[i].cell, t.reads[j].cell]
-        0 <= i < t.reads.len()
-        && 0 <= j < t.reads.len()
-        && t.reads[i].cell == t.reads[j].cell
-        && t.reads[i].replica != t.reads[j].replica
-        && t.reads[i].value != t.reads[j].value
-}
-
-// =====================================================================
-// Section 5: Read-from-primary replication strategy
-// =====================================================================
-
-/// A trace conforms to the read-from-primary strategy iff every
-/// read in the trace occurs against the primary replica.
-pub open spec fn reads_from_primary_only(t: Trace) -> bool {
-    forall |i: int| #![trigger t.reads[i].replica]
-        0 <= i < t.reads.len()
-        ==> t.reads[i].replica == primary_replica()
-}
-
-// =====================================================================
-// Section 6: Safety theorem under read-from-primary
-// =====================================================================
-
-/// THEOREM A_4a (Read-from-primary suppresses A_4). Any trace
-/// that uses only the primary replica for reads cannot exhibit
-/// A_4. The reason is structural: A_4 requires two reads of the
-/// same cell from different replicas, but read-from-primary
-/// ensures all reads share the same replica id.
-pub proof fn lemma_primary_only_suppresses_a4(t: Trace)
-    requires reads_from_primary_only(t),
-    ensures !a4_witness(t),
+// State of the primary log after applying the first `n` events of `evs`.
+// A read at trace index i observes state_after(evs, i) (the state in force
+// when event i is processed; reads do not mutate the log).
+pub open spec fn state_after(evs: Seq<Ev>, n: nat) -> Seq<int>
+    decreases n,
 {
-    // Suppose for contradiction A_4 holds. Then there exist i, j
-    // with t.reads[i].replica != t.reads[j].replica. But
-    // reads_from_primary_only says both replicas equal
-    // primary_replica(). Contradiction.
-    if a4_witness(t) {
-        let (i, j) = choose |i: int, j: int|
-            0 <= i < t.reads.len()
-            && 0 <= j < t.reads.len()
-            && t.reads[i].cell == t.reads[j].cell
-            && t.reads[i].replica != t.reads[j].replica
-            && t.reads[i].value != t.reads[j].value;
-        assert(t.reads[i].replica == primary_replica());
-        assert(t.reads[j].replica == primary_replica());
-        assert(t.reads[i].replica == t.reads[j].replica);
+    if n == 0 {
+        Seq::<int>::empty()
+    } else {
+        apply(state_after(evs, (n - 1) as nat), evs[(n - 1) as int])
+    }
+}
+
+pub open spec fn head_value(s: Seq<int>) -> int {
+    if s.len() == 0 { nullv() } else { s[(s.len() - 1) as int] }
+}
+
+// Value a secondary serves when it has replicated up to log index k:
+//   k == 0  -> the cell is, from the secondary's view, still unwritten (NULL);
+//   k >= 1  -> the value the primary committed at version k.
+pub open spec fn value_at(s: Seq<int>, k: nat) -> int {
+    if k == 0 { nullv() } else { s[(k - 1) as int] }
+}
+
+// Version and value a PRIMARY read at trace position i observes.
+pub open spec fn pread_version(evs: Seq<Ev>, i: nat) -> nat {
+    state_after(evs, i).len()
+}
+pub open spec fn pread_value(evs: Seq<Ev>, i: nat) -> int {
+    head_value(state_after(evs, i))
+}
+
+// ---------------------------------------------------------------------------
+// Core inductive lemmas: the primary log is append-only and monotone.
+// These carry the real content; the theorems below are their corollaries.
+// ---------------------------------------------------------------------------
+
+// One step never shrinks the log; a non-write step leaves it identical.
+proof fn lemma_apply_step(s: Seq<int>, e: Ev)
+    ensures
+        s.len() <= apply(s, e).len(),
+        is_write(e) ==> apply(s, e).len() == s.len() + 1,
+        !is_write(e) ==> apply(s, e) =~= s,
+{
+    match e {
+        Ev::Write(v) => {
+            assert(apply(s, e) =~= s.push(v));
+        }
+        Ev::ReadP(_) => {}
+        Ev::ReadS(_, _, _) => {}
+    }
+}
+
+// Version (= log length) is monotone non-decreasing in trace order.
+pub proof fn lemma_state_monotone_len(evs: Seq<Ev>, i: nat, j: nat)
+    requires
+        i <= j,
+        j <= evs.len(),
+    ensures
+        state_after(evs, i).len() <= state_after(evs, j).len(),
+    decreases j - i,
+{
+    if i < j {
+        lemma_state_monotone_len(evs, i, (j - 1) as nat);
+        assert(state_after(evs, j)
+            == apply(state_after(evs, (j - 1) as nat), evs[(j - 1) as int]));
+        lemma_apply_step(state_after(evs, (j - 1) as nat), evs[(j - 1) as int]);
+    }
+}
+
+// If two trace points have equal log length, the logs are identical: a write
+// would have grown the length, so every step between them was a read. This is
+// the append-only invariant doing the work behind the no-split theorem.
+pub proof fn lemma_state_stable_eq_len(evs: Seq<Ev>, i: nat, j: nat)
+    requires
+        i <= j,
+        j <= evs.len(),
+        state_after(evs, i).len() == state_after(evs, j).len(),
+    ensures
+        state_after(evs, i) =~= state_after(evs, j),
+    decreases j - i,
+{
+    if i < j {
+        lemma_state_monotone_len(evs, i, (j - 1) as nat);
+        lemma_state_monotone_len(evs, (j - 1) as nat, j);
+        // Squeeze: len_i <= len_{j-1} <= len_j == len_i, so all three equal.
+        assert(state_after(evs, (j - 1) as nat).len() == state_after(evs, i).len());
+
+        assert(state_after(evs, j)
+            == apply(state_after(evs, (j - 1) as nat), evs[(j - 1) as int]));
+        lemma_apply_step(state_after(evs, (j - 1) as nat), evs[(j - 1) as int]);
+        // Length preserved over the last step => that step was not a write.
+        assert(!is_write(evs[(j - 1) as int]));
+        assert(state_after(evs, j) =~= state_after(evs, (j - 1) as nat));
+
+        lemma_state_stable_eq_len(evs, i, (j - 1) as nat);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Theorems (corollaries of the append-only invariant).
+// ---------------------------------------------------------------------------
+
+// Theorem A4-mono: primary read versions are monotone in trace order.
+pub proof fn thm_primary_version_monotone(evs: Seq<Ev>, i: nat, j: nat)
+    requires
+        i <= j,
+        j <= evs.len(),
+    ensures
+        pread_version(evs, i) <= pread_version(evs, j),
+{
+    lemma_state_monotone_len(evs, i, j);
+}
+
+// Theorem A4-no-split: two primary reads of the cell that observe the SAME
+// version observe the SAME value. No split view at a fixed committed version.
+// This is the content statement replacing the old exclusion tautology.
+pub proof fn thm_primary_no_split_at_version(evs: Seq<Ev>, i: nat, j: nat)
+    requires
+        i <= j,
+        j <= evs.len(),
+        pread_version(evs, i) == pread_version(evs, j),
+    ensures
+        pread_value(evs, i) == pread_value(evs, j),
+{
+    lemma_state_stable_eq_len(evs, i, j);
+    // Equal states => equal head value.
+    assert(head_value(state_after(evs, i)) == head_value(state_after(evs, j)));
+}
+
+// Corollary (A_4 framing): if two primary reads of the cell return DIFFERENT
+// values, they must be at DIFFERENT versions. Equivalently, the value-mismatch
+// half of A_4 cannot occur among primary reads at one version.
+pub proof fn cor_primary_diff_value_implies_diff_version(evs: Seq<Ev>, i: nat, j: nat)
+    requires
+        i <= j,
+        j <= evs.len(),
+        pread_value(evs, i) != pread_value(evs, j),
+    ensures
+        pread_version(evs, i) != pread_version(evs, j),
+{
+    if pread_version(evs, i) == pread_version(evs, j) {
+        thm_primary_no_split_at_version(evs, i, j);
         assert(false);
     }
 }
 
-// =====================================================================
-// Section 7: Cross-replica linearisability
-// =====================================================================
+// ---------------------------------------------------------------------------
+// The A_4 predicate and the witness it is meant to exclude.
+// ---------------------------------------------------------------------------
 
-/// A multi-replica state is linearisable for cell c if every
-/// replica's value for c is the same. The strictest replication
-/// strategy maintains this invariant via synchronous propagation.
-pub open spec fn linearisable_at(s: ReplicatedState, c: CellId) -> bool {
-    forall |r1: ReplicaId, r2: ReplicaId|
-        #![trigger s.values[(c, r1)], s.values[(c, r2)]]
-        s.replicas.contains(r1) && s.replicas.contains(r2)
-        && s.values.contains_key((c, r1))
-        && s.values.contains_key((c, r2))
-        ==> s.values[(c, r1)] == s.values[(c, r2)]
+pub struct ReadRec {
+    pub cell: nat,
+    pub replica: nat, // 0 = primary; >0 = secondary id
+    pub version: nat,
+    pub value: int,
 }
 
-pub open spec fn linearisable(s: ReplicatedState) -> bool {
-    forall |c: CellId| #![trigger linearisable_at(s, c)]
-        linearisable_at(s, c)
+// Paper A_4: two reads of the same cell, from different replicas, disagree.
+pub open spec fn a4_holds(rs: Seq<ReadRec>) -> bool {
+    exists|i: int, j: int|
+        #![trigger rs[i].cell, rs[j].cell]
+        0 <= i < rs.len() && 0 <= j < rs.len()
+        && rs[i].cell == rs[j].cell
+        && rs[i].replica != rs[j].replica
+        && rs[i].value != rs[j].value
 }
 
-/// A trace is generated by a linearisable state if every read
-/// observes a value that is the linearisable value of its cell.
-/// Concretely we encode this by requiring the trace's reads to be
-/// consistent with a single global value per cell at any point in
-/// the trace.
-pub open spec fn trace_linearisable(t: Trace) -> bool {
-    forall |i: int, j: int|
-        #![trigger t.reads[i].cell, t.reads[j].cell]
-        0 <= i < t.reads.len()
-        && 0 <= j < t.reads.len()
-        && t.reads[i].cell == t.reads[j].cell
-        && t.reads[i].time == t.reads[j].time
-        ==> t.reads[i].value == t.reads[j].value
-}
-
-/// THEOREM A_4b (Linearisability subsumes A_4 prevention).
-/// Any trace generated by a linearisable replicated state at
-/// every point in time cannot exhibit A_4 between reads at the
-/// SAME logical time. (Across logical time, the same cell may
-/// take different values because of writes, which is not a
-/// split-view.)
-pub proof fn lemma_linearisable_suppresses_simultaneous_a4(t: Trace)
-    requires trace_linearisable(t),
+// Non-vacuity / the prevented phenomenon: a LAGGING SECONDARY serving an old
+// log index produces a genuine A_4 against the primary. The two observed
+// values are taken from the model (head_value and value_at of an actual
+// post-write state), not asserted by hand.
+pub proof fn lemma_secondary_lag_admits_a4()
     ensures
-        forall |i: int, j: int|
-            0 <= i < t.reads.len()
-            && 0 <= j < t.reads.len()
-            && t.reads[i].cell == t.reads[j].cell
-            && t.reads[i].time == t.reads[j].time
-            ==> t.reads[i].value == t.reads[j].value,
+        exists|rs: Seq<ReadRec>| #[trigger] a4_holds(rs),
 {
-    // Direct from trace_linearisable.
+    let evs: Seq<Ev> = seq![Ev::Write(10)];
+
+    assert(state_after(evs, 0) =~= Seq::<int>::empty());
+    assert(evs[0] == Ev::Write(10));
+    assert(state_after(evs, 1)
+        == apply(state_after(evs, 0), evs[0]));
+    assert(state_after(evs, 1) =~= seq![10int]);
+
+    let st = state_after(evs, 1);
+    let pv = head_value(st);    // primary head value at version 1 = 10
+    let sv = value_at(st, 0);   // lagging secondary at index 0 = NULL = -1
+    assert(pv == 10);
+    assert(sv == nullv());
+
+    let rp = ReadRec { cell: 1, replica: 0, version: st.len(), value: pv };
+    let rsec = ReadRec { cell: 1, replica: 1, version: 0, value: sv };
+    let rs: Seq<ReadRec> = seq![rp, rsec];
+
+    assert(rs.len() == 2);
+    assert(rs[0].cell == rs[1].cell);
+    assert(rs[0].replica != rs[1].replica);
+    assert(rs[0].value != rs[1].value); // 10 != -1
+    assert(a4_holds(rs)) by {
+        assert(0 <= 0 < rs.len() && 0 <= 1 < rs.len()
+            && rs[0].cell == rs[1].cell
+            && rs[0].replica != rs[1].replica
+            && rs[0].value != rs[1].value);
+    }
 }
 
-// =====================================================================
-// Section 8: Eventual consistency: A_4 admitted, with characterisation
-// =====================================================================
-
-/// Under eventual consistency, replicas may diverge transiently.
-/// A_4 can fire during the divergence window. We characterise the
-/// SET of A_4 witnesses precisely: a witness exists iff at some
-/// point in the trace, the same cell is observed with different
-/// values at different replicas.
-///
-/// This theorem documents the formal counterpart to the negative
-/// claim: eventually-consistent runtimes admit A_4 witnesses;
-/// preventing A_4 requires either read-from-primary or
-/// synchronous propagation (linearisability).
-pub proof fn lemma_eventual_consistency_admits_a4(t: Trace)
-    requires
-        t.reads.len() >= 2,
-        t.reads[0].cell == t.reads[1].cell,
-        t.reads[0].replica != t.reads[1].replica,
-        t.reads[0].value != t.reads[1].value,
-    ensures a4_witness(t),
-{
-    // The (0, 1) pair witnesses A_4 directly.
-    assert(0 <= 0int < t.reads.len());
-    assert(0 <= 1int < t.reads.len());
-    assert(t.reads[0].cell == t.reads[1].cell);
-    assert(t.reads[0].replica != t.reads[1].replica);
-    assert(t.reads[0].value != t.reads[1].value);
-}
-
-// =====================================================================
-// Section 9: Per-agent replica pinning
-// =====================================================================
-
-/// An alternative A_4 prevention strategy: pin each agent to a
-/// single replica for the duration of its session. This does NOT
-/// prevent A_4 across agents but does prevent it within an
-/// agent's own read sequence.
-pub open spec fn agent_pinned(t: Trace) -> bool {
-    forall |i: int, j: int|
-        #![trigger t.reads[i].agent, t.reads[j].agent]
-        0 <= i < t.reads.len()
-        && 0 <= j < t.reads.len()
-        && t.reads[i].agent == t.reads[j].agent
-        ==> t.reads[i].replica == t.reads[j].replica
-}
-
-/// THEOREM A_4c (Agent pinning suppresses intra-agent A_4).
-/// If every agent reads from a fixed replica, no agent observes
-/// a split-view within its own read sequence. Cross-agent
-/// split-views may still occur.
-pub proof fn lemma_agent_pinning_suppresses_intra_agent_a4(t: Trace)
-    requires agent_pinned(t),
+// Regime non-vacuity: two primary reads MAY legitimately differ in value when
+// they are at different versions. Without this, thm_primary_no_split_at_version
+// could hold vacuously by all primary reads being equal. Here versions 1 and 2
+// carry values 5 and 7, monotone and distinct.
+pub proof fn lemma_cross_version_primary_differs()
     ensures
-        forall |i: int, j: int|
-            0 <= i < t.reads.len()
-            && 0 <= j < t.reads.len()
-            && t.reads[i].agent == t.reads[j].agent
-            && t.reads[i].cell == t.reads[j].cell
-            ==> t.reads[i].replica == t.reads[j].replica,
+        exists|evs: Seq<Ev>, i: nat, j: nat|
+            #![trigger pread_version(evs, i), pread_version(evs, j)]
+            i <= j && j <= evs.len()
+            && pread_version(evs, i) != pread_version(evs, j)
+            && pread_value(evs, i) != pread_value(evs, j),
 {
-    // Direct from agent_pinned.
-}
+    let evs: Seq<Ev> = seq![Ev::Write(5), Ev::ReadP(0), Ev::Write(7), Ev::ReadP(0)];
 
-// =====================================================================
-// Section 10: Lattice extension: L_4 contains ¬A_4
-// =====================================================================
+    assert(state_after(evs, 0) =~= Seq::<int>::empty());
+    assert(state_after(evs, 1) == apply(state_after(evs, 0), evs[0]));
+    assert(state_after(evs, 1) =~= seq![5int]);
+    assert(state_after(evs, 2) == apply(state_after(evs, 1), evs[1]));
+    assert(state_after(evs, 2) =~= seq![5int]);            // ReadP: unchanged
+    assert(state_after(evs, 3) == apply(state_after(evs, 2), evs[2]));
+    assert(state_after(evs, 3) =~= seq![5int, 7int]);
 
-/// THEOREM A_4d (Lattice placement). A trace satisfies the L_4
-/// contract (which the paper defines as the conjunction of
-/// ¬A_1, ¬A_2, ¬A_3, ¬A_6, and ¬A_4) only if A_4 is also absent.
-/// This is a structural statement linking the lattice definition
-/// to the predicate of this file.
-///
-/// We state it tautologically here because the L_4 contract is
-/// definitionally the conjunction including ¬A_4; the operational
-/// value is to confirm that runtimes claiming L_4 placement
-/// (currently no runtime in our survey of contemporary multi-agent
-/// frameworks) would need to prevent A_4. Atomix, SagaLLM, and
-/// CodeCRDT all admit A_4 because none implements a replication
-/// strategy in the survey range.
-pub open spec fn satisfies_no_a4(t: Trace) -> bool {
-    !a4_witness(t)
-}
+    assert(pread_version(evs, 1) == 1);
+    assert(pread_value(evs, 1) == 5);
+    assert(pread_version(evs, 3) == 2);
+    assert(pread_value(evs, 3) == 7);
 
-pub proof fn lemma_no_a4_under_primary_only(t: Trace)
-    requires reads_from_primary_only(t),
-    ensures satisfies_no_a4(t),
-{
-    lemma_primary_only_suppresses_a4(t);
+    assert(1nat <= 3nat && 3nat <= evs.len()
+        && pread_version(evs, 1) != pread_version(evs, 3)
+        && pread_value(evs, 1) != pread_value(evs, 3));
 }
 
 } // verus!
