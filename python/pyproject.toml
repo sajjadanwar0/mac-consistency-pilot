@@ -9,6 +9,7 @@ dependencies = [
     "autogen-core>=0.4",
     "autogen-ext[anthropic,openai]>=0.4",
     "langgraph>=1.2.2",
+    "letta-client>=1.12.1",
     "openai>=2.36.0",
     "scipy>=1.17.1",
 ]
