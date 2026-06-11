@@ -5,12 +5,21 @@
 #
 # What this script does:
 #   1. Clones the three mac-consistency repositories from GitHub
+#      (spec repo pinned to branch `main`; a wrong default branch caused a
+#       paper/artifact split once — never again)
 #   2. Verifies the Verus proof obligations that back the paper's scorecard
-#      (incl. an anti-regression guard on the concurrent-semantics lift)
+#      (incl. an anti-regression guard on the concurrent-semantics lift, and
+#       the restored OCC L1->L2 channel refinement)
 #   3. Runs the GenMC RC11 bounded weak-memory check (positive + negative control)
 #   4. Builds/tests the runtime and reproduces the A3-prevention measurement
 #   5. Best-effort: TLC checks each anomaly-witness spec produces its
-#      counterexample (needs java + tla2tools)
+#      counterexample (needs java + tla2tools), incl. the snapshot-insufficiency
+#      witness MC_A1_struct; MC_A5 is retired (catalog footnote 1)
+#   5b. TLAPS: re-derives the chain-coherence proof (Hierarchy.tla, 21
+#      obligations) and the A1 generation lower bound (A1LowerBound.tla, 28
+#      obligations) with tlapm, pinning the counts the paper cites
+#   5c. Paper-artifact sync assertions: fails loudly if the public artifact
+#      drifts from the generation the paper describes
 #   6. Best-effort: the empirical Python layer (offline checks; --with-live for
 #      the dynamic-prevalence cells that need LLM API keys)
 #   7. High-contention cost envelope (Finding 5): offline keyless guard run;
@@ -18,7 +27,7 @@
 #
 # Usage:
 #   ./reproduce_mac.sh                # Verus + GenMC + runtime + best-effort (~10 min)
-#   ./reproduce_mac.sh --formal-only  # only Verus + GenMC + TLC (~5 min)
+#   ./reproduce_mac.sh --formal-only  # only Verus + GenMC + TLC + TLAPS (~5 min)
 #   ./reproduce_mac.sh --with-live    # also run the live-LLM prevalence + cost cells
 #   ./reproduce_mac.sh --local=DIR    # audit local working trees under DIR
 #                                     # (DIR/mac-consistency-pilot, etc.) instead
@@ -31,14 +40,22 @@
 #   - Optional: GenMC 0.17+ (https://github.com/MPI-SWS/genmc) — weak-memory check
 #   - Optional: java + tla2tools.jar                      — TLC model checking
 #       export TLA_TOOLS=/path/to/tla2tools.jar  (default ~/tla2tools.jar)
+#   - Optional: tlapm (TLAPS)                             — Phase 5b proof re-derivation
+#       export TLAPM=/path/to/tlapm               (default: tlapm on PATH)
 #   - For --with-live: export ANTHROPIC_API_KEY=... and/or OPENAI_API_KEY=...
 #
-# Integrity note:
+# Integrity notes:
 #   lib_concurrent_semantics.rs was, until 2026-06-07, a byte-identical copy of
 #   a probabilistic-refinement file (since removed from the repo) rather than the
 #   atomic-event lift the paper describes. Phase 3 therefore GUARDS that file:
 #   if it lacks the lift signatures or carries any external_body, the script
 #   FAILS loudly instead of counting the wrong file.
+#
+#   2026-06-11: the spec repo's default branch was `master` (a pre-submission
+#   fossil), so fresh clones silently validated a stale artifact while `main`
+#   carried the current generation. The default branch is now `main`, `master`
+#   is deleted, the clone below is branch-pinned, and Phase 5c asserts the
+#   generation markers directly so this entire failure class is detected.
 #
 #   The L2 A3-prevention guarantee is a THEOREM, proved in Phase 3 (the
 #   a3_free capstone of lib_l2_exec.rs: every well-formed exec state is
@@ -62,6 +79,7 @@ set -euo pipefail
 # ---------------------------------------------------------------------------
 GITHUB_USER="sajjadanwar0"
 REPOS=("mac-consistency" "mac-consistency-pilot" "mac-consistency-runtime")
+SPEC_BRANCH="main"   # branch-pin for the spec repo (see 2026-06-11 note above)
 ROOT="$(pwd)/mac-consistency-replication"
 LIVE_MODE=0
 FORMAL_ONLY=0
@@ -69,6 +87,7 @@ LOCAL_BASE=""
 
 TLA_TOOLS="${TLA_TOOLS:-$HOME/tla2tools.jar}"
 VERUS="${VERUS:-verus}"
+TLAPM="${TLAPM:-tlapm}"
 
 # Verus targets: "file|expected_verified". expected_verified is an integer
 # (asserted) or "?" (require 0 errors, report the count without asserting it).
@@ -82,12 +101,25 @@ VERUS_TARGETS=(
   "lib_l3_sequencer.rs|5"              # live-confirmed: concurrent-effect commit-order sequencer, 0 axioms
   "lib_l4_safety.rs|5"                 # live-confirmed
   "lib_a4_split_view.rs|9"             # live-confirmed: monotone-primary no-split (was 5; de-tautologized)
+  "lib_occ_l2_refinement.rs|8"         # live-confirmed 2026-06-11: OCC/ETag L1->L2 channel refinement, 0 axioms (paper sec 6.5)
   "lib_refinement_pessimistic.rs|31"   # live-confirmed
   "lib_refinement_ssi.rs|18"           # live-confirmed
   "lib_refinement_ssi_chain.rs|17"     # live-confirmed
   "lib_refinement_default_si.rs|18"    # live-confirmed
   "lib_langgraph_refinement.rs|7"      # live-confirmed: LangGraph runtime refinement, 0 axioms
   "lib_rustbelt_interface.rs|4"        # live-confirmed: 4 (2 structural + 3 RUSTBELT external_body stubs)
+)
+
+# TLC witness harnesses: each spec's *Free invariant is DESIGNED to be violated;
+# the violation trace IS the anomaly witness. MC_A5 is retired (the catalog has
+# no A5; see paper footnote 1). MC_A1_struct is the snapshot-insufficiency
+# witness of paper sec 4.5 (L1^struct holds, StaleGeneration fires).
+TLC_WITNESS_TARGETS=(MC_A1 MC_A1_struct MC_A2 MC_A3 MC_A6)
+
+# TLAPS targets: "relative/path|expected_obligations"
+TLAPS_TARGETS=(
+  "proofs/Hierarchy.tla|21"      # chain-coherence check (paper sec 4.6)
+  "proofs/A1LowerBound.tla|28"   # A1 generation lower bound (paper sec 4.6)
 )
 
 for arg in "$@"; do
@@ -117,6 +149,7 @@ need python3
 have "$VERUS" || log "  (note: verus not found; Verus phase will be skipped)"
 have genmc    || log "  (note: genmc not found; weak-memory phase will be skipped)"
 have java     || log "  (note: java not found; TLC phase will be skipped)"
+have "$TLAPM" || log "  (note: tlapm not found; TLAPS phase will be skipped)"
 
 # ---------------------------------------------------------------------------
 if [ -n "$LOCAL_BASE" ]; then
@@ -129,12 +162,15 @@ else
     log "Phase 2: Cloning repositories into $ROOT"
     mkdir -p "$ROOT"; cd "$ROOT"
     for repo in "${REPOS[@]}"; do
+        BRANCH_ARGS=()
+        [ "$repo" = "mac-consistency" ] && BRANCH_ARGS=(--branch "$SPEC_BRANCH")
         if [ -d "$repo" ]; then
             log "  $repo exists; pulling latest"
             (cd "$repo" && git pull --quiet --ff-only) || log "    (skipping pull; tree may be dirty)"
         else
-            log "  Cloning $repo"
-            git clone --quiet --depth=1 "https://github.com/$GITHUB_USER/$repo.git" || fail "clone $repo"
+            log "  Cloning $repo ${BRANCH_ARGS[*]:-}"
+            git clone --quiet --depth=1 "${BRANCH_ARGS[@]}" \
+                "https://github.com/$GITHUB_USER/$repo.git" || fail "clone $repo"
         fi
     done
 fi
@@ -228,10 +264,10 @@ elif [ ! -d "$SPECS/tla" ]; then
     skip "TLC phase (mac-consistency/tla not found)"
 else
     cd "$SPECS/tla"
-    for m in MC_A1 MC_A2 MC_A3 MC_A5 MC_A6; do
-        [ -f "$m.tla" ] && [ -f "$m.cfg" ] || { skip "TLC $m (spec/cfg missing)"; continue; }
+    for m in "${TLC_WITNESS_TARGETS[@]}"; do
+        [ -f "$m.tla" ] && [ -f "$m.cfg" ] || { fail "TLC $m: spec/cfg missing (paper claims this witness)"; continue; }
         out="$(java -cp "$TLA_TOOLS" tlc2.TLC -config "$m.cfg" "$m.tla" 2>&1 || true)"
-        # MC_A* are anomaly-WITNESS harnesses: the XxxFree invariant is meant to
+        # These are anomaly-WITNESS harnesses: the XxxFree invariant is meant to
         # be VIOLATED, and the resulting counterexample IS the anomaly witness.
         # Success = TLC reports the violation; "No error" would mean the anomaly
         # became unreachable (the witness broke).
@@ -243,7 +279,88 @@ else
             fail "TLC $m: did not run cleanly (no violation and no completion line — inspect)"
         fi
     done
+
+    # A3 redefinition discrimination check (paper sec 3.3): CAUSALCASCADE fires
+    # on the cascade witness, is silent on a benign serial history, and the
+    # retained RESIDUE fires on that same benign history. Reported, not pinned:
+    # run it once, confirm the intended outcome string, then promote the branch
+    # below from `skip` to ok/fail on that exact outcome.
+    if [ -f "A3_witness_check.tla" ] && [ -f "A3_witness_check.cfg" ]; then
+        out="$(java -cp "$TLA_TOOLS" tlc2.TLC -config A3_witness_check.cfg A3_witness_check.tla 2>&1 || true)"
+        summary="$(echo "$out" | grep -E 'violated|No error has been found' | head -2 | tr '\n' ' ')"
+        skip "TLC A3_witness_check ran; outcome: ${summary:-unparsed} — PIN expected outcome here after confirming sec 3.3 semantics"
+    else
+        fail "TLC A3_witness_check: spec/cfg missing (paper sec 3.3 claims this check)"
+    fi
     cd "$ROOT"
+fi
+
+# ---------------------------------------------------------------------------
+log "Phase 5b: TLAPS proof re-derivation (Hierarchy + A1LowerBound)"
+if ! have "$TLAPM"; then
+    skip "TLAPS phase (tlapm not on PATH; set TLAPM=)"
+elif [ ! -d "$SPECS/proofs" ]; then
+    skip "TLAPS phase (mac-consistency/proofs not found)"
+else
+    for tgt in "${TLAPS_TARGETS[@]}"; do
+        rel="${tgt%%|*}"; want="${tgt##*|}"
+        f="$SPECS/$rel"
+        [ -f "$f" ] || { fail "TLAPS $rel: file not found (paper sec 4.6 claims it)"; continue; }
+        out="$( (cd "$(dirname "$f")" && "$TLAPM" --cleanfp "$(basename "$f")") 2>&1 || true)"
+        if echo "$out" | grep -q "All $want obligations proved"; then
+            ok "TLAPS $rel: all $want obligations proved"
+        else
+            got="$(echo "$out" | grep -Eo 'All [0-9]+ obligations? proved' | tail -1)"
+            fail "TLAPS $rel: expected 'All $want obligations proved'; got '${got:-no proved-summary}'"
+        fi
+    done
+fi
+
+# ---------------------------------------------------------------------------
+log "Phase 5c: Paper-artifact sync assertions"
+if [ ! -d "$SPECS" ]; then
+    skip "sync assertions (spec repo not found)"
+else
+    # Generation marker 1: the five-point chain (paper sec 4.1)
+    if grep -q 'L2(h) == /\\ L1(h)' "$SPECS/tla/Levels.tla" 2>/dev/null; then
+        ok "Levels.tla carries the paper's L0-L4 chain (L2 = L1 + ~CausalCascade form)"
+    else
+        fail "Levels.tla does not match the paper's chain — pre-submission generation?"
+    fi
+    # Generation marker 2: A5 fully retired (paper footnote 1)
+    if ls "$SPECS"/tla/*A5* >/dev/null 2>&1; then
+        fail "MC_A5 artifacts still present: the catalog has no A5"
+    else
+        ok "A5 fully retired from the artifact"
+    fi
+    # Generation marker 3: Hierarchy.tla is the linear L0-L4 rewrite
+    if grep -qE '\bL5\b|\bL6\b' "$SPECS/proofs/Hierarchy.tla" 2>/dev/null; then
+        fail "proofs/Hierarchy.tla references L5/L6 — old 7-level generation"
+    else
+        ok "proofs/Hierarchy.tla is the linear L0-L4 generation"
+    fi
+    # Generation marker 4: snapshot-insufficiency witness exists (paper sec 4.5)
+    if [ -f "$SPECS/tla/MC_A1_struct.tla" ] && [ -f "$SPECS/tla/MC_A1_struct_witness.txt" ]; then
+        ok "MC_A1_struct spec + witness present"
+    else
+        fail "MC_A1_struct spec/witness missing (paper sec 4.5 claims them)"
+    fi
+    # Generation marker 5: the precise-A3/residue split must live where the
+    # paper says it lives ("Anomalies.tla now defines CAUSALCASCADE ... and
+    # retains ... CAUSALCASCADERESIDUE", sec 3.3).
+    if grep -qiE 'CausalCascadeResidue|CAUSALCASCADERESIDUE' "$SPECS/tla/Anomalies.tla" 2>/dev/null; then
+        ok "Anomalies.tla carries the cascade/residue split (matches paper sec 3.3)"
+    elif grep -qiE 'CausalCascadeResidue|CAUSALCASCADERESIDUE' "$SPECS/tla/Anomalies_A3_redef.tla" 2>/dev/null; then
+        fail "cascade/residue split lives only in Anomalies_A3_redef.tla — merge it into Anomalies.tla or fix the paper's sec 3.3 pointer"
+    else
+        fail "cascade/residue split not found in the artifact at all (paper sec 3.3 claims it)"
+    fi
+    # Generation marker 6: no binaries/junk on the tip
+    if find "$SPECS" -name '*.jar' -o -name '*_TTrace_*' | grep -q .; then
+        fail "binary/trace junk present on the artifact tip"
+    else
+        ok "artifact tip is clean of jars and TLC trace dumps"
+    fi
 fi
 
 if [[ $FORMAL_ONLY -eq 1 ]]; then
@@ -292,7 +409,8 @@ fi
 PY="$PILOT/python"
 for s in mast_adapter.py prevalence_static.py prevalence_dynamic_run.py \
          deerflow_3123_repro.py paired_cost_analysis.py judge_audit.py \
-         high_contention_cost.py; do
+         high_contention_cost.py letta_a1_probe.py wallclock_cost_study.py \
+         tokens_capture.py analyze_production.py; do
     [ -f "$PY/$s" ] && ok "empirical script present: python/$s" || skip "empirical script missing: python/$s"
 done
 
