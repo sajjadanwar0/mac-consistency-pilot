@@ -15,8 +15,18 @@
 #   ONCE per re-inclusion edge, and prints the arithmetic so the total is
 #   auditable rather than asserted.
 #
+# 2026-06-11 note: lib_occ_l2_refinement.rs (OCC/ETag L1->L2 channel
+#   refinement, paper sec 6.5; live-confirmed 8 verified, 0 errors) is restored
+#   to the crate and is a COUNTED file — it is cited with a verified count in
+#   the paper, so it must appear in the totals, not in EXCLUDE. Its inclusion
+#   shifts the printed totals relative to pre-restoration runs (expected:
+#   curated 250 -> 258, full 271 -> 279). As always, the figures below are
+#   whatever the live run prints, and the paper headline MUST be reconciled
+#   to that printed DISTINCT total (not the other way around).
+#
 # Usage:
-#   ./verus_count.sh                 # clone the pilot repo, count from it
+#   ./verus_count.sh                 # clone the pilot repo, count (curated total)
+#   ./verus_count.sh --full          # empty EXCLUDE: full distinct total
 #   ./verus_count.sh --local=DIR     # count DIR/mac-consistency-pilot/verus-detector
 #   VERUS=/path/to/verus ./verus_count.sh
 #
@@ -29,9 +39,11 @@ set -uo pipefail   # deliberately NOT -e: we continue past per-file errors
 GITHUB_USER="sajjadanwar0"
 VERUS="${VERUS:-verus}"
 LOCAL_BASE=""
+FULL=0
 for arg in "$@"; do
     case "$arg" in
         --local=*) LOCAL_BASE="${arg#*=}" ;;
+        --full|--include-all) FULL=1 ;;   # clear EXCLUDE: compute the full distinct total
         --help|-h) sed -n '2,/^set -u/p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     esac
 done
@@ -39,21 +51,39 @@ done
 # Declared TEXTUAL re-inclusions: "parent.rs:child.rs" — parent copies child's
 # obligations inline (not via `mod`). `mod` re-inclusions are auto-detected.
 # Add a line here only if you confirm a file inlines another file's model.
+# (lib_occ_l2_refinement.rs is self-contained: no mod or textual re-inclusion.)
 TEXTUAL_REINCLUSION=(
   "lib_l2_exec.rs:lib_l2_safety.rs"   # l2_exec inlines the 22-obligation L2 model
 )
 
-# Files to EXCLUDE from the distinct total (superseded / not a paper contributor).
-# Seed empty; add a basename here only after deciding a file is superseded.
-EXCLUDE=(
-  "lib_detect_a1_exec.rs"          # exec helper, not a headline lattice contribution
-  "lib_pessimistic_exec.rs"        # exec helper
-  "lib_pessimistic_invariant.rs"   # invariant helper (folded into / re-derived by the pessimistic proofs)
-  "lib_si_commit_invariant.rs"     # invariant helper (folded into / re-derived by the SSI refinement)
+# Files with NO countable obligations (exec/test scaffolding). ALWAYS skipped,
+# in both curated and --full modes, because `verus` prints no "N verified"
+# summary for them and counting them would mark the run INCOMPLETE.
+NEVER_COUNT=(
   "verified_a1.rs"                 # exec/test file, no proof obligations
 )
-# Empty EXCLUDE entirely to compute the FULL de-duplicated total (258, v1 removed) across
-# every verified file instead of the paper's curated headline (237).
+
+# Files to EXCLUDE from the CURATED total only (they DO verify, but are not
+# headline lattice points). --full empties this list; NEVER_COUNT files stay
+# skipped regardless. NOTE: entries for files no longer in the repo (e.g. the
+# removed probabilistic development) are harmless no-ops. Do NOT add
+# lib_occ_l2_refinement.rs here: it is a cited contribution (paper sec 6.5)
+# and must be counted in both modes.
+EXCLUDE=(
+  "lib_probabilistic_a1.rs"        # superseded probabilistic v1 (if present)
+  "lib_probabilistic_a1_v2.rs"     # demoted probabilistic v2 screen (if present)
+  "lib_detect_a1_exec.rs"          # exec helper, not a headline lattice contribution
+  "lib_pessimistic_exec.rs"        # exec helper
+  "lib_pessimistic_invariant.rs"   # invariant helper
+  "lib_si_commit_invariant.rs"     # invariant helper
+)
+# The curated total subtracts the EXCLUDE files' obligations from the full
+# total; --full reports the full total. The exact figures are whatever the
+# live run prints below, and the paper's headline MUST be reconciled to that
+# printed DISTINCT total (not the other way around).
+
+# --full / --include-all empties EXCLUDE to compute the full distinct total.
+[ "${FULL:-0}" -eq 1 ] && EXCLUDE=()
 
 log()  { printf "\033[1;34m%s\033[0m\n" "$*"; }
 ok()   { printf "  \033[1;32m\xe2\x9c\x93\033[0m %s\n" "$*"; }
@@ -65,7 +95,10 @@ if [ -n "$LOCAL_BASE" ]; then
     VDET="$LOCAL_BASE/mac-consistency-pilot/verus-detector"
 else
     WORK="$(pwd)/verus-count-clone"; mkdir -p "$WORK"; cd "$WORK"
-    [ -d mac-consistency-pilot ] || git clone --quiet --depth=1 \
+    # Always refresh: a cached clone from a previous run would mask pushed
+    # changes (a stale cache is why a re-run could keep showing an old total).
+    rm -rf mac-consistency-pilot
+    git clone --quiet --depth=1 \
         "https://github.com/$GITHUB_USER/mac-consistency-pilot.git"
     VDET="$WORK/mac-consistency-pilot/verus-detector"
 fi
@@ -84,9 +117,14 @@ FILES=()
 for path in src/*.rs; do FILES+=("$(basename "$path")"); done
 IFS=$'\n' FILES=($(printf '%s\n' "${FILES[@]}" | sort)); unset IFS
 
-is_excluded() { local x; for x in "${EXCLUDE[@]:-}"; do [ "$x" = "$1" ] && return 0; done; return 1; }
+is_excluded()    { local x; for x in "${EXCLUDE[@]:-}";    do [ "$x" = "$1" ] && return 0; done; return 1; }
+is_never_count() { local x; for x in "${NEVER_COUNT[@]:-}"; do [ "$x" = "$1" ] && return 0; done; return 1; }
 
 for f in "${FILES[@]}"; do
+    if is_never_count "$f"; then
+        printf "  \033[2m(no obligations) %-24s\033[0m\n" "$f"
+        continue
+    fi
     if is_excluded "$f"; then
         printf "  \033[2m(excluded) %-30s\033[0m\n" "$f"
         continue
@@ -149,7 +187,7 @@ DISTINCT=$((RAW - REINCLUDED))
 echo
 log "Totals"
 printf "  raw per-file sum (counted files)      %s\n" "$RAW"
-[ "${#EXCLUDE[@]}" -gt 0 ] && printf "  (%s file(s) excluded as superseded/helper — empty EXCLUDE for the full 258)\n" "${#EXCLUDE[@]}"
+[ "${#EXCLUDE[@]}" -gt 0 ] && printf "  (%s file(s) excluded as superseded/helper — run --full for the full total)\n" "${#EXCLUDE[@]}"
 printf "  re-included (double-counted) removed  -%s\n" "$REINCLUDED"
 printf "  ------------------------------------------\n"
 printf "  DISTINCT obligation total             %s\n" "$DISTINCT"
@@ -159,8 +197,8 @@ if [ "$INCOMPLETE" -eq 1 ]; then
     exit 1
 fi
 ok "All counted files verified at 0 errors."
-echo "  This DISTINCT total = every verified obligation in the crate, with"
-echo "  re-included (mod / textual) obligations removed once. It is the full"
-echo "  mechanical figure. The paper's headline counts a CURATED subset"
-echo "  (e.g. probabilistic v2 only, not the superseded v1) — to reproduce that"
-echo "  curated number, add superseded/helper files to EXCLUDE above and re-run."
+echo "  This DISTINCT total = every counted obligation in the crate, with"
+echo "  re-included (mod / textual) obligations removed once. The default run"
+echo "  is the curated headline (EXCLUDE applied); --full is the full distinct"
+echo "  total. This printed figure is authoritative: the paper headline must"
+echo "  match it."

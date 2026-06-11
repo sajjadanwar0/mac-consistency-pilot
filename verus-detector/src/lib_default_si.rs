@@ -1,63 +1,7 @@
-// =====================================================================
-// Verus proof: Default-SI conditional safety theorem.
-//
-// COMPANION FILE
-//   Standalone proof for the default-SI strategy of
-//   `mac-consistency-runtime` (validate_no_write = false). Compile with:
-//
-//     verus --crate-type=lib src/lib_default_si.rs
-//
-// MODEL
-//   Default-SI differs from SSI in one respect: an agent committing
-//   with an EMPTY write_set bypasses read-set validation. This is the
-//   classical no-write-stale-read gap. The state machine here has
-//   FOUR transition kinds:
-//
-//     - default_si_begin_step           (same as SSI begin)
-//     - default_si_commit_validated     (non-empty write_set, validation
-//                                        must pass)
-//     - default_si_commit_bypass        (empty write_set, no validation,
-//                                        record still emitted)
-//     - default_si_commit_abort         (validation fails on non-empty
-//                                        write_set)
-//
-//   Under the bypass transition, an OpRecord with empty write_set is
-//   appended to the trace, but the agent may have read stale values
-//   relative to concurrent committers. The empirically-observed
-//   3 % rate in the triage workload (paper Sec. 5.5) is the manifestation.
-//
-// CONDITIONAL THEOREM
-//   We prove that under the "all-writers" workload hypothesis ---
-//   every record in the trace has non-empty write_set --- default-SI
-//   satisfies !A_1:
-//
-//     theorem_default_si_conditional_prevents_a1(s):
-//       requires reachable(s)
-//       requires all_records_have_writes(s.trace)
-//       ensures !a1(s.trace)
-//
-//   The hypothesis is exactly the absence of bypass transitions in
-//   any execution leading to s: a bypass transition appends an
-//   empty-write-set record, which would violate the hypothesis at
-//   the resulting state. Hence under the hypothesis, every commit
-//   in the leading execution went through validation, and the SSI
-//   safety argument applies.
-//
-// FIX HISTORY
-//   v1: first draft
-//   v2: moved two malformed #[trigger] annotations off the boolean
-//       negation onto the write_set field access (Verus requires a
-//       trigger to be a call/field/arith term); ASCII-only header.
-
 #![allow(unused_imports)]
 use vstd::prelude::*;
 
 verus! {
-
-// =====================================================================
-// Section 1: Abstract trace model
-// =====================================================================
-
 pub type CellId = int;
 pub type AgentId = int;
 pub type Value = int;
@@ -92,10 +36,6 @@ pub open spec fn all_records_have_writes(h: Seq<OpRecord>) -> bool {
         0 <= i < h.len() ==> !h[i].write_set.is_empty()
 }
 
-// =====================================================================
-// Section 2: State (identical to SSI)
-// =====================================================================
-
 pub struct PendingSnapshot {
     pub read_time: Time,
     pub read_values: Map<CellId, Value>,
@@ -128,10 +68,6 @@ pub open spec fn validation_passes(s: &DefaultSiState, ps: PendingSnapshot) -> b
         #[trigger] ps.read_values.contains_key(c)
         ==> last_write_of(s, c) <= ps.read_time
 }
-
-// =====================================================================
-// Section 3: Update specs (identical to SSI)
-// =====================================================================
 
 pub open spec fn last_write_after_commit(
     base: Map<CellId, Time>,
@@ -173,10 +109,6 @@ pub open spec fn read_values_snapshot(
     )
 }
 
-// =====================================================================
-// Section 4: Four transitions
-// =====================================================================
-
 pub open spec fn can_begin(s: &DefaultSiState, agent: AgentId) -> bool {
     !s.pending.contains_key(agent)
 }
@@ -206,7 +138,6 @@ pub open spec fn can_commit(s: &DefaultSiState, agent: AgentId) -> bool {
     s.pending.contains_key(agent)
 }
 
-// Validated commit: non-empty write_set, validation must pass.
 pub open spec fn default_si_commit_validated_step(
     s: &DefaultSiState,
     agent: AgentId,
@@ -234,8 +165,6 @@ pub open spec fn default_si_commit_validated_step(
     })
 }
 
-// Bypass commit: empty write_set, no validation. Appends an empty
-// record. This is the no-write gap in default-SI.
 pub open spec fn default_si_commit_bypass_step(
     s: &DefaultSiState,
     agent: AgentId,
@@ -257,7 +186,6 @@ pub open spec fn default_si_commit_bypass_step(
     })
 }
 
-// Abort: validation failed on a non-empty write_set commit attempt.
 pub open spec fn default_si_commit_abort_step(
     s: &DefaultSiState,
     agent: AgentId,
@@ -271,10 +199,6 @@ pub open spec fn default_si_commit_abort_step(
     && s_new.trace == s.trace
     && s_new.pending == s.pending.remove(agent)
 }
-
-// =====================================================================
-// Section 5: Invariants (identical to SSI; safety is the same)
-// =====================================================================
 
 pub open spec fn inv_clock_monotone(s: &DefaultSiState) -> bool {
     forall |i: int|
@@ -329,10 +253,6 @@ pub open spec fn all_invariants(s: &DefaultSiState) -> bool {
     && inv_last_write_finite(s)
 }
 
-// =====================================================================
-// Section 6: Safety from invariants
-// =====================================================================
-
 pub proof fn default_si_no_a1(s: &DefaultSiState)
     requires all_invariants(s)
     ensures !a1(s.trace)
@@ -353,10 +273,6 @@ pub proof fn default_si_no_a1(s: &DefaultSiState)
     }
 }
 
-// =====================================================================
-// Section 7: Init satisfies invariants
-// =====================================================================
-
 pub proof fn lemma_init_invariants()
     ensures all_invariants(&init_default_si_state())
 {
@@ -365,10 +281,6 @@ pub proof fn lemma_init_invariants()
     assert(s.pending.dom() =~= Set::<AgentId>::empty());
     assert(s.last_write.dom() =~= Set::<CellId>::empty());
 }
-
-// =====================================================================
-// Section 8: begin_step preserves
-// =====================================================================
 
 pub proof fn lemma_begin_preserves(
     s: &DefaultSiState,
@@ -400,14 +312,6 @@ pub proof fn lemma_begin_preserves(
 
     assert(s_new.pending.dom() =~= s.pending.dom().insert(agent));
 }
-
-// =====================================================================
-// Section 9: commit_validated preserves
-//
-// Identical to SSI commit_success_preserves; the !write_set.is_empty()
-// precondition is additional but does not affect the invariant
-// arguments (they are the same as in SSI).
-// =====================================================================
 
 pub proof fn lemma_commit_validated_preserves(
     s: &DefaultSiState,
@@ -487,6 +391,7 @@ pub proof fn lemma_commit_validated_preserves(
     };
 
     let ps = s.pending[agent];
+
     assert forall |i: int, j: int, c: CellId|
         0 <= i < s_new.trace.len() && 0 <= j < s_new.trace.len()
         && #[trigger] s_new.trace[i].read_set.contains(c)
@@ -525,10 +430,6 @@ pub proof fn lemma_commit_validated_preserves(
     assert(s_new.last_write.dom() =~= s.last_write.dom().union(write_set));
 }
 
-// =====================================================================
-// Section 10: commit_abort preserves
-// =====================================================================
-
 pub proof fn lemma_commit_abort_preserves(
     s: &DefaultSiState,
     s_new: &DefaultSiState,
@@ -555,10 +456,6 @@ pub proof fn lemma_commit_abort_preserves(
 
     assert(s_new.pending.dom() =~= s.pending.dom().remove(agent));
 }
-
-// =====================================================================
-// Section 11: Reachability with four transition kinds
-// =====================================================================
 
 pub open spec fn is_begin_successor(s_pre: &DefaultSiState, s: &DefaultSiState) -> bool {
     exists |a: AgentId, rc: Set<CellId>| default_si_begin_step(s_pre, a, rc, s)
@@ -596,20 +493,6 @@ pub open spec fn reachable(s: &DefaultSiState) -> bool {
         #[trigger] execution(states) && states.last() == *s
 }
 
-// =====================================================================
-// Section 12: Conditional invariants lemma.
-//
-// The conditional hypothesis is all_records_have_writes(s.trace).
-// Under this hypothesis, the bypass transition cannot have fired in
-// any prefix of the execution (it would have added an empty-write-set
-// record that would survive in the trace). So at every state in the
-// execution, the trace contains only non-empty-write-set records,
-// the bypass case is excluded, and the validated-commit case carries
-// the same argument as in SSI.
-// =====================================================================
-
-// Key observation: trace grows monotonically, so if final state has
-// all-non-empty records, every prefix also does.
 pub proof fn lemma_prefix_preserves_writes(
     full: Seq<OpRecord>,
     k: int,
@@ -667,17 +550,6 @@ pub proof fn lemma_states_imply_invariants(states: Seq<DefaultSiState>)
         assert(prefix.last() == s_pre);
         assert(reachable_step(&s_pre, &s_cur));
 
-        // Establish prefix.last().trace has all writes.
-        // Case analysis on which transition fired:
-        //   * begin / abort: s_cur.trace == s_pre.trace, prefix's
-        //     trace is identical to s_cur.trace, hypothesis carries.
-        //   * commit_validated: s_cur.trace = s_pre.trace.push(non-empty),
-        //     so s_pre.trace is s_cur.trace minus last record. By
-        //     subrange lemma, all-writes carries to prefix.
-        //   * commit_bypass: s_cur.trace = s_pre.trace.push(empty). The
-        //     last record has empty write_set. But all_records_have_writes
-        //     on s_cur.trace says every record is non-empty. Contradiction.
-        //     This case is impossible.
         if is_commit_bypass_successor(&s_pre, &s_cur) {
             let a = choose |a: AgentId| default_si_commit_bypass_step(&s_pre, a, &s_cur);
             assert(default_si_commit_bypass_step(&s_pre, a, &s_cur));
@@ -685,14 +557,13 @@ pub proof fn lemma_states_imply_invariants(states: Seq<DefaultSiState>)
             assert(s_cur.trace.len() == n + 1);
             assert(s_cur.trace[n].write_set == Set::<CellId>::empty());
             assert(s_cur.trace[n].write_set.is_empty());
-            // But all_records_have_writes(s_cur.trace) says !s_cur.trace[n].write_set.is_empty().
             assert(0 <= n < s_cur.trace.len());
             assert(!s_cur.trace[n].write_set.is_empty());
             assert(false);
         }
 
-        // Establish prefix-trace satisfies all_records_have_writes.
         assert(prefix.last().trace == s_pre.trace);
+
         if is_begin_successor(&s_pre, &s_cur) {
             let pair = choose |a: AgentId, rc: Set<CellId>|
                 default_si_begin_step(&s_pre, a, rc, &s_cur);
@@ -704,12 +575,10 @@ pub proof fn lemma_states_imply_invariants(states: Seq<DefaultSiState>)
             let ws = triple.1;
             let wv = triple.2;
             assert(default_si_commit_validated_step(&s_pre, a, ws, wv, &s_cur));
-            // s_cur.trace = s_pre.trace.push(r). s_pre.trace is s_cur.trace.subrange(0, len-1).
             assert(s_cur.trace == s_pre.trace.push(s_cur.trace[s_pre.trace.len() as int]));
             assert(s_pre.trace == s_cur.trace.subrange(0, s_pre.trace.len() as int));
             lemma_prefix_preserves_writes(s_cur.trace, s_pre.trace.len() as int);
         } else {
-            // commit_abort: s_cur.trace == s_pre.trace
             assert(is_commit_abort_successor(&s_pre, &s_cur));
             let a = choose |a: AgentId| default_si_commit_abort_step(&s_pre, a, &s_cur);
             assert(default_si_commit_abort_step(&s_pre, a, &s_cur));
@@ -719,12 +588,10 @@ pub proof fn lemma_states_imply_invariants(states: Seq<DefaultSiState>)
         assert(all_records_have_writes(s_pre.trace));
         assert(all_records_have_writes(prefix.last().trace));
 
-        // Recursive call.
         lemma_states_imply_invariants(prefix);
         assert(all_invariants(&prefix.last()));
         assert(all_invariants(&s_pre));
 
-        // Dispatch on transition kind.
         if is_begin_successor(&s_pre, &s_cur) {
             let pair = choose |a: AgentId, rc: Set<CellId>|
                 default_si_begin_step(&s_pre, a, rc, &s_cur);
@@ -762,10 +629,6 @@ pub proof fn lemma_invariants_inductive_conditional(s: &DefaultSiState)
     lemma_states_imply_invariants(states);
     assert(states.last() == *s);
 }
-
-// =====================================================================
-// Section 13: Conditional theorem
-// =====================================================================
 
 pub proof fn theorem_default_si_conditional_prevents_a1(s: &DefaultSiState)
     requires

@@ -1,38 +1,7 @@
-// Verus proof: pessimistic-locking runtime produces traces satisfying !A_1.
-//
-// SCOPE
-//   Sequential safety: under any sequential interleaving of begin/commit
-//   calls by N agents, the pessimistic-locking runtime produces an
-//   OpRecord trace that does not satisfy A_1.
-//
-// TARGET STATUS
-//   Zero `assume` placeholders, zero `external_body` axioms in proof bodies.
-//
-// MODEL CHANGES vs. earlier draft
-//   1. `inv_lock_unique` strengthened from a one-way implication to a
-//      partition (locks <-> holds biconditional). The runtime maintains
-//      this property by construction; we make the invariant explicit so
-//      L3's `inv_pending_implies_locks` preservation closes.
-//   2. Two finiteness invariants added (`inv_holds_finite`,
-//      `inv_pending_snapshot_finite`) so `Set::to_seq()` and
-//      `Map::dom().to_seq()` invocations are well-formed.
-//   3. `commit_step` releases agent's locks via the direct recursive
-//      spec `locks_with_released` instead of `Set::fold`. Semantically
-//      equivalent; eliminates the need for a Set::fold axiom.
-//   4. `begin_step`'s fold_left expressions are replaced by recursive
-//      shadow specs (`locks_with_acquired`, `holds_set_with_acquired`,
-//      `snapshot_built`). These match Verus's drop_last/last fold form
-//      so they unfold definitionally.
-
 #![allow(unused_imports)]
 use vstd::prelude::*;
 
 verus! {
-
-// =====================================================================
-// Section 1: Abstract trace model
-// =====================================================================
-
 pub type CellId = int;
 pub type AgentId = int;
 pub type Value = int;
@@ -62,10 +31,6 @@ pub open spec fn a1(h: Seq<OpRecord>) -> bool {
         && h[i].read_values[c] != h[j].write_values[c]
 }
 
-// =====================================================================
-// Section 2: Runtime state and recursive shadow specs
-// =====================================================================
-
 pub struct RuntimeState {
     pub cells: Map<CellId, Value>,
     pub locks: Map<CellId, AgentId>,
@@ -85,8 +50,6 @@ pub open spec fn init_state() -> RuntimeState {
         trace: Seq::<OpRecord>::empty(),
     }
 }
-
-// ---- Recursive shadow specs ------------------------------------------
 
 pub open spec fn locks_with_acquired(
     base: Map<CellId, AgentId>,
@@ -132,7 +95,6 @@ pub open spec fn snapshot_built(
     }
 }
 
-// Direct spec: "the lock map restricted to keys not in `to_remove`."
 pub open spec fn locks_with_released(
     base: Map<CellId, AgentId>,
     to_remove: Set<CellId>,
@@ -142,8 +104,6 @@ pub open spec fn locks_with_released(
         |c: CellId| base[c],
     )
 }
-
-// ---- Properties of the recursive shadows -----------------------------
 
 pub proof fn lemma_locks_with_acquired_in(
     base: Map<CellId, AgentId>,
@@ -308,10 +268,6 @@ pub proof fn lemma_snapshot_built_finite(
     }
 }
 
-// =====================================================================
-// Section 3: Transitions
-// =====================================================================
-
 pub open spec fn can_begin(s: &RuntimeState, agent: AgentId, cells: Seq<CellId>) -> bool {
     forall |c: CellId| #[trigger] cells.contains(c) ==>
         (!s.locks.contains_key(c) || s.locks[c] == agent)
@@ -394,10 +350,6 @@ pub open spec fn commit_step(
     }
 }
 
-// =====================================================================
-// Section 4: Invariants
-// =====================================================================
-
 pub open spec fn inv_clock_monotone(s: &RuntimeState) -> bool {
     forall |i: int| 0 <= i < s.trace.len() ==>
         #[trigger] s.trace[i].write_time <= s.clock
@@ -405,41 +357,28 @@ pub open spec fn inv_clock_monotone(s: &RuntimeState) -> bool {
             #[trigger] s.trace[k].write_time < s.trace[i].write_time)
 }
 
-// Two separate invariants forming the partition. Splitting avoids a
-// conjunction-step on the `assert(inv_lock_unique(...))` form that Verus
-// has trouble closing even when both forall instances have been proven.
-
-// Four single-conjunct invariants forming the lock-holds partition.
-// Single-conjunct foralls are more reliably matched by Verus's SMT than
-// foralls whose body contains a conjunction.
-
-// Forward direction, conjunct 1: s.locks[c]'s agent is registered in holds.
 pub open spec fn inv_lock_unique_a1(s: &RuntimeState) -> bool {
     forall |c: CellId| #[trigger] s.locks.contains_key(c) ==>
         s.holds.contains_key(s.locks[c])
 }
 
-// Forward direction, conjunct 2: that agent's holds set contains c.
 pub open spec fn inv_lock_unique_a2(s: &RuntimeState) -> bool {
     forall |c: CellId| #[trigger] s.locks.contains_key(c) ==>
         s.holds[s.locks[c]].contains(c)
 }
 
-// Reverse direction, conjunct 1: if any agent holds c, then s.locks[c] exists.
 pub open spec fn inv_lock_unique_b1(s: &RuntimeState) -> bool {
     forall |a: AgentId, c: CellId|
         s.holds.contains_key(a) && #[trigger] s.holds[a].contains(c) ==>
             s.locks.contains_key(c)
 }
 
-// Reverse direction, conjunct 2: that agent equals s.locks[c].
 pub open spec fn inv_lock_unique_b2(s: &RuntimeState) -> bool {
     forall |a: AgentId, c: CellId|
         s.holds.contains_key(a) && #[trigger] s.holds[a].contains(c) ==>
             s.locks[c] == a
 }
 
-// Helper accessors that bypass trigger fragility.
 pub proof fn lemma_inv_lock_unique_lookup(s: &RuntimeState, c: CellId)
     requires
         inv_lock_unique_a1(s), inv_lock_unique_a2(s),
@@ -508,10 +447,6 @@ pub open spec fn all_invariants(s: &RuntimeState) -> bool {
     && inv_pending_snapshot_finite(s)
 }
 
-// =====================================================================
-// Section 5: Safety theorem (single-state form)
-// =====================================================================
-
 pub proof fn pessimistic_no_a1(s: &RuntimeState)
     requires inv_records_held_locks_through_commit(s)
     ensures !a1(s.trace)
@@ -537,10 +472,6 @@ pub proof fn pessimistic_no_a1(s: &RuntimeState)
     }
 }
 
-// =====================================================================
-// Section 6: Inductive lemmas
-// =====================================================================
-
 pub proof fn lemma_init_invariants()
     ensures all_invariants(&init_state())
 {
@@ -562,9 +493,7 @@ pub proof fn lemma_init_invariants()
     assert(inv_pending_snapshot_finite(&s0));
 }
 
-// ---- L2: begin preserves all invariants ------------------------------
 
-// Extracted: inv_lock_unique_a1 + a2 (forward direction) preservation under begin.
 pub proof fn lemma_begin_preserves_lock_unique_a(
     s: &RuntimeState,
     agent: AgentId,
@@ -588,7 +517,6 @@ pub proof fn lemma_begin_preserves_lock_unique_a(
     assert(s_new.locks == locks_with_acquired(s.locks, cells, agent));
     assert(s_new.holds == s.holds.insert(agent, new_holds_set));
 
-    // a1: contains_key part
     assert forall |c: CellId| s_new.locks.contains_key(c) implies
         s_new.holds.contains_key(s_new.locks[c]) by
     {
@@ -601,7 +529,6 @@ pub proof fn lemma_begin_preserves_lock_unique_a(
         }
     };
 
-    // a2: holds.contains part
     assert forall |c: CellId| s_new.locks.contains_key(c) implies
         s_new.holds[s_new.locks[c]].contains(c) by
     {
@@ -625,7 +552,6 @@ pub proof fn lemma_begin_preserves_lock_unique_a(
     };
 }
 
-// Extracted: inv_lock_unique_b1 + b2 (reverse direction / partition) preservation under begin.
 pub proof fn lemma_begin_preserves_lock_unique_b(
     s: &RuntimeState,
     agent: AgentId,
@@ -649,7 +575,6 @@ pub proof fn lemma_begin_preserves_lock_unique_b(
     assert(s_new.locks == locks_with_acquired(s.locks, cells, agent));
     assert(s_new.holds == s.holds.insert(agent, new_holds_set));
 
-    // b1: contains_key part
     assert forall |a: AgentId, c: CellId|
         s_new.holds.contains_key(a) && #[trigger] s_new.holds[a].contains(c) implies
             s_new.locks.contains_key(c) by
@@ -682,7 +607,6 @@ pub proof fn lemma_begin_preserves_lock_unique_b(
         }
     };
 
-    // b2: equality part
     assert forall |a: AgentId, c: CellId|
         s_new.holds.contains_key(a) && #[trigger] s_new.holds[a].contains(c) implies
             s_new.locks[c] == a by
@@ -743,11 +667,9 @@ pub proof fn lemma_begin_preserves(
     assert(s_new.clock == s.clock);
     assert(s_new.cells == s.cells);
 
-    // Trace and clock unchanged: monotonicity and history obligations follow trivially.
     assert(inv_clock_monotone(&s_new));
     assert(inv_records_held_locks_through_commit(&s_new));
 
-    // ---- inv_pending_separates_old_writes ----
     assert forall |a: AgentId, c: CellId|
         s_new.pending_snapshot.contains_key(a)
         && #[trigger] s_new.pending_snapshot[a].0.dom().contains(c) implies
@@ -778,7 +700,6 @@ pub proof fn lemma_begin_preserves(
     };
     assert(inv_pending_separates_old_writes(&s_new));
 
-    // ---- inv_lock_unique (forward + reverse via extracted lemmas) ----
     lemma_begin_preserves_lock_unique_a(s, agent, cells);
     lemma_begin_preserves_lock_unique_b(s, agent, cells);
     assert(inv_lock_unique_a1(&s_new));
@@ -786,7 +707,6 @@ pub proof fn lemma_begin_preserves(
     assert(inv_lock_unique_b1(&s_new));
     assert(inv_lock_unique_b2(&s_new));
 
-    // ---- inv_pending_implies_locks ----
     assert forall |a: AgentId| s_new.pending_snapshot.contains_key(a) implies
         (forall |c: CellId| #[trigger] s_new.pending_snapshot[a].0.dom().contains(c) ==>
             (s_new.locks.contains_key(c) && s_new.locks[c] == a)) by
@@ -817,7 +737,6 @@ pub proof fn lemma_begin_preserves(
     };
     assert(inv_pending_implies_locks(&s_new));
 
-    // ---- inv_holds_finite ----
     assert forall |a: AgentId| #[trigger] s_new.holds.contains_key(a) implies s_new.holds[a].finite() by
     {
         if a == agent {
@@ -837,7 +756,6 @@ pub proof fn lemma_begin_preserves(
     };
     assert(inv_holds_finite(&s_new));
 
-    // ---- inv_pending_snapshot_finite ----
     assert forall |a: AgentId| #[trigger] s_new.pending_snapshot.contains_key(a) implies
         s_new.pending_snapshot[a].0.dom().finite() by
     {
@@ -852,9 +770,6 @@ pub proof fn lemma_begin_preserves(
     assert(inv_pending_snapshot_finite(&s_new));
 }
 
-// ---- L3: commit preserves all invariants -----------------------------
-
-// Extracted: inv_lock_unique_a1 + a2 (forward direction) preservation under commit.
 pub proof fn lemma_commit_preserves_lock_unique_a(
     s: &RuntimeState,
     agent: AgentId,
@@ -877,7 +792,6 @@ pub proof fn lemma_commit_preserves_lock_unique_a(
     assert(s_new.locks == locks_with_released(s.locks, agent_locks));
     assert(s_new.holds == s.holds.insert(agent, Set::<CellId>::empty()));
 
-    // a1: contains_key part
     assert forall |c: CellId| s_new.locks.contains_key(c) implies
         s_new.holds.contains_key(s_new.locks[c]) by
     {
@@ -894,7 +808,6 @@ pub proof fn lemma_commit_preserves_lock_unique_a(
         assert(s_new.locks[c] == holder);
     };
 
-    // a2: holds.contains part
     assert forall |c: CellId| s_new.locks.contains_key(c) implies
         s_new.holds[s_new.locks[c]].contains(c) by
     {
@@ -913,7 +826,6 @@ pub proof fn lemma_commit_preserves_lock_unique_a(
     };
 }
 
-// Extracted: inv_lock_unique_b1 + b2 (reverse direction / partition) preservation under commit.
 pub proof fn lemma_commit_preserves_lock_unique_b(
     s: &RuntimeState,
     agent: AgentId,
@@ -936,7 +848,6 @@ pub proof fn lemma_commit_preserves_lock_unique_b(
     assert(s_new.locks == locks_with_released(s.locks, agent_locks));
     assert(s_new.holds == s.holds.insert(agent, Set::<CellId>::empty()));
 
-    // b1: contains_key part
     assert forall |a: AgentId, c: CellId|
         s_new.holds.contains_key(a) && #[trigger] s_new.holds[a].contains(c) implies
             s_new.locks.contains_key(c) by
@@ -956,7 +867,6 @@ pub proof fn lemma_commit_preserves_lock_unique_b(
         }
     };
 
-    // b2: equality part
     assert forall |a: AgentId, c: CellId|
         s_new.holds.contains_key(a) && #[trigger] s_new.holds[a].contains(c) implies
             s_new.locks[c] == a by
@@ -1017,15 +927,10 @@ pub proof fn lemma_commit_preserves(
     assert(s_new.holds == s.holds.insert(agent, Set::<CellId>::empty()));
     assert(s_new.pending_snapshot == s.pending_snapshot.remove(agent));
 
-    // Finiteness of snap.dom() comes from inv_pending_snapshot_finite.
     assert(s.pending_snapshot.contains_key(agent));
     assert(snap.dom().finite());
     assert(write_kv.dom().finite());
 
-    // record.read_set == snap.dom() and record.write_set == write_kv.dom() directly,
-    // so membership equivalence is trivial (no to_seq() conversion needed).
-
-    // ---- inv_clock_monotone ----
     assert forall |i: int| 0 <= i < s_new.trace.len() implies
         #[trigger] s_new.trace[i].write_time <= s_new.clock
         && (forall |k: int| 0 <= k < i ==>
@@ -1053,7 +958,6 @@ pub proof fn lemma_commit_preserves(
     };
     assert(inv_clock_monotone(&s_new));
 
-    // ---- inv_lock_unique (forward + reverse via extracted lemmas) ----
     lemma_commit_preserves_lock_unique_a(s, agent, write_kv);
     lemma_commit_preserves_lock_unique_b(s, agent, write_kv);
     assert(inv_lock_unique_a1(&s_new));
@@ -1061,7 +965,6 @@ pub proof fn lemma_commit_preserves(
     assert(inv_lock_unique_b1(&s_new));
     assert(inv_lock_unique_b2(&s_new));
 
-    // ---- inv_pending_implies_locks ----
     assert forall |a: AgentId| s_new.pending_snapshot.contains_key(a) implies
         (forall |c: CellId| #[trigger] s_new.pending_snapshot[a].0.dom().contains(c) ==>
             (s_new.locks.contains_key(c) && s_new.locks[c] == a)) by
@@ -1086,7 +989,6 @@ pub proof fn lemma_commit_preserves(
     };
     assert(inv_pending_implies_locks(&s_new));
 
-    // ---- inv_pending_separates_old_writes ----
     assert forall |a: AgentId, c: CellId|
         s_new.pending_snapshot.contains_key(a)
         && #[trigger] s_new.pending_snapshot[a].0.dom().contains(c) implies
@@ -1118,7 +1020,6 @@ pub proof fn lemma_commit_preserves(
     };
     assert(inv_pending_separates_old_writes(&s_new));
 
-    // ---- inv_records_held_locks_through_commit (substantive) ----
     assert forall |i: int, c: CellId|
         0 <= i < s_new.trace.len() &&
         #[trigger] s_new.trace[i].read_set.contains(c) implies
@@ -1133,24 +1034,19 @@ pub proof fn lemma_commit_preserves(
              || s_new.trace[j].write_time >= s_new.trace[i].write_time) by
         {
             if i < s.trace.len() && j < s.trace.len() {
-                // CASE A: both old.
                 assert(s_new.trace[i] == s.trace[i]);
                 assert(s_new.trace[j] == s.trace[j]);
             } else if i < s.trace.len() && j == s.trace.len() as int {
-                // CASE B: i old, j new. record.write_time = s.clock + 1.
                 assert(s_new.trace[j] == record);
                 assert(record.write_time == s.clock + 1);
                 assert(s_new.trace[i] == s.trace[i]);
                 assert(s.trace[i].write_time <= s.clock);
             } else if i == s.trace.len() as int && j < s.trace.len() {
-                // CASE C: i new, j old. The substantive case.
                 assert(s_new.trace[i] == record);
                 assert(s_new.trace[j] == s.trace[j]);
                 assert(record.read_set == read_set);
                 assert(record.read_set.contains(c));
-                // record.read_set == snap.dom() (direct, no Seq conversion)
                 assert(snap.dom().contains(c));
-                // Apply inv_pending_separates_old_writes(s) at (agent, c, j).
                 assert(s.pending_snapshot[agent].0 == snap);
                 assert(s.pending_snapshot[agent].0.dom().contains(c));
                 assert(s.pending_snapshot[agent].1 == rt);
@@ -1165,7 +1061,6 @@ pub proof fn lemma_commit_preserves(
     };
     assert(inv_records_held_locks_through_commit(&s_new));
 
-    // ---- inv_holds_finite ----
     assert forall |a: AgentId| #[trigger] s_new.holds.contains_key(a) implies s_new.holds[a].finite() by
     {
         if a == agent {
@@ -1177,7 +1072,6 @@ pub proof fn lemma_commit_preserves(
     };
     assert(inv_holds_finite(&s_new));
 
-    // ---- inv_pending_snapshot_finite ----
     assert forall |a: AgentId| #[trigger] s_new.pending_snapshot.contains_key(a) implies
         s_new.pending_snapshot[a].0.dom().finite() by
     {
@@ -1187,10 +1081,6 @@ pub proof fn lemma_commit_preserves(
     };
     assert(inv_pending_snapshot_finite(&s_new));
 }
-
-// =====================================================================
-// Section 7: Reachability and L4 induction
-// =====================================================================
 
 pub open spec fn is_begin_successor(s_pre: &RuntimeState, s: &RuntimeState) -> bool {
     exists |agent: AgentId, cells: Seq<CellId>|
@@ -1205,15 +1095,6 @@ pub open spec fn is_commit_successor(s_pre: &RuntimeState, s: &RuntimeState) -> 
 pub open spec fn reachable_step(s_pre: &RuntimeState, s: &RuntimeState) -> bool {
     is_begin_successor(s_pre, s) || is_commit_successor(s_pre, s)
 }
-
-// =====================================================================
-// Section 7: Sequence-based reachability and L4 induction
-// =====================================================================
-// We avoid recursive spec functions for reachability because Verus's
-// fuel-limited unfolding makes fact-based existential extraction brittle.
-// Instead, reachability is witnessed by an explicit sequence of states
-// starting from init_state(), with consecutive states connected by a
-// transition. Induction is on Seq::len() — structural recursion, no fuel.
 
 pub open spec fn execution(states: Seq<RuntimeState>) -> bool {
     states.len() > 0
@@ -1236,14 +1117,12 @@ pub proof fn lemma_states_imply_invariants(states: Seq<RuntimeState>)
         assert(states[0] == init_state());
         assert(states.last() == states[0]);
         lemma_init_invariants();
-        // all_invariants(&init_state()) holds. states.last() == init_state(). Done.
     } else {
         let prefix = states.drop_last();
         assert(prefix.len() == states.len() - 1);
         assert(prefix.len() >= 1);
         assert(prefix[0] == states[0]);
 
-        // Establish execution(prefix).
         assert forall |i: int| 0 <= i < prefix.len() - 1 implies
             #[trigger] reachable_step(&prefix[i], &prefix[i + 1]) by
         {
@@ -1254,13 +1133,11 @@ pub proof fn lemma_states_imply_invariants(states: Seq<RuntimeState>)
         assert(execution(prefix));
 
         lemma_states_imply_invariants(prefix);
-        // Now all_invariants(&prefix.last()).
 
         let last_idx = (states.len() - 2) as int;
         assert(0 <= last_idx < states.len() - 1);
         assert(prefix.last() == states[last_idx]);
         assert(states.last() == states[last_idx + 1]);
-        // The reachable_step from execution(states):
         assert(reachable_step(&states[last_idx], &states[last_idx + 1]));
 
         let s_pre = states[last_idx];
@@ -1301,10 +1178,6 @@ pub proof fn lemma_invariants_inductive(s: &RuntimeState)
     lemma_states_imply_invariants(states);
     assert(states.last() == *s);
 }
-
-// =====================================================================
-// FINAL SAFETY THEOREM
-// =====================================================================
 
 pub proof fn theorem_pessimistic_prevents_a1(s: &RuntimeState)
     requires reachable(s)

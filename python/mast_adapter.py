@@ -538,7 +538,7 @@ def events_to_oprecords(events: list[dict], scenario: str,
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-id", default="mcemri/MAD")
-    parser.add_argument("--filename", default="MAD_full_dataset.json")
+    parser.add_argument("--filename", default="MAD_sample_19.json")
     parser.add_argument("--out", type=Path,
                         default=Path("../mast_oprecords/"))
     parser.add_argument("--limit", type=int, default=None)

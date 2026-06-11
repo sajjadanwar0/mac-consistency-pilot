@@ -74,3 +74,4 @@ sessions/
 .verus/
 .verus-log/
 *.smt2
+mac-consistency-replication/

@@ -1,32 +1,7 @@
-//! Verus verification for the four anomaly detectors — SOUND + COMPLETE.
-//!
-//! WHAT THIS FILE PROVES (machine-checked, no `assume`, no `axiom`):
-//!
-//! Helpers (sound + complete):
-//!   * reads, writes, contains_tool, first_value_exec, seqs_equal
-//!   * lemma_first_match_unique
-//!
-//! All four detectors verified SOUND **and** COMPLETE:
-//!   * detect_a1: full A_1 with value mismatch
-//!   * detect_a2: phantom-tool
-//!   * detect_a3: causal-cascade
-//!   * detect_a6: tool-effect-reorder
-//!
-//! Each detector's `ensures` clause now states:
-//!   match result {
-//!     Some(w) => /* w is a real spec witness */,
-//!     None    => /* no spec witness exists in h */
-//!   }
-//!
-//! TOTAL OBLIGATIONS: ~34 (compared to 24 in v2, 9 in v1).
-//!
-//! Tested with Verus from main branch (April 2026 build).
-
 #![allow(unused_imports)]
 use vstd::prelude::*;
 
 verus! {
-
 pub type CellId = u32;
 pub type Value = u32;
 pub type ToolId = u32;
@@ -47,9 +22,6 @@ pub struct OpRecord {
     pub co_seq: Vec<(CellId, Value)>,
 }
 
-// =============================================================================
-// PRIMITIVE PREDICATES
-// =============================================================================
 pub open spec fn reads_spec(op: OpRecord, c: CellId) -> bool {
     exists |k: int| 0 <= k < op.read_set.len() && op.read_set[k] == c
 }
@@ -130,9 +102,6 @@ pub fn contains_tool(v: &Vec<ToolId>, t: ToolId) -> (r: bool)
     false
 }
 
-// =============================================================================
-// FIRST-MATCH VALUE LOOKUP
-// =============================================================================
 pub open spec fn first_match(s: Seq<(CellId, Value)>, c: CellId, k: int) -> bool {
     0 <= k < s.len()
     && s[k].0 == c
@@ -187,9 +156,6 @@ pub fn first_value_exec(s: &Vec<(CellId, Value)>, c: CellId) -> (r: Option<Value
     None
 }
 
-// =============================================================================
-// A_1 — full Stale-Generation, SOUND **and** COMPLETE
-// =============================================================================
 pub open spec fn a1_witness(h: Seq<OpRecord>, i: int, j: int, c: CellId) -> bool {
     0 <= i < h.len()
     && 0 <= j < h.len()
@@ -295,12 +261,10 @@ pub fn detect_a1(h: &Vec<OpRecord>) -> (result: Option<A1Witness>)
                                     assert(!a1_witness(h@, i as int, j as int, c));
                                 }
                                 _ => {
-                                    // first_value None on at least one side
                                     assert(!a1_witness(h@, i as int, j as int, c));
                                 }
                             }
                         } else {
-                            // timing conjunct fails
                             assert(!a1_witness(h@, i as int, j as int, c));
                         }
                     } else {
@@ -309,8 +273,7 @@ pub fn detect_a1(h: &Vec<OpRecord>) -> (result: Option<A1Witness>)
                     }
                     k += 1;
                 }
-                // Inner loop done: forall k2 in [0, read_set_len): !a1_witness for that c.
-                // Extend to forall c: !a1_witness(h, i, j, c).
+
                 assert forall |c2: CellId|
                     !a1_witness(h@, i as int, j as int, c2)
                 by {
@@ -320,12 +283,9 @@ pub fn detect_a1(h: &Vec<OpRecord>) -> (result: Option<A1Witness>)
                             && h@[i as int].read_set[k2] == c2;
                         assert(0 <= k2 < read_set_len);
                         assert(h@[i as int].read_set[k2] == c2);
-                        // Inner invariant gives !a1_witness for this position
                     }
-                    // else: !reads_spec ==> a1_witness's reads_spec conjunct fails
                 };
             } else {
-                // i == j: a1_witness's i != j conjunct fails for all c.
                 assert forall |c2: CellId|
                     !a1_witness(h@, i as int, j as int, c2)
                 by {};
@@ -334,22 +294,15 @@ pub fn detect_a1(h: &Vec<OpRecord>) -> (result: Option<A1Witness>)
         }
         i += 1;
     }
-    // Outer done: forall i2, j2 in [0, n), c2: !a1_witness.
-    // Extend to all i2, j2: out-of-bounds makes a1_witness trivially false.
+
     assert(!a1(h@)) by {
         assert forall |i2: int, j2: int, c2: CellId|
             !a1_witness(h@, i2, j2, c2)
-        by {
-            // For 0<=i2<n and 0<=j2<n: outer invariant.
-            // Otherwise: a1_witness requires those bounds.
-        };
+        by { };
     };
     None
 }
 
-// =============================================================================
-// A_2 — Phantom-Tool, sound + complete
-// =============================================================================
 pub open spec fn a2_witness(op: OpRecord) -> bool {
     match op.planned_tool {
         Some(t) => tool_visible_spec(op, t) && !tool_used_spec(op, t),
@@ -397,9 +350,6 @@ pub fn detect_a2(h: &Vec<OpRecord>) -> (result: Option<usize>)
     None
 }
 
-// =============================================================================
-// A_6 — Tool-Effect-Reordering, sound + complete
-// =============================================================================
 pub open spec fn a6_witness(op: OpRecord) -> bool {
     op.io_seq.len() > 0 && op.io_seq@ != op.co_seq@
 }
@@ -464,9 +414,6 @@ pub fn detect_a6(h: &Vec<OpRecord>) -> (result: Option<usize>)
     None
 }
 
-// =============================================================================
-// A_3 — Causal-Cascade, SOUND **and** COMPLETE
-// =============================================================================
 pub open spec fn a3_witness(h: Seq<OpRecord>, j: int, c: CellId, v: Value) -> bool {
     0 <= j < h.len()
     && reads_spec(h[j], c)
@@ -532,9 +479,10 @@ pub fn detect_a3(h: &Vec<OpRecord>) -> (result: Option<A3Witness>)
                 Some(v) => {
                     if v != 0u32 {
                         assert(v != null_value());
-                        // Search for an antecedent (no break).
+
                         let mut k: usize = 0;
                         let mut has_antecedent = false;
+
                         while k < n
                             invariant
                                 j < n, k <= n,
@@ -563,6 +511,7 @@ pub fn detect_a3(h: &Vec<OpRecord>) -> (result: Option<A3Witness>)
                             }
                             k += 1;
                         }
+
                         if !has_antecedent {
                             assert(k == n);
                             assert(forall |k2: int|
@@ -573,29 +522,20 @@ pub fn detect_a3(h: &Vec<OpRecord>) -> (result: Option<A3Witness>)
                             assert(a3_witness(h@, j as int, c, v));
                             return Some(A3Witness { j, cell: c, value: v });
                         }
-                        // has_antecedent: !a3_witness(h, j, c, v) for THIS v.
-                        // For other v' != v: a3_witness's first_value == Some(v') would require
-                        // first_value == Some(v'), but it's Some(v) != Some(v'). So !a3_witness.
+
                         assert forall |v2: Value| !a3_witness(h@, j as int, c, v2) by {
-                            // v2 == v: a3_witness's no-antecedent conjunct fails.
-                            // v2 != v: first_value(...) == Some(v2) is false (it's Some(v)).
                         };
                     } else {
-                        // v == null: a3_witness requires v2 != null.
-                        // For v2 == v == null: conjunct fails directly.
-                        // For v2 != v: first_value == Some(v2) is false (it's Some(v)).
                         assert forall |v2: Value| !a3_witness(h@, j as int, c, v2) by {};
                     }
                 }
                 None => {
-                    // first_value is None: a3_witness requires Some(v2), false for all v2.
                     assert forall |v2: Value| !a3_witness(h@, j as int, c, v2) by {};
                 }
             }
             q += 1;
         }
-        // After q loop: for c in h[j].read_set, !a3_witness for any v.
-        // For c not in read_set: !reads_spec → !a3_witness for any v.
+
         assert forall |c2: CellId, v2: Value|
             !a3_witness(h@, j as int, c2, v2)
         by {
@@ -609,8 +549,7 @@ pub fn detect_a3(h: &Vec<OpRecord>) -> (result: Option<A3Witness>)
         };
         j += 1;
     }
-    // Outer done: for j in [0, n), all c, v: !a3_witness.
-    // For j out of bounds: !a3_witness trivially.
+
     assert(!a3(h@)) by {
         assert forall |j2: int, c2: CellId, v2: Value|
             !a3_witness(h@, j2, c2, v2)
@@ -619,9 +558,6 @@ pub fn detect_a3(h: &Vec<OpRecord>) -> (result: Option<A3Witness>)
     None
 }
 
-// =============================================================================
-// Smoke tests
-// =============================================================================
 proof fn smoke_test_a1_full(h: Seq<OpRecord>)
     requires
         h.len() == 2,
@@ -657,27 +593,4 @@ proof fn smoke_test_a1_full(h: Seq<OpRecord>)
 
 }  // verus!
 
-fn main() {}
-
-// =============================================================================
-// What's verified (summary):
-//
-//   * 5 helpers (reads, writes, contains_tool, first_value_exec, seqs_equal)
-//     — all sound + complete.
-//   * 1 uniqueness lemma (lemma_first_match_unique).
-//   * detect_a1 — sound AND complete for full A_1 with value mismatch.
-//   * detect_a2 — sound + complete.
-//   * detect_a3 — sound AND complete.
-//   * detect_a6 — sound + complete.
-//   * 1 smoke-test proof.
-//
-// Estimated total: ~34 obligations.
-//
-// What this completes from the brutal review:
-//   * Item 1 (Verus / detector mismatch): closed.
-//   * Item 4 (complete Verus): closed for all four detectors.
-//
-// The level classifier (L_n equivalence) is now trivially derivable
-// from these four sound+complete detectors and is omitted only because
-// it adds no new proof technique.
-// =============================================================================
+fn main() { }
