@@ -14,10 +14,12 @@
 #   4. Builds/tests the runtime and reproduces the A3-prevention measurement
 #   5. Best-effort: TLC checks each anomaly-witness spec produces its
 #      counterexample (needs java + tla2tools), incl. the snapshot-insufficiency
-#      witness MC_A1_struct; MC_A5 is retired (catalog footnote 1)
-#   5b. TLAPS: re-derives the chain-coherence proof (Hierarchy.tla, 21
-#      obligations) and the A1 generation lower bound (A1LowerBound.tla, 28
-#      obligations) with tlapm, pinning the counts the paper cites
+#      witness MC_A1_struct and the A3 redefinition discrimination check
+#      A3_witness_check (PASS = no error); MC_A5 is retired (catalog footnote 1)
+#   5b. TLAPS: re-derives the chain-coherence proof (Hierarchy.tla, 15
+#      obligations over the linear L0-L4 rewrite) and the A1 generation lower
+#      bound (A1LowerBound.tla, 28 obligations) with tlapm, pinning the counts
+#      the paper cites
 #   5c. Paper-artifact sync assertions: fails loudly if the public artifact
 #      drifts from the generation the paper describes
 #   6. Best-effort: the empirical Python layer (offline checks; --with-live for
@@ -56,6 +58,9 @@
 #   carried the current generation. The default branch is now `main`, `master`
 #   is deleted, the clone below is branch-pinned, and Phase 5c asserts the
 #   generation markers directly so this entire failure class is detected.
+#   Phase 5c's junk check audits the GIT TIP (tracked files), not the working
+#   tree: Phase 5's witness harnesses violate invariants by design, and TLC
+#   writes *_TTrace_* dumps into the clone as a by-product of exactly that.
 #
 #   The L2 A3-prevention guarantee is a THEOREM, proved in Phase 3 (the
 #   a3_free capstone of lib_l2_exec.rs: every well-formed exec state is
@@ -113,12 +118,16 @@ VERUS_TARGETS=(
 # TLC witness harnesses: each spec's *Free invariant is DESIGNED to be violated;
 # the violation trace IS the anomaly witness. MC_A5 is retired (the catalog has
 # no A5; see paper footnote 1). MC_A1_struct is the snapshot-insufficiency
-# witness of paper sec 4.5 (L1^struct holds, StaleGeneration fires).
+# witness of paper sec 4.5 (L1^struct holds, StaleGeneration fires). MC_A3
+# exhibits the A3 flat-trace RESIDUE witness (paper sec 3.3); the precise
+# Definition-3 cascade witness is A3_witness_check, pinned separately below.
 TLC_WITNESS_TARGETS=(MC_A1 MC_A1_struct MC_A2 MC_A3 MC_A6)
 
 # TLAPS targets: "relative/path|expected_obligations"
+# Hierarchy: 15 obligations over the linear L0-L4 rewrite (the historical 21
+# belonged to the retired 7-level file; live-confirmed 2026-06-11).
 TLAPS_TARGETS=(
-  "proofs/Hierarchy.tla|21"      # chain-coherence check (paper sec 4.6)
+  "proofs/Hierarchy.tla|15"      # chain-coherence check (paper sec 4.6)
   "proofs/A1LowerBound.tla|28"   # A1 generation lower bound (paper sec 4.6)
 )
 
@@ -280,15 +289,18 @@ else
         fi
     done
 
-    # A3 redefinition discrimination check (paper sec 3.3): CAUSALCASCADE fires
-    # on the cascade witness, is silent on a benign serial history, and the
-    # retained RESIDUE fires on that same benign history. Reported, not pinned:
-    # run it once, confirm the intended outcome string, then promote the branch
-    # below from `skip` to ok/fail on that exact outcome.
+    # A3 redefinition discrimination check (paper sec 3.3). Unlike the witness
+    # harnesses, this one PASSES when its invariant HOLDS: a single green run
+    # confirms (1) the precise CausalCascade fires on the genuine cascade
+    # witness, (2) it is silent on a benign serial history, and (3) the
+    # retained residue fires on that same benign history.
     if [ -f "A3_witness_check.tla" ] && [ -f "A3_witness_check.cfg" ]; then
         out="$(java -cp "$TLA_TOOLS" tlc2.TLC -config A3_witness_check.cfg A3_witness_check.tla 2>&1 || true)"
-        summary="$(echo "$out" | grep -E 'violated|No error has been found' | head -2 | tr '\n' ' ')"
-        skip "TLC A3_witness_check ran; outcome: ${summary:-unparsed} — PIN expected outcome here after confirming sec 3.3 semantics"
+        if echo "$out" | grep -q 'No error has been found'; then
+            ok "TLC A3_witness_check: discrimination invariants hold (cascade fires; benign serial silent; residue fires on benign)"
+        else
+            fail "TLC A3_witness_check: discrimination invariants violated or run did not complete"
+        fi
     else
         fail "TLC A3_witness_check: spec/cfg missing (paper sec 3.3 claims this check)"
     fi
@@ -347,19 +359,25 @@ else
     fi
     # Generation marker 5: the precise-A3/residue split must live where the
     # paper says it lives ("Anomalies.tla now defines CAUSALCASCADE ... and
-    # retains ... CAUSALCASCADERESIDUE", sec 3.3).
-    if grep -qiE 'CausalCascadeResidue|CAUSALCASCADERESIDUE' "$SPECS/tla/Anomalies.tla" 2>/dev/null; then
-        ok "Anomalies.tla carries the cascade/residue split (matches paper sec 3.3)"
-    elif grep -qiE 'CausalCascadeResidue|CAUSALCASCADERESIDUE' "$SPECS/tla/Anomalies_A3_redef.tla" 2>/dev/null; then
+    # retains ... CAUSALCASCADERESIDUE", sec 3.3). The precise predicate is
+    # recognized by its `aborted` field reference.
+    if grep -qiE 'CausalCascadeResidue' "$SPECS/tla/Anomalies.tla" 2>/dev/null \
+       && grep -qE 'aborted' "$SPECS/tla/Anomalies.tla" 2>/dev/null; then
+        ok "Anomalies.tla carries the precise cascade + residue split (matches paper sec 3.3)"
+    elif grep -qiE 'CausalCascadeResidue' "$SPECS/tla/Anomalies_A3_redef.tla" 2>/dev/null; then
         fail "cascade/residue split lives only in Anomalies_A3_redef.tla — merge it into Anomalies.tla or fix the paper's sec 3.3 pointer"
     else
         fail "cascade/residue split not found in the artifact at all (paper sec 3.3 claims it)"
     fi
-    # Generation marker 6: no binaries/junk on the tip
-    if find "$SPECS" -name '*.jar' -o -name '*_TTrace_*' | grep -q .; then
-        fail "binary/trace junk present on the artifact tip"
+    # Generation marker 6: no binaries/junk TRACKED on the artifact tip.
+    # Audits git ls-files, NOT the working tree: Phase 5's witness harnesses
+    # generate *_TTrace_* dumps in the clone by design (invariant violations
+    # are the success condition), and those by-products are not artifact junk.
+    junk="$(git -C "$SPECS" ls-files | grep -E '_TTrace_|\.jar$|\.zip$|\.bin$|\.tar(\.gz)?$' || true)"
+    if [ -n "$junk" ]; then
+        fail "binary/trace junk TRACKED on the artifact tip: $(echo "$junk" | tr '\n' ' ')"
     else
-        ok "artifact tip is clean of jars and TLC trace dumps"
+        ok "artifact tip is clean of tracked jars, archives, and TLC trace dumps"
     fi
 fi
 
