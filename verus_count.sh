@@ -24,6 +24,16 @@
 #   whatever the live run prints, and the paper headline MUST be reconciled
 #   to that printed DISTINCT total (not the other way around).
 #
+# 2026-06-12 note: lib_l3_exec.rs (exec-mode L3 sequencer; live-confirmed
+#   7 verified) and lib_l4_exec.rs (exec-mode L4 snapshot discipline;
+#   live-confirmed 9 verified) are new COUNTED files. Both are deliberately
+#   self-contained (no `mod`, no textual re-inclusion of any model file), so
+#   they add to both totals with no re-inclusion edge (expected shift:
+#   curated 258 -> 274, full 279 -> 295 -- but the live printed totals are
+#   the authority, as always). They are cited contributions (the exec
+#   realizations of lattice points L3 and L4) and must NOT be added to
+#   EXCLUDE, unlike the non-headline exec *helpers* listed there.
+#
 # Usage:
 #   ./verus_count.sh                 # clone the pilot repo, count (curated total)
 #   ./verus_count.sh --full          # empty EXCLUDE: full distinct total
@@ -67,8 +77,9 @@ NEVER_COUNT=(
 # headline lattice points). --full empties this list; NEVER_COUNT files stay
 # skipped regardless. NOTE: entries for files no longer in the repo (e.g. the
 # removed probabilistic development) are harmless no-ops. Do NOT add
-# lib_occ_l2_refinement.rs here: it is a cited contribution (paper sec 6.5)
-# and must be counted in both modes.
+# lib_occ_l2_refinement.rs, lib_l3_exec.rs, or lib_l4_exec.rs here: they are
+# cited contributions (paper sec 6.5; exec realizations of L3 and L4) and
+# must be counted in both modes.
 EXCLUDE=(
   "lib_probabilistic_a1.rs"        # superseded probabilistic v1 (if present)
   "lib_probabilistic_a1_v2.rs"     # demoted probabilistic v2 screen (if present)

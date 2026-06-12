@@ -107,6 +107,10 @@ VERUS_TARGETS=(
   "lib_l4_safety.rs|5"                 # live-confirmed
   "lib_a4_split_view.rs|9"             # live-confirmed: monotone-primary no-split (was 5; de-tautologized)
   "lib_occ_l2_refinement.rs|8"         # live-confirmed 2026-06-11: OCC/ETag L1->L2 channel refinement, 0 axioms (paper sec 6.5)
+  "lib_l3_exec.rs|7"                   # live-confirmed 2026-06-12: exec-mode L3 sequencer, a6_free capstone,
+                                       # usize-indexed (cast-free; Verus caught a 32-bit truncation hole in the draft)
+  "lib_l4_exec.rs|9"                   # live-confirmed 2026-06-12: exec-mode L4 snapshot discipline, a2_free
+                                       # capstone; first-pass green (L3 lessons pre-applied)
   "lib_refinement_pessimistic.rs|31"   # live-confirmed
   "lib_refinement_ssi.rs|18"           # live-confirmed
   "lib_refinement_ssi_chain.rs|17"     # live-confirmed
@@ -407,6 +411,37 @@ else
         ok "A3 prevention reproduced (L2: 0 witnesses across all runs; unguarded baseline: all runs)"
     else
         fail "measure_a3_prevention failed"
+    fi
+    # measure_a6_prevention drives the L3 sequencer std TWIN (l3_sequencer.rs),
+    # the exec image of lib_l3_sequencer.rs / lib_l3_exec.rs: identical
+    # adversarial (non-identity) completion schedules drive the unsequenced
+    # baseline (must witness A6 every run) and the sequencer (must witness 0).
+    if [ -f "src/l3_sequencer.rs" ]; then
+        log "  cargo test --release measure_a6_prevention  (L3 sequencer prevents A6; unsequenced admits it)"
+        if cargo test --release measure_a6_prevention --quiet 2>&1 | tail -8 \
+           && cargo test --release sequencer_emits_identity --quiet >/dev/null 2>&1; then
+            ok "A6 prevention reproduced (sequencer: 0 witnesses; unsequenced baseline: all runs; completeness guard green)"
+        else
+            fail "measure_a6_prevention / sequencer_emits_identity failed"
+        fi
+    else
+        skip "A6 prevention measurement (src/l3_sequencer.rs not yet landed in the runtime repo)"
+    fi
+    # measure_a2_prevention drives the L4 registry-snapshot std TWIN
+    # (l4_registry.rs), the exec image of lib_l4_safety.rs / lib_l4_exec.rs:
+    # identical adversarial churn schedules (the planned tool's signature is
+    # always changed between pin and dispatch) drive the live-resolving
+    # baseline (must witness A2 every run) and the snapshot runtime (0).
+    if [ -f "src/l4_registry.rs" ]; then
+        log "  cargo test --release measure_a2_prevention  (L4 snapshot prevents A2; live-resolve admits it)"
+        if cargo test --release measure_a2_prevention --quiet 2>&1 | tail -8 \
+           && cargo test --release snapshot_dispatches_pinned --quiet >/dev/null 2>&1; then
+            ok "A2 prevention reproduced (snapshot: 0 witnesses; live-resolve baseline: all runs; completeness guard green)"
+        else
+            fail "measure_a2_prevention / snapshot_dispatches_pinned failed"
+        fi
+    else
+        skip "A2 prevention measurement (src/l4_registry.rs not yet landed in the runtime repo)"
     fi
     cd "$ROOT"
 fi
