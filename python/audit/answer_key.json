@@ -1,23 +1,23 @@
 [
  {
   "session": "AG2_63",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x6"
   ]
  },
  {
   "session": "AG2_79",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_136",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x6"
   ]
  },
  {
@@ -36,51 +36,51 @@
  },
  {
   "session": "AG2_112",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x22"
   ]
  },
  {
   "session": "AG2_21",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_106",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x6"
   ]
  },
  {
   "session": "AG2_160",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x8"
   ]
  },
  {
   "session": "HyperAgent_12",
-  "classifier_verdict": "NO_SHARED_STORE",
+  "classifier_verdict": "CANDIDATE_OPS",
   "evidence": [
-   "speaker_lines x119"
+   "code_file_write: ...oint_cycles()   \"\"\"      with open(\"test_permutation.py\", \"w\") as f:       f.write(script) ..."
   ]
  },
  {
   "session": "AG2_83",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_144",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
@@ -92,23 +92,23 @@
  },
  {
   "session": "AG2_13",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_8",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_160",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x6"
   ]
  },
  {
@@ -120,59 +120,58 @@
  },
  {
   "session": "AG2_171",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_17",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_128",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x6"
   ]
  },
  {
   "session": "AG2_166",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x9"
   ]
  },
  {
   "session": "HyperAgent_13",
-  "classifier_verdict": "NO_SHARED_STORE",
+  "classifier_verdict": "CANDIDATE_OPS",
   "evidence": [
-   "role_blocks x3",
-   "speaker_lines x623"
+   "code_file_write: ....table import Table      with open('test.qdp', 'w') as f:       f.write('read se..."
   ]
  },
  {
   "session": "AG2_143",
   "classifier_verdict": "UNKNOWN",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x2"
   ]
  },
  {
   "session": "AG2_51",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_153",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
@@ -184,23 +183,23 @@
  },
  {
   "session": "AG2_154",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_163",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_138",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x7"
   ]
  },
  {
@@ -212,9 +211,9 @@
  },
  {
   "session": "AG2_151",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
@@ -226,121 +225,121 @@
  },
  {
   "session": "AG2_134",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_61",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_28",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x6"
   ]
  },
  {
   "session": "AG2_161",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x7"
   ]
  },
  {
   "session": "AG2_72",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_117",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_45",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_148",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x8"
   ]
  },
  {
   "session": "AG2_47",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x7"
   ]
  },
  {
   "session": "AG2_137",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_110",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_30",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_159",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_117",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_113",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x6"
   ]
  },
  {
   "session": "AG2_24",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_124",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x8"
   ]
  },
  {
@@ -352,9 +351,9 @@
  },
  {
   "session": "AG2_141",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
@@ -366,58 +365,58 @@
  },
  {
   "session": "AG2_197",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x8"
   ]
  },
  {
   "session": "AG2_135",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_72",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x8"
   ]
  },
  {
   "session": "AG2_108",
   "classifier_verdict": "UNKNOWN",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x2"
   ]
  },
  {
   "session": "AG2_1",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x10"
   ]
  },
  {
   "session": "AG2_53",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x7"
   ]
  },
  {
   "session": "AG2_40",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x4"
   ]
  },
  {
   "session": "AG2_28",
-  "classifier_verdict": "UNKNOWN",
+  "classifier_verdict": "NO_SHARED_STORE",
   "evidence": [
-   "no conversational structure recognized"
+   "pyrepr_role x10"
   ]
  }
 ]
