@@ -93,6 +93,11 @@ MARKERS: list[tuple[str, re.Pattern]] = [
     ("kv_store",        re.compile(r"\b(redis|sqlite|database|db)\.(set|put|insert|update|write|execute)\b", re.I)),
     ("registry_mut",    re.compile(r"\b(register_tool|unregister_tool|registry\.(add|remove|update))\b", re.I)),
     ("blackboard",      re.compile(r"\b(blackboard|scratchpad|shared.?buffer)\b.{0,40}\b(write|post|update|append)\b", re.I)),
+    # Embedded-code store operations (AG2-style traces carry executable
+    # python): open-for-write/append, file handle writes, serialization
+    # dumps, filesystem mutation. Errs toward CANDIDATE_OPS by design;
+    # stdout .write false-positives are acceptable conservatism.
+    ("code_file_write", re.compile(r"\bopen\s*\(\s*['\"][^'\"]{1,128}['\"]\s*,\s*['\"][wax]b?['\"]|\.write\s*\(|json\.dump\s*\(|pickle\.dump\s*\(|\.to_csv\s*\(|os\.(remove|rename|makedirs)\s*\(|shutil\.(copy|move|rmtree)", re.I)),
 ]
 
 # Negative-side structural evidence: the trace is recognizably a
@@ -103,6 +108,11 @@ CONVERSATIONAL: list[tuple[str, re.Pattern]] = [
     ("speaker_lines",  re.compile(r"^\s*\*{0,2}[A-Z][A-Za-z _]{2,30}\*{0,2}\s*(\(to [^)]+\))?\s*:", re.M)),
     ("from_to",        re.compile(r"\bFROM:\s*\S+\s+TO:\s*\S+", re.I)),
     ("chat_ts",        re.compile(r"\[\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}")),
+    # AG2/AutoGen trajectories store the conversation as concatenated
+    # python-repr message dicts: {'content': [...], 'role': 'assistant',
+    # 'name': 'mathproxyagent'}. Quoted keys, mid-line: the line-anchored
+    # patterns above can never match them.
+    ("pyrepr_role",    re.compile(r"['\"]role['\"]\s*:\s*['\"]")),
 ]
 
 MIN_CONV_HITS = 3   # require >=3 conversational matches before calling a
@@ -110,9 +120,11 @@ MIN_CONV_HITS = 3   # require >=3 conversational matches before calling a
 
 
 def classify_trajectory(text: str) -> tuple[str, list[str]]:
-    """Return (verdict, evidence). Conservative by construction."""
-    if not text or len(text.strip()) < 40:
-        return "UNKNOWN", ["trajectory empty/too short to classify"]
+    """Return (verdict, evidence). Conservative by construction.
+    Order matters: the marker scan runs FIRST, so a store-operation marker
+    can never be hidden by trace brevity; the length floor only gates the
+    NO_SHARED_STORE/UNKNOWN distinction."""
+    text = text or ""
     evidence: list[str] = []
     for label, rx in MARKERS:
         m = rx.search(text)
@@ -121,6 +133,8 @@ def classify_trajectory(text: str) -> tuple[str, list[str]]:
             evidence.append(f"{label}: ...{snippet}...")
     if evidence:
         return "CANDIDATE_OPS", evidence
+    if len(text.strip()) < 40:
+        return "UNKNOWN", ["trajectory empty/too short to classify"]
     conv_hits = []
     for label, rx in CONVERSATIONAL:
         n = len(rx.findall(text))
@@ -190,7 +204,23 @@ def main() -> None:
 
     if args.local_json:
         with open(args.local_json) as f:
-            dataset = json.load(f)
+            head = f.read(120)
+            f.seek(0)
+            if head.startswith("version https://git-lfs"):
+                print(f"FATAL: {args.local_json} is a Git-LFS pointer, not the "
+                      f"dataset. Run `git lfs install && git lfs pull` in the "
+                      f"clone, or drop --local-json to fetch from the hub.",
+                      file=sys.stderr)
+                sys.exit(1)
+            try:
+                dataset = json.load(f)
+            except json.JSONDecodeError as e:
+                print(f"FATAL: {args.local_json} is not valid JSON ({e}). "
+                      f"Likely a truncated copy or partial LFS checkout. "
+                      f"Re-download (e.g. drop --local-json to fetch from the "
+                      f"hub) -- do not classify against a corrupt file.",
+                      file=sys.stderr)
+                sys.exit(1)
     else:
         try:
             from huggingface_hub import hf_hub_download
@@ -307,13 +337,19 @@ def main() -> None:
     # ---------- the sentence the paper may claim ----------
     n_unparsed = len(dataset) - counts["PARSED"]
     print("\nPaper-ready claim (and not one word more):")
+    mech = []
+    if n_parser_corrob:
+        mech.append(f"{n_parser_corrob} confirmed by the framework-specific "
+                    f"parser itself, which normalizes the trace as a "
+                    f"conversation while extracting zero stateful store "
+                    f"operations")
+    if n_regex_only:
+        mech.append(f"{n_regex_only} by a conservative raw-text structure "
+                    f"scan with rules enumerated in the artifact")
+    mech_s = "; ".join(mech) + "; human-audited on a blind sample"
     print(f'  "Of the {n_unparsed} traces not parseable into operation records, '
           f'{counts["NO_SHARED_STORE"]} contain no shared-mutable-store operations '
-          f'({n_parser_corrob} confirmed by the framework-specific parser itself, '
-          f'which normalizes the trace as a conversation while extracting zero '
-          f'stateful store operations; {n_regex_only} by a conservative raw-text '
-          f'structure scan with rules enumerated in the artifact; both '
-          f'human-audited on a blind sample) '
+          f'({mech_s}) '
           f'and are therefore structurally outside the catalog\'s domain; '
           f'{counts["CANDIDATE_OPS"]} contain candidate shared-store operations '
           f'and remain unclassified pending dedicated extractors; '

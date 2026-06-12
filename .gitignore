@@ -75,3 +75,7 @@ sessions/
 .verus-log/
 *.smt2
 mac-consistency-replication/
+
+# MAST-Data raw dataset + derived oprecords (large/regenerable; see python/mast_structural_classifier.py)
+python/MAD_*.json*
+mast_oprecords/

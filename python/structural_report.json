@@ -1,9 +1,9 @@
 {
  "counts": {
   "PARSED": 600,
-  "NO_SHARED_STORE": 67,
-  "UNKNOWN": 572,
-  "CANDIDATE_OPS": 3
+  "NO_SHARED_STORE": 588,
+  "UNKNOWN": 48,
+  "CANDIDATE_OPS": 6
  },
  "by_framework": {
   "ChatDev": {
@@ -19,9 +19,9 @@
    "PARSED": 195
   },
   "AG2": {
-   "NO_SHARED_STORE": 17,
+   "NO_SHARED_STORE": 541,
    "PARSED": 13,
-   "UNKNOWN": 567
+   "UNKNOWN": 43
   },
   "AppWorld": {
    "UNKNOWN": 5,
@@ -29,8 +29,8 @@
    "CANDIDATE_OPS": 2
   },
   "HyperAgent": {
-   "NO_SHARED_STORE": 27,
-   "CANDIDATE_OPS": 1,
+   "NO_SHARED_STORE": 24,
+   "CANDIDATE_OPS": 4,
    "PARSED": 2
   }
  },
@@ -41,7 +41,8 @@
   "state_mutation",
   "kv_store",
   "registry_mut",
-  "blackboard"
+  "blackboard",
+  "code_file_write"
  ],
  "per_trace": [
   {
@@ -1813,19 +1814,18 @@
    "idx": 192,
    "framework": "HyperAgent",
    "session": "HyperAgent_12",
-   "verdict": "NO_SHARED_STORE",
+   "verdict": "CANDIDATE_OPS",
    "evidence": [
-    "speaker_lines x119"
+    "code_file_write: ...oint_cycles()   \"\"\"      with open(\"test_permutation.py\", \"w\") as f:       f.write(script) ..."
    ]
   },
   {
    "idx": 193,
    "framework": "HyperAgent",
    "session": "HyperAgent_13",
-   "verdict": "NO_SHARED_STORE",
+   "verdict": "CANDIDATE_OPS",
    "evidence": [
-    "role_blocks x3",
-    "speaker_lines x623"
+    "code_file_write: ....table import Table      with open('test.qdp', 'w') as f:       f.write('read se..."
    ]
   },
   {
@@ -1868,9 +1868,9 @@
    "idx": 198,
    "framework": "HyperAgent",
    "session": "HyperAgent_18",
-   "verdict": "NO_SHARED_STORE",
+   "verdict": "CANDIDATE_OPS",
    "evidence": [
-    "speaker_lines x94"
+    "code_file_write: ... value = 3.14   '''      with open('config.json', 'w') as f:       f.write(json_con..."
    ]
   },
   {
@@ -1976,441 +1976,441 @@
    "idx": 210,
    "framework": "AG2",
    "session": "AG2_0",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 211,
    "framework": "AG2",
    "session": "AG2_1",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 212,
    "framework": "AG2",
    "session": "AG2_2",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 213,
    "framework": "AG2",
    "session": "AG2_3",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 214,
    "framework": "AG2",
    "session": "AG2_4",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 215,
    "framework": "AG2",
    "session": "AG2_5",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 216,
    "framework": "AG2",
    "session": "AG2_6",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 217,
    "framework": "AG2",
    "session": "AG2_7",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 218,
    "framework": "AG2",
    "session": "AG2_8",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 219,
    "framework": "AG2",
    "session": "AG2_9",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 220,
    "framework": "AG2",
    "session": "AG2_10",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 221,
    "framework": "AG2",
    "session": "AG2_11",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 222,
    "framework": "AG2",
    "session": "AG2_12",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 223,
    "framework": "AG2",
    "session": "AG2_13",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 224,
    "framework": "AG2",
    "session": "AG2_14",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 225,
    "framework": "AG2",
    "session": "AG2_15",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 226,
    "framework": "AG2",
    "session": "AG2_16",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 227,
    "framework": "AG2",
    "session": "AG2_17",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 228,
    "framework": "AG2",
    "session": "AG2_18",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 229,
    "framework": "AG2",
    "session": "AG2_19",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 230,
    "framework": "AG2",
    "session": "AG2_20",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 231,
    "framework": "AG2",
    "session": "AG2_21",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 232,
    "framework": "AG2",
    "session": "AG2_22",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 233,
    "framework": "AG2",
    "session": "AG2_23",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 234,
    "framework": "AG2",
    "session": "AG2_24",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 235,
    "framework": "AG2",
    "session": "AG2_25",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 236,
    "framework": "AG2",
    "session": "AG2_26",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 237,
    "framework": "AG2",
    "session": "AG2_27",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 238,
    "framework": "AG2",
    "session": "AG2_28",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 239,
    "framework": "AG2",
    "session": "AG2_29",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 240,
    "framework": "AG2",
    "session": "AG2_30",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 241,
    "framework": "AG2",
    "session": "AG2_31",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 242,
    "framework": "AG2",
    "session": "AG2_32",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 243,
    "framework": "AG2",
    "session": "AG2_33",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 244,
    "framework": "AG2",
    "session": "AG2_34",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 245,
    "framework": "AG2",
    "session": "AG2_35",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 246,
    "framework": "AG2",
    "session": "AG2_36",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 247,
    "framework": "AG2",
    "session": "AG2_37",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 248,
    "framework": "AG2",
    "session": "AG2_38",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 249,
    "framework": "AG2",
    "session": "AG2_39",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 250,
    "framework": "AG2",
    "session": "AG2_40",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 251,
    "framework": "AG2",
    "session": "AG2_41",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 252,
    "framework": "AG2",
    "session": "AG2_42",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 253,
    "framework": "AG2",
    "session": "AG2_43",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 254,
    "framework": "AG2",
    "session": "AG2_44",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 255,
    "framework": "AG2",
    "session": "AG2_45",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 256,
    "framework": "AG2",
    "session": "AG2_46",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 257,
    "framework": "AG2",
    "session": "AG2_47",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 258,
    "framework": "AG2",
    "session": "AG2_48",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -2419,232 +2419,232 @@
    "session": "AG2_49",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 260,
    "framework": "AG2",
    "session": "AG2_50",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 261,
    "framework": "AG2",
    "session": "AG2_51",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 262,
    "framework": "AG2",
    "session": "AG2_52",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 263,
    "framework": "AG2",
    "session": "AG2_53",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 264,
    "framework": "AG2",
    "session": "AG2_54",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 265,
    "framework": "AG2",
    "session": "AG2_55",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 266,
    "framework": "AG2",
    "session": "AG2_56",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 267,
    "framework": "AG2",
    "session": "AG2_57",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 268,
    "framework": "AG2",
    "session": "AG2_58",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 269,
    "framework": "AG2",
    "session": "AG2_59",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 270,
    "framework": "AG2",
    "session": "AG2_60",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 271,
    "framework": "AG2",
    "session": "AG2_61",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 272,
    "framework": "AG2",
    "session": "AG2_62",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 273,
    "framework": "AG2",
    "session": "AG2_63",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 274,
    "framework": "AG2",
    "session": "AG2_64",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 275,
    "framework": "AG2",
    "session": "AG2_65",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 276,
    "framework": "AG2",
    "session": "AG2_66",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 277,
    "framework": "AG2",
    "session": "AG2_67",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 278,
    "framework": "AG2",
    "session": "AG2_68",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 279,
    "framework": "AG2",
    "session": "AG2_69",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 280,
    "framework": "AG2",
    "session": "AG2_70",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 281,
    "framework": "AG2",
    "session": "AG2_71",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 282,
    "framework": "AG2",
    "session": "AG2_72",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 283,
    "framework": "AG2",
    "session": "AG2_73",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 284,
    "framework": "AG2",
    "session": "AG2_74",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -2653,790 +2653,790 @@
    "session": "AG2_75",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 286,
    "framework": "AG2",
    "session": "AG2_76",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 287,
    "framework": "AG2",
    "session": "AG2_77",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 288,
    "framework": "AG2",
    "session": "AG2_78",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 289,
    "framework": "AG2",
    "session": "AG2_79",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 290,
    "framework": "AG2",
    "session": "AG2_80",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 291,
    "framework": "AG2",
    "session": "AG2_81",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 292,
    "framework": "AG2",
    "session": "AG2_82",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 293,
    "framework": "AG2",
    "session": "AG2_83",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 294,
    "framework": "AG2",
    "session": "AG2_84",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 295,
    "framework": "AG2",
    "session": "AG2_85",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 296,
    "framework": "AG2",
    "session": "AG2_86",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 297,
    "framework": "AG2",
    "session": "AG2_87",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 298,
    "framework": "AG2",
    "session": "AG2_88",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 299,
    "framework": "AG2",
    "session": "AG2_89",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 300,
    "framework": "AG2",
    "session": "AG2_90",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 301,
    "framework": "AG2",
    "session": "AG2_91",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 302,
    "framework": "AG2",
    "session": "AG2_92",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 303,
    "framework": "AG2",
    "session": "AG2_93",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 304,
    "framework": "AG2",
    "session": "AG2_94",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 305,
    "framework": "AG2",
    "session": "AG2_95",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 306,
    "framework": "AG2",
    "session": "AG2_96",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 307,
    "framework": "AG2",
    "session": "AG2_97",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 308,
    "framework": "AG2",
    "session": "AG2_98",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 309,
    "framework": "AG2",
    "session": "AG2_99",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 310,
    "framework": "AG2",
    "session": "AG2_100",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 311,
    "framework": "AG2",
    "session": "AG2_101",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 312,
    "framework": "AG2",
    "session": "AG2_102",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 313,
    "framework": "AG2",
    "session": "AG2_103",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 314,
    "framework": "AG2",
    "session": "AG2_104",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 315,
    "framework": "AG2",
    "session": "AG2_105",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x14"
    ]
   },
   {
    "idx": 316,
    "framework": "AG2",
    "session": "AG2_106",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 317,
    "framework": "AG2",
    "session": "AG2_107",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 318,
    "framework": "AG2",
    "session": "AG2_108",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 319,
    "framework": "AG2",
    "session": "AG2_109",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 320,
    "framework": "AG2",
    "session": "AG2_110",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 321,
    "framework": "AG2",
    "session": "AG2_111",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 322,
    "framework": "AG2",
    "session": "AG2_112",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 323,
    "framework": "AG2",
    "session": "AG2_113",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 324,
    "framework": "AG2",
    "session": "AG2_114",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 325,
    "framework": "AG2",
    "session": "AG2_115",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 326,
    "framework": "AG2",
    "session": "AG2_116",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 327,
    "framework": "AG2",
    "session": "AG2_117",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 328,
    "framework": "AG2",
    "session": "AG2_118",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 329,
    "framework": "AG2",
    "session": "AG2_119",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 330,
    "framework": "AG2",
    "session": "AG2_120",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 331,
    "framework": "AG2",
    "session": "AG2_121",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 332,
    "framework": "AG2",
    "session": "AG2_122",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 333,
    "framework": "AG2",
    "session": "AG2_123",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 334,
    "framework": "AG2",
    "session": "AG2_124",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 335,
    "framework": "AG2",
    "session": "AG2_125",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 336,
    "framework": "AG2",
    "session": "AG2_126",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 337,
    "framework": "AG2",
    "session": "AG2_127",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 338,
    "framework": "AG2",
    "session": "AG2_128",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 339,
    "framework": "AG2",
    "session": "AG2_129",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 340,
    "framework": "AG2",
    "session": "AG2_130",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 341,
    "framework": "AG2",
    "session": "AG2_131",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 342,
    "framework": "AG2",
    "session": "AG2_132",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 343,
    "framework": "AG2",
    "session": "AG2_133",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 344,
    "framework": "AG2",
    "session": "AG2_134",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 345,
    "framework": "AG2",
    "session": "AG2_135",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 346,
    "framework": "AG2",
    "session": "AG2_136",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 347,
    "framework": "AG2",
    "session": "AG2_137",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 348,
    "framework": "AG2",
    "session": "AG2_138",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 349,
    "framework": "AG2",
    "session": "AG2_139",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 350,
    "framework": "AG2",
    "session": "AG2_140",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 351,
    "framework": "AG2",
    "session": "AG2_141",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 352,
    "framework": "AG2",
    "session": "AG2_142",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 353,
    "framework": "AG2",
    "session": "AG2_143",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 354,
    "framework": "AG2",
    "session": "AG2_144",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 355,
    "framework": "AG2",
    "session": "AG2_145",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 356,
    "framework": "AG2",
    "session": "AG2_146",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 357,
    "framework": "AG2",
    "session": "AG2_147",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 358,
    "framework": "AG2",
    "session": "AG2_148",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 359,
    "framework": "AG2",
    "session": "AG2_149",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 360,
    "framework": "AG2",
    "session": "AG2_150",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 361,
    "framework": "AG2",
    "session": "AG2_151",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 362,
    "framework": "AG2",
    "session": "AG2_152",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 363,
    "framework": "AG2",
    "session": "AG2_153",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 364,
    "framework": "AG2",
    "session": "AG2_154",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 365,
    "framework": "AG2",
    "session": "AG2_155",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 366,
    "framework": "AG2",
    "session": "AG2_156",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 367,
    "framework": "AG2",
    "session": "AG2_157",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 368,
    "framework": "AG2",
    "session": "AG2_158",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 369,
    "framework": "AG2",
    "session": "AG2_159",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 370,
    "framework": "AG2",
    "session": "AG2_160",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 371,
    "framework": "AG2",
    "session": "AG2_161",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 372,
    "framework": "AG2",
    "session": "AG2_162",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
@@ -3445,61 +3445,61 @@
    "session": "AG2_163",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 374,
    "framework": "AG2",
    "session": "AG2_164",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 375,
    "framework": "AG2",
    "session": "AG2_165",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 376,
    "framework": "AG2",
    "session": "AG2_166",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 377,
    "framework": "AG2",
    "session": "AG2_167",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 378,
    "framework": "AG2",
    "session": "AG2_168",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 379,
    "framework": "AG2",
    "session": "AG2_169",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -3508,1753 +3508,1753 @@
    "session": "AG2_170",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 381,
    "framework": "AG2",
    "session": "AG2_171",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 382,
    "framework": "AG2",
    "session": "AG2_172",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 383,
    "framework": "AG2",
    "session": "AG2_173",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 384,
    "framework": "AG2",
    "session": "AG2_174",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 385,
    "framework": "AG2",
    "session": "AG2_175",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 386,
    "framework": "AG2",
    "session": "AG2_176",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 387,
    "framework": "AG2",
    "session": "AG2_177",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 388,
    "framework": "AG2",
    "session": "AG2_178",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 389,
    "framework": "AG2",
    "session": "AG2_179",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 390,
    "framework": "AG2",
    "session": "AG2_180",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 391,
    "framework": "AG2",
    "session": "AG2_181",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x22"
    ]
   },
   {
    "idx": 392,
    "framework": "AG2",
    "session": "AG2_182",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 393,
    "framework": "AG2",
    "session": "AG2_183",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 394,
    "framework": "AG2",
    "session": "AG2_184",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 395,
    "framework": "AG2",
    "session": "AG2_185",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 396,
    "framework": "AG2",
    "session": "AG2_186",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 397,
    "framework": "AG2",
    "session": "AG2_187",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 398,
    "framework": "AG2",
    "session": "AG2_188",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 399,
    "framework": "AG2",
    "session": "AG2_189",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 400,
    "framework": "AG2",
    "session": "AG2_190",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 401,
    "framework": "AG2",
    "session": "AG2_191",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 402,
    "framework": "AG2",
    "session": "AG2_192",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 403,
    "framework": "AG2",
    "session": "AG2_0",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 404,
    "framework": "AG2",
    "session": "AG2_1",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 405,
    "framework": "AG2",
    "session": "AG2_2",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 406,
    "framework": "AG2",
    "session": "AG2_3",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 407,
    "framework": "AG2",
    "session": "AG2_4",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 408,
    "framework": "AG2",
    "session": "AG2_5",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 409,
    "framework": "AG2",
    "session": "AG2_6",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x5"
    ]
   },
   {
    "idx": 410,
    "framework": "AG2",
    "session": "AG2_7",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 411,
    "framework": "AG2",
    "session": "AG2_8",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 412,
    "framework": "AG2",
    "session": "AG2_9",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 413,
    "framework": "AG2",
    "session": "AG2_10",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 414,
    "framework": "AG2",
    "session": "AG2_11",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 415,
    "framework": "AG2",
    "session": "AG2_12",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 416,
    "framework": "AG2",
    "session": "AG2_13",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 417,
    "framework": "AG2",
    "session": "AG2_14",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 418,
    "framework": "AG2",
    "session": "AG2_15",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 419,
    "framework": "AG2",
    "session": "AG2_16",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 420,
    "framework": "AG2",
    "session": "AG2_17",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 421,
    "framework": "AG2",
    "session": "AG2_18",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 422,
    "framework": "AG2",
    "session": "AG2_19",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 423,
    "framework": "AG2",
    "session": "AG2_20",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 424,
    "framework": "AG2",
    "session": "AG2_21",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 425,
    "framework": "AG2",
    "session": "AG2_22",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 426,
    "framework": "AG2",
    "session": "AG2_23",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 427,
    "framework": "AG2",
    "session": "AG2_24",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 428,
    "framework": "AG2",
    "session": "AG2_25",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 429,
    "framework": "AG2",
    "session": "AG2_26",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 430,
    "framework": "AG2",
    "session": "AG2_27",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 431,
    "framework": "AG2",
    "session": "AG2_28",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 432,
    "framework": "AG2",
    "session": "AG2_29",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 433,
    "framework": "AG2",
    "session": "AG2_30",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 434,
    "framework": "AG2",
    "session": "AG2_31",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 435,
    "framework": "AG2",
    "session": "AG2_32",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 436,
    "framework": "AG2",
    "session": "AG2_33",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 437,
    "framework": "AG2",
    "session": "AG2_34",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 438,
    "framework": "AG2",
    "session": "AG2_35",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 439,
    "framework": "AG2",
    "session": "AG2_36",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 440,
    "framework": "AG2",
    "session": "AG2_37",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 441,
    "framework": "AG2",
    "session": "AG2_38",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 442,
    "framework": "AG2",
    "session": "AG2_39",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 443,
    "framework": "AG2",
    "session": "AG2_40",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 444,
    "framework": "AG2",
    "session": "AG2_41",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 445,
    "framework": "AG2",
    "session": "AG2_42",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 446,
    "framework": "AG2",
    "session": "AG2_43",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 447,
    "framework": "AG2",
    "session": "AG2_44",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 448,
    "framework": "AG2",
    "session": "AG2_45",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 449,
    "framework": "AG2",
    "session": "AG2_46",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 450,
    "framework": "AG2",
    "session": "AG2_47",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 451,
    "framework": "AG2",
    "session": "AG2_48",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 452,
    "framework": "AG2",
    "session": "AG2_49",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 453,
    "framework": "AG2",
    "session": "AG2_50",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 454,
    "framework": "AG2",
    "session": "AG2_51",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 455,
    "framework": "AG2",
    "session": "AG2_52",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 456,
    "framework": "AG2",
    "session": "AG2_53",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 457,
    "framework": "AG2",
    "session": "AG2_54",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 458,
    "framework": "AG2",
    "session": "AG2_55",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 459,
    "framework": "AG2",
    "session": "AG2_56",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 460,
    "framework": "AG2",
    "session": "AG2_57",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 461,
    "framework": "AG2",
    "session": "AG2_58",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 462,
    "framework": "AG2",
    "session": "AG2_59",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 463,
    "framework": "AG2",
    "session": "AG2_60",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 464,
    "framework": "AG2",
    "session": "AG2_61",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 465,
    "framework": "AG2",
    "session": "AG2_62",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 466,
    "framework": "AG2",
    "session": "AG2_63",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 467,
    "framework": "AG2",
    "session": "AG2_64",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 468,
    "framework": "AG2",
    "session": "AG2_65",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 469,
    "framework": "AG2",
    "session": "AG2_66",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 470,
    "framework": "AG2",
    "session": "AG2_67",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 471,
    "framework": "AG2",
    "session": "AG2_68",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 472,
    "framework": "AG2",
    "session": "AG2_69",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 473,
    "framework": "AG2",
    "session": "AG2_70",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 474,
    "framework": "AG2",
    "session": "AG2_71",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 475,
    "framework": "AG2",
    "session": "AG2_72",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x9"
    ]
   },
   {
    "idx": 476,
    "framework": "AG2",
    "session": "AG2_73",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 477,
    "framework": "AG2",
    "session": "AG2_74",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 478,
    "framework": "AG2",
    "session": "AG2_75",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 479,
    "framework": "AG2",
    "session": "AG2_76",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 480,
    "framework": "AG2",
    "session": "AG2_77",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 481,
    "framework": "AG2",
    "session": "AG2_78",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 482,
    "framework": "AG2",
    "session": "AG2_79",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 483,
    "framework": "AG2",
    "session": "AG2_80",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 484,
    "framework": "AG2",
    "session": "AG2_81",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 485,
    "framework": "AG2",
    "session": "AG2_82",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 486,
    "framework": "AG2",
    "session": "AG2_83",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 487,
    "framework": "AG2",
    "session": "AG2_84",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 488,
    "framework": "AG2",
    "session": "AG2_85",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 489,
    "framework": "AG2",
    "session": "AG2_86",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 490,
    "framework": "AG2",
    "session": "AG2_87",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 491,
    "framework": "AG2",
    "session": "AG2_88",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 492,
    "framework": "AG2",
    "session": "AG2_89",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 493,
    "framework": "AG2",
    "session": "AG2_90",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 494,
    "framework": "AG2",
    "session": "AG2_91",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 495,
    "framework": "AG2",
    "session": "AG2_92",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 496,
    "framework": "AG2",
    "session": "AG2_93",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 497,
    "framework": "AG2",
    "session": "AG2_94",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 498,
    "framework": "AG2",
    "session": "AG2_95",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 499,
    "framework": "AG2",
    "session": "AG2_96",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 500,
    "framework": "AG2",
    "session": "AG2_97",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 501,
    "framework": "AG2",
    "session": "AG2_98",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 502,
    "framework": "AG2",
    "session": "AG2_99",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 503,
    "framework": "AG2",
    "session": "AG2_100",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x9"
    ]
   },
   {
    "idx": 504,
    "framework": "AG2",
    "session": "AG2_101",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 505,
    "framework": "AG2",
    "session": "AG2_102",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 506,
    "framework": "AG2",
    "session": "AG2_103",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 507,
    "framework": "AG2",
    "session": "AG2_104",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 508,
    "framework": "AG2",
    "session": "AG2_105",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 509,
    "framework": "AG2",
    "session": "AG2_106",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 510,
    "framework": "AG2",
    "session": "AG2_107",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 511,
    "framework": "AG2",
    "session": "AG2_108",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 512,
    "framework": "AG2",
    "session": "AG2_109",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 513,
    "framework": "AG2",
    "session": "AG2_110",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 514,
    "framework": "AG2",
    "session": "AG2_111",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 515,
    "framework": "AG2",
    "session": "AG2_112",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 516,
    "framework": "AG2",
    "session": "AG2_113",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 517,
    "framework": "AG2",
    "session": "AG2_114",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 518,
    "framework": "AG2",
    "session": "AG2_115",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 519,
    "framework": "AG2",
    "session": "AG2_116",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 520,
    "framework": "AG2",
    "session": "AG2_117",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 521,
    "framework": "AG2",
    "session": "AG2_118",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 522,
    "framework": "AG2",
    "session": "AG2_119",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 523,
    "framework": "AG2",
    "session": "AG2_120",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 524,
    "framework": "AG2",
    "session": "AG2_121",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 525,
    "framework": "AG2",
    "session": "AG2_122",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 526,
    "framework": "AG2",
    "session": "AG2_123",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 527,
    "framework": "AG2",
    "session": "AG2_124",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 528,
    "framework": "AG2",
    "session": "AG2_125",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 529,
    "framework": "AG2",
    "session": "AG2_126",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 530,
    "framework": "AG2",
    "session": "AG2_127",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 531,
    "framework": "AG2",
    "session": "AG2_128",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 532,
    "framework": "AG2",
    "session": "AG2_129",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 533,
    "framework": "AG2",
    "session": "AG2_130",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 534,
    "framework": "AG2",
    "session": "AG2_131",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 535,
    "framework": "AG2",
    "session": "AG2_132",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 536,
    "framework": "AG2",
    "session": "AG2_133",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 537,
    "framework": "AG2",
    "session": "AG2_134",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 538,
    "framework": "AG2",
    "session": "AG2_135",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 539,
    "framework": "AG2",
    "session": "AG2_136",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 540,
    "framework": "AG2",
    "session": "AG2_137",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 541,
    "framework": "AG2",
    "session": "AG2_138",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 542,
    "framework": "AG2",
    "session": "AG2_139",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 543,
    "framework": "AG2",
    "session": "AG2_140",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 544,
    "framework": "AG2",
    "session": "AG2_141",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 545,
    "framework": "AG2",
    "session": "AG2_142",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 546,
    "framework": "AG2",
    "session": "AG2_143",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 547,
    "framework": "AG2",
    "session": "AG2_144",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 548,
    "framework": "AG2",
    "session": "AG2_145",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 549,
    "framework": "AG2",
    "session": "AG2_146",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 550,
    "framework": "AG2",
    "session": "AG2_147",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 551,
    "framework": "AG2",
    "session": "AG2_148",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 552,
    "framework": "AG2",
    "session": "AG2_149",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 553,
    "framework": "AG2",
    "session": "AG2_150",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 554,
    "framework": "AG2",
    "session": "AG2_151",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 555,
    "framework": "AG2",
    "session": "AG2_152",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 556,
    "framework": "AG2",
    "session": "AG2_153",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 557,
    "framework": "AG2",
    "session": "AG2_154",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 558,
    "framework": "AG2",
    "session": "AG2_155",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 559,
    "framework": "AG2",
    "session": "AG2_156",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 560,
    "framework": "AG2",
    "session": "AG2_157",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 561,
    "framework": "AG2",
    "session": "AG2_158",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 562,
    "framework": "AG2",
    "session": "AG2_159",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 563,
    "framework": "AG2",
    "session": "AG2_160",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 564,
    "framework": "AG2",
    "session": "AG2_161",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 565,
    "framework": "AG2",
    "session": "AG2_162",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 566,
    "framework": "AG2",
    "session": "AG2_163",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 567,
    "framework": "AG2",
    "session": "AG2_164",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 568,
    "framework": "AG2",
    "session": "AG2_165",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 569,
    "framework": "AG2",
    "session": "AG2_166",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x9"
    ]
   },
   {
    "idx": 570,
    "framework": "AG2",
    "session": "AG2_167",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x7"
    ]
   },
   {
    "idx": 571,
    "framework": "AG2",
    "session": "AG2_0",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 572,
    "framework": "AG2",
    "session": "AG2_1",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 573,
    "framework": "AG2",
    "session": "AG2_2",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 574,
    "framework": "AG2",
    "session": "AG2_3",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -5263,16 +5263,16 @@
    "session": "AG2_4",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 576,
    "framework": "AG2",
    "session": "AG2_5",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -5281,34 +5281,34 @@
    "session": "AG2_6",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 578,
    "framework": "AG2",
    "session": "AG2_7",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 579,
    "framework": "AG2",
    "session": "AG2_8",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 580,
    "framework": "AG2",
    "session": "AG2_9",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
@@ -5317,16 +5317,16 @@
    "session": "AG2_10",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 582,
    "framework": "AG2",
    "session": "AG2_11",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -5335,16 +5335,16 @@
    "session": "AG2_12",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 584,
    "framework": "AG2",
    "session": "AG2_13",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
@@ -5353,7 +5353,7 @@
    "session": "AG2_14",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5362,7 +5362,7 @@
    "session": "AG2_15",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5371,7 +5371,7 @@
    "session": "AG2_16",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5380,7 +5380,7 @@
    "session": "AG2_17",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5389,7 +5389,7 @@
    "session": "AG2_18",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5398,7 +5398,7 @@
    "session": "AG2_19",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5407,7 +5407,7 @@
    "session": "AG2_20",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5416,7 +5416,7 @@
    "session": "AG2_21",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5425,7 +5425,7 @@
    "session": "AG2_22",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5434,52 +5434,52 @@
    "session": "AG2_23",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 595,
    "framework": "AG2",
    "session": "AG2_24",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 596,
    "framework": "AG2",
    "session": "AG2_25",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 597,
    "framework": "AG2",
    "session": "AG2_26",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 598,
    "framework": "AG2",
    "session": "AG2_27",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 599,
    "framework": "AG2",
    "session": "AG2_28",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
@@ -5488,25 +5488,25 @@
    "session": "AG2_29",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 601,
    "framework": "AG2",
    "session": "AG2_30",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 602,
    "framework": "AG2",
    "session": "AG2_31",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -5515,7 +5515,7 @@
    "session": "AG2_32",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5524,7 +5524,7 @@
    "session": "AG2_33",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -5533,79 +5533,79 @@
    "session": "AG2_34",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 606,
    "framework": "AG2",
    "session": "AG2_35",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 607,
    "framework": "AG2",
    "session": "AG2_36",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 608,
    "framework": "AG2",
    "session": "AG2_37",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 609,
    "framework": "AG2",
    "session": "AG2_38",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 610,
    "framework": "AG2",
    "session": "AG2_39",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 611,
    "framework": "AG2",
    "session": "AG2_40",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 612,
    "framework": "AG2",
    "session": "AG2_41",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 613,
    "framework": "AG2",
    "session": "AG2_42",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -5614,97 +5614,97 @@
    "session": "AG2_43",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 615,
    "framework": "AG2",
    "session": "AG2_44",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 616,
    "framework": "AG2",
    "session": "AG2_45",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 617,
    "framework": "AG2",
    "session": "AG2_46",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 618,
    "framework": "AG2",
    "session": "AG2_47",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 619,
    "framework": "AG2",
    "session": "AG2_48",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 620,
    "framework": "AG2",
    "session": "AG2_49",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 621,
    "framework": "AG2",
    "session": "AG2_50",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 622,
    "framework": "AG2",
    "session": "AG2_51",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 623,
    "framework": "AG2",
    "session": "AG2_52",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 624,
    "framework": "AG2",
    "session": "AG2_53",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -5713,115 +5713,115 @@
    "session": "AG2_54",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 626,
    "framework": "AG2",
    "session": "AG2_55",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 627,
    "framework": "AG2",
    "session": "AG2_56",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 628,
    "framework": "AG2",
    "session": "AG2_57",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 629,
    "framework": "AG2",
    "session": "AG2_58",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 630,
    "framework": "AG2",
    "session": "AG2_59",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 631,
    "framework": "AG2",
    "session": "AG2_60",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 632,
    "framework": "AG2",
    "session": "AG2_61",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 633,
    "framework": "AG2",
    "session": "AG2_62",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 634,
    "framework": "AG2",
    "session": "AG2_63",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 635,
    "framework": "AG2",
    "session": "AG2_64",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 636,
    "framework": "AG2",
    "session": "AG2_65",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 637,
    "framework": "AG2",
    "session": "AG2_66",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -5830,151 +5830,151 @@
    "session": "AG2_67",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 639,
    "framework": "AG2",
    "session": "AG2_68",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 640,
    "framework": "AG2",
    "session": "AG2_69",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 641,
    "framework": "AG2",
    "session": "AG2_70",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 642,
    "framework": "AG2",
    "session": "AG2_71",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 643,
    "framework": "AG2",
    "session": "AG2_72",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 644,
    "framework": "AG2",
    "session": "AG2_73",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 645,
    "framework": "AG2",
    "session": "AG2_74",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 646,
    "framework": "AG2",
    "session": "AG2_75",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 647,
    "framework": "AG2",
    "session": "AG2_76",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 648,
    "framework": "AG2",
    "session": "AG2_77",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 649,
    "framework": "AG2",
    "session": "AG2_78",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 650,
    "framework": "AG2",
    "session": "AG2_79",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 651,
    "framework": "AG2",
    "session": "AG2_80",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 652,
    "framework": "AG2",
    "session": "AG2_81",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 653,
    "framework": "AG2",
    "session": "AG2_82",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 654,
    "framework": "AG2",
    "session": "AG2_83",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -5983,16 +5983,16 @@
    "session": "AG2_84",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 656,
    "framework": "AG2",
    "session": "AG2_85",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6001,88 +6001,88 @@
    "session": "AG2_86",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 658,
    "framework": "AG2",
    "session": "AG2_87",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 659,
    "framework": "AG2",
    "session": "AG2_88",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 660,
    "framework": "AG2",
    "session": "AG2_89",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 661,
    "framework": "AG2",
    "session": "AG2_90",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 662,
    "framework": "AG2",
    "session": "AG2_91",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 663,
    "framework": "AG2",
    "session": "AG2_92",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 664,
    "framework": "AG2",
    "session": "AG2_93",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 665,
    "framework": "AG2",
    "session": "AG2_94",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 666,
    "framework": "AG2",
    "session": "AG2_95",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6091,106 +6091,106 @@
    "session": "AG2_96",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 668,
    "framework": "AG2",
    "session": "AG2_97",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 669,
    "framework": "AG2",
    "session": "AG2_98",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 670,
    "framework": "AG2",
    "session": "AG2_99",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 671,
    "framework": "AG2",
    "session": "AG2_100",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 672,
    "framework": "AG2",
    "session": "AG2_101",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 673,
    "framework": "AG2",
    "session": "AG2_102",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 674,
    "framework": "AG2",
    "session": "AG2_103",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 675,
    "framework": "AG2",
    "session": "AG2_104",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 676,
    "framework": "AG2",
    "session": "AG2_105",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 677,
    "framework": "AG2",
    "session": "AG2_106",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 678,
    "framework": "AG2",
    "session": "AG2_107",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
@@ -6199,106 +6199,106 @@
    "session": "AG2_108",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 680,
    "framework": "AG2",
    "session": "AG2_109",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 681,
    "framework": "AG2",
    "session": "AG2_110",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 682,
    "framework": "AG2",
    "session": "AG2_111",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 683,
    "framework": "AG2",
    "session": "AG2_112",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x22"
    ]
   },
   {
    "idx": 684,
    "framework": "AG2",
    "session": "AG2_113",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 685,
    "framework": "AG2",
    "session": "AG2_114",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 686,
    "framework": "AG2",
    "session": "AG2_115",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 687,
    "framework": "AG2",
    "session": "AG2_116",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 688,
    "framework": "AG2",
    "session": "AG2_117",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 689,
    "framework": "AG2",
    "session": "AG2_118",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 690,
    "framework": "AG2",
    "session": "AG2_119",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6307,97 +6307,97 @@
    "session": "AG2_120",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 692,
    "framework": "AG2",
    "session": "AG2_121",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 693,
    "framework": "AG2",
    "session": "AG2_122",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 694,
    "framework": "AG2",
    "session": "AG2_123",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 695,
    "framework": "AG2",
    "session": "AG2_124",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 696,
    "framework": "AG2",
    "session": "AG2_125",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 697,
    "framework": "AG2",
    "session": "AG2_126",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 698,
    "framework": "AG2",
    "session": "AG2_127",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 699,
    "framework": "AG2",
    "session": "AG2_128",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 700,
    "framework": "AG2",
    "session": "AG2_129",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 701,
    "framework": "AG2",
    "session": "AG2_130",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6406,16 +6406,16 @@
    "session": "AG2_131",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 703,
    "framework": "AG2",
    "session": "AG2_132",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6424,25 +6424,25 @@
    "session": "AG2_133",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 705,
    "framework": "AG2",
    "session": "AG2_134",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 706,
    "framework": "AG2",
    "session": "AG2_135",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6451,16 +6451,16 @@
    "session": "AG2_136",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 708,
    "framework": "AG2",
    "session": "AG2_137",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6469,7 +6469,7 @@
    "session": "AG2_138",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -6478,34 +6478,34 @@
    "session": "AG2_139",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 711,
    "framework": "AG2",
    "session": "AG2_140",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 712,
    "framework": "AG2",
    "session": "AG2_141",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 713,
    "framework": "AG2",
    "session": "AG2_142",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
@@ -6514,7 +6514,7 @@
    "session": "AG2_143",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -6523,70 +6523,70 @@
    "session": "AG2_144",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 716,
    "framework": "AG2",
    "session": "AG2_145",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x20"
    ]
   },
   {
    "idx": 717,
    "framework": "AG2",
    "session": "AG2_146",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 718,
    "framework": "AG2",
    "session": "AG2_147",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 719,
    "framework": "AG2",
    "session": "AG2_148",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 720,
    "framework": "AG2",
    "session": "AG2_149",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 721,
    "framework": "AG2",
    "session": "AG2_150",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 722,
    "framework": "AG2",
    "session": "AG2_151",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6595,169 +6595,169 @@
    "session": "AG2_152",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 724,
    "framework": "AG2",
    "session": "AG2_153",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 725,
    "framework": "AG2",
    "session": "AG2_154",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 726,
    "framework": "AG2",
    "session": "AG2_155",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 727,
    "framework": "AG2",
    "session": "AG2_156",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 728,
    "framework": "AG2",
    "session": "AG2_157",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 729,
    "framework": "AG2",
    "session": "AG2_158",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 730,
    "framework": "AG2",
    "session": "AG2_159",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 731,
    "framework": "AG2",
    "session": "AG2_160",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 732,
    "framework": "AG2",
    "session": "AG2_161",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 733,
    "framework": "AG2",
    "session": "AG2_162",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 734,
    "framework": "AG2",
    "session": "AG2_163",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 735,
    "framework": "AG2",
    "session": "AG2_164",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x12"
    ]
   },
   {
    "idx": 736,
    "framework": "AG2",
    "session": "AG2_165",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 737,
    "framework": "AG2",
    "session": "AG2_166",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 738,
    "framework": "AG2",
    "session": "AG2_167",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 739,
    "framework": "AG2",
    "session": "AG2_168",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 740,
    "framework": "AG2",
    "session": "AG2_169",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 741,
    "framework": "AG2",
    "session": "AG2_170",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6766,70 +6766,70 @@
    "session": "AG2_171",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 743,
    "framework": "AG2",
    "session": "AG2_172",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 744,
    "framework": "AG2",
    "session": "AG2_173",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 745,
    "framework": "AG2",
    "session": "AG2_174",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 746,
    "framework": "AG2",
    "session": "AG2_175",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 747,
    "framework": "AG2",
    "session": "AG2_176",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 748,
    "framework": "AG2",
    "session": "AG2_177",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x14"
    ]
   },
   {
    "idx": 749,
    "framework": "AG2",
    "session": "AG2_178",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6838,7 +6838,7 @@
    "session": "AG2_179",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
@@ -6847,88 +6847,88 @@
    "session": "AG2_180",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 752,
    "framework": "AG2",
    "session": "AG2_181",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 753,
    "framework": "AG2",
    "session": "AG2_182",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 754,
    "framework": "AG2",
    "session": "AG2_183",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 755,
    "framework": "AG2",
    "session": "AG2_184",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 756,
    "framework": "AG2",
    "session": "AG2_185",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x28"
    ]
   },
   {
    "idx": 757,
    "framework": "AG2",
    "session": "AG2_186",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 758,
    "framework": "AG2",
    "session": "AG2_187",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x20"
    ]
   },
   {
    "idx": 759,
    "framework": "AG2",
    "session": "AG2_188",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x22"
    ]
   },
   {
    "idx": 760,
    "framework": "AG2",
    "session": "AG2_189",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6937,34 +6937,34 @@
    "session": "AG2_190",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 762,
    "framework": "AG2",
    "session": "AG2_191",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 763,
    "framework": "AG2",
    "session": "AG2_192",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 764,
    "framework": "AG2",
    "session": "AG2_193",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
@@ -6973,106 +6973,106 @@
    "session": "AG2_194",
    "verdict": "UNKNOWN",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x2"
    ]
   },
   {
    "idx": 766,
    "framework": "AG2",
    "session": "AG2_195",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 767,
    "framework": "AG2",
    "session": "AG2_196",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 768,
    "framework": "AG2",
    "session": "AG2_197",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 769,
    "framework": "AG2",
    "session": "AG2_198",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 770,
    "framework": "AG2",
    "session": "AG2_199",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 771,
    "framework": "AG2",
    "session": "AG2_200",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
    "idx": 772,
    "framework": "AG2",
    "session": "AG2_201",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x8"
    ]
   },
   {
    "idx": 773,
    "framework": "AG2",
    "session": "AG2_202",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 774,
    "framework": "AG2",
    "session": "AG2_203",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x10"
    ]
   },
   {
    "idx": 775,
    "framework": "AG2",
    "session": "AG2_204",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x4"
    ]
   },
   {
    "idx": 776,
    "framework": "AG2",
    "session": "AG2_205",
-   "verdict": "UNKNOWN",
+   "verdict": "NO_SHARED_STORE",
    "evidence": [
-    "no conversational structure recognized"
+    "pyrepr_role x6"
    ]
   },
   {
