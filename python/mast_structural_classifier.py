@@ -244,7 +244,7 @@ def main() -> None:
     for idx, record in enumerate(dataset):
         fw = record.get("mas_name", "unknown")
         trajectory = get_trajectory(record)
-        sid = f"{fw}_{record.get('trace_id', idx)}"
+        sid = f"{fw}_{record.get('trace_id', idx)}_{idx}"
         n_ev, n_op = adapter_events(trajectory, fw, sid)
         if n_op > 0:
             verdict, evidence = "PARSED", ["adapter yields OpRecords; in the 600-trace cell"]
@@ -326,7 +326,7 @@ def main() -> None:
         for s in sample:
             rec = dataset[s["idx"]]
             blind.append({"session": s["session"],
-                          "trajectory_excerpt": (rec.get("trajectory") or "")[:4000]})
+                          "trajectory_excerpt": (get_trajectory(rec) or "")[:4000]})
             key.append({"session": s["session"], "classifier_verdict": s["verdict"],
                         "evidence": s["evidence"]})
         (args.audit_out / "blind_sheet.json").write_text(json.dumps(blind, indent=1))
