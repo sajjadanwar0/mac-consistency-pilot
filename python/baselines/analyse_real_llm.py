@@ -49,7 +49,7 @@ def bootstrap_ci(samples: list[int], target: int, n_boot: int = 1000, alpha: flo
 def analyse_cell(cell_dir: Path) -> dict:
     if not cell_dir.is_dir():
         return {"levels": [], "n": 0, "missing": True}
-    trace_files = sorted(cell_dir.glob("sess-*.jsonl"))
+    trace_files = sorted(cell_dir.glob("*.jsonl"))
     levels = []
     for tf in trace_files:
         try:
