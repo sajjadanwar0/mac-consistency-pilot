@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{$A_1$ firing rate (\%) across runtime $\times$ workload (95\,\% bootstrap CI).}
+\label{tab:real-llm-baseline}
+\small
+\begin{tabular}{lccc}
+\toprule
+Runtime & edit-review & plan-execute & triage \\
+\midrule
+Vanilla (no instrumentation) & 100.0 [100.0, 100.0] & 0.0 [0.0, 0.0] & 33.0 [24.0, 42.0] \\
+Pessimistic locking & 0.0 [0.0, 0.0] & 0.0 [0.0, 0.0] & 0.0 [0.0, 0.0] \\
+Snapshot isolation & 0.0 [0.0, 0.0] & 0.0 [0.0, 0.0] & 3.0 [0.0, 6.0] \\
+\bottomrule
+\end{tabular}
+\end{table}
