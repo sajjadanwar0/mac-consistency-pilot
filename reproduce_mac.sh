@@ -111,6 +111,10 @@ VERUS_TARGETS=(
                                        # usize-indexed (cast-free; Verus caught a 32-bit truncation hole in the draft)
   "lib_l4_exec.rs|9"                   # live-confirmed 2026-06-12: exec-mode L4 snapshot discipline, a2_free
                                        # capstone; first-pass green (L3 lessons pre-applied)
+  "lib_a4_split_view.rs|?"             # REGRESSION GUARD added 2026-06-12: paper-cited A4 content proofs were
+                                       # never a pinned target, so a break (caught by verus_count, not by this
+                                       # script) went unnoticed. "?" until re-green, then pin the live count
+                                       # (historical: 9).
   "lib_refinement_pessimistic.rs|31"   # live-confirmed
   "lib_refinement_ssi.rs|18"           # live-confirmed
   "lib_refinement_ssi_chain.rs|17"     # live-confirmed
@@ -510,6 +514,33 @@ else
         fi
     else
         skip "cost-envelope live sweep (use --with-live + OPENAI_API_KEY to reproduce Fig. cost-envelope)"
+    fi
+fi
+
+# ---------------------------------------------------------------------------
+log "Phase 7c: Judge-audit reliability (Sec 5.10 operational materiality)"
+# Offline, deterministic, no API keys: judge_audit.py 'score' joins the
+# preserved blind human coding sheet (audit_sheet.csv) against the captured
+# LLM-judge verdicts (cf_trace_edit.jsonl, cf_trace_triage.jsonl) and prints
+# percent agreement + Cohen's kappa. The paper (sec:operational-materiality)
+# cites 59/60 (98%), kappa=0.96; this asserts that figure reproduces from the
+# committed artifact rather than being taken on trust. The human coder never
+# saw the judge's verdict (blind sheet), so the agreement is a genuine check.
+JA="$PY/judge_audit.py"
+if [ ! -f "$JA" ]; then
+    skip "judge audit (python/judge_audit.py not found)"
+elif [ ! -f "$PY/audit_sheet.csv" ] \
+  || [ ! -f "$PY/cf_trace_edit.jsonl" ] \
+  || [ ! -f "$PY/cf_trace_triage.jsonl" ]; then
+    skip "judge audit (audit_sheet.csv / cf_trace_*.jsonl not found alongside judge_audit.py)"
+else
+    if (cd "$PY" && python3 judge_audit.py score audit_sheet.csv \
+            cf_trace_edit.jsonl cf_trace_triage.jsonl) >/tmp/judge_audit.out 2>&1 \
+       && grep -q '59/60' /tmp/judge_audit.out \
+       && grep -Eq 'kappa: 0\.9[0-9]' /tmp/judge_audit.out; then
+        ok "judge audit reproduces Sec 5.10 (59/60 = 98% agreement, Cohen's kappa ~0.96)"
+    else
+        fail "judge audit did not reproduce 59/60 + kappa ~0.96 (see /tmp/judge_audit.out)"
     fi
 fi
 
