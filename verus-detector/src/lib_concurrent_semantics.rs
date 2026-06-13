@@ -171,13 +171,20 @@ pub proof fn lemma_distinct_agent_access_separation(tr: Seq<Event>, i: int, j: i
         assert(tr[i].agent == tr[j].agent);
         assert(false);
     }
-
+    // hence a lock-on-c event exists in [i, j); it cannot be i (an access),
+    // so it lies strictly between.
     let k = choose |k: int| #![trigger is_lock_on(tr[k], c)] i <= k < j && is_lock_on(tr[k], c);
-    assert(is_access_on(tr[i], c));
+    assert(is_access_on(tr[i], c));   // tr[i] is an access, not a lock
     assert(k != i);
     assert(i < k < j && is_lock_on(tr[k], c));
 }
 
+// =====================================================================
+// Theorem 7 (non-vacuity): a well-formed trace containing a Read exists.
+// Witness: agent 1 acquires cell 0, then reads it (value unconstrained
+// because the cell has never been written). Establishes the universal
+// theorems above are not vacuously true.
+// =====================================================================
 pub proof fn lemma_nonvacuous_witness()
     ensures
         exists |tr: Seq<Event>| #![trigger well_formed(tr)]
@@ -191,8 +198,12 @@ pub proof fn lemma_nonvacuous_witness()
     assert(tr[0] == e0);
     assert(tr[1] == e1);
 
+    // i = 0: Acquire on the empty holder map is enabled.
     assert(state_after(tr, 0) == init());
     assert(step_enabled(state_after(tr, 0), tr[0]));
+
+    // i = 1: after the acquire, agent 1 holds cell 0; the read is enabled
+    // (cell 0 not in values, so the value clause is vacuous).
     assert(state_after(tr, 1) == step(init(), e0));
     assert(state_after(tr, 1).holders.contains_key(0));
     assert(state_after(tr, 1).holders[0] == 1);

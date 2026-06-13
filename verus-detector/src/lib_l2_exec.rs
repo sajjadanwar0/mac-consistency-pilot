@@ -1716,6 +1716,7 @@ impl L2Runtime {
         t
     }
 
+    // write: record a single write (cell c := value v) in txn t's write-set.
     pub fn write(&mut self, t: u64, c: u64, v: u64)
         requires
             old(self).wf(),
@@ -1731,38 +1732,38 @@ impl L2Runtime {
         let ghost old_txns = self.txns@;
         let ghost old_view = self.view();
         let ghost old_txn = old_txns[t];
-
+        // Take the txn out, modify its write-set/values, put it back.
         let mut txn = self.txns.remove(&t).unwrap();
-
         txn.writes.push((c, v));
         self.txns.insert(t, txn);
         self.now = self.now + 1;
         proof {
             lemma_u64_roundtrip(t);
-
+            // The removed record is the model's txns[t].
             assert(old_view.txns[t as int] == old_txn.view());
+            // Write-Vec push congruence.
             lemma_writes_push(old_txn.writes@, c, v);
-
+            // The reinserted record's view is step_write's new_txn.
             assert(txn.view() =~= TxnState {
                 write_set: old_view.txns[t as int].write_set.insert(c as int),
                 write_values: old_view.txns[t as int].write_values.insert(c as int, v as int),
                 ..old_view.txns[t as int]
             });
-
+            // remove-then-insert on the same key == insert.
             assert(self.txns@ =~= old_txns.insert(t, txn));
             lemma_view_txns_insert(old_txns, t, txn);
             assert(self.view() =~= step_write(old_view, t as int, c as int, v as int));
-
+            // Preservation via the existing model lemma.
             lemma_write_preserves_inv_l2(old_view, t as int, c as int, v as int);
             assert(inv_l2(self.view()));
-
+            // fresh_ok preserved: key set unchanged (t was already present).
             assert forall |kk: u64| #[trigger] self.txns@.contains_key(kk)
                 implies (kk as int) < (self.next_txn as int) by {
                 assert(old_txns.contains_key(kk) || kk == t);
             }
-
+            // keys_contiguous preserved: key set unchanged (remove-then-insert
+            // of the same key t) and next_txn untouched.
             assert(self.txns@.dom() =~= old_txns.dom());
-
             assert forall |k: u64| #[trigger] self.txns@.contains_key(k)
                 <==> (k as int) < (self.next_txn as int) by {
                 assert(self.txns@.contains_key(k) <==> old_txns.contains_key(k));
@@ -1771,6 +1772,9 @@ impl L2Runtime {
         }
     }
 
+    // commit: publish txn t's writes and mark it committed. Refines
+    // step_commit; preserves wf via lemma_commit_preserves_inv_l2. The
+    // discipline (only commit when valid) is the commit_valid precondition.
     pub fn commit(&mut self, t: u64)
         requires
             old(self).wf(),
@@ -1789,14 +1793,16 @@ impl L2Runtime {
         let ghost txn0 = old_txns[t];
         proof { lemma_u64_roundtrip(t); }
 
+        // Remove the txn (own it), mark committed, iterate its writes while it
+        // is OUT of the map (no clone, no borrow conflict), reinsert after.
         let mut txn = self.txns.remove(&t).unwrap();
-
         txn.committed = true;
         txn.commit_time = self.now;
 
         proof {
             assert(self.txns@ =~= old_txns.remove(t));
             assert(txn.writes@ =~= txn0.writes@);
+            // Base case: the empty prefix publishes to the original maps.
             assert(txn.writes@.subrange(0, 0) =~= Seq::<(u64, u64)>::empty());
             assert(publish_writes(old_cv, writes_set(txn.writes@.subrange(0, 0)),
                                   writes_map(txn.writes@.subrange(0, 0))) =~= old_cv);
@@ -1807,7 +1813,6 @@ impl L2Runtime {
         }
 
         let mut i: usize = 0;
-
         while i < txn.writes.len()
             invariant
                 0 <= i <= txn.writes.len(),
@@ -1857,19 +1862,18 @@ impl L2Runtime {
         proof {
             assert(self.txns@ =~= old_txns.insert(t, gtxn));
             assert(gtxn.writes@ =~= txn0.writes@);
+            // write_set / write_values of the model txn are exactly the Vec views.
             assert(txn0.view().write_set == writes_set(txn0.writes@));
             assert(txn0.view().write_values == writes_map(txn0.writes@));
-
+            // The committed record is step_commit's new_txn.
             assert(gtxn.view() =~= TxnState {
                 committed: true,
                 commit_time: old_view.now,
                 ..txn0.view()
             });
-
             lemma_view_txns_insert(old_txns, t, gtxn);
-
+            // Assemble: every field of the view matches step_commit.
             let sc = step_commit(old_view, t as int);
-
             assert(self.view().now == sc.now);
             assert(self.view().txns =~= sc.txns);
             assert(self.view().cell_value =~= sc.cell_value);
@@ -1882,7 +1886,8 @@ impl L2Runtime {
                 implies (kk as int) < (self.next_txn as int) by {
                 assert(old_txns.contains_key(kk) || kk == t);
             }
-
+            // keys_contiguous preserved: key set unchanged (remove-then-insert
+            // of the same key t) and next_txn untouched.
             assert(self.txns@.dom() =~= old_txns.dom());
             assert forall |k: u64| #[trigger] self.txns@.contains_key(k)
                 <==> (k as int) < (self.next_txn as int) by {
@@ -1892,6 +1897,10 @@ impl L2Runtime {
         }
     }
 
+    // read: txn t reads cell c. Records the value and provenance (writer),
+    // stamps the read time, and unions the writer's causal closure into t's
+    // predecessors so that one-level cascade_abort is sufficient. Refines
+    // step_read; preserves wf via lemma_read_preserves_inv_l2.
     pub fn read(&mut self, t: u64, c: u64)
         requires
             old(self).wf(),
@@ -1904,40 +1913,44 @@ impl L2Runtime {
             final(self).view() == step_read(old(self).view(), t as int, c as int),
     {
         broadcast use vstd::std_specs::hash::group_hash_axioms;
-
         let ghost old_view = self.view();
         let ghost old_txns = self.txns@;
         let ghost txn0 = old_txns[t];
 
+        // c has a recorded value and (by inv_l2) a known, committed writer.
         let v: u64 = *self.cell_value.get(&c).unwrap();
-
         proof {
             lemma_u64_roundtrip(t);
             lemma_u64_roundtrip(c);
+            // inv_cell_domains: cell_value has c => cell_writer has c.
             assert(self.cell_value@.contains_key(c));
             assert(old_view.cell_value.contains_key(c as int)) by { lemma_int_roundtrip(c as int); }
             assert(self.cell_writer@.contains_key(c));
         }
-
         let writer: u64 = *self.cell_writer.get(&c).unwrap();
-
         proof {
             lemma_u64_roundtrip(writer);
             lemma_int_roundtrip(c as int);
             assert(self.cell_writer@[c] == writer);
             assert(self.cell_value@[c] == v);
+            // view-level value/writer agree with v / writer (via view_u64_map).
+            // Establishing the cell_writer[c as int] term FIRST fires the
+            // inv_writers_committed trigger below.
             assert(old_view.cell_value[c as int] == v as int);
             assert(old_view.cell_writer[c as int] == writer as int);
+            // inv_writers_committed(old_view): the writer is a known committed
+            // txn (instantiated at c as int via the cell_writer[c as int] term).
             assert(inv_writers_committed(old_view));
             assert(old_view.txns.contains_key(writer as int));
             assert(self.txns@.contains_key(writer)) by { lemma_u64_roundtrip(writer); }
         }
 
+        // Copy the writer's predecessor Vec out. Works whether writer == t or
+        // not, because t is still in the map at this point.
         let ghost wpred = self.txns@[writer].predecessors@;
         let wlen: usize = self.txns.get(&writer).unwrap().predecessors.len();
         let mut wpred_copy: Vec<u64> = Vec::new();
         let mut i: usize = 0;
-
         while i < wlen
             invariant
                 0 <= i <= wlen,
@@ -1956,17 +1969,16 @@ impl L2Runtime {
             }
             i = i + 1;
         }
-
         proof { assert(wpred_copy@ =~= wpred); }
 
+        // Take t out and build its new record.
         let mut txn = self.txns.remove(&t).unwrap();
         let ghost old_t_pred = txn.predecessors@;
         proof { assert(old_t_pred =~= txn0.predecessors@); }
 
+        // predecessors := old ++ [writer] ++ wpred_copy.
         let ghost before0 = txn.predecessors@;
-
         txn.predecessors.push(writer);
-
         proof {
             lemma_vec_set_push(before0, writer);
             lemma_vec_set_empty();
@@ -1975,13 +1987,12 @@ impl L2Runtime {
                 =~= view_vec_u64_set(old_t_pred).insert(writer as int)
                     .union(view_vec_u64_set(wpred_copy@.subrange(0, 0))));
         }
-
         let mut j: usize = 0;
-
         while j < wpred_copy.len()
             invariant
                 0 <= j <= wpred_copy.len(),
                 wpred_copy@ == wpred,
+                // only predecessors changes in this loop; pin the rest.
                 txn.read_set@ == txn0.read_set@,
                 txn.read_values@ == txn0.read_values@,
                 txn.read_from@ == txn0.read_from@,
@@ -2004,13 +2015,13 @@ impl L2Runtime {
                 assert(wpred_copy@.subrange(0, (j + 1) as int)
                     =~= wpred_copy@.subrange(0, j as int).push(y));
                 lemma_vec_set_push(wpred_copy@.subrange(0, j as int), y);
+                // A.union(B.insert(y)) == A.union(B).insert(y)
                 assert(view_vec_u64_set(txn.predecessors@)
                     =~= view_vec_u64_set(old_t_pred).insert(writer as int)
                         .union(view_vec_u64_set(wpred_copy@.subrange(0, (j + 1) as int))));
             }
             j = j + 1;
         }
-
         proof {
             assert(wpred_copy@.subrange(0, j as int) =~= wpred_copy@);
             assert(view_vec_u64_set(txn.predecessors@)
@@ -2018,21 +2029,17 @@ impl L2Runtime {
                     .union(view_vec_u64_set(wpred)));
         }
 
+        // read_set, read_values, read_from, read_at.
         let ghost rs0 = txn.read_set@;
-
         txn.read_set.insert(c);
         proof { lemma_view_set_insert(rs0, c); }
-
         let ghost rv0 = txn.read_values@;
         txn.read_values.insert(c, v);
         proof { lemma_view_map_insert(rv0, c, v); }
-
         let ghost rf0 = txn.read_from@;
         txn.read_from.insert(c, writer);
         proof { lemma_view_map_insert(rf0, c, writer); }
-
         let ghost ra0 = txn.read_at@;
-
         txn.read_at.insert(c, self.now);
         proof {
             assert(self.now as int == old_view.now);
@@ -2044,8 +2051,11 @@ impl L2Runtime {
         self.now = self.now + 1;
 
         proof {
+            // The new record is step_read's new_txn (field by field).
             assert(old_view.txns[t as int] == txn0.view());
             assert(old_view.txns[writer as int].predecessors =~= view_vec_u64_set(wpred));
+            // bridges: the captured ghosts equal txn0's fields (the other
+            // inserts did not touch them); predecessor closure carries to gtxn.
             assert(rs0 =~= txn0.read_set@);
             assert(rv0 =~= txn0.read_values@);
             assert(rf0 =~= txn0.read_from@);
@@ -2063,26 +2073,24 @@ impl L2Runtime {
                 read_at:      txn0.view().read_at.insert(c as int, old_view.now),
                 ..txn0.view()
             });
-
             assert(self.txns@ =~= old_txns.insert(t, gtxn));
             lemma_view_txns_insert(old_txns, t, gtxn);
-
             let sr = step_read(old_view, t as int, c as int);
-
             assert(self.view().now == sr.now);
             assert(self.view().txns =~= sr.txns);
             assert(self.view().cell_value =~= sr.cell_value);
             assert(self.view().cell_writer =~= sr.cell_writer);
             assert(self.view().all_txns =~= sr.all_txns);
             assert(self.view() == sr);
+            // Preservation via the existing model lemma.
             lemma_read_preserves_inv_l2(old_view, t as int, c as int);
             assert(inv_l2(self.view()));
+            // fresh_ok + keys_contiguous: key set and next_txn unchanged.
             assert(self.txns@.dom() =~= old_txns.dom());
             assert forall |kk: u64| #[trigger] self.txns@.contains_key(kk)
                 implies (kk as int) < (self.next_txn as int) by {
                 assert(old_txns.contains_key(kk) || kk == t);
             }
-
             assert forall |k: u64| #[trigger] self.txns@.contains_key(k)
                 <==> (k as int) < (self.next_txn as int) by {
                 assert(self.txns@.contains_key(k) <==> old_txns.contains_key(k));
@@ -2091,6 +2099,7 @@ impl L2Runtime {
         }
     }
 
+    // Linear scan: does txn u's predecessor Vec contain t?
     fn txn_pred_contains(&self, u: u64, t: u64) -> (r: bool)
         requires self.txns@.contains_key(u),
         ensures r <==> view_vec_u64_set(self.txns@[u].predecessors@).contains(t as int),
@@ -2115,6 +2124,10 @@ impl L2Runtime {
         false
     }
 
+    // abort: mark t aborted, then cascade-abort every txn whose (transitively
+    // closed) predecessor set contains t. Keys are exactly [0, next_txn), so
+    // the cascade is a single scan of that range. Refines step_abort; preserves
+    // wf via lemma_abort_preserves_inv_l2.
     pub fn abort(&mut self, t: u64)
         requires
             old(self).wf(),
@@ -2129,6 +2142,8 @@ impl L2Runtime {
         let ghost old_txns = self.txns@;
         let ghost old_cv = self.cell_value@;
         let ghost old_cw = self.cell_writer@;
+
+        // Step 1: mark t aborted.
         let mut txn_t = self.txns.remove(&t).unwrap();
         txn_t.aborted = true;
         let ghost gtxn_t = txn_t;
@@ -2143,7 +2158,7 @@ impl L2Runtime {
             assert(gtxn_t.view() =~= TxnState { aborted: true, ..old_view.txns[t as int] });
             assert(base_view =~= old_view.txns.insert(t as int,
                 TxnState { aborted: true, ..old_view.txns[t as int] }));
-
+            // base keys are exactly [0, next_txn).
             assert forall |k: u64| #[trigger] base_txns.contains_key(k)
                 <==> (k as int) < (self.next_txn as int) by {
                 assert(base_txns.contains_key(k) <==> old_txns.contains_key(k) || k == t);
@@ -2151,6 +2166,7 @@ impl L2Runtime {
             }
         }
 
+        // Step 2: single-pass cascade over [0, next_txn).
         let n: u64 = self.next_txn;
         let mut u: u64 = 0;
         while u < n
@@ -2174,8 +2190,8 @@ impl L2Runtime {
             decreases n - u
         {
             let ghost pre = self.txns@;
-
             proof {
+                // u is in range, so it is a live key and still equals base[u].
                 assert(base_txns.contains_key(u));
                 assert(self.txns@.contains_key(u));
                 assert(self.txns@[u].view() == base_txns[u].view());
@@ -2234,9 +2250,9 @@ impl L2Runtime {
 
         proof {
             let ca = cascade_abort(base_view, t as int);
+            // view of the final txn store == cascade_abort(base_view, t).
             assert forall |id: int| #[trigger] view_txns_map(self.txns@).contains_key(id)
                 implies view_txns_map(self.txns@)[id] == ca[id] by {
-
                 if in_u64(id) && self.txns@.contains_key(id as u64) {
                     let k = id as u64;
                     lemma_int_roundtrip(id);
@@ -2245,10 +2261,8 @@ impl L2Runtime {
                     assert(base_view[id] == base_txns[k].view());
                 }
             }
-
             assert(view_txns_map(self.txns@).dom() =~= ca.dom());
             assert(view_txns_map(self.txns@) =~= ca);
-
             let sa = step_abort(old_view, t as int);
             assert(self.view().now == sa.now);
             assert(self.view().txns =~= sa.txns);
@@ -2256,16 +2270,15 @@ impl L2Runtime {
             assert(self.view().cell_writer =~= sa.cell_writer);
             assert(self.view().all_txns =~= sa.all_txns);
             assert(self.view() == sa);
-
+            // Preservation via the existing model lemma.
             lemma_abort_preserves_inv_l2(old_view, t as int);
             assert(inv_l2(self.view()));
-
+            // fresh_ok + keys_contiguous: key set and next_txn unchanged.
             assert(self.txns@.dom() =~= base_txns.dom());
             assert forall |kk: u64| #[trigger] self.txns@.contains_key(kk)
                 implies (kk as int) < (self.next_txn as int) by {
                 assert(base_txns.contains_key(kk));
             }
-
             assert forall |k: u64| #[trigger] self.txns@.contains_key(k)
                 <==> (k as int) < (self.next_txn as int) by {
                 assert(self.txns@.contains_key(k) <==> base_txns.contains_key(k));
@@ -2273,6 +2286,9 @@ impl L2Runtime {
         }
     }
 
+    // CAPSTONE: any wf runtime is A_3-free. Holds now for the new+begin
+    // fragment; once commit/abort (iterations 2-3) are shown to preserve wf,
+    // this theorem covers the full runtime unchanged.
     pub fn a3_free(&self)
         requires self.wf(),
         ensures forall |t: TxnId| #![trigger self.view().txns[t].committed]
