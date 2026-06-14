@@ -38,12 +38,10 @@ def main():
     real_escapes = []
     for name, hit, recs in flagged:
         i, j, cell = hit
-        # how many writes to `cell`, and by how many distinct agents?
         writers = [(r.get("agent"), r.get("write_values", {}).get(cell))
                    for r in recs if cell in r.get("write_set", [])]
         distinct_agents = {a for a, _ in writers}
         n_writes = len(writers)
-        # the consuming read's value for `cell`
         read_val = recs[i].get("read_values", {}).get(cell)
         written_vals = {v for _, v in writers}
         read_matches_a_written_value = read_val in written_vals

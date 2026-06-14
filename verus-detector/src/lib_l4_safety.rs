@@ -34,11 +34,6 @@
 //   We also exhibit, constructively, that WITHOUT isolation a
 //   phantom-tool witness exists, so the prevention is non-vacuous.
 //
-// FIX HISTORY
-//   v2: replaced a stray non-ASCII glyph in the Section 7 comment
-//       with ASCII text (research files are ASCII-only). No
-//       verification content changed.
-//
 // SCORECARD
 //   5 obligations, 0 axioms (purely structural).
 

@@ -15,7 +15,6 @@ import random
 from typing import Callable
 
 
-# -------------------- stateless tools --------------------
 
 def make_search_tool(seed: int):
     rng = random.Random(seed)
@@ -64,7 +63,6 @@ def make_code_tool():
     return run_python
 
 
-# -------------------- stateful tools --------------------
 
 def make_workspace_tools():
     state: dict[str, str] = {}
@@ -79,7 +77,6 @@ def make_workspace_tools():
     return read_workspace, write_workspace
 
 
-# -------------------- scenarios --------------------
 
 def scenario_research_collab(seed: int) -> dict:
     return {

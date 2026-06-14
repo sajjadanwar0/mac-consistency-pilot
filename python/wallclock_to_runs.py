@@ -45,7 +45,6 @@ def main() -> None:
 
     data = json.load(open(args.json_path))
     if isinstance(data, dict):
-        # tolerate {"sessions":[...]} or {"rows":[...]} wrappers
         for k in ("sessions", "rows", "results", "data"):
             if isinstance(data.get(k), list):
                 data = data[k]; break

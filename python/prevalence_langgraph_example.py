@@ -47,9 +47,6 @@ from typing import Annotated, TypedDict
 from prevalence_harness import SessionRecorder
 
 
-# ---------------------------------------------------------------------
-# Model client abstraction: one .complete(system, user) -> str
-# ---------------------------------------------------------------------
 class ModelClient:
     def __init__(self, provider: str, model: str, base_url: str | None = None):
         self.provider = provider
@@ -81,12 +78,7 @@ class ModelClient:
             return ""
 
 
-# ---------------------------------------------------------------------
-# Shared state with last-write-wins reducers (so concurrent writes are
-# allowed -- this is what lets the racy topology exhibit A_1 instead of
-# raising InvalidUpdateError).
-# ---------------------------------------------------------------------
-def _lww(_a, b):           # last-write-wins reducer
+def _lww(_a, b):
     return b
 
 
@@ -107,8 +99,6 @@ def build_graph(client: ModelClient, rec: SessionRecorder, topology: str):
         return {"plan": plan or "PLAN"}
 
     def executor(state: WS) -> dict:
-        # reads `plan` from the state it was handed -- in the racy topology
-        # this is the pre-superstep (empty) plan.
         result = client.complete(
             "You are an executor. Given the plan, output one sentence: the result.",
             f"Plan: {state.get('plan','')}")
@@ -121,9 +111,6 @@ def build_graph(client: ModelClient, rec: SessionRecorder, topology: str):
         return {"review": review or "REVIEW"}
 
     g = StateGraph(WS)
-    # superstep assignment encodes the topology's concurrency layers:
-    #   racy:       planner & executor both in layer 0 (concurrent), reviewer 1
-    #   sequential: planner 0, executor 1, reviewer 2 (no concurrency)
     if topology == "racy":
         ss_planner, ss_executor, ss_reviewer = 0, 0, 1
     else:
@@ -138,8 +125,6 @@ def build_graph(client: ModelClient, rec: SessionRecorder, topology: str):
         g.add_edge("executor", "reviewer")
         g.add_edge("reviewer", END)
     elif topology == "racy":
-        # planner and executor in the SAME first superstep: executor sees the
-        # pre-superstep (empty) plan while planner commits the real one.
         g.add_edge(START, "planner")
         g.add_edge(START, "executor")
         g.add_edge("planner", "reviewer")

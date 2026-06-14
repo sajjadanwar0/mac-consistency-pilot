@@ -164,9 +164,6 @@ def n_for_mde(sd_pair, target, alpha=0.05, power=0.80):
     return (z * sd_pair / target) ** 2
 
 
-# ---------------------------------------------------------------------------
-# TOST equivalence (new)
-# ---------------------------------------------------------------------------
 
 def tost_parametric_p(delta, margin):
     """Two one-sided paired t-tests against +/- margin.
@@ -185,8 +182,8 @@ def tost_parametric_p(delta, margin):
     if se == 0:
         return 0.0 if abs(m) < margin else 1.0
     df = n - 1
-    t_lower = (m + margin) / se   # H1: mu_d > -margin
-    t_upper = (m - margin) / se   # H1: mu_d < +margin
+    t_lower = (m + margin) / se
+    t_upper = (m - margin) / se
     p_lower = 1 - t_dist.cdf(t_lower, df)
     p_upper = t_dist.cdf(t_upper, df)
     return max(p_lower, p_upper)

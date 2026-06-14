@@ -42,9 +42,6 @@ from pathlib import Path
 from typing import Any
 
 
-# ---------------------------------------------------------------------
-# OpRecord (unchanged)
-# ---------------------------------------------------------------------
 
 @dataclass
 class OpRecord:
@@ -63,18 +60,7 @@ class OpRecord:
         return json.dumps(asdict(self), separators=(",", ":"))
 
 
-# ---------------------------------------------------------------------
-# Event shape (intermediate representation)
-#   {"type": "agent_turn", "agent": str, "content": str}
-#   {"type": "tool_call",  "agent": str, "tool_name": str,
-#                          "args": dict|str, "call_id": str}
-#   {"type": "tool_result","agent": str, "tool_name": str,
-#                          "content": str, "call_id": str}
-# ---------------------------------------------------------------------
 
-# Roles that are CONFIG/METADATA, not actual agents. ChatDev's trace
-# uses `**Key**:` for both real agent speech and metadata; we filter
-# out these explicitly.
 METADATA_KEY_PATTERN = re.compile(
     r"^("
     r"\[?Preprocessing\]?|"
@@ -104,17 +90,12 @@ def is_metadata_role(role: str) -> bool:
     return bool(METADATA_KEY_PATTERN.match(r))
 
 
-# ---------------------------------------------------------------------
-# Tool-call detection (looks for function-call-like patterns in
-# free-text content). Returns a list of (tool_name, args_str) pairs.
-# ---------------------------------------------------------------------
 
 TOOL_CALL_PATTERN = re.compile(
     r"(?:^|\W)([a-z_][a-z0-9_]{2,40})\s*\((\s*[^)]{0,200}?)\s*\)",
     re.MULTILINE,
 )
 
-# Words that aren't tool calls even though they match the syntax
 NON_TOOL_WORDS = {
     "print", "len", "range", "list", "dict", "set", "type", "int",
     "str", "float", "bool", "abs", "min", "max", "sum", "open",
@@ -133,7 +114,7 @@ def detect_tool_calls_in_content(text: str) -> list[tuple[str, str]]:
     list of (tool_name, args_string)."""
     out = []
     seen = set()
-    for m in TOOL_CALL_PATTERN.finditer(text[:5000]):  # cap to avoid blowup
+    for m in TOOL_CALL_PATTERN.finditer(text[:5000]):
         name = m.group(1).lower()
         if name in NON_TOOL_WORDS or len(name) < 3:
             continue
@@ -148,16 +129,7 @@ def detect_tool_calls_in_content(text: str) -> list[tuple[str, str]]:
     return out
 
 
-# ---------------------------------------------------------------------
-# Framework-specific parsers
-# ---------------------------------------------------------------------
 
-# === ChatDev parser ===
-# Format:
-#   [YYYY-MM-DD HH:MM:SS INFO] **Role**: content
-#   ...continuation lines...
-#   [YYYY-MM-DD HH:MM:SS INFO] **NextRole**: content
-# Metadata `**Key**:` entries are filtered via is_metadata_role.
 
 CHATDEV_PREFIX_RE = re.compile(
     r"\[\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}(?:[\.,]\d+)?\s+\w+\]\s*",
@@ -169,7 +141,6 @@ CHATDEV_SPEAKER_RE = re.compile(
 
 def parse_chatdev(trajectory: str) -> list[dict]:
     events = []
-    # Strip log-prefix lines globally to simplify regex
     text = CHATDEV_PREFIX_RE.sub("", trajectory)
     matches = list(CHATDEV_SPEAKER_RE.finditer(text))
     if not matches:
@@ -199,13 +170,6 @@ def parse_chatdev(trajectory: str) -> list[dict]:
     return events
 
 
-# === MetaGPT parser ===
-# Format:
-#   [YYYY-MM-DD HH:MM:SS] FROM: AgentA TO: {'AgentB'}
-#   ACTION: metagpt.actions.SomeAction
-#   CONTENT:
-#       ...content lines...
-# Lines starting with '[date]' begin a new event.
 
 METAGPT_FROM_TO_RE = re.compile(
     r"\[(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})\]\s+FROM:\s+([^\s]+)\s+TO:\s+(\S+)",
@@ -216,7 +180,6 @@ METAGPT_ACTION_RE = re.compile(r"^ACTION:\s+(\S+)", re.MULTILINE)
 
 def parse_metagpt(trajectory: str) -> list[dict]:
     events = []
-    # Iterate FROM/TO matches and slice content between consecutive ones
     matches = list(METAGPT_FROM_TO_RE.finditer(trajectory))
     if not matches:
         return []
@@ -226,11 +189,8 @@ def parse_metagpt(trajectory: str) -> list[dict]:
         start = m.end()
         end = matches[i + 1].start() if i + 1 < len(matches) else len(trajectory)
         chunk = trajectory[start:end]
-        # ACTION
         action_match = METAGPT_ACTION_RE.search(chunk)
         action = action_match.group(1) if action_match else None
-        # CONTENT begins after the ACTION line (or after FROM/TO if no
-        # action). Strip the leading metadata.
         content_start = action_match.end() if action_match else 0
         content = chunk[content_start:].strip()
         events.append({
@@ -239,7 +199,6 @@ def parse_metagpt(trajectory: str) -> list[dict]:
             "content": content[:1000],
         })
         if action:
-            # Use the last component of the action name as tool name
             tool_name = action.split(".")[-1][:40].lower()
             events.append({
                 "type": "tool_call",
@@ -259,15 +218,6 @@ def parse_metagpt(trajectory: str) -> list[dict]:
     return events
 
 
-# === AG2 (AutoGen) parser ===
-# Format: YAML-like blocks with role: name: content: keys at varying
-# indentation. We do a simple state-machine over lines.
-#
-# role: assistant
-# name: mathproxyagent
-# content:
-#     ...
-# (multiple such blocks per trace)
 
 AG2_HEADER_RE = re.compile(r"^\s{0,12}(role|name|content)\s*:\s*(.*)$",
                            re.MULTILINE)
@@ -275,7 +225,6 @@ AG2_HEADER_RE = re.compile(r"^\s{0,12}(role|name|content)\s*:\s*(.*)$",
 
 def parse_ag2(trajectory: str) -> list[dict]:
     events = []
-    # Split on lines and walk forward, building blocks
     current = {"role": None, "name": None, "content": []}
     in_content = False
     content_indent = None
@@ -311,7 +260,6 @@ def parse_ag2(trajectory: str) -> list[dict]:
             key = m_hdr.group(1)
             val = m_hdr.group(2).strip()
             if key == "role":
-                # New block boundary
                 flush()
                 current = {"role": val or None, "name": None, "content": []}
                 in_content = False
@@ -319,18 +267,15 @@ def parse_ag2(trajectory: str) -> list[dict]:
                 current["name"] = val or None
             elif key == "content":
                 in_content = True
-                content_indent = indent + 2  # expect deeper indent
+                content_indent = indent + 2
                 if val:
                     current["content"].append(val)
         elif in_content:
-            # Continuation of content (any deeper-indented line, or
-            # blank line preserving structure)
             if line.strip() == "":
                 current["content"].append("")
             elif indent > 0 or (content_indent and indent >= content_indent):
                 current["content"].append(stripped)
             else:
-                # Outdented to top level: content block ends
                 in_content = False
         i += 1
 
@@ -338,9 +283,6 @@ def parse_ag2(trajectory: str) -> list[dict]:
     return events
 
 
-# === Generic fallback parser (for unsupported frameworks) ===
-# Strips structured log prefixes and emits agent_turn events based on
-# common speaker patterns. Lossy but better than nothing.
 
 GENERIC_LOG_PREFIX_RE = re.compile(
     r"^\d{4}-\d{2}-\d{2}[T\s]\d{2}:\d{2}:\d{2}[\.,]?\d*\s*\|?\s*\w*\s*\|?\s*",
@@ -383,7 +325,6 @@ def parse_generic(trajectory: str) -> list[dict]:
     return events
 
 
-# === Framework dispatch ===
 
 def normalize_mast_trace(trajectory: str, framework: str) -> list[dict]:
     if not isinstance(trajectory, str) or len(trajectory) < 50:
@@ -399,9 +340,6 @@ def normalize_mast_trace(trajectory: str, framework: str) -> list[dict]:
         return parse_generic(trajectory)
 
 
-# ---------------------------------------------------------------------
-# Stateful-tool detection (unchanged from v2)
-# ---------------------------------------------------------------------
 
 STATEFUL_TOOL_PATTERNS = [
     (re.compile(r"(.*)_get$|^get_(.*)$"), "read", "memory"),
@@ -446,9 +384,6 @@ def extract_write_value(args: Any) -> str:
     return json.dumps(args, default=str)[:500] if args else ""
 
 
-# ---------------------------------------------------------------------
-# Events → OpRecords (unchanged from v2)
-# ---------------------------------------------------------------------
 
 def events_to_oprecords(events: list[dict], scenario: str,
                         session_id: str) -> list[OpRecord]:
@@ -531,9 +466,6 @@ def events_to_oprecords(events: list[dict], scenario: str,
     return records
 
 
-# ---------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------
 
 def main() -> None:
     parser = argparse.ArgumentParser()

@@ -1,5 +1,3 @@
-//! Anomaly detectors — direct translations of `Anomalies.tla`.
-
 use crate::oprecord::{CellId, OpRecord, ToolId};
 
 #[derive(Debug, Clone)]
@@ -11,12 +9,6 @@ pub struct Witness {
     pub tool: Option<ToolId>,
 }
 
-// ---------------------------------------------------------------------------
-// A_1 (Stale-Generation):
-//   ∃ i, j, c.  i ≠ j ∧ c ∈ h[i].read_set ∧ c ∈ h[j].write_set
-//             ∧ h[i].read_time < h[j].write_time < h[i].write_time
-//             ∧ h[i].read_values[c] ≠ h[j].write_values[c]
-// ---------------------------------------------------------------------------
 pub fn detect_a1(h: &[OpRecord]) -> Vec<Witness> {
     let mut out = Vec::new();
     for i in 0..h.len() {
@@ -49,10 +41,6 @@ pub fn detect_a1(h: &[OpRecord]) -> Vec<Witness> {
     out
 }
 
-// ---------------------------------------------------------------------------
-// A_2 (Phantom-Tool):
-//   ∃ i.  planned_tool ∈ tools_visible_at_read[i] ∧ planned_tool ∉ tools_used[i]
-// ---------------------------------------------------------------------------
 pub fn detect_a2(h: &[OpRecord]) -> Vec<Witness> {
     let mut out = Vec::new();
     for (i, op) in h.iter().enumerate() {
@@ -73,14 +61,6 @@ pub fn detect_a2(h: &[OpRecord]) -> Vec<Witness> {
     out
 }
 
-// ---------------------------------------------------------------------------
-// A_3 (Causal-Cascade):
-//   ∃ j, c.  c ∈ h[j].read_set ∧ no earlier h[k] writes c at time ≤ h[j].read_time
-//          ∧ h[j].read_values[c] ≠ default(c)
-//
-//   NOTE: write_time ≤ read_time (not strict <). A write that commits at the
-//   same clock tick as a subsequent read IS a valid antecedent.
-// ---------------------------------------------------------------------------
 pub fn detect_a3(h: &[OpRecord]) -> Vec<Witness> {
     let mut out = Vec::new();
     for (j, op) in h.iter().enumerate() {
@@ -111,10 +91,6 @@ pub fn detect_a3(h: &[OpRecord]) -> Vec<Witness> {
     out
 }
 
-// ---------------------------------------------------------------------------
-// A_6 (Tool-Effect-Reordering):
-//   ∃ i.  io[i] ≠ co[i] ∧ io[i] non-empty
-// ---------------------------------------------------------------------------
 pub fn detect_a6(h: &[OpRecord]) -> Vec<Witness> {
     let mut out = Vec::new();
     for (i, op) in h.iter().enumerate() {
@@ -171,8 +147,6 @@ mod tests {
 
     #[test]
     fn a3_does_not_fire_on_simultaneous_write_and_read() {
-        // a1 writes step=start at t=1, a2 reads step=start at t=1.
-        // The write IS the antecedent (write_time <= read_time).
         let h = vec![
             op("a1", &[], &[], 0, &["step"], &[("step", "start")], 1),
             op("a2", &["step"], &[("step", "start")], 1, &["step"], &[("step", "mid")], 2),

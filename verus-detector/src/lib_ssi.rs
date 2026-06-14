@@ -15,15 +15,6 @@
 //   The proof targets SSI mode (validate_no_write = true). Default-SI
 //   admits the no-write gap (paper §5.5); the conditional safety result
 //   for default-SI is sketched at the end of this file but not closed.
-//
-// FIX HISTORY
-//   v1: 7/8 verified — lemma_states_imply_invariants failed on
-//       reachable_step / all_invariants reference plumbing.
-//   v2 (this): mirrored pessimistic lib.rs structure exactly:
-//       (a) ensures all_invariants(&states.last()), not forall k
-//       (b) drop_last() instead of subrange()
-//       (c) tuple-projection (pair.0, pair.1) for choose witnesses
-//       (d) reachable uses states.last() == *s
 
 #![allow(unused_imports)]
 use vstd::prelude::*;

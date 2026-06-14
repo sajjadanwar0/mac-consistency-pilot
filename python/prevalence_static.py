@@ -112,7 +112,6 @@ def susceptibilities(t: Topology) -> list[dict]:
 
 
 def _build_corpus() -> None:
-    # ---------------- CONTROLS ----------------
     add_topology(Topology(
         name="sequential_pipeline",
         edges=[(START, "plan"), ("plan", "exec"), ("exec", "summarise"),
@@ -135,7 +134,6 @@ def _build_corpus() -> None:
              "SUSCEPTIBLE (positive control).",
     ))
 
-    # ------------- CANONICAL: SAFE BY CONSTRUCTION -------------
     add_topology(Topology(
         name="supervisor_fanout_disjoint",
         edges=[(START, "supervisor"), ("supervisor", "worker_a"),
@@ -254,7 +252,6 @@ def _build_corpus() -> None:
         note="Single agent, sequential memory read/write => SAFE.",
     ))
 
-    # ------------- CANONICAL: STRUCTURALLY SUSCEPTIBLE -------------
     add_topology(Topology(
         name="hierarchical_teams",
         edges=[(START, "top"), ("top", "team1_lead"), ("top", "team2_lead"),

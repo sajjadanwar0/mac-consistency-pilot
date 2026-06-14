@@ -1,30 +1,10 @@
 // =====================================================================
 // Verus proof: Spec ↔ executable runtime refinement (pessimistic).
-// v8 — attempts lemma_commit_refines. Adds four helpers:
-//      lemma_abstract_trace_push, lemma_abstract_pending_remove,
-//      lemma_abstract_data_update, lemma_abstract_locks_release.
-//      Composes them with v7 infrastructure to discharge the 6
-//      conjuncts of abstract_commit_step.
 //
 // COMPILE
 //   verus --crate-type=lib src/lib_refinement_pessimistic.rs
 //
-// PROGRESS v1 -> ... -> v8
-//   v6:  13 closed + 2 axioms
-//   v7:  17 closed + 2 axioms (begin_refines closed)
-//   v8:  22 closed + 2 axioms (commit_refines target)
-//
-//   Expected verus output for v8: ~31 verified, 0 errors
-//
-//   If green: REFINEMENT FULLY CLOSED. 22 proofs + 2 axioms total.
-//
-// RATING IMPLICATION
-//   With both lemma_begin_refines and lemma_commit_refines closed,
-//   spec-runtime refinement is closed end-to-end. Per the path-to-7.5
-//   audit, this is +0.50 from the baseline 6.75.
-//   Predicted rating: 7.25.
-//
-// AXIOM SCORECARD (paper §6.6 disclosure required for both)
+// AXIOM SCORECARD (disclosed in paper §6.6)
 //   1. axiom_string_to_int_injective  (string injection)
 //   2. axiom_null_sentinel             (NULL sentinel maps to 0)
 
@@ -592,7 +572,7 @@ pub proof fn lemma_init_correspondence()
 }
 
 // =====================================================================
-// Section 7: Trivial-field commutativity lemmas (CLOSED in v2)
+// Section 7: Trivial-field commutativity lemmas (CLOSED)
 // =====================================================================
 
 pub proof fn lemma_data_unchanged_begin(
@@ -640,7 +620,7 @@ pub proof fn lemma_trace_unchanged_begin(
 // =====================================================================
 // Section 8: Non-trivial commutativity lemmas
 //
-// 8a (CLOSED in v3): single-insert commutativity for abstract_locks
+// 8a (CLOSED): single-insert commutativity for abstract_locks
 //                    (lemma_abstract_locks_insert) + the inductive
 //                    lifting (lemma_locks_commutes_acquire).
 // 8b (DEFERRED):     holds_set commutativity, snapshot commutativity

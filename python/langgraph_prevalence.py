@@ -36,11 +36,6 @@ from typing import Annotated, TypedDict, Any
 from langgraph.graph import StateGraph, START, END
 from langgraph.errors import InvalidUpdateError
 
-# ----------------------------------------------------------------------------
-# Provenance recording. Each entry  is a read or write of a logical cell by a
-# node, tagged with the superstep in which it occurred. This is exactly the
-# (op, cell, value, kind, step) trace the lattice detector consumes.
-# ----------------------------------------------------------------------------
 TRACE: list[dict[str, Any]] = []
 
 def rec(node: str, kind: str, cell: str, value: Any, step: int) -> None:
@@ -51,13 +46,6 @@ def reset_trace() -> None:
     TRACE.clear()
 
 
-# ----------------------------------------------------------------------------
-# A1 stale-generation detector (the paper's operational predicate, specialised
-# to this trace form). An A1 witness is a downstream output generated from a
-# read whose value is stale with respect to a write to the SAME cell that is
-# committed in the same superstep (so the snapshot the reader saw is not the
-# value the system commits).
-# ----------------------------------------------------------------------------
 def detect_a1(trace: list[dict[str, Any]], committed: dict[str, Any]) -> list[dict]:
     witnesses = []
     for ev in trace:
@@ -65,11 +53,9 @@ def detect_a1(trace: list[dict[str, Any]], committed: dict[str, Any]) -> list[di
             continue
         cell = ev["cell"]
         read_val = ev["value"]
-        # Was there a write to the same cell in the same superstep whose value
-        # became the committed value, different from what the reader saw?
         for w in trace:
             if (w["kind"] == "write" and w["cell"] == cell
-                    and w["node"] != ev["node"]          # A1 needs a *distinct* writer
+                    and w["node"] != ev["node"]
                     and w["step"] == ev["step"]
                     and w["value"] != read_val
                     and committed.get(cell) == w["value"]):
@@ -81,32 +67,25 @@ def detect_a1(trace: list[dict[str, Any]], committed: dict[str, Any]) -> list[di
     return witnesses
 
 
-# ============================================================================
-# Scenario L0-silent: parallel edit + summarise, no read-after-write order.
-# ============================================================================
 class StateSilent(TypedDict):
     doc: str
     summary: str
-    trace: Annotated[list, operator.add]   # reducer on the *recording* channel
-    # only, so recording never conflicts
+    trace: Annotated[list, operator.add]
 
 def orchestrator(state: StateSilent):
     rec("orchestrator", "write", "doc", "v0", 0)
     return {"doc": "v0", "trace": [("orchestrator", "init doc=v0")]}
 
 def editor(state: StateSilent):
-    # Editor produces a fresh document version in superstep 1.
-    seen = state["doc"]                     # snapshot read (v0)
+    seen = state["doc"]
     rec("editor", "read", "doc", seen, 1)
-    new = "v1"                              # the fresh, correct content
+    new = "v1"
     rec("editor", "write", "doc", new, 1)
     return {"doc": new, "trace": [("editor", f"read doc={seen}; wrote doc={new}")]}
 
 def summariser(state: StateSilent):
-    # Summariser reads the SAME snapshot (v0) in the SAME superstep and emits a
-    # downstream artifact derived from it.
-    seen = state["doc"]                     # snapshot read (v0) -- stale once
-    rec("summariser", "read", "doc", seen, 1)  # editor commits v1
+    seen = state["doc"]
+    rec("summariser", "read", "doc", seen, 1)
     out = f"summary-of({seen})"
     rec("summariser", "write", "summary", out, 1)
     return {"summary": out, "trace": [("summariser", f"read doc={seen}; wrote {out}")]}
@@ -117,7 +96,6 @@ def build_silent():
     g.add_node("editor", editor)
     g.add_node("summariser", summariser)
     g.add_edge(START, "orchestrator")
-    # fan-out: editor and summariser run concurrently in one superstep
     g.add_edge("orchestrator", "editor")
     g.add_edge("orchestrator", "summariser")
     g.add_edge("editor", END)
@@ -125,11 +103,8 @@ def build_silent():
     return g.compile()
 
 
-# ============================================================================
-# Scenario L0-failstop: two parallel writers to the same no-reducer key.
-# ============================================================================
 class StateConflict(TypedDict):
-    doc: str                                # NO reducer
+    doc: str
     trace: Annotated[list, operator.add]
 
 def fan(state: StateConflict):
@@ -154,14 +129,11 @@ def build_conflict():
     return g.compile()
 
 
-# ============================================================================
-# Scenario L1-reducer: same parallel writers, but `doc` carries a reducer.
-# ============================================================================
 def merge_docs(left: list, right: list) -> list:
     return (left or []) + (right or [])
 
 class StateReducer(TypedDict):
-    doc: Annotated[list, merge_docs]        # reducer = the documented discipline
+    doc: Annotated[list, merge_docs]
     trace: Annotated[list, operator.add]
 
 def fan_r(state: StateReducer):
@@ -186,9 +158,6 @@ def build_reducer():
     return g.compile()
 
 
-# ============================================================================
-# Driver
-# ============================================================================
 def run_silent():
     reset_trace()
     app = build_silent()

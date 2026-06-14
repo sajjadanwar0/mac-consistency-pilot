@@ -70,20 +70,12 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-# Reuse the adapter's parsing pipeline so PARSED here == parsed in the paper.
 try:
     from mast_adapter import normalize_mast_trace, events_to_oprecords
 except ImportError:
     print("Run from the python/ directory next to mast_adapter.py", file=sys.stderr)
     sys.exit(1)
 
-# ---------------------------------------------------------------------------
-# Positive markers: evidence of a shared mutable store being OPERATED on.
-# Mirrors and extends the adapter's STATEFUL_TOOL_PATTERNS vocabulary.
-# Each entry: (label, compiled regex). Case-insensitive, matched against the
-# raw trajectory text. Word-boundary anchored to avoid substring noise
-# ('update' must be a verb-ish token, not 'updates from the news').
-# ---------------------------------------------------------------------------
 _W = r"[A-Za-z0-9_./-]{1,64}"
 MARKERS: list[tuple[str, re.Pattern]] = [
     ("file_write",      re.compile(r"\b(write|save|overwrit\w*|creat\w+)\s*(_|\s)?(to\s+)?(file|" + _W + r"\.(py|md|txt|json|yaml|csv|html|js))\b", re.I)),
@@ -93,30 +85,18 @@ MARKERS: list[tuple[str, re.Pattern]] = [
     ("kv_store",        re.compile(r"\b(redis|sqlite|database|db)\.(set|put|insert|update|write|execute)\b", re.I)),
     ("registry_mut",    re.compile(r"\b(register_tool|unregister_tool|registry\.(add|remove|update))\b", re.I)),
     ("blackboard",      re.compile(r"\b(blackboard|scratchpad|shared.?buffer)\b.{0,40}\b(write|post|update|append)\b", re.I)),
-    # Embedded-code store operations (AG2-style traces carry executable
-    # python): open-for-write/append, file handle writes, serialization
-    # dumps, filesystem mutation. Errs toward CANDIDATE_OPS by design;
-    # stdout .write false-positives are acceptable conservatism.
     ("code_file_write", re.compile(r"\bopen\s*\(\s*['\"][^'\"]{1,128}['\"]\s*,\s*['\"][wax]b?['\"]|\.write\s*\(|json\.dump\s*\(|pickle\.dump\s*\(|\.to_csv\s*\(|os\.(remove|rename|makedirs)\s*\(|shutil\.(copy|move|rmtree)", re.I)),
 ]
 
-# Negative-side structural evidence: the trace is recognizably a
-# conversation / message-passing log. NO_SHARED_STORE requires at least one
-# of these (an empty or unrecognizable file must stay UNKNOWN).
 CONVERSATIONAL: list[tuple[str, re.Pattern]] = [
     ("role_blocks",    re.compile(r"^\s*-?\s*(role|name|content)\s*:", re.I | re.M)),
     ("speaker_lines",  re.compile(r"^\s*\*{0,2}[A-Z][A-Za-z _]{2,30}\*{0,2}\s*(\(to [^)]+\))?\s*:", re.M)),
     ("from_to",        re.compile(r"\bFROM:\s*\S+\s+TO:\s*\S+", re.I)),
     ("chat_ts",        re.compile(r"\[\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}")),
-    # AG2/AutoGen trajectories store the conversation as concatenated
-    # python-repr message dicts: {'content': [...], 'role': 'assistant',
-    # 'name': 'mathproxyagent'}. Quoted keys, mid-line: the line-anchored
-    # patterns above can never match them.
     ("pyrepr_role",    re.compile(r"['\"]role['\"]\s*:\s*['\"]")),
 ]
 
-MIN_CONV_HITS = 3   # require >=3 conversational matches before calling a
-# trace a conversation (one stray 'role:' is not enough)
+MIN_CONV_HITS = 3
 
 
 def classify_trajectory(text: str) -> tuple[str, list[str]]:
@@ -250,13 +230,6 @@ def main() -> None:
             verdict, evidence = "PARSED", ["adapter yields OpRecords; in the 600-trace cell"]
         else:
             verdict, evidence = classify_trajectory(trajectory)
-            # Parser-corroborated structural absence: UNKNOWN here means the
-            # marker scan found ZERO shared-store markers (any marker forces
-            # CANDIDATE_OPS). If on top of that the framework-specific parser
-            # normalized the trace into a structured conversation and
-            # extracted zero stateful store operations, that is direct
-            # evidence of structural absence -- stronger than the pattern
-            # scan, since it is the same parser the PARSED cell trusts.
             if verdict == "UNKNOWN" and n_ev >= 3:
                 verdict = "NO_SHARED_STORE"
                 evidence = [f"framework parser normalized {n_ev} events; "
@@ -270,12 +243,6 @@ def main() -> None:
         per_trace.append({"idx": idx, "framework": fw, "session": sid,
                           "verdict": verdict, "evidence": evidence[:6]})
 
-    # ---------- sanity guard (non-negotiable) ----------
-    # On the full mcemri/MAD dataset the adapter parses ~600 traces (the
-    # paper's cell). If PARSED here diverges wildly, this script is NOT
-    # feeding normalize_mast_trace the same text the adapter does (field
-    # mismatch), and every downstream count is meaningless. Refuse loudly
-    # rather than print numbers that could end up in the paper.
     EXPECT_PARSED, TOL = 600, 60
     if args.local_json is None and len(dataset) > 1000 \
             and abs(counts["PARSED"] - EXPECT_PARSED) > TOL:
@@ -287,14 +254,12 @@ def main() -> None:
               "'events = normalize_mast_trace(...)') and align them verbatim.")
         sys.exit(1)
 
-    # ---------- evidence-mechanism split for NO_SHARED_STORE ----------
     n_parser_corrob = sum(1 for t in per_trace
                           if t["verdict"] == "NO_SHARED_STORE"
                           and t["evidence"]
                           and t["evidence"][0].startswith("framework parser normalized"))
     n_regex_only = counts["NO_SHARED_STORE"] - n_parser_corrob
 
-    # ---------- report ----------
     print("\nOverall:")
     for v in ("PARSED", "NO_SHARED_STORE", "CANDIDATE_OPS", "UNKNOWN"):
         print(f"  {v:16} {counts[v]:>5}")
@@ -315,13 +280,11 @@ def main() -> None:
          "per_trace": per_trace}, indent=1))
     print(f"\nPer-trace verdicts + evidence -> {args.out}")
 
-    # ---------- blind-audit sample ----------
     if args.audit_sample:
         rng = random.Random(args.seed)
         pool = [t for t in per_trace if t["verdict"] != "PARSED"]
         sample = rng.sample(pool, min(args.audit_sample, len(pool)))
         args.audit_out.mkdir(parents=True, exist_ok=True)
-        # Blind sheet: trajectory excerpt WITHOUT the verdict, for human labeling.
         blind, key = [], []
         for s in sample:
             rec = dataset[s["idx"]]
@@ -334,7 +297,6 @@ def main() -> None:
         print(f"Blind audit sample ({len(sample)}) -> {args.audit_out}/blind_sheet.json "
               f"(label by hand, THEN open answer_key.json; report agreement/kappa)")
 
-    # ---------- the sentence the paper may claim ----------
     n_unparsed = len(dataset) - counts["PARSED"]
     print("\nPaper-ready claim (and not one word more):")
     mech = []

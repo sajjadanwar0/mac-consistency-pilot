@@ -74,7 +74,6 @@ async def run_one_session(scenario_fn, session_idx: int,
     rec.open()
 
     try:
-        # Build wrapped clients (one per agent, sharing the recorder)
         agents = []
         for name, sysmsg in scenario["agents"]:
             inner = _make_inner_client(provider, model)

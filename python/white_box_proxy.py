@@ -38,7 +38,7 @@ try:
     import uvicorn
     from fastapi import FastAPI, Request
     from fastapi.responses import StreamingResponse, JSONResponse
-except Exception as e:  # pragma: no cover
+except Exception as e:
     sys.stderr.write("missing deps; run: pip install fastapi uvicorn httpx\n")
     raise
 
@@ -59,7 +59,7 @@ def _content_text(m):
     c = m.get("content")
     if isinstance(c, str):
         return c
-    if isinstance(c, list):  # content parts
+    if isinstance(c, list):
         parts = []
         for p in c:
             if isinstance(p, dict):
@@ -86,12 +86,10 @@ def parse_block(system_text, label):
     always logged too, so offline re-parsing is always possible."""
     if not system_text:
         return None
-    # 1) XML-ish <label> ... </label>
     m = re.search(rf"<{re.escape(label)}[^>]*>(.*?)</{re.escape(label)}>",
                   system_text, re.S)
     if m:
         return m.group(1).strip()
-    # 2) markdown-ish "### label" or "label:" header up to the next block/header
     m = re.search(rf"(?:^|\n)\s*#*\s*{re.escape(label)}\s*[:\n](.*?)"
                   rf"(?=\n\s*#|\n\s*<|\n\s*[A-Za-z_][A-Za-z0-9_ ]*:|\Z)",
                   system_text, re.S)
@@ -137,7 +135,7 @@ async def _log(path, body_bytes):
     sys_t, usr_t = _collect_text(data)
     agent, rnd = parse_marker(usr_t)
     if agent is None:
-        agent, rnd = parse_marker(sys_t)   # marker may ride along in context
+        agent, rnd = parse_marker(sys_t)
     block = parse_block(sys_t, Cfg.block_label)
     async with _seq_lock:
         seq = _seq
@@ -150,15 +148,15 @@ async def _log(path, body_bytes):
         "model": data.get("model"),
         "agent": agent,
         "round": rnd,
-        "read_block": block,        # FAITHFUL generation-time read (parsed)
-        "system_text": sys_t,       # full fallback for offline re-parse
+        "read_block": block,
+        "system_text": sys_t,
         "user_text": usr_t,
-        "raw": data,                # full request body, for exact offline re-parse
+        "raw": data,
     }
     try:
         with open(Cfg.logpath, "a") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
-    except Exception as e:  # never break forwarding because logging failed
+    except Exception as e:
         sys.stderr.write(f"[proxy] log error: {e}\n")
     tag = f"agent={agent} round={rnd} block_chars={len(block) if block else 'NONE'}"
     sys.stderr.write(f"[proxy] #{seq} POST {path}  {tag}\n")
@@ -166,7 +164,6 @@ async def _log(path, body_bytes):
 
 async def _forward(request, body, path):
     url = Cfg.upstream.rstrip("/") + path
-    # forward headers verbatim except hop-by-hop / length; force identity encoding
     headers = {k: v for k, v in request.headers.items()
                if k.lower() not in ("host", "content-length", "accept-encoding")}
     headers["accept-encoding"] = "identity"

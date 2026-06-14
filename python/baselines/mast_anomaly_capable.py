@@ -28,7 +28,6 @@ Prints a SCHEMA DUMP and aborts if it cannot find read_set/write_set.
 import argparse, glob, json, math, os, sys
 from pathlib import Path
 
-# Reuse the project's own loader/detector if importable; else fall back.
 def _import_detectors():
     for p in ("python/baselines", "baselines", "."):
         if os.path.exists(os.path.join(p, "detectors.py")):
@@ -70,8 +69,6 @@ def clopper_pearson(k, n, alpha=0.05):
     """Exact CI for a binomial proportion. Returns (lo, hi) as fractions."""
     if n == 0:
         return (float("nan"), float("nan"))
-    # Use the Beta-quantile form via a simple bisection on the regularized
-    # incomplete beta (no scipy dependency).
     from math import lgamma, log, exp
     def betacf(a, b, x):
         MAXIT, EPS, FPMIN = 200, 3e-12, 1e-300
@@ -133,7 +130,6 @@ def main():
         sys.exit("could not import detect_a1 from detectors.py; run from the "
                  "repo root or place detectors.py on the path.")
 
-    # schema check on first trace
     first = load(Path(files[0]))
     if not first or ("read_set" not in first[0] and "write_set" not in first[0]):
         print("SCHEMA DUMP (first record):")
@@ -144,9 +140,6 @@ def main():
                  "op-record traces, not raw MAST logs.")
 
     def framework_of(path):
-        # Two layouts supported:
-        #  (1) <dir>/<framework>/file.jsonl   -> framework is the subdir
-        #  (2) flat: <framework>-mast-<Name>_<idx>.jsonl -> prefix before "-mast-"
         rel = os.path.relpath(path, args.traces)
         parts = rel.split(os.sep)
         if len(parts) > 1:
@@ -156,10 +149,10 @@ def main():
             return base.split("-mast-")[0]
         return "all"
 
-    agg = {}  # fw -> [n_parsed, n_capable, n_fired]
+    agg = {}
     for f in files:
         recs = load(Path(f))
-        fw = framework_of(f)  # auto: subdir or {fw}-mast- filename prefix
+        fw = framework_of(f)
         a = agg.setdefault(fw, [0, 0, 0])
         a[0] += 1
         cap = is_a1_capable(recs)

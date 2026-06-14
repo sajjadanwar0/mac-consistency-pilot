@@ -58,8 +58,6 @@ except Exception:
     print("pip install scipy", file=sys.stderr); raise
 
 
-# Real system prompts, copied verbatim from autogen_pilot.py WORKLOADS so this
-# script has no autogen dependency. Keep in sync if you edit the harness.
 PROMPTS = {
     "edit-review": {
         "editor": (
@@ -99,13 +97,10 @@ PROMPTS = {
     },
 }
 
-# Per workload: which agent decides, off which read cell, writing which cell.
 DECISION = {
     "triage": {
         "triager": {"read": "ticket", "writes": "priority",
                     "type": "categorical", "labels": ["P0", "P1", "P2"]},
-        # dominant triage firing in practice: engineer reads a stale priority,
-        # then writes a free-text resolution -> judged.
         "engineer": {"read": "priority", "writes": "resolution", "type": "text"},
     },
     "edit-review": {
@@ -134,7 +129,7 @@ def agent_of(e: dict) -> str:
 
 def find_firings(events: list[dict], read_cell: str, agent: str):
     """Yield (v_stale, v_fresh) for each A1 firing where `agent` read `read_cell`."""
-    writes = []  # (wt, wv)
+    writes = []
     for e in events:
         if read_cell in e.get("write_set", []):
             writes.append((e.get("write_time", 0), e.get("write_values", {}).get(read_cell, "")))
@@ -145,12 +140,8 @@ def find_firings(events: list[dict], read_cell: str, agent: str):
             continue
         rt = e.get("read_time", 0)
         rv = e.get("read_values", {}).get(read_cell, "")
-        # earliest later conflicting write defines the "fresh" value the detector saw
         later = sorted([(wt, wv) for (wt, wv) in writes if wt > rt and wv != rv])
         if later:
-            # also return the FULL read payload at this read, so co-read cells
-            # (e.g. the engineer's 'ticket' alongside 'priority') are held fixed
-            # and only the firing cell is varied.
             yield rv, later[0][1], dict(e.get("read_values", {}))
 
 
@@ -289,7 +280,7 @@ def main() -> None:
         events = load_events(path)
         for agent, spec in DECISION[args.workload].items():
             if spec["type"] == "text" and not args.judge:
-                continue  # skip free-text unless judging
+                continue
             for fi, (v_stale, v_fresh, ctx) in enumerate(find_firings(events, spec["read"], agent)):
                 key = f"{path.name}:{agent}:{fi}"
                 if key in done:
@@ -312,7 +303,6 @@ def main() -> None:
                 fh.write(json.dumps(rec) + "\n"); fh.flush()
     fh.close()
 
-    # aggregate from the full file, split by decision type
     rows = [json.loads(l) for l in out.read_text().splitlines() if l.strip()]
     def summarize(subset, label):
         sc = [r for r in subset if r["diverged"] is not None]
@@ -333,7 +323,6 @@ def main() -> None:
     if args.judge and txt:
         print("SECONDARY (LLM-judged, free-text cells -- softer signal):")
         summarize(txt, "free-text (judged)")
-    # by-agent breakdown (the honest split to report)
     agents = sorted({r["agent"] for r in rows})
     if len(agents) > 1:
         print("BY AGENT (report this split, not a blended number):")

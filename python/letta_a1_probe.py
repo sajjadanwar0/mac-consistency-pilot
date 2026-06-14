@@ -74,11 +74,11 @@ class OpRecord:
     op_id: int
     agent: str
     cell: str
-    t_read: int          # logical time the agents' shared context was read
-    t_commit: int        # logical time this agent's write was observed committed
+    t_read: int
+    t_commit: int
     read_values: dict = field(default_factory=dict)
     write_values: dict = field(default_factory=dict)
-    committed: bool = True     # did this agent's marker survive in the block?
+    committed: bool = True
 
 
 def _to_jsonable(o):
@@ -134,7 +134,7 @@ class LettaProbe:
             kwargs["base_url"] = base_url
         self.client = Letta(**kwargs)
         self.model = model
-        self.edit_mode = edit_mode            # "replace" (A1-prone) or "append"
+        self.edit_mode = edit_mode
         self.block_limit = block_limit
         self.cell = "shared_plan"
         self.block_id = None
@@ -156,7 +156,7 @@ class LettaProbe:
                 name=f"a1probe_agent_{i+1}",
                 model=self.model,
                 block_ids=[self.block_id],
-                include_base_tools=True,      # core_memory_append / _replace
+                include_base_tools=True,
                 memory_blocks=[{"label": "persona",
                                 "value": f"You are teammate {i+1}."}],
             )
@@ -235,7 +235,7 @@ class LettaProbe:
             if content:
                 break
         if content is None:
-            return pre                       # no write detected this turn
+            return pre
         if mode == "replace":
             return content if mk in content else (pre.rstrip() + "\n" + content)
         return pre.rstrip() + "\n" + content
@@ -258,7 +258,7 @@ def run_concurrent_round(probe, agents, round_no, clock):
     Each agent's write_value is the ACTUAL block snapshot taken right after
     its own turn returns (not synthesized)."""
     pre = probe.read_block()
-    t_read = next(clock)                      # shared read tick for the round
+    t_read = next(clock)
 
     def worker(name, aid):
         resp = probe.run_turn(name, aid, round_no, pre)
@@ -272,8 +272,8 @@ def run_concurrent_round(probe, agents, round_no, clock):
         for f in as_completed(futs):
             done.append(f.result())
 
-    done.sort(key=lambda x: x[2])             # order by completion time
-    post_final = probe.read_block()           # ground truth for survival only
+    done.sort(key=lambda x: x[2])
+    post_final = probe.read_block()
     records = []
     for name, write_val, _ in done:
         t_commit = next(clock)
@@ -282,8 +282,8 @@ def run_concurrent_round(probe, agents, round_no, clock):
             op_id=-1, agent=name, cell=probe.cell,
             t_read=t_read, t_commit=t_commit,
             read_values={probe.cell: pre},
-            write_values={probe.cell: write_val},   # agent's own tool-call write
-            committed=(mk in post_final),            # did it survive the race?
+            write_values={probe.cell: write_val},
+            committed=(mk in post_final),
         ))
     return records, pre, post_final
 
@@ -400,7 +400,7 @@ def main():
               file=sys.stderr)
 
     probe.create_shared_block(seed=args.seed_plan)
-    atexit.register(probe.cleanup)        # always clean up agents + block
+    atexit.register(probe.cleanup)
 
     if args.dump_response:
         probe.create_agents(1)
@@ -416,7 +416,6 @@ def main():
     print(f"[probe] shared block {probe.block_id} -> {len(agents)} agents",
           file=sys.stderr)
 
-    # ---- calibration: do the agents actually write the shared block? ----
     capable = probe.calibrate()
     print(f"[probe] write-capable agents: {sorted(capable)} "
           f"({len(capable)}/{len(agents)})", file=sys.stderr)
@@ -428,16 +427,14 @@ def main():
             "Claude model), base tools are disabled, or the block label does\n"
             "not match. Do NOT report this as 'no A1'.")
 
-    # reset the plan after calibration so rounds start clean (best-effort)
     try:
         probe.client.blocks.update(probe.block_id, value=args.seed_plan)
     except Exception:
         try:
             probe.client.blocks.update(block_id=probe.block_id, value=args.seed_plan)
         except Exception:
-            pass  # rounds proceed from current block state if reset unsupported
+            pass
 
-    # ---- concurrent multi-writer rounds ----
     records = []
     op_id = 0
     rounds_with_writes = 0
@@ -464,7 +461,6 @@ def main():
     print(f"[probe] wrote {len(records)} OpRecords -> {args.out}",
           file=sys.stderr)
 
-    # ---- reporting ----
     lost = [r for r in records if not r.committed]
     witnesses, stale_only = a1_screen(records)
     print("\n==== concurrency screen (NOT authoritative) ====")

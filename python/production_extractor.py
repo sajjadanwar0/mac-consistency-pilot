@@ -220,7 +220,6 @@ class ProductionExtractor:
         rec = self._recorder
         agent = self._agent_name
 
-        # READ PHASE: tool results from earlier turns.
         read_time = rec.next_step()
         read_set: list[str] = []
         read_values: dict[str, str] = {}
@@ -229,18 +228,13 @@ class ProductionExtractor:
             cell = rec.cell_for_call(call_id)
             if cell is None:
                 continue
-            # First-occurrence wins; later occurrences are duplicates of the
-            # same cell observation from the same call_id.
             if cell not in read_set:
                 read_set.append(cell)
                 read_values[cell] = result_text[:500]
                 rec.remember(cell, result_text)
 
-        # INNER CALL.
         result = await self._inner.create(messages, tools=tools, *args, **kwargs)
 
-        # WRITE PHASE: tool calls in the response. Read-kind tools register
-        # their cell but do NOT appear in write_set.
         write_set: list[str] = []
         write_values: dict[str, str] = {}
         for tool_name, args_json, call_id in _extract_tool_calls_with_ids(result):
@@ -249,14 +243,12 @@ class ProductionExtractor:
 
             kind = rec.tool_kind(tool_name)
             if kind == "read":
-                # Pure read; do not record as a write.
                 continue
             if cell not in write_set:
                 write_set.append(cell)
             if kind == "write":
                 write_values[cell] = rec.extract_write_value(args_json)
             else:
-                # Stateless tool: keep v3 semantics (raw args as value).
                 write_values[cell] = args_json[:500]
 
         write_time = rec.next_step()

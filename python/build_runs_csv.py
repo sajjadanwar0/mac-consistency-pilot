@@ -40,8 +40,6 @@ import os
 import sys
 from collections import defaultdict
 
-# map runtime label in filenames -> strategy label in runs.csv (kept stable;
-# paired_cost_analysis auto-detects whatever non-baseline strings appear).
 RUNTIME_TO_STRATEGY = {
     "vanilla": "vanilla",
     "pessimistic": "pessimistic",
@@ -96,7 +94,6 @@ def abort_counts(trace_dirs: list[str]) -> dict[tuple[str, str, str], int]:
                     continue
                 if e.get("aborted") or e.get("event") == "abort" or e.get("status") == "aborted":
                     n += 1
-            # best-effort key; left unused unless your naming matches
     return out
 
 
@@ -141,7 +138,6 @@ def main() -> None:
         w.writerow(["workload", "strategy", "seed", "total_tokens", "wallclock_s", "aborts"])
         w.writerows(rows)
 
-    # report pairing coverage so you know the paired analysis will work
     by_pair = defaultdict(set)
     for wl, st, sd, *_ in rows:
         by_pair[(wl, sd)].add(st)

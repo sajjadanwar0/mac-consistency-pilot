@@ -67,16 +67,12 @@ def main():
         rows.extend(load_rows(f))
     print("Reading %d rows from: %s" % (len(rows), ", ".join(files)))
 
-    # Index by (W, cells, scenario_seed) -> {strategy: row}, last-write-wins,
-    # exactly as high_contention_cost.py line 392. The 5 replicates per
-    # (triple, strategy) collapse to the last in file order; the published
-    # regression has one point per distinct (W, cells, seed).
     cells_idx = {}
     for r in rows:
         key = (r.get("W"), r.get("cells"), r.get("scenario_seed"))
         cells_idx.setdefault(key, {})[r.get("strategy")] = r
 
-    pts = []  # (abort_rate, ssi_rel_overhead, W, cells)
+    pts = []
     skipped = {"no_pair": 0, "bad_denom": 0, "bad_van": 0}
     for (W, C, seed), bystrat in cells_idx.items():
         if "vanilla" not in bystrat:
@@ -127,8 +123,6 @@ def main():
     ax.axvline(xstar, color="purple", ls="--", lw=1.2, zorder=1)
     ax.text(xstar + 0.012, 1.02, "C* abort\u2248%.2f" % xstar, rotation=90,
             color="purple", va="top", ha="left", fontsize=7)
-    # Two arms (caption): cells==1 fan-in (squares, by W); cells>1 cell-sweep
-    # (diamonds, labelled C).
     cell_groups, fanin_groups = {}, {}
     for a, o, W, C in pts:
         if C is not None and float(C) == 1.0:
@@ -139,7 +133,6 @@ def main():
         ax_ = sum(v[0] for v in vs)/len(vs); ay_ = sum(v[1] for v in vs)/len(vs)
         ax.scatter([ax_], [ay_], marker="D", s=60, color="navy",
                    edgecolor="white", linewidth=0.6, zorder=5)
-        # label above-left so it clears both the diamond and the rising line
         ax.annotate("C=%s" % (int(C) if float(C).is_integer() else C),
                     (ax_, ay_), xytext=(-4, 9), textcoords="offset points",
                     color="navy", fontsize=7.5, ha="right",
@@ -148,7 +141,6 @@ def main():
         ax_ = sum(v[0] for v in vs)/len(vs); ay_ = sum(v[1] for v in vs)/len(vs)
         ax.scatter([ax_], [ay_], marker="s", s=55, color="darkorange",
                    edgecolor="white", linewidth=0.6, zorder=5)
-    # legend proxies for the two sweep arms
     from matplotlib.lines import Line2D
     arm_handles = [
         Line2D([0],[0], marker="D", color="w", markerfacecolor="navy",

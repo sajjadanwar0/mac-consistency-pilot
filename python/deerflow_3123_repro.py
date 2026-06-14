@@ -38,7 +38,6 @@ from typing import Annotated, NotRequired, TypedDict
 from langgraph.graph import StateGraph, START, END
 
 
-# --- deer-flow's ACTUAL reducer (verbatim, the #3180 fix) -------------------
 def merge_todos(existing: list | None, new: list | None) -> list | None:
     """Reducer for ThreadState.todos - keeps the last non-None value."""
     if new is None:
@@ -51,16 +50,12 @@ SEED_TODOS = [{"id": 1, "text": "research topic", "done": False},
 
 
 def seed(state):
-    # An upstream node accumulates todos (e.g. the planner / write_todos tool).
     return {"todos": list(SEED_TODOS)}
 
 def finalise(state):
-    # A downstream node emits a partial update that does NOT carry todos.
-    # In the streaming-completion path this surfaces as todos=None (#3123).
     return {"todos": None, "done": True}
 
 
-# --- L0: bare todos key, no reducer (the default) ---------------------------
 class StateBare(TypedDict):
     todos: NotRequired[list]
     done: NotRequired[bool]
@@ -70,12 +65,11 @@ def build_bare():
     g.add_node("seed", seed)
     g.add_node("finalise", finalise)
     g.add_edge(START, "seed")
-    g.add_edge("seed", "finalise")     # sequential: finalise runs after seed
+    g.add_edge("seed", "finalise")
     g.add_edge("finalise", END)
     return g.compile()
 
 
-# --- L1: todos carries deer-flow's merge_todos reducer (the #3180 fix) ------
 class StateReduced(TypedDict):
     todos: Annotated[list, merge_todos]
     done: NotRequired[bool]

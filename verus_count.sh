@@ -1,39 +1,6 @@
 #!/usr/bin/env bash
 # verus_count.sh — compute the DISTINCT Verus obligation total for the
 # mac-consistency verus-detector crate, transparently and reproducibly.
-#
-# Why this exists:
-#   `verus` reports "N verified" per file. Summing per-file counts DOUBLE-COUNTS
-#   any obligation that one file re-verifies from another:
-#     - `mod`-based re-inclusion: lib_consistency_lattice.rs declares
-#         `pub mod lib_l2_safety; lib_l3_safety; lib_l4_safety;`
-#       so its standalone count already contains L2+L3+L4.
-#     - textual re-inclusion: lib_l2_exec.rs copies the L2 model inline
-#       (49 = 27 net + the 22-obligation L2 model), so it re-counts L2 safety.
-#   The paper's headline "distinct obligations" figure removes those overlaps.
-#   This script measures every file, subtracts each re-included child's count
-#   ONCE per re-inclusion edge, and prints the arithmetic so the total is
-#   auditable rather than asserted.
-#
-# 2026-06-11 note: lib_occ_l2_refinement.rs (OCC/ETag L1->L2 channel
-#   refinement, paper sec 6.5; live-confirmed 8 verified, 0 errors) is restored
-#   to the crate and is a COUNTED file — it is cited with a verified count in
-#   the paper, so it must appear in the totals, not in EXCLUDE. Its inclusion
-#   shifts the printed totals relative to pre-restoration runs (expected:
-#   curated 250 -> 258, full 271 -> 279). As always, the figures below are
-#   whatever the live run prints, and the paper headline MUST be reconciled
-#   to that printed DISTINCT total (not the other way around).
-#
-# 2026-06-12 note: lib_l3_exec.rs (exec-mode L3 sequencer; live-confirmed
-#   7 verified) and lib_l4_exec.rs (exec-mode L4 snapshot discipline;
-#   live-confirmed 9 verified) are new COUNTED files. Both are deliberately
-#   self-contained (no `mod`, no textual re-inclusion of any model file), so
-#   they add to both totals with no re-inclusion edge (expected shift:
-#   curated 258 -> 274, full 279 -> 295 -- but the live printed totals are
-#   the authority, as always). They are cited contributions (the exec
-#   realizations of lattice points L3 and L4) and must NOT be added to
-#   EXCLUDE, unlike the non-headline exec *helpers* listed there.
-#
 # Usage:
 #   ./verus_count.sh                 # clone the pilot repo, count (curated total)
 #   ./verus_count.sh --full          # empty EXCLUDE: full distinct total
@@ -44,7 +11,7 @@
 #   the distinct total. Files with verification errors are flagged and the
 #   total is marked INCOMPLETE.
 
-set -uo pipefail   # deliberately NOT -e: we continue past per-file errors
+set -uo pipefail
 
 GITHUB_USER="sajjadanwar0"
 VERUS="${VERUS:-verus}"
@@ -53,47 +20,28 @@ FULL=0
 for arg in "$@"; do
     case "$arg" in
         --local=*) LOCAL_BASE="${arg#*=}" ;;
-        --full|--include-all) FULL=1 ;;   # clear EXCLUDE: compute the full distinct total
+        --full|--include-all) FULL=1 ;;
         --help|-h) sed -n '2,/^set -u/p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     esac
 done
 
-# Declared TEXTUAL re-inclusions: "parent.rs:child.rs" — parent copies child's
-# obligations inline (not via `mod`). `mod` re-inclusions are auto-detected.
-# Add a line here only if you confirm a file inlines another file's model.
-# (lib_occ_l2_refinement.rs is self-contained: no mod or textual re-inclusion.)
 TEXTUAL_REINCLUSION=(
-  "lib_l2_exec.rs:lib_l2_safety.rs"   # l2_exec inlines the 22-obligation L2 model
+  "lib_l2_exec.rs:lib_l2_safety.rs"
 )
 
-# Files with NO countable obligations (exec/test scaffolding). ALWAYS skipped,
-# in both curated and --full modes, because `verus` prints no "N verified"
-# summary for them and counting them would mark the run INCOMPLETE.
 NEVER_COUNT=(
-  "verified_a1.rs"                 # exec/test file, no proof obligations
+  "verified_a1.rs"
 )
 
-# Files to EXCLUDE from the CURATED total only (they DO verify, but are not
-# headline lattice points). --full empties this list; NEVER_COUNT files stay
-# skipped regardless. NOTE: entries for files no longer in the repo (e.g. the
-# removed probabilistic development) are harmless no-ops. Do NOT add
-# lib_occ_l2_refinement.rs, lib_l3_exec.rs, or lib_l4_exec.rs here: they are
-# cited contributions (paper sec 6.5; exec realizations of L3 and L4) and
-# must be counted in both modes.
 EXCLUDE=(
-  "lib_probabilistic_a1.rs"        # superseded probabilistic v1 (if present)
-  "lib_probabilistic_a1_v2.rs"     # demoted probabilistic v2 screen (if present)
-  "lib_detect_a1_exec.rs"          # exec helper, not a headline lattice contribution
-  "lib_pessimistic_exec.rs"        # exec helper
-  "lib_pessimistic_invariant.rs"   # invariant helper
-  "lib_si_commit_invariant.rs"     # invariant helper
+  "lib_probabilistic_a1.rs"
+  "lib_probabilistic_a1_v2.rs"
+  "lib_detect_a1_exec.rs"
+  "lib_pessimistic_exec.rs"
+  "lib_pessimistic_invariant.rs"
+  "lib_si_commit_invariant.rs"
 )
-# The curated total subtracts the EXCLUDE files' obligations from the full
-# total; --full reports the full total. The exact figures are whatever the
-# live run prints below, and the paper's headline MUST be reconciled to that
-# printed DISTINCT total (not the other way around).
 
-# --full / --include-all empties EXCLUDE to compute the full distinct total.
 [ "${FULL:-0}" -eq 1 ] && EXCLUDE=()
 
 log()  { printf "\033[1;34m%s\033[0m\n" "$*"; }
@@ -106,9 +54,9 @@ if [ -n "$LOCAL_BASE" ]; then
     VDET="$LOCAL_BASE/mac-consistency-pilot/verus-detector"
 else
     WORK="$(pwd)/verus-count-clone"; mkdir -p "$WORK"; cd "$WORK"
-    # Always refresh: a cached clone from a previous run would mask pushed
-    # changes (a stale cache is why a re-run could keep showing an old total).
+
     rm -rf mac-consistency-pilot
+
     git clone --quiet --depth=1 \
         "https://github.com/$GITHUB_USER/mac-consistency-pilot.git"
     VDET="$WORK/mac-consistency-pilot/verus-detector"
@@ -118,8 +66,8 @@ fi
 have "$VERUS" || { echo "verus not on PATH (set VERUS=)" >&2; exit 1; }
 
 cd "$VDET"
-declare -A COUNT       # basename -> verified count (only when 0 errors)
-declare -A STATUS      # basename -> ok|ERR
+declare -A COUNT
+declare -A STATUS
 INCOMPLETE=0
 
 log "Verifying every src/*.rs standalone (verus --crate-type=lib)"
@@ -158,8 +106,9 @@ done
 
 echo
 log "Re-inclusion edges (subtracted once each from the raw sum)"
-# Auto-detect `mod` re-inclusions: parent declares `pub mod child;`
+
 EDGES=()
+
 for f in "${FILES[@]}"; do
     [ "${STATUS[$f]:-}" = "ok" ] || continue
     while read -r m; do
@@ -168,7 +117,7 @@ for f in "${FILES[@]}"; do
         if [ -n "${COUNT[$child]:-}" ]; then EDGES+=("$f:$child:mod"); fi
     done < <(grep -oE '(pub +)?mod +[a-z0-9_]+ *;' "src/$f" | grep -oE '[a-z0-9_]+ *;' | tr -d ' ;')
 done
-# Declared textual re-inclusions
+
 for rel in "${TEXTUAL_REINCLUSION[@]}"; do
     p="${rel%%:*}"; c="${rel##*:}"
     [ "${STATUS[$p]:-}" = "ok" ] && [ -n "${COUNT[$c]:-}" ] && EDGES+=("$p:$c:textual")
@@ -186,7 +135,6 @@ else
     done
 fi
 
-# Raw sum of counted (non-excluded) files
 RAW=0
 for f in "${FILES[@]}"; do
     [ "${STATUS[$f]:-}" = "ok" ] || continue

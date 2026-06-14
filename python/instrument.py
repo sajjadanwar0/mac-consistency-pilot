@@ -193,15 +193,9 @@ def make_scenario(output_path: Path, agent_ids: list[str], tool_ids: list[str]):
 
 
 if __name__ == "__main__":
-    # Smoke test producing a real A_1 witness.
     out = Path("/tmp/instrument-smoke-test.jsonl")
     store, tools, recorder, agents = make_scenario(out, ["a1", "a2"], ["t1", "t2"])
 
-    # Both agents observe c1 = NULL at t=0, then commit in opposite order:
-    # a2 writes v2 at t=1, a1 writes v1 at t=2.
-    # A_1 fires for i=0 (a1), j=1 (a2):
-    #   read_time(a1)=0 < write_time(a2)=1 < write_time(a1)=2,
-    #   read_value(a1, c1)="NULL" != write_value(a2, c1)="v2".
     agents["a1"].begin(["c1"], planned_tool="t1")
     agents["a2"].begin(["c1"], planned_tool="t2")
     agents["a2"].commit({"c1": "v2"}, tool_used="t2")

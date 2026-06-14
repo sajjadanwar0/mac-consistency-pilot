@@ -13,12 +13,10 @@ from typing import Optional
 def _first_value(kv_list, cell):
     """Match Verus first_value spec: first match in the list wins."""
     if isinstance(kv_list, dict):
-        # Stored as dict: order is dict-insertion order in Python 3.7+.
         for k, v in kv_list.items():
             if k == cell:
                 return v
         return None
-    # Stored as list of [k, v] pairs.
     for entry in kv_list:
         k, v = entry[0], entry[1]
         if k == cell:
@@ -74,7 +72,6 @@ def detect_a3(records: list[dict]) -> Optional[tuple[int, str, str]]:
             v = _first_value(rj.get("read_values", {}), c)
             if v is None or v == "NULL":
                 continue
-            # Search for an antecedent commit.
             has_antecedent = False
             for k in range(n):
                 if k == j:
@@ -134,7 +131,6 @@ def load_trace(path: Path) -> list[dict]:
 
 
 if __name__ == "__main__":
-    # Self-test on the example A_1 witness.
     smoke = [
         {
             "agent": "a1",

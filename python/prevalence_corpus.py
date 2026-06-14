@@ -58,10 +58,9 @@ from prevalence_harness import SessionRecorder, instrument_layered
 try:
     from prevalence_langgraph_example import ModelClient
 except Exception:
-    ModelClient = None  # analysis-only environments
+    ModelClient = None
 
 
-# registry: name -> build(client, recorder) -> (compiled_app, initial_input)
 _GRAPHS: dict[str, Callable] = {}
 
 
@@ -69,10 +68,6 @@ def add_graph(name: str, build: Callable) -> None:
     _GRAPHS[name] = build
 
 
-# ---------------------------------------------------------------------
-# Illustrative patterns (NOT a corpus). Each shows a common shared-state
-# topology. Replace/extend with real third-party graphs for a real study.
-# ---------------------------------------------------------------------
 def _lww(_a, b):
     return b
 
@@ -87,9 +82,6 @@ def _register_examples():
         r2:     Annotated[str, _lww]
         summary: Annotated[str, _lww]
 
-    # (1) supervisor -> two workers (same layer, both read `plan`) -> reducer.
-    #     Realistic shared-state fan-out; A_1 possible iff workers race on a
-    #     shared cell they both read-then-depend-on.
     def build_supervisor(client, rec):
         def supervisor(s): return {"plan": client.complete(
             "Plan the task in one sentence.", f"Task: {s.get('task','')}") or "PLAN"}
@@ -114,7 +106,6 @@ def _register_examples():
         return g.compile(), {"task": "Audit the onboarding flow.",
                              "plan": "", "r1": "", "r2": "", "summary": ""}
 
-    # (2) sequential pipeline (control: expect ~0% -- distinct layers).
     def build_pipeline(client, rec):
         def a(s): return {"plan": client.complete("Plan.", s.get("task","")) or "PLAN"}
         def b(s): return {"r1": client.complete("Execute the plan.", s.get("plan","")) or "R1"}
@@ -133,8 +124,6 @@ def _register_examples():
     add_graph("supervisor_fanout", build_supervisor)
     add_graph("sequential_pipeline", build_pipeline)
 
-    # (3) racy positive control: two same-layer nodes where one writes a cell
-    #     the other reads (writer & reader in the SAME superstep). Expect A_1.
     def build_racy(client, rec):
         def producer(s): return {"plan": client.complete("Plan.", s.get("task","")) or "PLAN"}
         def consumer(s): return {"r1": client.complete("Use the plan.", s.get("plan","")) or "R1"}

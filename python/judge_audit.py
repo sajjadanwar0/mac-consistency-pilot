@@ -50,9 +50,6 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 
-# --------------------------------------------------------------------------
-# Shared: load judge records (type == "text", scored), keyed by `key`
-# --------------------------------------------------------------------------
 def load_judge_rows(paths):
     rows = {}
     for p in paths:
@@ -68,9 +65,9 @@ def load_judge_rows(paths):
             except json.JSONDecodeError:
                 continue
             if r.get("type") != "text":
-                continue          # categorical cells are exact-compared, not judged
+                continue
             if r.get("diverged") is None:
-                continue          # unparseable firing; nothing for the judge to agree on
+                continue
             rows[r["key"]] = r
     return rows
 
@@ -86,9 +83,6 @@ def parse_bool(s):
     return None
 
 
-# --------------------------------------------------------------------------
-# Step 1: make a blind coding sheet
-# --------------------------------------------------------------------------
 def make_sheet(args):
     rows = load_judge_rows(args.judge_files)
     if not rows:
@@ -100,17 +94,14 @@ def make_sheet(args):
 
     rng = random.Random(args.seed)
     for keys in by_agent.values():
-        keys.sort()           # determinism before shuffling
+        keys.sort()
         rng.shuffle(keys)
 
-    # Stratified sample: take proportionally from each agent up to --n total,
-    # at least 1 per agent where available, capped at availability.
     agents = sorted(by_agent)
     total_avail = sum(len(by_agent[a]) for a in agents)
     n_target = min(args.n, total_avail)
     chosen = []
     if n_target >= len(agents):
-        # one guaranteed per agent, then fill the remainder proportionally
         for a in agents:
             chosen.append((a, by_agent[a][0]))
         remaining = n_target - len(agents)
@@ -118,7 +109,6 @@ def make_sheet(args):
         rng.shuffle(pool)
         chosen.extend(pool[:remaining])
     else:
-        # fewer slots than agents: sample agents
         for a in rng.sample(agents, n_target):
             chosen.append((a, by_agent[a][0]))
 
@@ -139,9 +129,6 @@ def make_sheet(args):
     print(f"  python judge_audit.py score {out} " + " ".join(map(str, args.judge_files)))
 
 
-# --------------------------------------------------------------------------
-# Step 2: score the filled sheet vs the judge
-# --------------------------------------------------------------------------
 def cohen_kappa(a, b, c, d):
     """2x2 counts: a=both YES, b=judge YES/human NO, c=judge NO/human YES,
     d=both NO. Returns (kappa, se, po, pe, n)."""
@@ -155,7 +142,6 @@ def cohen_kappa(a, b, c, d):
     if abs(1 - pe) < 1e-12:
         return (float("nan"), float("nan"), po, pe, n)
     kappa = (po - pe) / (1 - pe)
-    # standard asymptotic SE (Cohen 1960, large-sample approximation)
     se = math.sqrt(po * (1 - po) / n) / (1 - pe)
     return (kappa, se, po, pe, n)
 
@@ -166,7 +152,7 @@ def score(args):
     if not sheet.exists():
         sys.exit(f"sheet not found: {sheet}")
 
-    a = b = c = d = 0          # judge x human contingency
+    a = b = c = d = 0
     unlabeled = missing = 0
     rows_used = []
     with sheet.open(encoding="utf-8") as fh:

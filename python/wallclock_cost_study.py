@@ -76,11 +76,6 @@ from pathlib import Path
 from typing import Any
 
 
-# ---------------------------------------------------------------------
-# Workload definitions (mirror the v5_3 paper's three workloads but
-# use deterministic mock tools so we measure only LLM and runtime
-# overhead, not external service latency)
-# ---------------------------------------------------------------------
 
 def make_edit_review_tools(seed: int):
     """Edit-review workload: edit_doc + review_doc tools sharing a doc cell."""
@@ -186,10 +181,6 @@ WORKLOADS = {
 }
 
 
-# ---------------------------------------------------------------------
-# Strategy-specific session executors. The strategy is the
-# concurrency-control discipline applied to tool-call commits.
-# ---------------------------------------------------------------------
 
 def build_model_client(provider: str, model: str, base_url: str,
                        api_key: str):
@@ -234,7 +225,7 @@ async def run_session_mock(workload: str, strategy: str, seed: int) -> dict:
             await asyncio.sleep(rng.uniform(0.002, 0.008))
             if kind == "write" and rng.random() < prob:
                 aborts += 1
-                calls += 1  # the retry the agent must issue
+                calls += 1
                 await asyncio.sleep(rng.uniform(0.002, 0.008))
     return {
         "workload": workload,
@@ -260,8 +251,6 @@ async def run_session(workload: str, strategy: str, model: str,
     wl = WORKLOADS[workload]
     tools = wl["tool_factory"](seed)
 
-    # Abort counter as a mutable container so wrappers can increment it
-    # without `nonlocal` crossing the make_wrapped boundary.
     abort_box = [0]
 
     def wrap_for_abort(orig, name, prob, rng, reason):
@@ -277,8 +266,6 @@ async def run_session(workload: str, strategy: str, model: str,
                 abort_box[0] += 1
                 return f"ABORT: {reason} on {name}"
             return orig(*args, **kw)
-        # Critical: copy the real signature so inspect.signature(wrapped)
-        # returns the original typed parameters, not (*args, **kw).
         try:
             wrapped.__signature__ = inspect.signature(orig)
         except (ValueError, TypeError):
@@ -286,8 +273,6 @@ async def run_session(workload: str, strategy: str, model: str,
         return wrapped
 
     if strategy == "pessimistic":
-        # Pessimistic: each write may fail on conflict (20%), forcing a
-        # retry that the agent must handle. Aborts count the rejections.
         rng = random.Random(seed)
         for name, fn in list(tools.items()):
             if name.startswith(("edit_", "write_", "classify_")):
@@ -295,13 +280,11 @@ async def run_session(workload: str, strategy: str, model: str,
                                              "lock conflict")
 
     elif strategy == "ssi":
-        # SSI: writes succeed but commit-time validation may abort (5%).
         rng = random.Random(seed + 1)
         for name, fn in list(tools.items()):
             if name.startswith(("edit_", "write_", "classify_")):
                 tools[name] = wrap_for_abort(fn, name, 0.05, rng,
                                              "SSI validation failed")
-    # vanilla: no wrapping, no aborts
 
     inner = build_model_client(provider, model, base_url, api_key)
     agents = []
@@ -320,12 +303,10 @@ async def run_session(workload: str, strategy: str, model: str,
     )
     team = RoundRobinGroupChat(agents, termination_condition=termination)
 
-    # Measure wall clock
     start = time.monotonic()
     result = await team.run(task=wl["task"])
     elapsed = time.monotonic() - start
 
-    # Token usage (best-effort extraction from autogen result)
     prompt_tokens = 0
     completion_tokens = 0
     tool_calls_made = 0
@@ -353,9 +334,6 @@ async def run_session(workload: str, strategy: str, model: str,
     }
 
 
-# ---------------------------------------------------------------------
-# Aggregation
-# ---------------------------------------------------------------------
 
 def bootstrap_mean_ci(values: list[float], n: int = 1000) -> tuple[float, float, float]:
     if not values:
@@ -393,7 +371,7 @@ async def main() -> None:
     if args.provider == "openai" and not os.environ.get("OPENAI_API_KEY"):
         raise SystemExit("OPENAI_API_KEY not set")
     if args.provider == "ollama" and args.model == "gpt-4o":
-        args.model = "llama3.2"  # sensible default for the ollama provider
+        args.model = "llama3.2"
 
     workloads = ([args.workload] if args.workload != "all"
                  else list(WORKLOADS.keys()))
@@ -423,7 +401,6 @@ async def main() -> None:
     args.out.write_text(json.dumps(results, indent=2))
     print(f"\nWrote {len(results)} records to {args.out}")
 
-    # Per-cell summary
     print("\n=== Summary (mean wall-clock, 95% CI) ===")
     print(f"{'workload':16} {'strategy':12} {'n':>4} "
           f"{'wall_clock_s':>15} {'95% CI':>20} {'tokens':>10}")

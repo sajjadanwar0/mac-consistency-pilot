@@ -12,7 +12,7 @@
 //   prevents A_6 (tool-effect reordering): two external-effect
 //   tool calls within a transaction that complete in a different
 //   order than their issuance, violating the runtime's
-//   serialisation contract.
+//   serialization contract.
 //
 //   The saga pattern is the standard remedy: each external-effect
 //   tool call carries a compensating action; if the transaction
@@ -31,19 +31,7 @@
 //   refute: by construction, no two calls within a transaction
 //   can complete out of issuance order. We also exhibit, via a
 //   non-vacuity witness, that A_6 is genuinely reachable when the
-//   serialisation discipline is absent.
-//
-// FIX HISTORY
-//   v2: brutal-audit pass --- (1) removed the vacuous
-//       `ensures true` lemma (count padding); (2) added
-//       `lemma_reordering_admits_a6`, an A_6 non-vacuity witness
-//       symmetric to L_4's `lemma_no_isolation_admits_a2`;
-//       (3) renamed `compensation_order_valid` to
-//       `compensation_complete` and corrected its comment --- the
-//       predicate models compensation COMPLETENESS (every
-//       completed call is compensated), not reverse ORDER, which
-//       is a runtime discipline we do not formalise here. The
-//       earlier name over-claimed.
+//   serialization discipline is absent.
 //
 // SCORECARD
 //   6 obligations, 0 axioms (structural).

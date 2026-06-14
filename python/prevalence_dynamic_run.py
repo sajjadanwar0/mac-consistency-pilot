@@ -43,9 +43,6 @@ START = "__start__"
 END = "__end__"
 
 
-# =====================================================================
-# Inlined record type + detector + stats (mirror prevalence_harness)
-# =====================================================================
 @dataclass
 class OpRecord:
     agent_id: str
@@ -128,9 +125,6 @@ def clopper_pearson(k, n, alpha=0.05):
         return (max(0.0, p - 1.96 * se), min(1.0, p + 1.96 * se))
 
 
-# =====================================================================
-# Minimal model client (openai / vllm / anthropic)
-# =====================================================================
 class ModelClient:
     def __init__(self, provider, model, base_url=None):
         self.provider = provider
@@ -161,10 +155,6 @@ class ModelClient:
             return (r.content[0].text if r.content else "").strip()
 
 
-# =====================================================================
-# Topologies (same structural specs as prevalence_static.py)
-# expect: "fire" (susceptible) | "silent" (safe / negative control)
-# =====================================================================
 TOPOLOGIES: dict = {
     "sequential_pipeline": {
         "edges": [(START, "plan"), ("plan", "exec"), ("exec", "summarise"), ("summarise", END)],

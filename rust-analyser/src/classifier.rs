@@ -1,12 +1,3 @@
-//! Level classifier — find the maximum hierarchy level a history satisfies.
-//!
-//! Levels (paper §4):
-//!   L_0 : TRUE          (admits everything)
-//!   L_1 : ¬A_1
-//!   L_2 : L_1 ∧ ¬A_3
-//!   L_3 : L_2 ∧ ¬A_6
-//!   L_4 : L_3 ∧ ¬A_2
-
 use crate::anomalies::{detect_a1, detect_a2, detect_a3, detect_a6};
 use crate::oprecord::OpRecord;
 

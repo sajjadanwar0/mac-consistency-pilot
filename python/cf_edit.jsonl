@@ -1,0 +1,13 @@
+{"trial": 0, "v_stale": "ready", "v_fresh": "approved-by-author", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 1, "v_stale": "ready", "v_fresh": "approved-by-author", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 2, "v_stale": "draft", "v_fresh": "changes-requested", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 3, "v_stale": "approved-by-author", "v_fresh": "ready", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 4, "v_stale": "ready", "v_fresh": "changes-requested", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 5, "v_stale": "ready", "v_fresh": "changes-requested", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 6, "v_stale": "approved-by-author", "v_fresh": "in-review", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 7, "v_stale": "approved-by-author", "v_fresh": "in-review", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 8, "v_stale": "changes-requested", "v_fresh": "in-review", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 9, "v_stale": "draft", "v_fresh": "changes-requested", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 10, "v_stale": "approved-by-author", "v_fresh": "in-review", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 11, "v_stale": "changes-requested", "v_fresh": "draft", "d_stale": "approve", "d_fresh": "approve", "diverged": false}
+{"trial": 12, "v_stale": "draft", "v_fresh": "changes-requested", "d_stale": "approve", "d_fresh": "approve", "diverged": false}

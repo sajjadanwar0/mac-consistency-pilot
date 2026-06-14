@@ -15,7 +15,6 @@ import random
 import sys
 from pathlib import Path
 
-# Make sibling modules importable.
 HERE = Path(__file__).parent.resolve()
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parent / "mac-consistency-pilot" / "python"))
@@ -103,7 +102,6 @@ def main() -> None:
             if (i + 1) % 100 == 0 or i == args.n - 1:
                 print(f"  {i + 1}/{args.n}  (last: {scenario['name']}, total aborts: {total_aborts})")
 
-        # Write metadata.
         (out / "_metadata.json").write_text(
             json.dumps(
                 {

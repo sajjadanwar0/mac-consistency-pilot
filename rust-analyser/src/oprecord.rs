@@ -1,5 +1,3 @@
-//! OpRecord — one logical operation in a multi-agent history.
-
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 

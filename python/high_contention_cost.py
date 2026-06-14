@@ -69,9 +69,6 @@ from collections import defaultdict
 STRATEGIES = ("vanilla", "ssi", "pessimistic")
 
 
-# =====================================================================
-# Inlined record type + detector + stats (identical to prevalence_dynamic_run)
-# =====================================================================
 @dataclass
 class OpRecord:
     agent_id: str
@@ -127,10 +124,6 @@ def clopper_pearson(k, n, alpha=0.05):
         return (max(0.0, p - 1.96 * se), min(1.0, p + 1.96 * se))
 
 
-# =====================================================================
-# Model client: returns (text, total_tokens, latency_s). Adds a deterministic
-# 'mock' provider for keyless dry-runs and logic validation.
-# =====================================================================
 class ModelClient:
     def __init__(self, provider, model, base_url=None):
         self.provider = provider
@@ -150,28 +143,24 @@ class ModelClient:
         """Return (text, total_tokens, latency_s)."""
         t0 = time.perf_counter()
         if self.provider == "mock":
-            # Deterministic text + synthetic token count with realistic spread.
             h = hashlib.sha256(f"{system}|{user}".encode()).hexdigest()
             text = f"val_{h[:8]}"
-            # completion length varies with the hash -> non-zero token variance,
-            # mirroring real variable-output-length cost noise.
-            comp = 8 + (int(h[8:12], 16) % 40)        # 8..47 completion tokens
+            comp = 8 + (int(h[8:12], 16) % 40)
             prompt = 20 + len(user) // 4
-            # small synthetic latency, also variable
             lat = 0.02 + (int(h[12:16], 16) % 50) / 1000.0
-            time.sleep(0)  # do not actually sleep in mock
+            time.sleep(0)
             return text, prompt + comp, lat
         if self.provider in ("openai", "vllm"):
             kw = dict(model=self.model, max_tokens=max_tokens,
                       messages=[{"role": "system", "content": system},
                                 {"role": "user", "content": user}])
             if seed is not None:
-                kw["seed"] = seed          # honored by OpenAI; ignored by others
+                kw["seed"] = seed
             r = self.client.chat.completions.create(**kw)
             text = (r.choices[0].message.content or "").strip()
             tok = getattr(r, "usage", None)
             total = int(tok.total_tokens) if tok else 0
-        else:  # anthropic
+        else:
             r = self.client.messages.create(
                 model=self.model, max_tokens=max_tokens, system=system,
                 messages=[{"role": "user", "content": user}])
@@ -181,9 +170,6 @@ class ModelClient:
         return text, total, time.perf_counter() - t0
 
 
-# =====================================================================
-# Per-session execution under one strategy
-# =====================================================================
 @dataclass
 class SessionCost:
     scenario_seed: int
@@ -193,15 +179,15 @@ class SessionCost:
     cells: int
     depth: int
     tokens_total: int = 0
-    tokens_wasted: int = 0          # tokens spent on aborted (re-run) generations
-    wallclock_s: float = 0.0        # COMPOSED under the strategy's concurrency
-    wallclock_raw_s: float = 0.0    # assumption-free sum of all call latencies
-    wasted_gen_s: float = 0.0       # composed wall-clock attributable to retries
+    tokens_wasted: int = 0
+    wallclock_s: float = 0.0
+    wallclock_raw_s: float = 0.0
+    wasted_gen_s: float = 0.0
     lockwait_s: float = 0.0
     aborts: int = 0
     retries: int = 0
-    generations: int = 0            # total LLM calls incl. retries
-    a1_observed: int = 0            # firings in the committed history (guard)
+    generations: int = 0
+    a1_observed: int = 0
 
 
 def _prompt(agent, cell, readval):
@@ -215,20 +201,18 @@ def run_session(client, strategy, W, C, D, seed):
     committed OpRecords). All three strategies see identical inputs for a given
     seed (cell assignment is seeded), so sessions pair across strategies."""
     rng = random.Random(seed)
-    # deterministic, strategy-independent assignment of agents -> cells
     assign = {a: (rng.randrange(C) if C > 1 else 0) for a in range(W)}
     sc = SessionCost(scenario_seed=seed, model=client.model, strategy=strategy,
                      W=W, cells=C, depth=D)
     state = {f"c{c}": "NULL" for c in range(C)}
     records = []
     op = 0
-    ser = 0    # global serialization position for ordered (ssi/pessimistic) commits
+    ser = 0
     sysmsg = "Multi-agent workflow node. Reply with only a short value."
 
     for rnd in range(D):
-        snapshot = dict(state)                  # round-start committed snapshot
-        # --- generation phase: every agent reads snapshot and generates once ---
-        gen = {}   # agent -> (cell, readval, text, tokens, latency)
+        snapshot = dict(state)
+        gen = {}
         for a in range(W):
             cell = f"c{assign[a]}"
             readval = snapshot[cell]
@@ -239,14 +223,12 @@ def run_session(client, strategy, W, C, D, seed):
             sc.wallclock_raw_s += lat
             sc.generations += 1
 
-        # group agents by cell, in a fixed commit order (agent index)
         by_cell = defaultdict(list)
         for a in range(W):
             by_cell[gen[a][0]].append(a)
 
         round_wall = 0.0
         if strategy == "vanilla":
-            # all writes applied last-write-wins; reads were the snapshot.
             for a in range(W):
                 cell, readval, txt, tok, lat = gen[a]
                 op += 1
@@ -256,18 +238,17 @@ def run_session(client, strategy, W, C, D, seed):
                     write_set=[cell], write_values={cell: txt}, write_time=2 * rnd + 1,
                     superstep=rnd, scenario=f"hc_W{W}_C{C}", model=client.model))
             for cell, agents in by_cell.items():
-                state[cell] = gen[agents[-1]][2]            # last writer wins
-                round_wall = max(round_wall, max(gen[a][4] for a in agents))  # overlap
+                state[cell] = gen[agents[-1]][2]
+                round_wall = max(round_wall, max(gen[a][4] for a in agents))
 
         elif strategy == "pessimistic":
-            # per cell, agents serialize: each holds the lock for its gen latency.
             for cell, agents in by_cell.items():
                 waited = 0.0
                 cell_time = 0.0
                 cur = snapshot[cell]
                 for a in agents:
-                    sc.lockwait_s += waited                 # blocked on predecessors
-                    readval = cur                           # reads the live value under lock
+                    sc.lockwait_s += waited
+                    readval = cur
                     txt = gen[a][2]; lat = gen[a][4]
                     cur = txt
                     op += 1
@@ -280,11 +261,9 @@ def run_session(client, strategy, W, C, D, seed):
                     waited += lat
                     cell_time += lat
                 state[cell] = cur
-                round_wall = max(round_wall, cell_time)     # serialized within cell
+                round_wall = max(round_wall, cell_time)
 
         elif strategy == "ssi":
-            # optimistic: validate read against committed value at commit time;
-            # on conflict abort and RE-GENERATE against the fresh value.
             for cell, agents in by_cell.items():
                 committed = snapshot[cell]
                 serial_retry_time = 0.0
@@ -292,12 +271,11 @@ def run_session(client, strategy, W, C, D, seed):
                 for a in agents:
                     readval = gen[a][1]; txt = gen[a][2]; lat = gen[a][4]
                     if readval != committed:
-                        # stale read -> abort, re-read fresh, re-generate (real call)
                         sc.aborts += 1; sc.retries += 1
                         rtxt, rtok, rlat = client.complete(
                             sysmsg, _prompt(f"r{rnd}_a{a}", cell, committed),
                             seed=(seed * 1000 + rnd * 50 + a + 7919))
-                        sc.tokens_total += rtok; sc.tokens_wasted += tok  # prior gen wasted
+                        sc.tokens_total += rtok; sc.tokens_wasted += tok
                         sc.wallclock_raw_s += rlat; sc.wasted_gen_s += lat
                         sc.generations += 1
                         serial_retry_time += rlat
@@ -318,9 +296,6 @@ def run_session(client, strategy, W, C, D, seed):
     return sc, records
 
 
-# =====================================================================
-# run / analyze
-# =====================================================================
 def cmd_run(args):
     client = ModelClient(args.provider, args.model, base_url=args.base_url)
     outdir = Path(args.out); outdir.mkdir(parents=True, exist_ok=True)
@@ -336,13 +311,12 @@ def cmd_run(args):
         for strat in STRATEGIES:
             toks, aborts, a1 = [], 0, 0
             for t in range(args.n):
-                seed = args.seed * 100000 + t          # same seed -> paired across strategies
+                seed = args.seed * 100000 + t
                 sc, _ = run_session(client, strat, args.w, args.cells, args.depth, seed)
                 fh.write(json.dumps(asdict(sc), separators=(",", ":")) + "\n")
-                fh.flush()                              # survive Ctrl-C / inspect live
+                fh.flush()
                 toks.append(sc.tokens_total); aborts += sc.aborts; a1 += sc.a1_observed
                 written += 1; done += 1
-                # live progress to stderr (does not pollute the stdout table)
                 elapsed = time.perf_counter() - t_start
                 rate = elapsed / done
                 eta = rate * (total_sessions - done)
@@ -385,8 +359,6 @@ def cmd_analyze(args):
     if not rows:
         print(f"no session records under {indir}"); return
 
-    # index by (W, cells, seed) -> {strategy: row}  (cells must be in the key,
-    # or sweeps that vary C at fixed W/seed collapse onto each other)
     cells = defaultdict(dict)
     for r in rows:
         cells[(r["W"], r["cells"], r["scenario_seed"])][r["strategy"]] = r
@@ -395,8 +367,8 @@ def cmd_analyze(args):
     print(f"{'W':>3} {'C':>3} {'pairs':>6}  {'SSI rel.tok':>22}  {'PESS rel.tok':>22}  "
           f"{'abort/agent':>11}  {'guard':>6}")
     print("-" * 104)
-    regress_pts = []                  # (abort_rate, ssi_rel_overhead) per session
-    cell_summ = []                    # (abort_rate_mean, ssi_mean, ssi_lo, ssi_hi, W, C)
+    regress_pts = []
+    cell_summ = []
     for (W, C) in groups:
         ssi_d, pess_d, abrt = [], [], []
         van_a1_total, ssi_a1_bad, pess_a1_bad = 0, 0, 0
@@ -418,10 +390,6 @@ def cmd_analyze(args):
             if "pessimistic" in bystrat:
                 pess_a1_bad += (bystrat["pessimistic"]["a1_observed"] != 0)
                 pess_d.append((bystrat["pessimistic"]["tokens_total"] - van) / van)
-        # guard: prevention must hold (no A1 under ssi/pess in ANY session); and
-        # the contention must be real somewhere in the cell (vanilla fired A1 at
-        # least once in aggregate). Low-contention cells where vanilla happens
-        # not to collide are NOT failures.
         guard_ok = (ssi_a1_bad == 0 and pess_a1_bad == 0 and
                     (van_a1_total > 0 or C >= W))
         def fmt(ds):
@@ -436,7 +404,6 @@ def cmd_analyze(args):
         print(f"{W:>3} {C:>3} {npairs:>6}  {fmt(ssi_d)}  {fmt(pess_d)}  {am:>11.2f}  "
               f"{'PASS' if guard_ok else 'FAIL':>6}")
 
-    # decision rule applied to the HIGHEST-contention cell (max abort rate)
     if cell_summ:
         hi_cell = max(cell_summ, key=lambda t: t[0])
         am, m, lo, hi, W, C = hi_cell
@@ -447,12 +414,11 @@ def cmd_analyze(args):
         print(f"Decision at max contention (W={W},C={C}, abort/agent={am:.2f}): "
               f"SSI U95 = {hi*100:.1f}%  ->  {verdict}")
 
-    # two-stage power from the SD at the highest-contention cell
     hi_pts = None
     if cell_summ:
         am0 = max(cell_summ, key=lambda t: t[0])
         W0, C0 = am0[4], am0[5]
-        hi_pts = [d for (ar, d) in regress_pts]  # placeholder; recompute below
+        hi_pts = [d for (ar, d) in regress_pts]
         ds = [(bystrat["ssi"]["tokens_total"] - bystrat["vanilla"]["tokens_total"])
               / bystrat["vanilla"]["tokens_total"]
               for (w, c, s), bystrat in cells.items()
@@ -476,7 +442,6 @@ def cmd_analyze(args):
         sxy = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
         if sxx > 0:
             slope = sxy / sxx; intercept = my - slope * mx
-            # bootstrap the slope/intercept and the breakpoint
             rng = random.Random(99); slopes, inters, bps = [], [], []
             pts = list(zip(xs, ys))
             for _ in range(5000):

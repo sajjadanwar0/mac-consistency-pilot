@@ -51,9 +51,6 @@ from pathlib import Path
 from typing import Any, Callable
 
 
-# =====================================================================
-# Access-tracking state proxy: records which keys a node actually reads
-# =====================================================================
 class _TrackingState(dict):
     """A dict that records which keys are accessed, so instrument() captures a
     precise read_set instead of the whole state. [], .get(), and `in` record
@@ -78,9 +75,6 @@ class _TrackingState(dict):
         self.accessed.update(super().keys()); return super().__iter__()
 
 
-# =====================================================================
-# OpRecord: identical shape to the verified detector's input
-# =====================================================================
 @dataclass
 class OpRecord:
     agent_id: str
@@ -101,9 +95,6 @@ class OpRecord:
         return json.dumps(asdict(self), separators=(",", ":"))
 
 
-# =====================================================================
-# SessionRecorder: turns framework state-access into OpRecords
-# =====================================================================
 class SessionRecorder:
     """Records one session. The `instrument` method wraps a framework node so
     that the dict the node READS (its input state) and the dict it WRITES (its
@@ -200,9 +191,6 @@ class SessionRecorder:
             self._fh = None
 
 
-# =====================================================================
-# The A_1 detector: EXACTLY the verified cross-agent predicate
-# =====================================================================
 def a1_firings(records: list[OpRecord]) -> list[dict]:
     """Cross-agent A_1 witnesses under the superstep model that LangGraph (and
     CrewAI's parallel steps) actually use: a node always reads the latest
@@ -223,7 +211,7 @@ def a1_firings(records: list[OpRecord]) -> list[dict]:
                 hit = False
                 for w in ops:
                     if w.agent_id == r.agent_id:
-                        continue                    # cross-agent only
+                        continue
                     if c in w.write_set and w.write_values.get(c, "") != v:
                         firings.append({
                             "session": r.session_id, "superstep": ss,
@@ -253,7 +241,7 @@ def any_agent_a1_firings(records: list[OpRecord]) -> list[dict]:
                 hit = False
                 for w in ops:
                     if w.op_index == r.op_index:
-                        continue                    # exclude self read-modify-write
+                        continue
                     if c in w.write_set and w.write_values.get(c, "") != v:
                         firings.append({"session": r.session_id, "superstep": ss,
                                         "agent": r.agent_id, "cell": c})
@@ -264,13 +252,9 @@ def any_agent_a1_firings(records: list[OpRecord]) -> list[dict]:
     return firings
 
 
-# =====================================================================
-# Clopper-Pearson exact CI
-# =====================================================================
 def clopper_pearson(k: int, n: int, alpha: float = 0.05) -> tuple[float, float]:
     if n == 0:
         return (0.0, 1.0)
-    # use scipy if available; otherwise a Beta-quantile fallback via bisection
     try:
         from scipy.stats import beta
         lo = 0.0 if k == 0 else beta.ppf(alpha / 2, k, n - k + 1)
@@ -282,9 +266,6 @@ def clopper_pearson(k: int, n: int, alpha: float = 0.05) -> tuple[float, float]:
         return (max(0.0, p - 1.96 * se), min(1.0, p + 1.96 * se))
 
 
-# =====================================================================
-# Analyze a directory of session oprecord files
-# =====================================================================
 def load_session(path: str) -> list[OpRecord]:
     recs = []
     for line in open(path):
@@ -300,7 +281,6 @@ def analyze(dirpath: str, out: str | None) -> dict:
     files = sorted(glob.glob(os.path.join(dirpath, "*.jsonl")))
     if not files:
         raise SystemExit(f"no .jsonl session files in {dirpath}")
-    # group by (framework, model, scenario)
     groups: dict[tuple, list[str]] = {}
     for f in files:
         recs = load_session(f)

@@ -93,9 +93,6 @@ from pathlib import Path
 from typing import Any, Callable, Iterable, Iterator, Optional
 
 
-# =====================================================================
-# Pricing
-# =====================================================================
 
 @dataclass(frozen=True)
 class Pricing:
@@ -127,16 +124,13 @@ class Pricing:
         return (inp, out, inp + out)
 
 
-# =====================================================================
-# Records
-# =====================================================================
 
 @dataclass
 class CallRecord:
     """Single model call with measured usage."""
     session_id: str
-    runtime: str                # "vanilla" | "pessimistic" | "snapshot_isolation"
-    workload: str               # "edit-review" | "plan-execute" | "triage"
+    runtime: str
+    workload: str
     agent_id: str
     op_index: int
     call_index: int
@@ -154,9 +148,6 @@ class CallRecord:
         return json.dumps(asdict(self), separators=(",", ":"))
 
 
-# =====================================================================
-# SessionRecorder — primary low-level API
-# =====================================================================
 
 class SessionRecorder:
     """
@@ -199,7 +190,6 @@ class SessionRecorder:
         self._op_index = 0
         self._call_counter_per_op: dict[tuple[str, int], int] = {}
 
-    # --- context-manager protocol --------------------------------
 
     def __enter__(self) -> "SessionRecorder":
         self.out_dir.mkdir(parents=True, exist_ok=True)
@@ -208,7 +198,6 @@ class SessionRecorder:
     def __exit__(self, exc_type, exc, tb) -> None:
         self.flush()
 
-    # --- binding --------------------------------------------------
 
     def bind_agent(self, agent_id: str) -> None:
         with self._lock:
@@ -218,7 +207,6 @@ class SessionRecorder:
         with self._lock:
             self._op_index = op_index
 
-    # --- recording ------------------------------------------------
 
     def record_call(
             self,
@@ -292,7 +280,6 @@ class SessionRecorder:
             op_index=op_index,
         )
 
-    # --- flush ----------------------------------------------------
 
     def flush(self) -> Path:
         out = self.out_dir / f"{self.session_id}.tokens.jsonl"
@@ -304,7 +291,6 @@ class SessionRecorder:
                 f.write("\n")
         return out
 
-    # --- introspection -------------------------------------------
 
     def session_summary(self) -> dict[str, Any]:
         """Summary stats for the session; used by aggregate_runs."""
@@ -335,9 +321,6 @@ class SessionRecorder:
         }
 
 
-# =====================================================================
-# Integration point 2: wrap_openai_client
-# =====================================================================
 
 def wrap_openai_client(
         client: Any,
@@ -373,22 +356,19 @@ def wrap_openai_client(
             elapsed_ms = int((time.monotonic() - t0) * 1000)
             recorder.record_response(response, wall_clock_ms=elapsed_ms)
             return response
-        completions.create = patched_create  # type: ignore[assignment]
+        completions.create = patched_create
     else:
-        def patched_create(*args: Any, **kwargs: Any) -> Any:  # type: ignore[no-redef]
+        def patched_create(*args: Any, **kwargs: Any) -> Any:
             t0 = time.monotonic()
             response = original_create(*args, **kwargs)
             elapsed_ms = int((time.monotonic() - t0) * 1000)
             recorder.record_response(response, wall_clock_ms=elapsed_ms)
             return response
-        completions.create = patched_create  # type: ignore[assignment]
+        completions.create = patched_create
 
     return client
 
 
-# =====================================================================
-# Integration point 1: AutoGenUsageCollector
-# =====================================================================
 
 class AutoGenUsageCollector:
     """
@@ -412,7 +392,6 @@ class AutoGenUsageCollector:
         self._recorder = recorder
 
     def __getattr__(self, name: str) -> Any:
-        # Default: delegate everything that isn't intercepted.
         return getattr(self._inner, name)
 
     async def create(self, *args: Any, **kwargs: Any) -> Any:
@@ -427,9 +406,6 @@ class AutoGenUsageCollector:
         return response
 
 
-# =====================================================================
-# Aggregation across sessions — produces Table 6 data
-# =====================================================================
 
 def _bootstrap_ci(
         samples: list[float],
@@ -495,7 +471,6 @@ def aggregate_runs(
     pricing = pricing or Pricing.gpt_4o_default()
     sessions_dir = Path(sessions_dir)
 
-    # Aggregate per-session totals.
     by_cell: dict[tuple[str, str], list[dict[str, float]]] = {}
     for path in sorted(sessions_dir.glob("*.tokens.jsonl")):
         per_session_total = {
@@ -622,9 +597,6 @@ def emit_latex_table(
     )
 
 
-# =====================================================================
-# Standalone CLI for re-aggregating after the pilot rerun
-# =====================================================================
 
 def _cli() -> None:
     import argparse

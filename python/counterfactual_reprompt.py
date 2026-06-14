@@ -65,10 +65,6 @@ except Exception:
     print("pip install scipy", file=sys.stderr); raise
 
 
-# ----------------------------- task definitions -----------------------------
-# Each task provides: a value pool for the shared cell, a prompt builder that
-# injects the value, and a decision extractor. The injected value is the ONLY
-# thing that differs between the stale and fresh prompt.
 
 TASKS = {
     "triage": {
@@ -77,7 +73,6 @@ TASKS = {
             "priority. Respond with ONLY a JSON object: "
             '{"priority": one of ["P0","P1","P2","P3"]}. No prose.'
         ),
-        # shared cell = severity; pairs are realistic adjacent-but-different values
         "values": ["informational", "minor", "moderate", "major", "critical"],
         "user_template": (
             "Ticket #{tid}\n"
@@ -117,7 +112,6 @@ def build_messages(task: dict, tid: int, value: str) -> list[dict]:
 
 def parse_decision(text: str, key: str) -> str | None:
     text = text.strip()
-    # try strict JSON first
     try:
         obj = json.loads(text)
         if isinstance(obj, dict) and key in obj:
@@ -185,7 +179,7 @@ def main() -> None:
         from openai import OpenAI
     except Exception:
         print("pip install openai", file=sys.stderr); raise
-    client = OpenAI()  # reads OPENAI_API_KEY
+    client = OpenAI()
     rng = random.Random(args.seed)
     out = args.out or Path(f"cf_{args.task}.jsonl")
     done = load_done(out)
@@ -197,7 +191,6 @@ def main() -> None:
     for trial in range(args.n):
         if trial in done:
             continue
-        # sample a stale != fresh value pair (this is what the A1 detector flags)
         v_stale, v_fresh = rng.sample(task["values"], 2)
         d_stale = one_decision(client, args.model, task, trial, v_stale,
                                args.temperature, args.samples)
@@ -216,7 +209,6 @@ def main() -> None:
         fh.write(json.dumps(rec) + "\n"); fh.flush()
     fh.close()
 
-    # recompute totals from the full file (covers resumed runs)
     diverged = counted = unparsed = 0
     for line in out.read_text().splitlines():
         r = json.loads(line)

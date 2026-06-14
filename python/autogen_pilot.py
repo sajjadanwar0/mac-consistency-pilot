@@ -37,7 +37,6 @@ from autogen_agentchat.conditions import MaxMessageTermination, TextMentionTermi
 
 from tokens_capture import SessionRecorder, Pricing
 
-# ---BASELINES_RUNTIME_SELECT---
 import sys as _sys
 _runtime = "vanilla"
 if "--runtime" in _sys.argv:
@@ -69,12 +68,8 @@ else:
         ToolRegistry,
         Recorder,
     )
-# ---BASELINES_RUNTIME_SELECT---
 
 
-# ---------------------------------------------------------------------------
-# Provider-specific client construction and pricing
-# ---------------------------------------------------------------------------
 DEFAULT_MODEL = {
     "openai": "gpt-4o",
     "anthropic": "claude-sonnet-4-5-20250929",
@@ -91,19 +86,14 @@ def _pricing_for(provider: str, model_name: str) -> Pricing:
         if "haiku-4" in m or "haiku-3-5" in m:
             return Pricing(input_per_m_usd=1.00, output_per_m_usd=5.00, label=model_name)
         if "opus-4" in m:
-            # Claude Opus 4.x: $5/$25 per M (2026 pricing)
             return Pricing(input_per_m_usd=5.00, output_per_m_usd=25.00, label=model_name)
         if "opus-3" in m:
             return Pricing(input_per_m_usd=15.00, output_per_m_usd=75.00, label=model_name)
-        # Sonnet 4.x / 4.5 / 4.6: $3/$15 per M
         return Pricing(input_per_m_usd=3.00, output_per_m_usd=15.00, label=model_name)
     if provider == "ollama":
-        # Local inference: zero API cost. Wall-clock and token counts still captured.
         return Pricing(input_per_m_usd=0.0, output_per_m_usd=0.0, label=f"{model_name}-local")
-    # openai
     if "mini" in model_name.lower():
         return Pricing(input_per_m_usd=0.15, output_per_m_usd=0.60, label=model_name)
-    # gpt-4o default pricing
     return Pricing(input_per_m_usd=2.50, output_per_m_usd=10.00, label=model_name)
 
 
@@ -120,15 +110,11 @@ def _make_model_client(provider: str, model_name: str):
         return AnthropicChatCompletionClient(model=model_name)
 
     if provider == "ollama":
-        # Route through AutoGen's OpenAI client pointed at the local Ollama
-        # endpoint. Ollama exposes an OpenAI-compatible /v1 surface and
-        # returns `usage` in the response, so the token recorder works
-        # unchanged.
         from autogen_ext.models.openai import OpenAIChatCompletionClient
         return OpenAIChatCompletionClient(
             model=model_name,
             base_url=OLLAMA_BASE_URL,
-            api_key="ollama",  # required by SDK, ignored by Ollama
+            api_key="ollama",
             model_info={
                 "vision": False,
                 "function_calling": True,
@@ -138,7 +124,6 @@ def _make_model_client(provider: str, model_name: str):
             },
         )
 
-    # openai (default)
     from autogen_ext.models.openai import OpenAIChatCompletionClient
     return OpenAIChatCompletionClient(model=model_name)
 
@@ -148,7 +133,6 @@ def _check_api_key(provider: str) -> None:
         raise SystemExit("OPENAI_API_KEY not set")
     if provider == "anthropic" and not os.environ.get("ANTHROPIC_API_KEY"):
         raise SystemExit("ANTHROPIC_API_KEY not set")
-    # ollama: no key required
 
 
 def make_tools(agent):
@@ -167,9 +151,6 @@ def make_tools(agent):
     return read_state, write_state
 
 
-# ---------------------------------------------------------------------------
-# Workload definitions
-# ---------------------------------------------------------------------------
 WORKLOADS = {
     "edit-review": {
         "agents": ["editor", "reviewer"],
@@ -258,7 +239,7 @@ def _attach_token_recorder(model_client, tok_rec: SessionRecorder) -> None:
         tok_rec.record_response(result, wall_clock_ms=elapsed_ms)
         return result
 
-    model_client.create = patched_create  # type: ignore[assignment]
+    model_client.create = patched_create
 
 
 async def run_one(scenario_id: int,
