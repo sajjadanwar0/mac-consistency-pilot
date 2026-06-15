@@ -1,6 +1,51 @@
 #!/usr/bin/env bash
 # verus_count.sh — compute the DISTINCT Verus obligation total for the
 # mac-consistency verus-detector crate, transparently and reproducibly.
+#
+# Why this exists:
+#   `verus` reports "N verified" per file. Summing per-file counts DOUBLE-COUNTS
+#   any obligation that one file re-verifies from another:
+#     - `mod`-based re-inclusion: lib_consistency_lattice.rs declares
+#         `pub mod lib_l2_safety; lib_l3_safety; lib_l4_safety;`
+#       so its standalone count already contains L2+L3+L4.
+#     - textual re-inclusion: lib_l2_exec.rs copies the L2 model inline
+#       (49 = 27 net + the 22-obligation L2 model), so it re-counts L2 safety.
+#   The paper's headline "distinct obligations" figure removes those overlaps.
+#   This script measures every file, subtracts each re-included child's count
+#   ONCE per re-inclusion edge, and prints the arithmetic so the total is
+#   auditable rather than asserted.
+#
+#   Re-inclusion detection (two kinds, see EDGES below):
+#     - `mod` edges are detected STRUCTURALLY (a `pub mod child;` declaration).
+#     - textual (inline-copy) edges CANNOT be detected structurally, so each is
+#       declared either by a `//@ reinclude-textual: <child>.rs` marker comment
+#       in the parent source (preferred; auto-detected) or by a manual entry in
+#       TEXTUAL_REINCLUSION (fallback). All edges are de-duplicated by
+#       parent:child, so an edge declared both ways is still subtracted once.
+#   CAVEAT: the DISTINCT total is sound only if every textual re-inclusion is
+#   declared one of those two ways. An UNdeclared inline copy of another file's
+#   model would silently OVER-count. Treat a new file that pastes a model in
+#   as requiring a marker.
+#
+# 2026-06-11 note: lib_occ_l2_refinement.rs (OCC/ETag L1->L2 channel
+#   refinement, paper sec 6.5; live-confirmed 8 verified, 0 errors) is restored
+#   to the crate and is a COUNTED file — it is cited with a verified count in
+#   the paper, so it must appear in the totals, not in EXCLUDE. Its inclusion
+#   shifts the printed totals relative to pre-restoration runs (expected:
+#   curated 250 -> 258, full 271 -> 279). As always, the figures below are
+#   whatever the live run prints, and the paper headline MUST be reconciled
+#   to that printed DISTINCT total (not the other way around).
+#
+# 2026-06-12 note: lib_l3_exec.rs (exec-mode L3 sequencer; live-confirmed
+#   7 verified) and lib_l4_exec.rs (exec-mode L4 snapshot discipline;
+#   live-confirmed 9 verified) are new COUNTED files. Both are deliberately
+#   self-contained (no `mod`, no textual re-inclusion of any model file), so
+#   they add to both totals with no re-inclusion edge (expected shift:
+#   curated 258 -> 274, full 279 -> 295 -- but the live printed totals are
+#   the authority, as always). They are cited contributions (the exec
+#   realizations of lattice points L3 and L4) and must NOT be added to
+#   EXCLUDE, unlike the non-headline exec *helpers* listed there.
+#
 # Usage:
 #   ./verus_count.sh                 # clone the pilot repo, count (curated total)
 #   ./verus_count.sh --full          # empty EXCLUDE: full distinct total
@@ -11,7 +56,7 @@
 #   the distinct total. Files with verification errors are flagged and the
 #   total is marked INCOMPLETE.
 
-set -uo pipefail
+set -uo pipefail   # deliberately NOT -e: we continue past per-file errors
 
 GITHUB_USER="sajjadanwar0"
 VERUS="${VERUS:-verus}"
@@ -20,28 +65,54 @@ FULL=0
 for arg in "$@"; do
     case "$arg" in
         --local=*) LOCAL_BASE="${arg#*=}" ;;
-        --full|--include-all) FULL=1 ;;
+        --full|--include-all) FULL=1 ;;   # clear EXCLUDE: compute the full distinct total
         --help|-h) sed -n '2,/^set -u/p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     esac
 done
 
+# Declared TEXTUAL re-inclusions (manual fallback list): "parent.rs:child.rs" --
+# parent copies child's obligations inline (not via `mod`), which cannot be
+# detected structurally. PREFER declaring the edge with a marker comment in the
+# parent source instead:
+#     //@ reinclude-textual: <child>.rs
+# Markers are auto-detected below and merged with this list; the two are
+# de-duplicated by parent:child, so declaring an edge both ways subtracts it
+# once. Add an entry/marker only if you confirm the file inlines another file's
+# model. (lib_l3_exec.rs, lib_l4_exec.rs, lib_occ_l2_refinement.rs are
+# self-contained: no mod, no textual re-inclusion.)
 TEXTUAL_REINCLUSION=(
-  "lib_l2_exec.rs:lib_l2_safety.rs"
+  "lib_l2_exec.rs:lib_l2_safety.rs"   # l2_exec inlines the 22-obligation L2 model
+                                      # (recommended: also add the //@ marker to that file)
 )
 
+# Files with NO countable obligations (exec/test scaffolding). ALWAYS skipped,
+# in both curated and --full modes, because `verus` prints no "N verified"
+# summary for them and counting them would mark the run INCOMPLETE.
 NEVER_COUNT=(
-  "verified_a1.rs"
+  "verified_a1.rs"                 # exec/test file, no proof obligations
 )
 
+# Files to EXCLUDE from the CURATED total only (they DO verify, but are not
+# headline lattice points). --full empties this list; NEVER_COUNT files stay
+# skipped regardless. NOTE: entries for files no longer in the repo (e.g. the
+# removed probabilistic development) are harmless no-ops. Do NOT add
+# lib_occ_l2_refinement.rs, lib_l3_exec.rs, or lib_l4_exec.rs here: they are
+# cited contributions (paper sec 6.5; exec realizations of L3 and L4) and
+# must be counted in both modes.
 EXCLUDE=(
-  "lib_probabilistic_a1.rs"
-  "lib_probabilistic_a1_v2.rs"
-  "lib_detect_a1_exec.rs"
-  "lib_pessimistic_exec.rs"
-  "lib_pessimistic_invariant.rs"
-  "lib_si_commit_invariant.rs"
+  "lib_probabilistic_a1.rs"        # superseded probabilistic v1 (if present)
+  "lib_probabilistic_a1_v2.rs"     # demoted probabilistic v2 screen (if present)
+  "lib_detect_a1_exec.rs"          # exec helper, not a headline lattice contribution
+  "lib_pessimistic_exec.rs"        # exec helper
+  "lib_pessimistic_invariant.rs"   # invariant helper
+  "lib_si_commit_invariant.rs"     # invariant helper
 )
+# The curated total subtracts the EXCLUDE files' obligations from the full
+# total; --full reports the full total. The exact figures are whatever the
+# live run prints below, and the paper's headline MUST be reconciled to that
+# printed DISTINCT total (not the other way around).
 
+# --full / --include-all empties EXCLUDE to compute the full distinct total.
 [ "${FULL:-0}" -eq 1 ] && EXCLUDE=()
 
 log()  { printf "\033[1;34m%s\033[0m\n" "$*"; }
@@ -54,9 +125,9 @@ if [ -n "$LOCAL_BASE" ]; then
     VDET="$LOCAL_BASE/mac-consistency-pilot/verus-detector"
 else
     WORK="$(pwd)/verus-count-clone"; mkdir -p "$WORK"; cd "$WORK"
-
+    # Always refresh: a cached clone from a previous run would mask pushed
+    # changes (a stale cache is why a re-run could keep showing an old total).
     rm -rf mac-consistency-pilot
-
     git clone --quiet --depth=1 \
         "https://github.com/$GITHUB_USER/mac-consistency-pilot.git"
     VDET="$WORK/mac-consistency-pilot/verus-detector"
@@ -66,8 +137,8 @@ fi
 have "$VERUS" || { echo "verus not on PATH (set VERUS=)" >&2; exit 1; }
 
 cd "$VDET"
-declare -A COUNT
-declare -A STATUS
+declare -A COUNT       # basename -> verified count (only when 0 errors)
+declare -A STATUS      # basename -> ok|ERR
 INCOMPLETE=0
 
 log "Verifying every src/*.rs standalone (verus --crate-type=lib)"
@@ -106,9 +177,8 @@ done
 
 echo
 log "Re-inclusion edges (subtracted once each from the raw sum)"
-
+# Auto-detect `mod` re-inclusions: parent declares `pub mod child;`
 EDGES=()
-
 for f in "${FILES[@]}"; do
     [ "${STATUS[$f]:-}" = "ok" ] || continue
     while read -r m; do
@@ -117,11 +187,47 @@ for f in "${FILES[@]}"; do
         if [ -n "${COUNT[$child]:-}" ]; then EDGES+=("$f:$child:mod"); fi
     done < <(grep -oE '(pub +)?mod +[a-z0-9_]+ *;' "src/$f" | grep -oE '[a-z0-9_]+ *;' | tr -d ' ;')
 done
-
+# Declared textual re-inclusions (manual fallback list)
 for rel in "${TEXTUAL_REINCLUSION[@]}"; do
     p="${rel%%:*}"; c="${rel##*:}"
     [ "${STATUS[$p]:-}" = "ok" ] && [ -n "${COUNT[$c]:-}" ] && EDGES+=("$p:$c:textual")
 done
+# Source-marker textual re-inclusions. Any counted file may self-declare a
+# textual re-inclusion with a marker comment on its own line:
+#     //@ reinclude-textual: <child>.rs
+# `mod` re-inclusions are structurally detectable; textual (inline-copy)
+# re-inclusions are NOT, so without a marker an undeclared inline copy of
+# another file's model would silently OVER-count. This scan makes textual
+# edges self-documenting and auto-detected; the manual list above remains a
+# fallback. (Markers and the manual list are de-duplicated below, so an edge
+# declared both ways is still subtracted exactly once.)
+for f in "${FILES[@]}"; do
+    [ "${STATUS[$f]:-}" = "ok" ] || continue
+    while read -r child; do
+        [ -n "$child" ] || continue
+        [ -n "${COUNT[$child]:-}" ] && EDGES+=("$f:$child:textual-marker")
+    done < <(grep -oE '//@[[:space:]]*reinclude-textual:[[:space:]]*[A-Za-z0-9_]+\.rs' "src/$f" 2>/dev/null \
+              | grep -oE '[A-Za-z0-9_]+\.rs')
+done
+# De-duplicate edges by parent:child. A child re-included by the SAME parent
+# through more than one detector (e.g. the manual list AND a source marker)
+# must be subtracted ONCE. Distinct parents re-including the same child are
+# KEPT -- those are genuinely distinct re-inclusions (e.g. both
+# lib_consistency_lattice.rs and lib_l2_exec.rs re-include lib_l2_safety.rs,
+# and BOTH of those copies must be removed; that is why l2_safety is subtracted
+# twice in the live run).
+declare -A SEEN_EDGE
+_DEDUP_EDGES=()
+for edge in "${EDGES[@]:-}"; do
+    [ -n "$edge" ] || continue
+    p="${edge%%:*}"; rest="${edge#*:}"; c="${rest%%:*}"
+    key="$p|$c"
+    if [ -z "${SEEN_EDGE[$key]:-}" ]; then
+        SEEN_EDGE[$key]=1
+        _DEDUP_EDGES+=("$edge")
+    fi
+done
+if [ "${#_DEDUP_EDGES[@]}" -gt 0 ]; then EDGES=("${_DEDUP_EDGES[@]}"); else EDGES=(); fi
 
 REINCLUDED=0
 if [ "${#EDGES[@]}" -eq 0 ]; then
@@ -135,6 +241,7 @@ else
     done
 fi
 
+# Raw sum of counted (non-excluded) files
 RAW=0
 for f in "${FILES[@]}"; do
     [ "${STATUS[$f]:-}" = "ok" ] || continue

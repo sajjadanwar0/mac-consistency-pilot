@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# reproduce_mac.sh — single-script reproduction for the mac-consistency
+# reproduce_mac.sh — single-script reproduction for the mac-consistency submission
+#   ("Verified Detection and Prevention of Concurrency Anomalies in Multi-Agent
+#    Large Language Model Systems")
 #
 # What this script does:
 #   1. Clones the three mac-consistency repositories from GitHub
@@ -44,12 +46,45 @@
 #       export TLAPM=/path/to/tlapm               (default: tlapm on PATH)
 #   - For --with-live: export ANTHROPIC_API_KEY=... and/or OPENAI_API_KEY=...
 #
+# Integrity notes:
+#   lib_concurrent_semantics.rs was, until 2026-06-07, a byte-identical copy of
+#   a probabilistic-refinement file (since removed from the repo) rather than the
+#   atomic-event lift the paper describes. Phase 3 therefore GUARDS that file:
+#   if it lacks the lift signatures or carries any external_body, the script
+#   FAILS loudly instead of counting the wrong file.
+#
+#   2026-06-11: the spec repo's default branch was `master` (a pre-submission
+#   fossil), so fresh clones silently validated a stale artifact while `main`
+#   carried the current generation. The default branch is now `main`, `master`
+#   is deleted, the clone below is branch-pinned, and Phase 5c asserts the
+#   generation markers directly so this entire failure class is detected.
+#   Phase 5c's junk check audits the GIT TIP (tracked files), not the working
+#   tree: Phase 5's witness harnesses violate invariants by design, and TLC
+#   writes *_TTrace_* dumps into the clone as a by-product of exactly that.
+#
+#   The L2 A3-prevention guarantee is a THEOREM, proved in Phase 3 (the
+#   a3_free capstone of lib_l2_exec.rs: every well-formed exec state is
+#   A3-free). Phase 6's measure_a3_prevention runs the dependency-free std
+#   TWIN (l2_causal.rs), which implements the same commit_valid/cascade_abort
+#   transition system, to exhibit the unguarded baseline's A3 and corroborate
+#   the proof. The two are deliberately distinct artifacts of one protocol;
+#   the guarantee does not depend on the twin (see paper sec:l2-deployed).
+#
+#   The high-contention cost harness (Phase 7b) measures TOKENS exactly
+#   (provider usage, incl. generations re-spent on aborts); its wall-clock
+#   figures are COMPOSED from measured per-call latencies under each
+#   discipline's concurrency structure, not measured under a real concurrent
+#   runtime. The offline guard run asserts only the prevention invariant
+#   (unguarded baseline exhibits A1; SSI/pessimistic do not).
 
 set -euo pipefail
 
+# ---------------------------------------------------------------------------
+# Config
+# ---------------------------------------------------------------------------
 GITHUB_USER="sajjadanwar0"
 REPOS=("mac-consistency" "mac-consistency-pilot" "mac-consistency-runtime")
-SPEC_BRANCH="main"
+SPEC_BRANCH="main"   # branch-pin for the spec repo (see 2026-06-11 note above)
 ROOT="$(pwd)/mac-consistency-replication"
 LIVE_MODE=0
 FORMAL_ONLY=0
@@ -59,33 +94,49 @@ TLA_TOOLS="${TLA_TOOLS:-$HOME/tla2tools.jar}"
 VERUS="${VERUS:-verus}"
 TLAPM="${TLAPM:-tlapm}"
 
+# Verus targets: "file|expected_verified". expected_verified is an integer
+# (asserted) or "?" (require 0 errors, report the count without asserting it).
 VERUS_TARGETS=(
-  "lib_detector_equivalence.rs|24"
-  "lib_l2_safety.rs|22"
-  "lib_l2_exec.rs|49"
-  "lib_concurrent_semantics.rs|9"
-  "lib_l3_safety.rs|6"
-  "lib_l2_projection.rs|3"
-  "lib_l3_sequencer.rs|5"
-  "lib_l4_safety.rs|5"
-  "lib_a4_split_view.rs|9"
-  "lib_occ_l2_refinement.rs|8"
-  "lib_l3_exec.rs|7"
-  "lib_l4_exec.rs|9"
-  "lib_a4_split_view.rs|?"
-  "lib_refinement_pessimistic.rs|31"
-  "lib_refinement_ssi.rs|18"
-  "lib_refinement_ssi_chain.rs|17"
-  "lib_refinement_default_si.rs|18"
-  "lib_langgraph_refinement.rs|7"
-  "lib_rustbelt_interface.rs|4"
+  "lib_detector_equivalence.rs|24"     # live-confirmed 2026-06-07
+  "lib_l2_safety.rs|22"                # live-confirmed (README's 13 is stale)
+  "lib_l2_exec.rs|49"                  # live-confirmed (self-contained; re-includes L2 model)
+  "lib_concurrent_semantics.rs|9"      # live-confirmed: atomic-event lift, 0 axioms
+  "lib_l3_safety.rs|6"                 # live-confirmed
+  "lib_l2_projection.rs|3"             # live-confirmed: L2 state->trace projection, 0 axioms
+  "lib_l3_sequencer.rs|5"              # live-confirmed: concurrent-effect commit-order sequencer, 0 axioms
+  "lib_l4_safety.rs|5"                 # live-confirmed
+  "lib_a4_split_view.rs|9"             # live-confirmed: monotone-primary no-split (was 5; de-tautologized).
+                                       # PINNED REGRESSION GUARD (re-green 2026-06-15): the paper-cited A4
+                                       # content proofs are now a pinned target, so a break fails HERE, not
+                                       # only in verus_count. (Was briefly double-listed with a "?" guard;
+                                       # de-duplicated now that the count is re-confirmed at 9.)
+  "lib_occ_l2_refinement.rs|8"         # live-confirmed 2026-06-11: OCC/ETag L1->L2 channel refinement, 0 axioms (paper sec 6.5)
+  "lib_l3_exec.rs|7"                   # live-confirmed 2026-06-12: exec-mode L3 sequencer, a6_free capstone,
+                                       # usize-indexed (cast-free; Verus caught a 32-bit truncation hole in the draft)
+  "lib_l4_exec.rs|9"                   # live-confirmed 2026-06-12: exec-mode L4 snapshot discipline, a2_free
+                                       # capstone; first-pass green (L3 lessons pre-applied)
+  "lib_refinement_pessimistic.rs|31"   # live-confirmed
+  "lib_refinement_ssi.rs|18"           # live-confirmed
+  "lib_refinement_ssi_chain.rs|17"     # live-confirmed
+  "lib_refinement_default_si.rs|18"    # live-confirmed
+  "lib_langgraph_refinement.rs|7"      # live-confirmed: LangGraph runtime refinement, 0 axioms
+  "lib_rustbelt_interface.rs|4"        # live-confirmed: 4 (2 structural + 3 RUSTBELT external_body stubs)
 )
 
+# TLC witness harnesses: each spec's *Free invariant is DESIGNED to be violated;
+# the violation trace IS the anomaly witness. MC_A5 is retired (the catalog has
+# no A5; see paper footnote 1). MC_A1_struct is the snapshot-insufficiency
+# witness of paper sec 4.5 (L1^struct holds, StaleGeneration fires). MC_A3
+# exhibits the A3 flat-trace RESIDUE witness (paper sec 3.3); the precise
+# Definition-3 cascade witness is A3_witness_check, pinned separately below.
 TLC_WITNESS_TARGETS=(MC_A1 MC_A1_struct MC_A2 MC_A3 MC_A6)
 
+# TLAPS targets: "relative/path|expected_obligations"
+# Hierarchy: 15 obligations over the linear L0-L4 rewrite (the historical 21
+# belonged to the retired 7-level file; live-confirmed 2026-06-11).
 TLAPS_TARGETS=(
-  "proofs/Hierarchy.tla|15"
-  "proofs/A1LowerBound.tla|28"
+  "proofs/Hierarchy.tla|15"      # chain-coherence check (paper sec 4.6)
+  "proofs/A1LowerBound.tla|28"   # A1 generation lower bound (paper sec 4.6)
 )
 
 for arg in "$@"; do
@@ -106,6 +157,7 @@ have() { command -v "$1" >/dev/null 2>&1; }
 
 FAIL_COUNT=0
 
+# ---------------------------------------------------------------------------
 log "Phase 1: Checking prerequisites"
 need git
 need python3
@@ -116,6 +168,7 @@ have genmc    || log "  (note: genmc not found; weak-memory phase will be skippe
 have java     || log "  (note: java not found; TLC phase will be skipped)"
 have "$TLAPM" || log "  (note: tlapm not found; TLAPS phase will be skipped)"
 
+# ---------------------------------------------------------------------------
 if [ -n "$LOCAL_BASE" ]; then
     log "Phase 2: Auditing LOCAL working trees under $LOCAL_BASE (no clone)"
     ROOT="$LOCAL_BASE"
@@ -144,15 +197,17 @@ RUNTIME="$ROOT/mac-consistency-runtime"
 SPECS="$ROOT/mac-consistency"
 VDET="$PILOT/verus-detector"
 
+# ---------------------------------------------------------------------------
 log "Phase 3: Verus proof obligations"
 if ! have "$VERUS"; then
     skip "Verus phase (verus not on PATH; set VERUS=)"
 elif [ ! -d "$VDET" ]; then
     skip "Verus phase (verus-detector/ not found)"
 else
+    # Anti-regression guard: lib_concurrent_semantics.rs must be the genuine
+    # atomic-event lift, NOT the probabilistic duplicate.
     CS="$VDET/src/lib_concurrent_semantics.rs"
     GUARD_OK=1
-
     if [ -f "$CS" ]; then
         if [ "$(grep -c 'step_enabled\|LockAcquire\|holders' "$CS")" -eq 0 ] \
            || [ "$(grep -c '#\[verifier::external_body\]' "$CS")" -ne 0 ]; then
@@ -193,9 +248,9 @@ elif [ ! -f "$WM/litmus_mutex_a1.c" ]; then
     skip "GenMC phase (weakmem/litmus_mutex_a1.c not found)"
 else
     cd "$WM"
-
+    # Positive litmus: the acquire/release lock prevents lost updates (no A1)
+    # for N agents; GenMC explores exactly N! complete RC11 executions.
     declare -A EXPECT=([2]=2 [3]=6 [4]=24)
-
     for n in 2 3 4; do
         out="$(genmc -- -DAGENTS=$n litmus_mutex_a1.c 2>&1 || true)"
         execs="$(echo "$out" | grep -Eo 'complete executions explored: [0-9]+' | grep -Eo '[0-9]+$' | tail -1)"
@@ -205,9 +260,9 @@ else
             fail "GenMC litmus_mutex_a1 N=$n: expected ${EXPECT[$n]} execs + no errors; got '${execs:-?}'"
         fi
     done
-
+    # Negative control: relaxed orderings MUST exhibit the lost-update race
+    # (proves the acquire/release annotations are load-bearing / non-vacuous).
     out="$(genmc litmus_mutex_a1_relaxed.c 2>&1 || true)"
-
     if echo "$out" | grep -qiE 'Non-atomic race|assertion|unsuccesful|violation'; then
         ok "GenMC relaxed control: data race / violation detected (non-vacuity confirmed)"
     else
@@ -229,7 +284,10 @@ else
     for m in "${TLC_WITNESS_TARGETS[@]}"; do
         [ -f "$m.tla" ] && [ -f "$m.cfg" ] || { fail "TLC $m: spec/cfg missing (paper claims this witness)"; continue; }
         out="$(java -cp "$TLA_TOOLS" tlc2.TLC -config "$m.cfg" "$m.tla" 2>&1 || true)"
-
+        # These are anomaly-WITNESS harnesses: the XxxFree invariant is meant to
+        # be VIOLATED, and the resulting counterexample IS the anomaly witness.
+        # Success = TLC reports the violation; "No error" would mean the anomaly
+        # became unreachable (the witness broke).
         if echo "$out" | grep -qiE 'is violated|invariant .* violated'; then
             ok "TLC $m: anomaly witness reproduced (invariant violated, as designed)"
         elif echo "$out" | grep -q 'No error has been found'; then
@@ -239,6 +297,11 @@ else
         fi
     done
 
+    # A3 redefinition discrimination check (paper sec 3.3). Unlike the witness
+    # harnesses, this one PASSES when its invariant HOLDS: a single green run
+    # confirms (1) the precise CausalCascade fires on the genuine cascade
+    # witness, (2) it is silent on a benign serial history, and (3) the
+    # retained residue fires on that same benign history.
     if [ -f "A3_witness_check.tla" ] && [ -f "A3_witness_check.cfg" ]; then
         out="$(java -cp "$TLA_TOOLS" tlc2.TLC -config A3_witness_check.cfg A3_witness_check.tla 2>&1 || true)"
         if echo "$out" | grep -q 'No error has been found'; then
@@ -252,8 +315,8 @@ else
     cd "$ROOT"
 fi
 
+# ---------------------------------------------------------------------------
 log "Phase 5b: TLAPS proof re-derivation (Hierarchy + A1LowerBound)"
-
 if ! have "$TLAPM"; then
     skip "TLAPS phase (tlapm not on PATH; set TLAPM=)"
 elif [ ! -d "$SPECS/proofs" ]; then
@@ -273,35 +336,39 @@ else
     done
 fi
 
+# ---------------------------------------------------------------------------
 log "Phase 5c: Paper-artifact sync assertions"
-
 if [ ! -d "$SPECS" ]; then
     skip "sync assertions (spec repo not found)"
 else
+    # Generation marker 1: the five-point chain (paper sec 4.1)
     if grep -q 'L2(h) == /\\ L1(h)' "$SPECS/tla/Levels.tla" 2>/dev/null; then
         ok "Levels.tla carries the paper's L0-L4 chain (L2 = L1 + ~CausalCascade form)"
     else
         fail "Levels.tla does not match the paper's chain — pre-submission generation?"
     fi
-
+    # Generation marker 2: A5 fully retired (paper footnote 1)
     if ls "$SPECS"/tla/*A5* >/dev/null 2>&1; then
         fail "MC_A5 artifacts still present: the catalog has no A5"
     else
         ok "A5 fully retired from the artifact"
     fi
-
+    # Generation marker 3: Hierarchy.tla is the linear L0-L4 rewrite
     if grep -qE '\bL5\b|\bL6\b' "$SPECS/proofs/Hierarchy.tla" 2>/dev/null; then
         fail "proofs/Hierarchy.tla references L5/L6 — old 7-level generation"
     else
         ok "proofs/Hierarchy.tla is the linear L0-L4 generation"
     fi
-
+    # Generation marker 4: snapshot-insufficiency witness exists (paper sec 4.5)
     if [ -f "$SPECS/tla/MC_A1_struct.tla" ] && [ -f "$SPECS/tla/MC_A1_struct_witness.txt" ]; then
         ok "MC_A1_struct spec + witness present"
     else
         fail "MC_A1_struct spec/witness missing (paper sec 4.5 claims them)"
     fi
-
+    # Generation marker 5: the precise-A3/residue split must live where the
+    # paper says it lives ("Anomalies.tla now defines CAUSALCASCADE ... and
+    # retains ... CAUSALCASCADERESIDUE", sec 3.3). The precise predicate is
+    # recognized by its `aborted` field reference.
     if grep -qiE 'CausalCascadeResidue' "$SPECS/tla/Anomalies.tla" 2>/dev/null \
        && grep -qE 'aborted' "$SPECS/tla/Anomalies.tla" 2>/dev/null; then
         ok "Anomalies.tla carries the precise cascade + residue split (matches paper sec 3.3)"
@@ -310,9 +377,11 @@ else
     else
         fail "cascade/residue split not found in the artifact at all (paper sec 3.3 claims it)"
     fi
-
+    # Generation marker 6: no binaries/junk TRACKED on the artifact tip.
+    # Audits git ls-files, NOT the working tree: Phase 5's witness harnesses
+    # generate *_TTrace_* dumps in the clone by design (invariant violations
+    # are the success condition), and those by-products are not artifact junk.
     junk="$(git -C "$SPECS" ls-files | grep -E '_TTrace_|\.jar$|\.zip$|\.bin$|\.tar(\.gz)?$' || true)"
-
     if [ -n "$junk" ]; then
         fail "binary/trace junk TRACKED on the artifact tip: $(echo "$junk" | tr '\n' ' ')"
     else
@@ -335,17 +404,22 @@ else
     log "  cargo build --release"
     if cargo build --release --quiet 2>&1 | tail -5; then ok "runtime: cargo build"; else fail "runtime: cargo build"; fi
     log "  cargo test --release  (unit + integration)"
-
     if cargo test --release --quiet 2>&1 | tail -10; then ok "runtime: cargo test"; else fail "runtime: cargo test"; fi
-
+    # measure_a3_prevention drives the std TWIN (l2_causal.rs), which implements
+    # the same commit_valid/cascade_abort transition system Phase 3 verifies on
+    # lib_l2_exec.rs. The guarantee is the Phase-3 a3_free theorem; this run
+    # corroborates it and exhibits the unguarded baseline's A3 (paper sec:l2-deployed).
+    # Self-asserts: baseline a3_positive == runs, L2 a3_positive == 0.
     log "  cargo test --release measure_a3_prevention  (L2 prevents A3; unguarded admits it)"
-
     if cargo test --release measure_a3_prevention --quiet 2>&1 | tail -8; then
         ok "A3 prevention reproduced (L2: 0 witnesses across all runs; unguarded baseline: all runs)"
     else
         fail "measure_a3_prevention failed"
     fi
-
+    # measure_a6_prevention drives the L3 sequencer std TWIN (l3_sequencer.rs),
+    # the exec image of lib_l3_sequencer.rs / lib_l3_exec.rs: identical
+    # adversarial (non-identity) completion schedules drive the unsequenced
+    # baseline (must witness A6 every run) and the sequencer (must witness 0).
     if [ -f "src/l3_sequencer.rs" ]; then
         log "  cargo test --release measure_a6_prevention  (L3 sequencer prevents A6; unsequenced admits it)"
         if cargo test --release measure_a6_prevention --quiet 2>&1 | tail -8 \
@@ -357,7 +431,11 @@ else
     else
         skip "A6 prevention measurement (src/l3_sequencer.rs not yet landed in the runtime repo)"
     fi
-
+    # measure_a2_prevention drives the L4 registry-snapshot std TWIN
+    # (l4_registry.rs), the exec image of lib_l4_safety.rs / lib_l4_exec.rs:
+    # identical adversarial churn schedules (the planned tool's signature is
+    # always changed between pin and dispatch) drive the live-resolving
+    # baseline (must witness A2 every run) and the snapshot runtime (0).
     if [ -f "src/l4_registry.rs" ]; then
         log "  cargo test --release measure_a2_prevention  (L4 snapshot prevents A2; live-resolve admits it)"
         if cargo test --release measure_a2_prevention --quiet 2>&1 | tail -8 \
@@ -372,8 +450,8 @@ else
     cd "$ROOT"
 fi
 
+# ---------------------------------------------------------------------------
 log "Phase 7: Rust analyser + empirical Python layer (best-effort)"
-
 if [ -f "$PILOT/rust-analyser/Cargo.toml" ]; then
     cd "$PILOT/rust-analyser"
     if cargo build --release --quiet 2>&1 | tail -3; then ok "rust-analyser: cargo build"; else fail "rust-analyser: cargo build"; fi
@@ -382,7 +460,11 @@ else
     skip "rust-analyser (Cargo.toml not found)"
 fi
 
-
+# Empirical scripts are reported for presence; their full runs need datasets
+# and (for the dynamic cells) live LLM keys, so they are not magic-number
+# asserted here. The MAST adapter pins its HuggingFace dataset revision
+# internally (mcemri/MAD @ 5a82e32, 1,242 records) so its 0/600 figure is
+# deterministic; this script only checks that the adapter is present.
 PY="$PILOT/python"
 for s in mast_adapter.py prevalence_static.py prevalence_dynamic_run.py \
          deerflow_3123_repro.py paired_cost_analysis.py judge_audit.py \
@@ -391,11 +473,16 @@ for s in mast_adapter.py prevalence_static.py prevalence_dynamic_run.py \
     [ -f "$PY/$s" ] && ok "empirical script present: python/$s" || skip "empirical script missing: python/$s"
 done
 
+# ---------------------------------------------------------------------------
 log "Phase 7b: High-contention cost envelope (Finding 5)"
 HC="$PY/high_contention_cost.py"
 if [ ! -f "$HC" ]; then
     skip "high-contention harness (python/high_contention_cost.py not found)"
 else
+    # Offline, keyless: the deterministic 'mock' provider validates the harness
+    # and the prevention guard — the unguarded baseline must exhibit A1 while
+    # SSI and pessimistic must not. This asserts the invariant the cost figures
+    # are conditioned on, without needing API keys.
     if (cd "$PY" && python3 high_contention_cost.py run \
             --provider mock --model mock --w 16 --cells 1 --depth 2 --n 10 \
             --out /tmp/hc_mock >/tmp/hc_mock.log 2>&1) \
@@ -406,6 +493,8 @@ else
         fail "high-contention harness: mock guard run failed (see /tmp/hc_mock.log)"
     fi
 
+    # Live: reproduce the cost-envelope sweep (Fig. cost-envelope). gpt-4o-mini;
+    # ~2-3h. Token cost exact; wall-clock figures are COMPOSED (see header note).
     if [[ $LIVE_MODE -eq 1 ]]; then
         if [[ -z "${OPENAI_API_KEY:-}" ]]; then
             fail "cost-envelope sweep: OPENAI_API_KEY not set"
@@ -430,6 +519,7 @@ else
     fi
 fi
 
+# ---------------------------------------------------------------------------
 if [[ $LIVE_MODE -eq 1 ]]; then
     log "Phase 8: Live dynamic-prevalence cells"
     if [[ -z "${ANTHROPIC_API_KEY:-}" && -z "${OPENAI_API_KEY:-}" ]]; then
@@ -446,6 +536,7 @@ if [[ $LIVE_MODE -eq 1 ]]; then
     fi
 fi
 
+# ---------------------------------------------------------------------------
 echo
 log "Reproduction complete"
 echo
