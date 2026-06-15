@@ -469,7 +469,7 @@ PY="$PILOT/python"
 for s in mast_adapter.py prevalence_static.py prevalence_dynamic_run.py \
          deerflow_3123_repro.py paired_cost_analysis.py judge_audit.py \
          high_contention_cost.py letta_a1_probe.py wallclock_cost_study.py \
-         tokens_capture.py analyze_production.py; do
+         tokens_capture.py analyze_production.py plot_cost_envelope.py; do
     [ -f "$PY/$s" ] && ok "empirical script present: python/$s" || skip "empirical script missing: python/$s"
 done
 
@@ -499,7 +499,17 @@ else
         if [[ -z "${OPENAI_API_KEY:-}" ]]; then
             fail "cost-envelope sweep: OPENAI_API_KEY not set"
         else
-            log "  cost-envelope sweep (gpt-4o-mini; cell-count sweep W=8, C in {2,4,8,16,32})"
+            # Fig. cost-envelope is fit on the FULL 155-point sweep, which is
+            # TWO arms: the cell-count arm (W=8, C in {2,4,8,16,32}, n=15,
+            # seed 7 -> hc_curve, 75 pairs) AND the fan-in arm (cells=1,
+            # W in {2,4,8,16}, n=20, seed 1 -> hc_ceiling, 80 pairs).
+            # Regenerating only the curve arm gives a 75-point fit (slope
+            # ~109-110%) that does NOT equal the paper's 155-point fit
+            # (intercept +0.1% [-2,+2], slope 108% [104,112], breakpoint
+            # 0.14 [0.13,0.15]); both arms are required. analyze reads a single
+            # --in dir and globs sessions__*.jsonl, so we pool both sweeps into
+            # hc_fig2 (distinct filenames) before regressing.
+            log "  cost-envelope sweep (gpt-4o-mini; 155-pt fit = cell-count W=8 C in {2,4,8,16,32} + fan-in cells=1 W in {2,4,8,16})"
             if (cd "$PY" \
                 && for C in 2 4 8 16 32; do
                        python3 high_contention_cost.py run \
@@ -507,9 +517,18 @@ else
                            --w 8 --cells "$C" --depth 2 --n 15 --seed 7 \
                            --out ./hc_curve || exit 1
                    done \
+                && for W in 2 4 8 16; do
+                       python3 high_contention_cost.py run \
+                           --provider openai --model gpt-4o-mini \
+                           --w "$W" --cells 1 --depth 2 --n 20 --seed 1 \
+                           --out ./hc_ceiling || exit 1
+                   done \
+                && rm -rf ./hc_fig2 && mkdir -p ./hc_fig2 \
+                && cp ./hc_curve/sessions__gpt-4o-mini.jsonl   ./hc_fig2/sessions__gpt-4o-mini-curve.jsonl \
+                && cp ./hc_ceiling/sessions__gpt-4o-mini.jsonl ./hc_fig2/sessions__gpt-4o-mini-ceiling.jsonl \
                 && python3 high_contention_cost.py analyze \
-                       --in ./hc_curve --regress --target-effect 0.10); then
-                ok "cost-envelope sweep reproduced (inspect: overhead ~ 0% + ~110% x abort_rate; breakpoint ~0.14)"
+                       --in ./hc_fig2 --regress --target-effect 0.10); then
+                ok "cost-envelope sweep reproduced (155-pt fit; inspect: overhead ~ +0% + ~108% x abort_rate; breakpoint ~0.14). Regenerate Fig. cost-envelope with: (cd \"\$PY\" && python3 plot_cost_envelope.py --dir ./hc_curve ./hc_ceiling)"
             else
                 fail "cost-envelope sweep failed (check key / network / deps)"
             fi

@@ -17,8 +17,8 @@ Metric definitions (mirrored from high_contention_cost.py):
 INTEGRITY GATES (abort rather than plot wrong data):
   G1  >= 100 paired (vanilla,ssi) scenarios with W*depth > 0 and van > 0.
   G2  Recomputed OLS fit reproduces the published fit:
-      intercept in [-0.04, +0.02], slope in [1.03, 1.18]
-      (published: -1% [-3,+1] + 110% [106,115] * abort_rate).
+      intercept in [-0.03, +0.03], slope in [1.03, 1.13]
+      (published: +0% [-2,+2] + 108% [104,112] * abort_rate).
 If a gate fails, prints a schema/pairing diagnostic; send it back.
 
 Fig.2 sweep = hc_curve (cell-count sweep, diamonds, cells>1)
@@ -98,13 +98,13 @@ def main():
         sys.exit("GATE G1 FAILED: %d paired scenarios (need >=100). "
                  "Skipped: %r. First seed groups: %r"
                  % (len(pts), skipped,
-                    {k: list(v.keys()) for k, v in list(by_seed.items())[:5]}))
+                    {k: list(v.keys()) for k, v in list(cells_idx.items())[:5]}))
 
     xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
     b, m = ols(xs, ys)
-    if not (-0.04 <= b <= 0.02 and 1.03 <= m <= 1.18):
+    if not (-0.03 <= b <= 0.03 and 1.03 <= m <= 1.13):
         sys.exit("GATE G2 FAILED: recomputed fit %+.3f + %.3f*abort does not "
-                 "reproduce published -0.01 + 1.10*abort (n=%d paired). "
+                 "reproduce published +0.001 + 1.08*abort (n=%d paired). "
                  "Metric or pairing mismatch; do not plot." % (b, m, len(pts)))
 
     import matplotlib
@@ -162,9 +162,9 @@ def main():
     print("OK: wrote %s" % args.out)
     print("RECONCILIATION (must match the paper):")
     print("  paired scenarios : %d   (paper: 155)" % len(pts))
-    print("  fit intercept    : %+.1f%%  (paper: -1%% [-3,+1])" % (b*100))
-    print("  fit slope        : %.0f%%  (paper: 110%% [106,115])" % (m*100))
-    print("  breakpoint       : %.3f  (paper: ~0.14 [0.13,0.16])" % xstar)
+    print("  fit intercept    : %+.1f%%  (paper: +0.1%% [-2,+2])" % (b*100))
+    print("  fit slope        : %.0f%%  (paper: 108%% [104,112])" % (m*100))
+    print("  breakpoint       : %.3f  (paper: 0.14 [0.13,0.15])" % xstar)
     print("If any line disagrees materially, do NOT commit; send this block.")
 
 if __name__ == "__main__":
