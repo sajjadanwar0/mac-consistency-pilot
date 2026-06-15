@@ -490,7 +490,7 @@ def main() -> None:
             sys.exit(1)
         file_path = hf_hub_download(repo_id=args.repo_id,
                                     filename=args.filename,
-                                    repo_type="dataset")
+                                    repo_type="dataset", revision="5a82e32347f70a701a3c68637de12f8a0be3de3c")
         with open(file_path) as f:
             dataset = json.load(f)
 

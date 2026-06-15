@@ -1,5 +1,6 @@
 #![allow(unused_imports)]
 #![allow(dead_code)]
+//@ reinclude-textual: lib_l2_safety.rs
 use vstd::prelude::*;
 use vstd::hash_map::HashMapWithView;
 use vstd::hash_set::HashSetWithView;
