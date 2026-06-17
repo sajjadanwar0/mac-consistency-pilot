@@ -2,7 +2,7 @@
 
 The Verus proof development and the empirical Python harnesses for the paper
 **Verified Detection and Prevention of Concurrency Anomalies in Multi-Agent
-Large Language Model Systems** (arXiv:2606.xxxxx).
+Large Language Model Systems** (arXiv:2606.17182).
 
 This is the repository behind §5 (the empirical pilot, Tables S1–S6 of the
 online appendix) and the detector/runtime obligations counted in §4. It has
