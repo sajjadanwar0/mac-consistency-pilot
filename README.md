@@ -130,6 +130,13 @@ paper's tables and findings.
 - `langgraph_a6.py`, `langgraph_a6_experiment.py`,
   `langgraph_a6_experiment_natural.py` — tool-effect reordering (A₆) in
   LangGraph's ToolNode on unmodified output.
+- `l3_live_a6.py` — the live L₃ deployment of the commit-order sequencer:
+  fires four concurrent tool effects per session through real models (reusing
+  `prevalence_dynamic_run.py`'s `ModelClient`), takes the real completion order
+  as the A₆ reorder source, and measures prevention. Across three model families
+  (40 sessions each) the baseline showed A₆ in 110/120 sessions; the L₃ sequencer
+  prevented it in 0/120. The runnable runtime is `mac-consistency-runtime`
+  (`examples/l3_deploy.rs`).
 - `letta_a1_probe.py`, `langgraph_prevalence.py`,
   `langgraph_corpus_results.json` — framework probes.
 - `github_corpus_survey.py`, `prevalence_corpus.py` — the third-party repo
@@ -163,6 +170,7 @@ paper's tables and findings.
 | GenMC RC11 weak-memory check | `reproduce_mac.sh` (GenMC phase) | 2 / 6 / 24 executions (N = 2/3/4), control races |
 | A₁ rate on MAST-Data | `python/mast_*` | 0 / 600 parsed |
 | Cookbook A₁ (shared workspace) | `python/prevalence_*` | 90 / 100 (cross-agent 89 / 100) |
+| A₆ live prevention (L₃) | `python/l3_live_a6.py` | baseline 110/120; L₃ sequencer 0/120 across 3 model families |
 | Prevention cost | `python/*cost*` | SSI within noise; pessimistic 1.6–2.3× on the contended cell |
 
 ---
