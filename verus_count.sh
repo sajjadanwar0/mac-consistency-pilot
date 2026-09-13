@@ -46,9 +46,29 @@
 #   realizations of lattice points L3 and L4) and must NOT be added to
 #   EXCLUDE, unlike the non-headline exec *helpers* listed there.
 #
+# 2026-09-13 note: lib_si_concurrent.rs (the deployed snapshot-isolation store
+#   over vstd's verified reader-writer lock) and lib_pess_concurrent.rs (the
+#   deployed pessimistic store over the same lock) are new COUNTED files. Both
+#   are self-contained (no `mod`, no textual re-inclusion), so they add to both
+#   totals with no re-inclusion edge. They are cited contributions -- the
+#   deployed critical sections of the two guarded runtimes -- and must NOT be
+#   added to EXCLUDE. The live printed totals remain the authority.
+#
+# 2026-09-13 note (round 20): this script used to COUNT A FRESH GITHUB CLONE by
+#   default while printing "This printed figure is authoritative". A file that
+#   verifies in the working tree but has not been pushed was therefore invisible
+#   to it, with no warning: on 13 Sep it reported 274/295 while
+#   lib_si_concurrent.rs (18 verified) and lib_pess_concurrent.rs (31 verified)
+#   sat in the checkout, unpushed and uncounted. The default is now the LOCAL
+#   working tree; the clone is opt-in via --from-github. Whichever tree is
+#   measured, the script prints its path and git revision, and when it counts a
+#   clone it DIFFS the clone's file list against the local tree and fails if the
+#   local tree has a src/*.rs the clone does not.
+#
 # Usage:
-#   ./verus_count.sh                 # clone the pilot repo, count (curated total)
+#   ./verus_count.sh                 # count the LOCAL verus-detector (curated total)
 #   ./verus_count.sh --full          # empty EXCLUDE: full distinct total
+#   ./verus_count.sh --from-github   # count a fresh clone instead (opt-in)
 #   ./verus_count.sh --local=DIR     # count DIR/mac-consistency-pilot/verus-detector
 #   VERUS=/path/to/verus ./verus_count.sh
 #
@@ -62,9 +82,12 @@ GITHUB_USER="sajjadanwar0"
 VERUS="${VERUS:-verus}"
 LOCAL_BASE=""
 FULL=0
+FROM_GITHUB=0
+HERE="$(cd "$(dirname "$0")" && pwd)"
 for arg in "$@"; do
     case "$arg" in
         --local=*) LOCAL_BASE="${arg#*=}" ;;
+        --from-github) FROM_GITHUB=1 ;;   # opt in to counting a fresh clone
         --full|--include-all) FULL=1 ;;   # clear EXCLUDE: compute the full distinct total
         --help|-h) sed -n '2,/^set -u/p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     esac
@@ -121,16 +144,34 @@ warn() { printf "  \033[1;33m\xe2\x97\x8b\033[0m %s\n" "$*"; }
 err()  { printf "  \033[1;31m\xe2\x9c\x97\033[0m %s\n" "$*"; }
 have() { command -v "$1" >/dev/null 2>&1; }
 
+LOCAL_VDET="$HERE/verus-detector"
 if [ -n "$LOCAL_BASE" ]; then
     VDET="$LOCAL_BASE/mac-consistency-pilot/verus-detector"
-else
-    WORK="$(pwd)/verus-count-clone"; mkdir -p "$WORK"; cd "$WORK"
-    # Always refresh: a cached clone from a previous run would mask pushed
-    # changes (a stale cache is why a re-run could keep showing an old total).
-    rm -rf mac-consistency-pilot
-    git clone --quiet --depth=1 \
-        "https://github.com/$GITHUB_USER/mac-consistency-pilot.git"
+    SOURCE="explicit --local: $VDET"
+elif [ "$FROM_GITHUB" -eq 1 ]; then
+    WORK="$HERE/verus-count-clone"; mkdir -p "$WORK"
+    rm -rf "$WORK/mac-consistency-pilot"
+    ( cd "$WORK" && git clone --quiet --depth=1 \
+        "https://github.com/$GITHUB_USER/mac-consistency-pilot.git" )
     VDET="$WORK/mac-consistency-pilot/verus-detector"
+    SOURCE="fresh clone of github.com/$GITHUB_USER/mac-consistency-pilot"
+    # A clone can only show what was pushed.  Refuse to report a total from a
+    # tree that is missing a file the local checkout has.
+    if [ -d "$LOCAL_VDET/src" ]; then
+        missing=""
+        for p in "$LOCAL_VDET"/src/*.rs; do
+            b="$(basename "$p")"
+            [ -f "$VDET/src/$b" ] || missing="$missing $b"
+        done
+        if [ -n "$missing" ]; then
+            printf "\033[1;31m  ✗\033[0m the clone is missing src file(s) present locally:%s\n" "$missing" >&2
+            echo "    Push them, or run without --from-github to count the local tree." >&2
+            exit 1
+        fi
+    fi
+else
+    VDET="$LOCAL_VDET"
+    SOURCE="local working tree: $VDET"
 fi
 
 [ -d "$VDET/src" ] || { echo "verus-detector/src not found at $VDET" >&2; exit 1; }
@@ -141,6 +182,11 @@ declare -A COUNT       # basename -> verified count (only when 0 errors)
 declare -A STATUS      # basename -> ok|ERR
 INCOMPLETE=0
 
+REV="$( (cd "$VDET" && git rev-parse --short HEAD 2>/dev/null) || echo 'not a git checkout')"
+DIRTY="$( (cd "$VDET" && git status --porcelain -- src 2>/dev/null | head -c1) || true )"
+[ -n "$DIRTY" ] && REV="$REV (uncommitted changes in src/)"
+log "Counting: $SOURCE"
+printf "  revision: %s\n" "$REV"
 log "Verifying every src/*.rs standalone (verus --crate-type=lib)"
 shopt -s nullglob
 FILES=()
@@ -263,6 +309,8 @@ if [ "$INCOMPLETE" -eq 1 ]; then
     exit 1
 fi
 ok "All counted files verified at 0 errors."
+printf "  measured tree: %s\n" "$SOURCE"
+printf "  revision:      %s\n" "$REV"
 echo "  This DISTINCT total = every counted obligation in the crate, with"
 echo "  re-included (mod / textual) obligations removed once. The default run"
 echo "  is the curated headline (EXCLUDE applied); --full is the full distinct"

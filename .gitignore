@@ -85,3 +85,6 @@ python/rater2_package/
 python/second_rater_labels.json
 langgraph_a6_natural/
 langgraph_a6_out/
+[0-9]*_*.sh
+verus-count-clone/
+.verified/

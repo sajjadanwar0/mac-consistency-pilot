@@ -9,6 +9,11 @@ pub type Time = u64;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OpRecord {
+    /// `agent` is the canonical key (instrument.py, the runtime emitter);
+    /// `agent_id` is accepted for the cookbook (production_extractor.py) and
+    /// MAST (mast_adapter.py) op-records, which the detector previously could
+    /// not read at all ("missing field `agent`").
+    #[serde(alias = "agent_id")]
     pub agent: AgentId,
     pub read_set: Vec<CellId>,
     pub read_values: HashMap<CellId, Value>,

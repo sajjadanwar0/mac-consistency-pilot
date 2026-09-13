@@ -121,8 +121,14 @@ paper's tables and findings.
 - `prevalence_dynamic_run.py`, `prevalence_harness.py` — the dynamic
   confirmation across three model families (20/20 fire on susceptible
   topologies, 0/20 on immune ones).
-- The 600-session cookbook A₁ rates (shared_workspace 90/100, five stateless
-  topologies 0/100) reproduce here.
+- The 600-session cookbook study (`production_traces/`): under Definition 1
+  the verified detector fires on 0/600 -- every record's read and commit
+  occupy consecutive ticks, so no write can land inside a window; the
+  structural precondition (a slot one agent read, later rewritten by
+  another) is 89/100 on shared_workspace and 0/100 on the five stateless
+  topologies. An earlier README line here claimed 90/100 as an A_1 rate;
+  that figure came from an analyzer without Definition 1's upper temporal
+  bound and is withdrawn (paper Sec 5.7).
 
 **In-the-wild reproductions (§5.12, §6)**
 - `deerflow_3123_repro.py` — the ByteDance deer-flow silent lost update (#3123),

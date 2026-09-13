@@ -1,35 +1,34 @@
 #!/usr/bin/env python3
 """
-analyze_production_fixed.py
+analyze_production.py — score op-record sessions with Definition 1 exactly.
 
-Drop-in replacement for analyze_production.py.
+WHY THIS FILE WAS REWRITTEN (13 Sep 2026, post-ICECCS round 4 / E2)
+--------------------------------------------------------------------
+The previous predicate fired when `write_time(j) > read_time(i)` and the
+values differed. That is NOT stale-generation. Definition 1 (paper Sec 3.1,
+rust-analyser/src/anomalies.rs, the Verus-verified detect_a1) requires the
+write to land STRICTLY INSIDE the reader's window:
 
-WHY THIS EXISTS
----------------
-The original analyzer derived the scenario name from the file stem with
-`parts = stem.rsplit("-", 2); if len(parts) != 3: continue`. Any op-record
-file whose name did not split into exactly three hyphen-separated parts was
-SILENTLY skipped (the "skip ... cannot parse" message went to stderr). On the
-full MAST run the adapter wrote 600 files but only 410 had names that parsed,
-so 190 were dropped without appearing in the table. The 0% A1 rate is real on
-what was scored, but the denominator was wrong.
+    read_time(i) < write_time(j) < write_time(i),  agents differ,
+    c in read_set(i) ∩ write_set(j),  read_values(i)[c] != write_values(j)[c]
 
-This version:
-  * derives scenario from the leading hyphen token (robust to ids that contain
-    hyphens/underscores),
-  * NEVER silently skips: any file that cannot be grouped is collected and the
-    run fails loudly at the end with the offending names,
-  * prints n_files_found and asserts n_scored == n_files_found.
+Without the upper bound, any later rewrite of a cell the reader had read
+counted as A_1 — including rewrites that landed after the reader had
+already committed. On the 600 cookbook sessions (production_traces/) every
+op has write_time - read_time == 1, so Definition 1 CANNOT fire; the
+previously reported 90/100 on shared_workspace was entirely the missing
+conjunct. The same holds for the MAST adapter's op-records (read_time,
+write_time stamped as consecutive steps).
+
+The old quantity is still meaningful — a slot one agent read was later
+rewritten by another — as the structural PRECONDITION of A_1, so it is kept
+under its true name (`later_rewrite`), never as A_1.
+
+Schema: `agent` (rust-analyser/oprecord.rs, instrument.py) or `agent_id`
+(production_extractor.py, mast_adapter.py) are both accepted.
 
 USAGE
------
-  python analyze_production_fixed.py mast_oprecords --out mast_rates.json
-
-Schema per JSONL line (unchanged): each event may carry
-  read_set: [cell], write_set: [cell],
-  read_time: int, write_time: int,
-  read_values: {cell: str}, write_values: {cell: str},
-  agent_id: str
+  python analyze_production.py production_traces --out cookbook_rates.json
 """
 from __future__ import annotations
 import argparse
@@ -39,6 +38,8 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 from statistics import mean
+
+NULL = "NULL"
 
 
 def load_session(path: Path) -> list[dict]:
@@ -51,30 +52,56 @@ def load_session(path: Path) -> list[dict]:
     return events
 
 
-def detect_a1_breakdown(events: list[dict]) -> tuple[bool, bool, bool]:
-    """Return (any_a1, cross_agent_a1, self_agent_a1)."""
-    cell_writes: dict[str, list[tuple[int, str, str]]] = defaultdict(list)
-    for e in events:
-        for c in e.get("write_set", []):
-            wt = e.get("write_time", 0)
-            wv = e.get("write_values", {}).get(c, "")
-            ag = e.get("agent_id", "?")
-            cell_writes[c].append((wt, wv, ag))
+def agent_of(e: dict) -> str:
+    return e.get("agent", e.get("agent_id", "?"))
 
-    any_a1 = cross_a1 = self_a1 = False
-    for r in events:
-        rt = r.get("read_time", 0)
-        ragent = r.get("agent_id", "?")
-        for c in r.get("read_set", []):
-            rv = r.get("read_values", {}).get(c, "")
-            for wt, wv, wagent in cell_writes.get(c, []):
-                if wt > rt and wv != rv:
-                    any_a1 = True
-                    if wagent != ragent:
-                        cross_a1 = True
+
+def detect_a1(events: list[dict]) -> list[dict]:
+    """Definition 1, verbatim. Returns the witnesses (i, j, cell)."""
+    out = []
+    for i, ri in enumerate(events):
+        rt, wt_i, ra = ri.get("read_time", 0), ri.get("write_time", 0), agent_of(ri)
+        rvals = ri.get("read_values", {})
+        for j, rj in enumerate(events):
+            if i == j or agent_of(rj) == ra:
+                continue
+            wt_j = rj.get("write_time", 0)
+            if not (rt < wt_j < wt_i):
+                continue
+            wvals = rj.get("write_values", {})
+            for c in ri.get("read_set", []):
+                if c in rj.get("write_set", []) and rvals.get(c, NULL) != wvals.get(c, NULL):
+                    out.append({"i": i, "j": j, "cell": c, "reader": ra, "writer": agent_of(rj),
+                                "read_time": rt, "write_time": wt_j, "reader_write_time": wt_i})
+    return out
+
+
+def detect_later_rewrite(events: list[dict]) -> tuple[bool, bool]:
+    """The PRE-ROUND-4 quantity, under its true name: some other record wrote a
+    different value to a cell this record read, at any time after the read
+    (inside OR after the window). Returns (cross_agent, self_agent). It is the
+    structural precondition of A_1, not A_1."""
+    cross = selfw = False
+    for i, ri in enumerate(events):
+        rt, ra = ri.get("read_time", 0), agent_of(ri)
+        rvals = ri.get("read_values", {})
+        for j, rj in enumerate(events):
+            if i == j:
+                continue
+            if rj.get("write_time", 0) <= rt:
+                continue
+            wvals = rj.get("write_values", {})
+            for c in ri.get("read_set", []):
+                if c in rj.get("write_set", []) and rvals.get(c, NULL) != wvals.get(c, NULL):
+                    if agent_of(rj) != ra:
+                        cross = True
                     else:
-                        self_a1 = True
-    return any_a1, cross_a1, self_a1
+                        selfw = True
+    return cross, selfw
+
+
+def window_widths(events: list[dict]) -> list[int]:
+    return [e.get("write_time", 0) - e.get("read_time", 0) for e in events]
 
 
 def bootstrap_ci(values: list[float], n: int = 1000, alpha: float = 0.05) -> tuple[float, float]:
@@ -87,19 +114,14 @@ def bootstrap_ci(values: list[float], n: int = 1000, alpha: float = 0.05) -> tup
         sample = [values[rng.randint(0, k - 1)] for _ in range(k)]
         means.append(sum(sample) / k)
     means.sort()
-    lo = means[int((alpha / 2) * n)]
-    hi = means[int((1 - alpha / 2) * n)]
-    return (lo, hi)
+    return (means[int((alpha / 2) * n)], means[int((1 - alpha / 2) * n)])
 
 
 def scenario_of(stem: str) -> str:
-    """Robust: scenario is the leading token before the first '-'.
-    'chatdev-mast-ChatDev_5' -> 'chatdev'. Never raises here; grouping
-    correctness is asserted in main()."""
     return stem.split("-", 1)[0] if "-" in stem else stem
 
 
-def main() -> None:
+def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("traces_dir", type=Path)
     ap.add_argument("--out", type=Path, default=None)
@@ -111,64 +133,57 @@ def main() -> None:
     files = sorted(args.traces_dir.glob("*.jsonl"))
     n_found = len(files)
     by_scn: dict[str, list[Path]] = defaultdict(list)
-    unparseable: list[str] = []
     for p in files:
-        scn = scenario_of(p.stem)
-        if not scn:
-            unparseable.append(p.name)
-            continue
-        by_scn[scn].append(p)
-
+        by_scn[scenario_of(p.stem)].append(p)
     n_scored = sum(len(v) for v in by_scn.values())
-    print(f"files found: {n_found}   files scored: {n_scored}   dropped: {n_found - n_scored}")
-    if unparseable:
-        raise SystemExit(
-            "REFUSING TO RUN: %d files could not be grouped into a scenario:\n  %s\n"
-            "Fix the op-record filenames or scenario_of() rather than silently skipping."
-            % (len(unparseable), "\n  ".join(unparseable[:20]))
-        )
-    assert n_scored == n_found, (
-        f"scored {n_scored} != found {n_found}; some files were dropped silently"
-    )
+    print(f"files found: {n_found}   files scored: {n_scored}")
+    assert n_scored == n_found
 
-    hdr = (f"{'scenario':22} {'n':>5} {'any A_1':>10} {'95% CI':>16} "
-           f"{'cross':>8} {'self':>8} {'mean ev':>9}")
-    print(hdr); print("-" * len(hdr))
-    results = []
-    grand_n = 0
-    grand_a1 = 0
+    hdr = (f"{'scenario':20} {'n':>4} {'A1 (Def.1)':>11} {'95% CI':>13} "
+           f"{'later-rw cross':>15} {'later-rw self':>14} {'ops':>6} {'win=1':>7} {'win>=2':>7}")
+    print(hdr)
+    print("-" * len(hdr))
+    results, grand_n, grand_a1, grand_lr = [], 0, 0, 0
     for scn, paths in sorted(by_scn.items()):
-        any_flags, cross_flags, self_flags, evcounts = [], [], [], []
+        a1_flags, lr_cross, lr_self, ops, w1, w2 = [], [], [], 0, 0, 0
         for path in paths:
-            events = load_session(path)
-            evcounts.append(len(events))
-            a, c, s = detect_a1_breakdown(events)
-            any_flags.append(1.0 if a else 0.0)
-            cross_flags.append(1.0 if c else 0.0)
-            self_flags.append(1.0 if s else 0.0)
-        any_r = mean(any_flags) if any_flags else 0.0
-        lo, hi = bootstrap_ci(any_flags)
-        ev_mean = mean(evcounts) if evcounts else 0.0
+            ev = load_session(path)
+            ops += len(ev)
+            ww = window_widths(ev)
+            w1 += sum(1 for w in ww if w <= 1)
+            w2 += sum(1 for w in ww if w >= 2)
+            a1_flags.append(1.0 if detect_a1(ev) else 0.0)
+            c, s = detect_later_rewrite(ev)
+            lr_cross.append(1.0 if c else 0.0)
+            lr_self.append(1.0 if s else 0.0)
+        a1_r = mean(a1_flags)
+        lo, hi = bootstrap_ci(a1_flags)
         grand_n += len(paths)
-        grand_a1 += int(sum(any_flags))
-        print(f"{scn:22} {len(paths):>5} {any_r*100:>9.1f}% "
-              f"[{lo*100:>4.0f},{hi*100:>4.0f}] "
-              f"{mean(cross_flags)*100:>7.1f}% {mean(self_flags)*100:>7.1f}% {ev_mean:>9.1f}")
+        grand_a1 += int(sum(a1_flags))
+        grand_lr += int(sum(lr_cross))
+        print(f"{scn:20} {len(paths):>4} {int(sum(a1_flags)):>4}/{len(paths):<4} "
+              f"[{lo*100:>4.0f},{hi*100:>4.0f}]  "
+              f"{int(sum(lr_cross)):>7}/{len(paths):<6} {int(sum(lr_self)):>6}/{len(paths):<6} "
+              f"{ops:>6} {w1:>7} {w2:>7}")
         results.append({
-            "scenario": scn, "provider": args.provider,
-            "n_sessions": len(paths), "a1_any_rate": any_r, "a1_any_ci": [lo, hi],
-            "a1_cross_agent_rate": mean(cross_flags), "a1_self_agent_rate": mean(self_flags),
-            "mean_events_per_session": ev_mean,
+            "scenario": scn, "provider": args.provider, "n_sessions": len(paths),
+            "a1_sessions": int(sum(a1_flags)), "a1_rate": a1_r, "a1_ci95": [lo, hi],
+            "later_rewrite_cross_sessions": int(sum(lr_cross)),
+            "later_rewrite_self_sessions": int(sum(lr_self)),
+            "ops": ops, "ops_window_1": w1, "ops_window_ge2": w2,
         })
     print("-" * len(hdr))
-    print(f"{'TOTAL':22} {grand_n:>5}   A1 fired in {grand_a1}/{grand_n} sessions "
-          f"({100.0*grand_a1/grand_n if grand_n else 0:.1f}%)")
+    print(f"TOTAL {grand_n}: A1 (Definition 1) in {grand_a1}/{grand_n} sessions; "
+          f"cross-agent later rewrites in {grand_lr}/{grand_n}")
     if args.out is not None:
-        args.out.write_text(json.dumps(
-            {"cells": results, "n_total_scored": grand_n, "n_a1_sessions": grand_a1},
-            indent=2))
+        args.out.write_text(json.dumps({"cells": results, "n_total_scored": grand_n,
+                                        "n_a1_sessions": grand_a1,
+                                        "n_later_rewrite_sessions": grand_lr,
+                                        "predicate": "Definition 1 (read_time < write_time_j < write_time_i, cross-agent, value mismatch)"},
+                                       indent=2))
         print(f"wrote {args.out}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -1,0 +1,104 @@
+{
+  "cells": [
+    {
+      "scenario": "code_review",
+      "provider": "mast",
+      "n_sessions": 100,
+      "a1_sessions": 0,
+      "a1_rate": 0.0,
+      "a1_ci95": [
+        0.0,
+        0.0
+      ],
+      "later_rewrite_cross_sessions": 0,
+      "later_rewrite_self_sessions": 0,
+      "ops": 557,
+      "ops_window_1": 557,
+      "ops_window_ge2": 0
+    },
+    {
+      "scenario": "customer_triage",
+      "provider": "mast",
+      "n_sessions": 100,
+      "a1_sessions": 0,
+      "a1_rate": 0.0,
+      "a1_ci95": [
+        0.0,
+        0.0
+      ],
+      "later_rewrite_cross_sessions": 0,
+      "later_rewrite_self_sessions": 0,
+      "ops": 700,
+      "ops_window_1": 700,
+      "ops_window_ge2": 0
+    },
+    {
+      "scenario": "hierarchical",
+      "provider": "mast",
+      "n_sessions": 100,
+      "a1_sessions": 0,
+      "a1_rate": 0.0,
+      "a1_ci95": [
+        0.0,
+        0.0
+      ],
+      "later_rewrite_cross_sessions": 0,
+      "later_rewrite_self_sessions": 0,
+      "ops": 752,
+      "ops_window_1": 752,
+      "ops_window_ge2": 0
+    },
+    {
+      "scenario": "research_collab",
+      "provider": "mast",
+      "n_sessions": 100,
+      "a1_sessions": 0,
+      "a1_rate": 0.0,
+      "a1_ci95": [
+        0.0,
+        0.0
+      ],
+      "later_rewrite_cross_sessions": 0,
+      "later_rewrite_self_sessions": 0,
+      "ops": 568,
+      "ops_window_1": 568,
+      "ops_window_ge2": 0
+    },
+    {
+      "scenario": "shared_workspace",
+      "provider": "mast",
+      "n_sessions": 100,
+      "a1_sessions": 0,
+      "a1_rate": 0.0,
+      "a1_ci95": [
+        0.0,
+        0.0
+      ],
+      "later_rewrite_cross_sessions": 89,
+      "later_rewrite_self_sessions": 89,
+      "ops": 908,
+      "ops_window_1": 908,
+      "ops_window_ge2": 0
+    },
+    {
+      "scenario": "supervisor",
+      "provider": "mast",
+      "n_sessions": 100,
+      "a1_sessions": 0,
+      "a1_rate": 0.0,
+      "a1_ci95": [
+        0.0,
+        0.0
+      ],
+      "later_rewrite_cross_sessions": 0,
+      "later_rewrite_self_sessions": 0,
+      "ops": 684,
+      "ops_window_1": 684,
+      "ops_window_ge2": 0
+    }
+  ],
+  "n_total_scored": 600,
+  "n_a1_sessions": 0,
+  "n_later_rewrite_sessions": 89,
+  "predicate": "Definition 1 (read_time < write_time_j < write_time_i, cross-agent, value mismatch)"
+}
