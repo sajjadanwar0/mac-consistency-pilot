@@ -50,23 +50,32 @@ venv/
 # ---------- Delivery scripts: process, not artifact ----------
 [0-9]*_*.sh
 
-# ---------- Third-party corpora: large, regenerable, not ours ----------
-# MAST-Data raw download.  python/mast_adapter.py re-fetches it from
-# HuggingFace (mcemri/MAD, revision 5a82e32); the derived op-records in
-# mast_oprecords/ ARE tracked, so Section 5.8 is reproducible without it.
+# ---------- Third-party corpora: raw, large, regenerable, not ours ----
+# python/MAST/ is the RAW MAST corpus as downloaded: 12,961 files,
+# 1,209 MB, including PDFs, WAV, PNG screenshots and .pdb payloads that
+# no result in this paper reads.  Section 5.8's evidence is the DERIVED
+# op-records -- mast_oprecords/ and python/mast_oprecords/, both tracked
+# -- together with python/mast_rates.json.  python/mast_adapter.py
+# re-fetches the raw corpus from HuggingFace (mcemri/MAD, revision
+# 5a82e32).  Ignore it BY NAME: do not restore a blanket `**/traces/`
+# rule, which would also re-hide python/traces/ (Sections 5.2 and 5.4).
+python/MAST/
 python/MAD_*.json*
 mac-consistency-replication/
 
 # ---------- NOT IGNORED, DELIBERATELY ----------
-# runs/                 Tables 3 and 4 (traces, results.txt, manifests)
-# */live_a1_*/          Table 6 (live LangGraph sessions)
-# */traces/             Sections 5.2 and 5.4 synthetic pilot
-# */oprecords/          Section 5.8 own-executor racy/sequential check
-# */dynamic_oprecords/  Section 5.8 topology dynamic confirmation
-# */hc_*/               Section 5.6 Finding 5 high-contention sweep
-# */langgraph_a6_*/     Section 5.12 ToolNode A6 reproduction
-# mast_oprecords/       Section 5.8 corpus projection
-# baseline_runs/        Section 5.5 baseline comparison
-# A published number whose data is not in this tree is a defect.  If a
-# directory here grows past what git should carry, move it to a release
-# asset and record the URL in REPRODUCE.md -- do not re-ignore it.
+# runs/                      Tables 3 and 4 (traces, results.txt, manifests)
+# python/live_a1_*/          Table 6 (live LangGraph sessions)
+# python/traces/             Sections 5.2 and 5.4 synthetic pilot
+# python/oprecords/          Section 5.8 own-executor racy/sequential check
+# python/dynamic_oprecords/  Section 5.8 topology dynamic confirmation
+# python/hc_*/               Section 5.6 Finding 5 high-contention sweep
+# python/langgraph_a6_*/     Section 5.12 ToolNode A6 reproduction
+# python/cf_*.jsonl          Table 5 counterfactual re-prompts
+# python/audit_sheet.csv     Section 5.9 blind sample
+# mast_oprecords/            Section 5.8 corpus projection (DERIVED)
+# baseline_runs/             Section 5.5 baseline comparison
+# production_traces/         Section 5.7 cookbook study
+# A published number whose data is not in this tree is a defect.  A
+# directory in this tree that no published number reads is also a defect.
+# check_tables.sh gates the first; REPRODUCE.md's map gates the second.

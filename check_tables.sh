@@ -1,22 +1,41 @@
 #!/usr/bin/env bash
 # =====================================================================
-# check_tables.sh -- score the committed traces under Definition 1 and
-# fail if any published cell disagrees with expected.json.
+# check_tables.sh -- three gates.
 #
-# This does NOT call rust-analyser.  It is a second, independent
-# implementation of Definition 1 transcribed from Anomalies.tla:6-13, so
-# that agreement between the two is evidence and not a tautology.  It
-# also regenerates runs/<stamp>/summary.json from the traces.
+#   CELLS    Score the committed traces under Definition 1 and fail if
+#            any published cell disagrees with expected.json.  This is a
+#            second, independent transcription from Anomalies.tla lines
+#            6-13; it does NOT call rust-analyser, so agreement between
+#            the two is evidence rather than a tautology.  Writes each
+#            run's summary.check.json; never overwrites a captured
+#            summary.json.
 #
-#   ./check_tables.sh          score everything, exit non-zero on any miss
-#   ./check_tables.sh --quiet  cells only, no per-run detail
+#   MAP      Every repository path named in REPRODUCE.md's table must
+#            exist.  A map that points at nothing is worse than no map.
+#
+#   IGNORES  Only the root .gitignore may carry active rules among the
+#            ignore files git honors (./check_ignores.sh).  Evidence was
+#            invisible for two rounds because a nested ignore file went
+#            unread.
+#
+#   ./check_tables.sh          all three gates, per-cell detail
+#   ./check_tables.sh --quiet  verdict only
 #
 # Requires python3 only.  No network, no API keys, no cargo.
 # =====================================================================
 set -euo pipefail
 [ -f expected.json ] || { echo "FAIL: run from the mac-consistency-pilot root" >&2; exit 1; }
+
+if [ -x ./check_ignores.sh ]; then
+  if [ "${1:-}" = "--quiet" ]; then
+    ./check_ignores.sh --quiet >/dev/null || { echo "FAIL: ignore-file gate"; ./check_ignores.sh; exit 1; }
+  else
+    ./check_ignores.sh || exit 1
+  fi
+fi
+
 exec python3 - "$@" << 'PY_EOF'
-import json, os, sys
+import json, os, re, sys
 
 QUIET = "--quiet" in sys.argv[1:]
 
@@ -29,7 +48,7 @@ def load(p):
         return [json.loads(l) for l in f if l.strip()]
 
 def a1(h):
-    """Anomalies.tla:6-13 StaleGeneration, transcribed.
+    """Anomalies.tla lines 6-13, StaleGeneration, transcribed.
 
     \\E i,j : i # j /\\ h[i].agent # h[j].agent
               /\\ \\E c \\in h[i].read_set \\cap h[j].write_set :
@@ -42,8 +61,7 @@ def a1(h):
         for j in range(n):
             if i == j or agent(h[i]) == agent(h[j]):
                 continue
-            shared = set(h[i].get("read_set") or []) & set(h[j].get("write_set") or [])
-            for c in shared:
+            for c in set(h[i].get("read_set") or []) & set(h[j].get("write_set") or []):
                 if h[i]["read_time"] < h[j]["write_time"] < h[i]["write_time"] \
                    and (h[i].get("read_values") or {}).get(c) != (h[j].get("write_values") or {}).get(c):
                     return True
@@ -62,7 +80,7 @@ def live_root():
 exp = json.load(open("expected.json"))
 bad, checked = [], 0
 
-# ---- runs/<stamp>/<cell>/ ------------------------------------------
+# ---- GATE 1: cells ---------------------------------------------------
 pool = {}
 for stamp, spec in exp["runs"].items():
     summary = {"cells": {}, "predicate": "Definition 1 (check_tables.sh, independent of rust-analyser)"}
@@ -80,12 +98,9 @@ for stamp, spec in exp["runs"].items():
             bad.append(f"{stamp}/{cell}: scored {k}/{n}, expected {want['a1']}/{want['n']}")
         if not QUIET:
             print(f"  {'ok ' if ok else 'MISS'} runs/{stamp}/{cell:32s} {k:3d}/{n:3d}  expected {want['a1']:3d}")
-    # Never overwrite a captured summary.json -- 20260913T0424Z's was written
-    # by the run harness and is evidence.  This scorer's output sits beside it.
     with open(os.path.join("runs", stamp, "summary.check.json"), "w") as f:
         json.dump(summary, f, indent=2)
 
-# ---- pooled --------------------------------------------------------
 for cell, want in exp["pooled"].items():
     if cell.startswith("_"):
         continue
@@ -97,7 +112,6 @@ for cell, want in exp["pooled"].items():
     if not QUIET:
         print(f"  {'ok ' if ok else 'MISS'} pooled {cell:39s} {k:3d}/{n:3d}  expected {want['a1']:3d}")
 
-# ---- live ----------------------------------------------------------
 lr = live_root()
 if lr is None:
     bad.append("live: live_a1_gpt4omini/sessions not found under python/ or the repo root")
@@ -119,11 +133,32 @@ else:
             if not QUIET:
                 print(f"  {'ok ' if ok else 'MISS'} {model}/{kind:26s} {k:3d}/{len(sel):3d}  expected {want['a1']:3d}")
 
+# ---- GATE 2: REPRODUCE.md's map resolves -----------------------------
+mapped = 0
+if not os.path.isfile("REPRODUCE.md"):
+    bad.append("REPRODUCE.md absent")
+else:
+    rows = [l for l in open("REPRODUCE.md").read().splitlines() if l.lstrip().startswith("|")]
+    seen = set()
+    for line in rows:
+        for m in re.finditer(r"`([A-Za-z0-9_][A-Za-z0-9_./-]*)`", line):
+            q = m.group(1).rstrip("/")
+            if q.startswith("../") or q in seen or "/" not in q:
+                continue
+            seen.add(q)
+            if not os.path.exists(q):
+                bad.append(f"REPRODUCE.md names a path that does not exist: {q}")
+            else:
+                mapped += 1
+                checked += 1
+if not QUIET:
+    print(f"  ok  REPRODUCE.md map: {mapped} paths resolve")
+
 print()
 if bad:
-    print(f"FAIL: {len(bad)} of {checked} cells disagree with expected.json")
+    print(f"FAIL: {len(bad)} of {checked} checks failed")
     for b in bad:
         print(f"  - {b}")
     sys.exit(1)
-print(f"OK: all {checked} published cells reproduce under Definition 1")
+print(f"OK: all {checked} checks pass ({mapped} mapped paths resolve)")
 PY_EOF

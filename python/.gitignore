@@ -1,2 +1,3 @@
-langgraph_a6_natural/
-langgraph_a6_out/
+# Section 5.12's ToolNode A6 data (langgraph_a6_out/, langgraph_a6_natural/)
+# is cited evidence and is tracked.  Nothing under python/ is ignored here;
+# the root .gitignore carries every rule, so there is one place to look.
