@@ -1,0 +1,97 @@
+{
+  "model": "claude-haiku-4-5",
+  "provider": "anthropic",
+  "controls_ok": true,
+  "topologies": {
+    "sequential_pipeline": {
+      "fired": 0,
+      "n": 20,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.1684334709830853
+      ],
+      "expect": "silent"
+    },
+    "racy_shared_cell": {
+      "fired": 20,
+      "n": 20,
+      "rate": 1.0,
+      "ci": [
+        0.8315665290169146,
+        1.0
+      ],
+      "expect": "fire"
+    },
+    "supervisor_fanout_disjoint": {
+      "fired": 0,
+      "n": 20,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.1684334709830853
+      ],
+      "expect": "silent"
+    },
+    "map_reduce_reducer_channel": {
+      "fired": 0,
+      "n": 20,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.1684334709830853
+      ],
+      "expect": "silent"
+    },
+    "blackboard_multiwriter": {
+      "fired": 20,
+      "n": 20,
+      "rate": 1.0,
+      "ci": [
+        0.8315665290169146,
+        1.0
+      ],
+      "expect": "fire"
+    },
+    "collaboration_shared_messages": {
+      "fired": 20,
+      "n": 20,
+      "rate": 1.0,
+      "ci": [
+        0.8315665290169146,
+        1.0
+      ],
+      "expect": "fire"
+    },
+    "hierarchical_teams": {
+      "fired": 20,
+      "n": 20,
+      "rate": 1.0,
+      "ci": [
+        0.8315665290169146,
+        1.0
+      ],
+      "expect": "fire"
+    },
+    "competing_agents_consensus": {
+      "fired": 20,
+      "n": 20,
+      "rate": 1.0,
+      "ci": [
+        0.8315665290169146,
+        1.0
+      ],
+      "expect": "fire"
+    },
+    "map_reduce_no_reducer_accumulator": {
+      "fired": 20,
+      "n": 20,
+      "rate": 1.0,
+      "ci": [
+        0.8315665290169146,
+        1.0
+      ],
+      "expect": "fire"
+    }
+  }
+}

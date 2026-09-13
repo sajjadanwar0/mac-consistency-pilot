@@ -1,0 +1,11 @@
+{
+  "provenance": "reconstructed",
+  "provenance_note": "This run was produced before rerun_pilot.sh wrote manifests. model, seed and provider are taken from the manuscript's description of Table 3 caption, first further run, not captured at run time. pilot_git_sha_at_reconstruction is the tree this manifest was written against, NOT the tree the run executed on. Only 20260913T0424Z carries a captured manifest.",
+  "model": "gpt-4o",
+  "seed": 42,
+  "provider": "openai",
+  "n_traces": 300,
+  "backs": "Table 3 caption, first further run",
+  "pilot_git_sha_at_reconstruction": "0c7a0c251dc39509ba4384a58776cbc9a137db89",
+  "scored_by": "check_tables.sh (Definition 1) and rust-analyser (results.txt)"
+}

@@ -3,11 +3,16 @@
 **/target/
 *.rlib
 *.rmeta
+*.rs.bk
 
 # ---------- Verus ----------
 *.verus-log
 .verus/
+.verus-log/
 **/.verus-cache/
+*.smt2
+verus-count-clone/
+.verified/
 
 # ---------- Python ----------
 __pycache__/
@@ -30,61 +35,38 @@ venv/
 *.fls
 *.fdb_latexmk
 *.synctex.gz
-# *.pdf            # uncomment to also exclude the built paper PDF
 
-# ---------- GENERATED DATA / RESULTS (the heavy stuff) ----------
-traces/
-**/traces/
-baseline_runs/
-**/baseline_runs/
-dynamic_oprecords/
-corpus_oprecords/
-*_oprecords/
-oprecords/
-runs/
-results/
-out/
-output/
-*.trace
-# trace / op-record data dumps
-cf_*.jsonl
-*_trace*.jsonl
-*_oprecords*.jsonl
-sessions/
-
-# ---------- Archives & misc large ----------
+# ---------- Archives, editors, OS ----------
 *.zip
 *.tar
 *.tar.gz
 *.tgz
-
-# ---------- Editors / OS ----------
 .idea/
 .vscode/
 *.swp
 *~
 .DS_Store
 
-# --- Rust / Cargo ---
-/target/
-**/target/
-*.rs.bk
+# ---------- Delivery scripts: process, not artifact ----------
+[0-9]*_*.sh
 
-# --- Verus ---
-.verus/
-.verus-log/
-*.smt2
+# ---------- Third-party corpora: large, regenerable, not ours ----------
+# MAST-Data raw download.  python/mast_adapter.py re-fetches it from
+# HuggingFace (mcemri/MAD, revision 5a82e32); the derived op-records in
+# mast_oprecords/ ARE tracked, so Section 5.8 is reproducible without it.
+python/MAD_*.json*
 mac-consistency-replication/
 
-# MAST-Data raw dataset + derived oprecords (large/regenerable; see python/mast_structural_classifier.py)
-python/MAD_*.json*
-mast_oprecords/
-
-python/audit/
-python/rater2_package/
-python/second_rater_labels.json
-langgraph_a6_natural/
-langgraph_a6_out/
-[0-9]*_*.sh
-verus-count-clone/
-.verified/
+# ---------- NOT IGNORED, DELIBERATELY ----------
+# runs/                 Tables 3 and 4 (traces, results.txt, manifests)
+# */live_a1_*/          Table 6 (live LangGraph sessions)
+# */traces/             Sections 5.2 and 5.4 synthetic pilot
+# */oprecords/          Section 5.8 own-executor racy/sequential check
+# */dynamic_oprecords/  Section 5.8 topology dynamic confirmation
+# */hc_*/               Section 5.6 Finding 5 high-contention sweep
+# */langgraph_a6_*/     Section 5.12 ToolNode A6 reproduction
+# mast_oprecords/       Section 5.8 corpus projection
+# baseline_runs/        Section 5.5 baseline comparison
+# A published number whose data is not in this tree is a defect.  If a
+# directory here grows past what git should carry, move it to a release
+# asset and record the URL in REPRODUCE.md -- do not re-ignore it.

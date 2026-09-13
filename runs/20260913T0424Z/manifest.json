@@ -1,0 +1,8 @@
+{
+  "model": "gpt-4o",
+  "seed": 42,
+  "provider": "openai",
+  "pilot_git_sha": "e9ce71d3e30e48814219c04b98272e919048e0ff",
+  "analyser_sha256": "9390fd4f1baf90d1d0b1042cd40d3313bfc8ae16f75f411d4c929af305b9539a",
+  "n_traces": 300
+}

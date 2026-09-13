@@ -1,0 +1,377 @@
+{
+  "provider": "mock",
+  "model": "mock",
+  "langgraph_version": "1.2.0",
+  "n": 5,
+  "store": {
+    "vanilla": {
+      "experiment": "store",
+      "mode": "vanilla",
+      "n": 5,
+      "a1_fires": 5,
+      "a1_rate": 1.0,
+      "ci95": [
+        0.4781762498950185,
+        1.0
+      ],
+      "stale_in_booking_text": 5,
+      "regenerations_total": 0,
+      "pinned_seconds": {
+        "mean": 1.2002294241974596,
+        "min": 1.2001902749980218,
+        "max": 1.2003227339955629
+      },
+      "model_fallbacks": 0,
+      "sessions": [
+        {
+          "session": 0,
+          "a1": true,
+          "witnesses": [
+            {
+              "i": 2,
+              "j": 1,
+              "cell": "trip/state/date",
+              "read_value": "2026-06-14",
+              "written_value": "2026-06-21"
+            }
+          ],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": true,
+          "regenerations": 0,
+          "pinned_seconds": 1.2001943309951457,
+          "model_fallback": false
+        },
+        {
+          "session": 1,
+          "a1": true,
+          "witnesses": [
+            {
+              "i": 2,
+              "j": 1,
+              "cell": "trip/state/date",
+              "read_value": "2026-06-14",
+              "written_value": "2026-06-21"
+            }
+          ],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": true,
+          "regenerations": 0,
+          "pinned_seconds": 1.2002080009988276,
+          "model_fallback": false
+        },
+        {
+          "session": 2,
+          "a1": true,
+          "witnesses": [
+            {
+              "i": 2,
+              "j": 1,
+              "cell": "trip/state/date",
+              "read_value": "2026-06-14",
+              "written_value": "2026-06-21"
+            }
+          ],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": true,
+          "regenerations": 0,
+          "pinned_seconds": 1.2003227339955629,
+          "model_fallback": false
+        },
+        {
+          "session": 3,
+          "a1": true,
+          "witnesses": [
+            {
+              "i": 2,
+              "j": 1,
+              "cell": "trip/state/date",
+              "read_value": "2026-06-14",
+              "written_value": "2026-06-21"
+            }
+          ],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": true,
+          "regenerations": 0,
+          "pinned_seconds": 1.20023177999974,
+          "model_fallback": false
+        },
+        {
+          "session": 4,
+          "a1": true,
+          "witnesses": [
+            {
+              "i": 2,
+              "j": 1,
+              "cell": "trip/state/date",
+              "read_value": "2026-06-14",
+              "written_value": "2026-06-21"
+            }
+          ],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": true,
+          "regenerations": 0,
+          "pinned_seconds": 1.2001902749980218,
+          "model_fallback": false
+        }
+      ]
+    },
+    "validated": {
+      "experiment": "store",
+      "mode": "validated",
+      "n": 5,
+      "a1_fires": 0,
+      "a1_rate": 0.0,
+      "ci95": [
+        0.0,
+        0.5218237501049814
+      ],
+      "stale_in_booking_text": 0,
+      "regenerations_total": 5,
+      "pinned_seconds": {
+        "mean": 1.2002721729993937,
+        "min": 1.2001802359955036,
+        "max": 1.2003429329997743
+      },
+      "model_fallbacks": 0,
+      "sessions": [
+        {
+          "session": 0,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-21",
+          "stale_in_booking_text": false,
+          "regenerations": 1,
+          "pinned_seconds": 1.2001802359955036,
+          "model_fallback": false
+        },
+        {
+          "session": 1,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-21",
+          "stale_in_booking_text": false,
+          "regenerations": 1,
+          "pinned_seconds": 1.2003429329997743,
+          "model_fallback": false
+        },
+        {
+          "session": 2,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-21",
+          "stale_in_booking_text": false,
+          "regenerations": 1,
+          "pinned_seconds": 1.2002817140019033,
+          "model_fallback": false
+        },
+        {
+          "session": 3,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-21",
+          "stale_in_booking_text": false,
+          "regenerations": 1,
+          "pinned_seconds": 1.2002630979986861,
+          "model_fallback": false
+        },
+        {
+          "session": 4,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-21",
+          "stale_in_booking_text": false,
+          "regenerations": 1,
+          "pinned_seconds": 1.200292884001101,
+          "model_fallback": false
+        }
+      ]
+    },
+    "sequential": {
+      "experiment": "store",
+      "mode": "sequential",
+      "n": 5,
+      "a1_fires": 0,
+      "a1_rate": 0.0,
+      "ci95": [
+        0.0,
+        0.5218237501049814
+      ],
+      "stale_in_booking_text": 0,
+      "regenerations_total": 0,
+      "pinned_seconds": {
+        "mean": 1.2002531567995902,
+        "min": 1.200203986998531,
+        "max": 1.2002893040044
+      },
+      "model_fallbacks": 0,
+      "sessions": [
+        {
+          "session": 0,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": false,
+          "regenerations": 0,
+          "pinned_seconds": 1.2002893040044,
+          "model_fallback": false
+        },
+        {
+          "session": 1,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": false,
+          "regenerations": 0,
+          "pinned_seconds": 1.200260787998559,
+          "model_fallback": false
+        },
+        {
+          "session": 2,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": false,
+          "regenerations": 0,
+          "pinned_seconds": 1.200203986998531,
+          "model_fallback": false
+        },
+        {
+          "session": 3,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": false,
+          "regenerations": 0,
+          "pinned_seconds": 1.2002479000002495,
+          "model_fallback": false
+        },
+        {
+          "session": 4,
+          "a1": false,
+          "witnesses": [],
+          "date_at_commit": "2026-06-21",
+          "date_in_booking": "2026-06-14",
+          "stale_in_booking_text": false,
+          "regenerations": 0,
+          "pinned_seconds": 1.2002638049962115,
+          "model_fallback": false
+        }
+      ]
+    }
+  },
+  "superstep": {
+    "experiment": "superstep",
+    "n": 5,
+    "a1_completion_clock": {
+      "fires": 5,
+      "rate": 1.0,
+      "ci95": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    "a1_barrier_clock": {
+      "fires": 0,
+      "rate": 0.0,
+      "ci95": [
+        0.0,
+        0.5218237501049814
+      ]
+    },
+    "summary_grounded_in_superseded_plan": {
+      "count": 5,
+      "rate": 1.0,
+      "ci95": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    "nodes_overlapped": 5,
+    "sessions": [
+      {
+        "session": 0,
+        "a1_completion_clock": true,
+        "a1_barrier_clock": false,
+        "writer_finished_first": true,
+        "nodes_overlapped": true,
+        "summary_grounded_in_superseded_plan": true,
+        "final_plan": [
+          "Three-day trip to Porto in June.",
+          "Change the destination to Lisbon."
+        ],
+        "summary": "The plan is a three-day trip to Porto.",
+        "superstep_wall_seconds": 1.203
+      },
+      {
+        "session": 1,
+        "a1_completion_clock": true,
+        "a1_barrier_clock": false,
+        "writer_finished_first": true,
+        "nodes_overlapped": true,
+        "summary_grounded_in_superseded_plan": true,
+        "final_plan": [
+          "Three-day trip to Porto in June.",
+          "Change the destination to Lisbon."
+        ],
+        "summary": "The plan is a three-day trip to Porto.",
+        "superstep_wall_seconds": 1.203
+      },
+      {
+        "session": 2,
+        "a1_completion_clock": true,
+        "a1_barrier_clock": false,
+        "writer_finished_first": true,
+        "nodes_overlapped": true,
+        "summary_grounded_in_superseded_plan": true,
+        "final_plan": [
+          "Three-day trip to Porto in June.",
+          "Change the destination to Lisbon."
+        ],
+        "summary": "The plan is a three-day trip to Porto.",
+        "superstep_wall_seconds": 1.202
+      },
+      {
+        "session": 3,
+        "a1_completion_clock": true,
+        "a1_barrier_clock": false,
+        "writer_finished_first": true,
+        "nodes_overlapped": true,
+        "summary_grounded_in_superseded_plan": true,
+        "final_plan": [
+          "Three-day trip to Porto in June.",
+          "Change the destination to Lisbon."
+        ],
+        "summary": "The plan is a three-day trip to Porto.",
+        "superstep_wall_seconds": 1.202
+      },
+      {
+        "session": 4,
+        "a1_completion_clock": true,
+        "a1_barrier_clock": false,
+        "writer_finished_first": true,
+        "nodes_overlapped": true,
+        "summary_grounded_in_superseded_plan": true,
+        "final_plan": [
+          "Three-day trip to Porto in June.",
+          "Change the destination to Lisbon."
+        ],
+        "summary": "The plan is a three-day trip to Porto.",
+        "superstep_wall_seconds": 1.202
+      }
+    ]
+  }
+} 

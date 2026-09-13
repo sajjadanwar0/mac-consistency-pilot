@@ -1,0 +1,1 @@
+{"agent": "a1", "co": [["y", "2"], ["x", "1"]], "io": [["x", "1"], ["y", "2"]], "planned_tool": null, "read_set": [], "read_time": 0, "read_values": {}, "tools_used": [], "tools_visible_at_read": [], "write_set": ["x", "y"], "write_time": 1, "write_values": {"x": "1", "y": "2"}}

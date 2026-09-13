@@ -1,0 +1,1 @@
+{"agent": "a1", "co": [["y", "derived_from_ghost"]], "io": [["y", "derived_from_ghost"]], "planned_tool": null, "read_set": ["x"], "read_time": 5, "read_values": {"x": "ghost_value"}, "tools_used": [], "tools_visible_at_read": [], "write_set": ["y"], "write_time": 6, "write_values": {"y": "derived_from_ghost"}}

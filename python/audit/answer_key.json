@@ -1,0 +1,424 @@
+[
+ {
+  "session": "AG2_28_431",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AG2_10_220",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AppWorld_0_150",
+  "classifier_verdict": "UNKNOWN",
+  "evidence": [
+   "speaker_lines x1"
+  ]
+ },
+ {
+  "session": "AG2_170_741",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_46_449",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x10"
+  ]
+ },
+ {
+  "session": "AG2_165_568",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x7"
+  ]
+ },
+ {
+  "session": "AG2_120_523",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AG2_106_677",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AG2_98_501",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AG2_58_268",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x8"
+  ]
+ },
+ {
+  "session": "AG2_121_331",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_5_408",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x7"
+  ]
+ },
+ {
+  "session": "AG2_19_590",
+  "classifier_verdict": "UNKNOWN",
+  "evidence": [
+   "pyrepr_role x2"
+  ]
+ },
+ {
+  "session": "AG2_24_144",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "role_blocks x12",
+   "speaker_lines x4",
+   "corroborated: parser normalized 3 events, 0 stateful ops"
+  ]
+ },
+ {
+  "session": "AG2_151_361",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_199_770",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_29_600",
+  "classifier_verdict": "UNKNOWN",
+  "evidence": [
+   "pyrepr_role x2"
+  ]
+ },
+ {
+  "session": "AppWorld_8_158",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "speaker_lines x3"
+  ]
+ },
+ {
+  "session": "AG2_33_243",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_12_222",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_74_645",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_163_566",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AppWorld_3_153",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "speaker_lines x5"
+  ]
+ },
+ {
+  "session": "AG2_88_659",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_5_576",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_99_502",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "HyperAgent_11_191",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "speaker_lines x52"
+  ]
+ },
+ {
+  "session": "AG2_135_345",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AppWorld_19_169",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "speaker_lines x7"
+  ]
+ },
+ {
+  "session": "AG2_167_738",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_109_512",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x7"
+  ]
+ },
+ {
+  "session": "AG2_101_311",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_146_356",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_103_506",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AG2_143_714",
+  "classifier_verdict": "UNKNOWN",
+  "evidence": [
+   "pyrepr_role x2"
+  ]
+ },
+ {
+  "session": "AG2_149_720",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_20_423",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AG2_53_456",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x7"
+  ]
+ },
+ {
+  "session": "AG2_150_721",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_49_620",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_106_316",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_58_629",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x10"
+  ]
+ },
+ {
+  "session": "AG2_168_739",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_22_593",
+  "classifier_verdict": "UNKNOWN",
+  "evidence": [
+   "pyrepr_role x2"
+  ]
+ },
+ {
+  "session": "AG2_92_302",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_111_321",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_107_317",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_110_681",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_63_466",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AG2_96_667",
+  "classifier_verdict": "UNKNOWN",
+  "evidence": [
+   "pyrepr_role x2"
+  ]
+ },
+ {
+  "session": "AG2_125_335",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_160_731",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x8"
+  ]
+ },
+ {
+  "session": "AG2_42_252",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_9_219",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AG2_25_235",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AG2_0_571",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x4"
+  ]
+ },
+ {
+  "session": "AppWorld_22_172",
+  "classifier_verdict": "UNKNOWN",
+  "evidence": [
+   "speaker_lines x2"
+  ]
+ },
+ {
+  "session": "AG2_145_716",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x20"
+  ]
+ },
+ {
+  "session": "AG2_14_417",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ },
+ {
+  "session": "AG2_19_422",
+  "classifier_verdict": "NO_SHARED_STORE",
+  "evidence": [
+   "pyrepr_role x6"
+  ]
+ }
+]

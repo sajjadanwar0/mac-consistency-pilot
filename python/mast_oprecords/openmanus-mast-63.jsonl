@@ -1,0 +1,1 @@
+{"agent_id":"Progress","op_index":0,"read_set":[],"read_values":{},"read_time":0,"write_set":["completed:0"],"write_values":{"completed:0":"{\"raw\": \"0.0%\"}"},"write_time":1,"scenario":"openmanus","session_id":"OpenManus_3"}

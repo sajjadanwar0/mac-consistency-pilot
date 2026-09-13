@@ -1,0 +1,4932 @@
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0000.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0000.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal and appear as a single coherent system to the end-user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0001.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0001.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a model in which multiple independent computers work together to achieve a common goal or perform a service, communicating over a network. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0002.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0002.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, appearing as a single coherent entity to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0003.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0003.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote A distributed system is a network of independent computers that work together to appear as a single coherent system to end users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0004.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0004.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0005.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0005.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computer systems that work together over a network to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0006.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0006.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0007.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0007.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are defined as a network of independent computers that work together to appear as a single coherent system to the end user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0008.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0008.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that work together to provide a single, coherent service or application. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0009.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0009.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal, appearing as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0010.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0010.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, sharing resources and coordinating tasks. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0011.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0011.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0012.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0012.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal or task, appearing as a single system to the user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0013.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0013.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0014.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0014.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0015.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0015.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers working together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0016.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0016.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to users as a single coherent system, working together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0017.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0017.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0018.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0018.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0019.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0019.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0020.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0020.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing systems that work together to achieve a common goal, despite being distributed across multiple locations and connected by a network. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0021.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0021.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal, often appearing as a single coherent system to the user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0022.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0022.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to provide a unified service or to process data collaboratively. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0023.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0023.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0024.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0024.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that work together as a cohesive unit to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0025.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0025.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal, appearing as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0026.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0026.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of computers working together to achieve a common goal, where each node operates independently and communicates with others via network connections. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0027.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0027.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0028.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0028.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing systems in which components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0029.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0029.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0030.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0030.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that work together to appear as a single system to the user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0031.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0031.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0032.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0032.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to appear as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0033.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0033.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of computers that work together to achieve a common goal by sharing resources and coordinating through communication. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0034.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0034.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that collaborate to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0035.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0035.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0036.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0036.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of independent computers that work together to appear as a single coherent system to end users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0037.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0037.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a model in computing where components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0038.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0038.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0039.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0039.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems involve multiple computers working together to achieve a common goal by sharing resources, workloads, and communication. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0040.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0040.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0041.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0041.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0042.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0042.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0043.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0043.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, often appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0044.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0044.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal, functioning as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0045.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0045.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0046.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0046.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the user as a single coherent system, enabling resource sharing and coordination. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0047.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0047.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0048.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0048.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of computers that work together to achieve a common goal, appearing to the end-user as a single cohesive system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0049.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0049.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0050.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0050.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that work together to appear as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0051.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0051.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to appear as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0052.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0052.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to appear as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0053.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0053.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing environments composed of multiple networked computers that coordinate to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0054.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0054.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that work together to appear as a single coherent system to the end user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0055.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0055.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers working together to achieve a common goal, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0056.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0056.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are composed of multiple independent computers that work together to achieve a common goal, appearing as a single coherent system to the user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0057.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0057.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0058.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0058.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to appear as a single coherent system to the end user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0059.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0059.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal, allowing for scalable and reliable computing. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0060.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0060.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing to users as a single system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0061.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0061.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems consist of multiple autonomous computers that communicate and coordinate with each other to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0062.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0062.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0063.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0063.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that collaborate and communicate over a network to appear as a single cohesive system to the end-user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0064.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0064.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of independent computers that work together to achieve a common goal, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0065.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0065.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0066.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0066.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0067.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0067.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to their users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0068.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0068.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of interconnected computers that work together to achieve a common goal, functioning as a single coherent system to users and applications. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0069.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0069.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems consist of multiple interconnected computers that work together to appear as a single coherent system to the user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0070.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0070.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal, appearing to the user as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0071.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0071.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing as a single entity to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0072.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0072.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0073.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0073.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0074.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0074.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of interconnected computers that work together to achieve a common goal or task by sharing resources and information. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0075.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0075.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0076.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0076.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0077.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0077.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0078.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0078.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems involve multiple autonomous computers that communicate and coordinate their actions to appear as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0079.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0079.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0080.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0080.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0081.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0081.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of interconnected computers or nodes that work together to achieve a common goal, appearing as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0082.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0082.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, sharing resources and coordinating actions by communicating over a network. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0083.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0083.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that work together to appear as a single coherent system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0084.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0084.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, appearing to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0085.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0085.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing systems in which components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0086.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0086.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to the users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0087.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0087.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal, by sharing resources and coordinating tasks. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0088.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0088.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of independent computers that work together to achieve a common goal. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0089.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0089.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of interconnected computers that work together to achieve a common goal, functioning as a single system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0090.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0090.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are networks of computers that work together to achieve a common goal, enabling resource sharing and coordination across multiple locations. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0091.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0091.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of independent computers that work together to achieve a common goal, appearing as a single system to users. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0092.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0092.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0093.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0093.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a network of computers that work together to achieve a common goal, where each component communicates and coordinates its actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0094.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0094.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that collaborate to operate as a single system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0095.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0095.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are collections of independent computers that appear to users as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0096.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0096.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are systems where components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0097.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0097.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are a collection of independent computers that appear to the users of the system as a single coherent system. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0098.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0098.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems refer to a network of independent computers that work together to achieve a common goal, appearing as a single coherent system to the end-user. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0099.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/edit-review-vanilla/edit-review-trace-0099.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=1 j=0 cell=doc: agent reviewer read NULL at t=0, agent editor wrote Distributed systems are computing environments where components located on networked computers communicate and coordinate their actions by passing messages. at t=1, agent reviewer wrote at t=2
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0000.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0000.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0001.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0001.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0002.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0002.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0003.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0003.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0004.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0004.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0005.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0005.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0006.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0006.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0007.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0007.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0008.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0008.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0009.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0009.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0010.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0010.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0011.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0011.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0012.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0012.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0013.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0013.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0014.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0014.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0015.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0015.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0016.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0016.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0017.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0017.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0018.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0018.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0019.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0019.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0020.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0020.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0021.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0021.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0022.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0022.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0023.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0023.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0024.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0024.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0025.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0025.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0026.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0026.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0027.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0027.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0028.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0028.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0029.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0029.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0030.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0030.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0031.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0031.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0032.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0032.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0033.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0033.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0034.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0034.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0035.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0035.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0036.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0036.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0037.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0037.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0038.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0038.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0039.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0039.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0040.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0040.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0041.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0041.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0042.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0042.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0043.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0043.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0044.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0044.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0045.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0045.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0046.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0046.jsonl
+operations: 1
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0047.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0047.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0048.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0048.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0049.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0049.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0050.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0050.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0051.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0051.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0052.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0052.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0053.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0053.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0054.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0054.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0055.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0055.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0056.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0056.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0057.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0057.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0058.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0058.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0059.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0059.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0060.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0060.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0061.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0061.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0062.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0062.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0063.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0063.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0064.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0064.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0065.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0065.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0066.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0066.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0067.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0067.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0068.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0068.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0069.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0069.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0070.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0070.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0071.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0071.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0072.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0072.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0073.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0073.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0074.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0074.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0075.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0075.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0076.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0076.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0077.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0077.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0078.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0078.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0079.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0079.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0080.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0080.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0081.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0081.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0082.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0082.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0083.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0083.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0084.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0084.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0085.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0085.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0086.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0086.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0087.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0087.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0088.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0088.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0089.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0089.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0090.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0090.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0091.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0091.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0092.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0092.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0093.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0093.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0094.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0094.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0095.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0095.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0096.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0096.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0097.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0097.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0098.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0098.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0099.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/plan-execute-vanilla/plan-execute-trace-0099.jsonl
+operations: 2
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0000.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0000.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0001.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0001.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0002.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0002.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0003.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0003.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0004.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0004.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0005.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0005.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0006.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0006.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0007.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0007.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0008.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0008.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0009.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0009.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0010.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0010.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0011.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0011.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0012.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0012.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=3 j=1 cell=priority: agent engineer read NULL at t=1, agent reporter wrote high at t=2, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0013.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0013.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0014.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0014.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0015.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0015.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0016.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0016.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0017.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0017.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0018.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0018.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0019.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0019.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0020.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0020.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0021.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0021.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0022.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0022.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0023.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0023.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0024.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0024.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=3 j=1 cell=priority: agent engineer read NULL at t=1, agent reporter wrote High at t=2, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0025.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0025.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0026.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0026.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0027.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0027.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0028.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0028.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0029.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0029.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0030.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0030.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0031.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0031.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0032.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0032.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0033.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0033.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0034.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0034.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0035.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0035.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0036.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0036.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0037.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0037.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0038.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0038.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0039.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0039.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0040.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0040.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0041.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0041.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0042.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0042.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0043.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0043.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0044.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0044.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0045.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0045.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0046.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0046.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0047.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0047.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0048.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0048.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0049.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0049.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0050.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0050.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0051.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0051.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0052.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0052.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0053.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0053.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0054.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0054.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0055.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0055.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0056.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0056.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0057.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0057.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0058.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0058.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0059.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0059.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0060.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0060.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       2 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=3 j=1 cell=priority: agent engineer read NULL at t=1, agent reporter wrote High at t=2, agent engineer wrote at t=4
+  i=3 j=2 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=3, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0061.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0061.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0062.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0062.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0063.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0063.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0064.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0064.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0065.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0065.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0066.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0066.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=3 j=1 cell=priority: agent engineer read NULL at t=1, agent reporter wrote High at t=2, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0067.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0067.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0068.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0068.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0069.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0069.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0070.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0070.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0071.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0071.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0072.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0072.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0073.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0073.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0074.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0074.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0075.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0075.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0076.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0076.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0077.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0077.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0078.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0078.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0079.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0079.jsonl
+operations: 5
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       3 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=ticket: agent triager read Default response not available for 'Begin the protocol' prompt at t=1, agent reporter wrote Default response not available for Begin the protocol prompt at t=2, agent triager wrote at t=3
+  i=3 j=1 cell=ticket: agent engineer read Default response not available for 'Begin the protocol' prompt at t=1, agent reporter wrote Default response not available for Begin the protocol prompt at t=2, agent engineer wrote at t=4
+  i=3 j=2 cell=priority: agent engineer read NULL at t=1, agent triager wrote P2 at t=3, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0080.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0080.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0081.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0081.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0082.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0082.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0083.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0083.jsonl
+operations: 4
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       2 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=ticket: agent triager read Application crashes when submitting a form. at t=1, agent reporter wrote Set ticket priority to high. at t=2, agent triager wrote at t=3
+  i=3 j=1 cell=ticket: agent engineer read Application crashes when submitting a form. at t=1, agent reporter wrote Set ticket priority to high. at t=2, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0084.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0084.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0085.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0085.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0086.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0086.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0087.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0087.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0088.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0088.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0089.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0089.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0090.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0090.jsonl
+operations: 5
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       2 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=3 j=1 cell=priority: agent engineer read NULL at t=1, agent reporter wrote high at t=2, agent engineer wrote at t=4
+  i=3 j=2 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=3, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0091.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0091.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0092.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0092.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0093.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0093.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0094.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0094.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0095.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0095.jsonl
+operations: 5
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       2 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=3 j=1 cell=priority: agent engineer read NULL at t=1, agent reporter wrote High at t=2, agent engineer wrote at t=4
+  i=3 j=2 cell=priority: agent engineer read NULL at t=1, agent triager wrote P0 at t=3, agent engineer wrote at t=4
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0096.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0096.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       1 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+--- A1 witnesses (first 3) ---
+  i=2 j=1 cell=priority: agent engineer read NULL at t=1, agent triager wrote P1 at t=2, agent engineer wrote at t=3
+
+=== Level classification ===
+Highest level satisfied: L_0
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0097.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0097.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0098.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0098.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+
+=== FILE runs/20260913T0424Z/triage-vanilla/triage-trace-0099.jsonl
+=== Trace summary ===
+file: runs/20260913T0424Z/triage-vanilla/triage-trace-0099.jsonl
+operations: 3
+
+=== Anomaly detection ===
+A1 (Stale-Generation):       0 occurrence(s)
+A2 (Phantom-Tool):           0 occurrence(s)
+A3 (Causal-Cascade):         0 occurrence(s)
+A6 (Tool-Effect-Reorder):    0 occurrence(s)
+
+=== Level classification ===
+Highest level satisfied: L_4
+
+

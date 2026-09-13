@@ -1,0 +1,2 @@
+{"agent_id":"consumer","op_index":1,"read_set":["plan"],"read_values":{"plan":"NULL"},"read_time":0,"write_set":["answer"],"write_values":{"answer":"Create shopping list and compare prices online"},"write_time":1,"superstep":0,"scenario":"racy_shared_cell","model":"claude-haiku-4-5"}
+{"agent_id":"producer","op_index":2,"read_set":["task"],"read_values":{"task":"NULL"},"read_time":0,"write_set":["plan"],"write_values":{"plan":"Generate creative content for marketing campaign"},"write_time":1,"superstep":0,"scenario":"racy_shared_cell","model":"claude-haiku-4-5"}

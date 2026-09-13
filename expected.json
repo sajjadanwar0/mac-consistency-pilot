@@ -1,0 +1,61 @@
+{
+  "_": "Per-cell figures asserted by the manuscript. check_tables.sh scores the committed traces under Definition 1 (Anomalies.tla:6-13) and exits non-zero on any disagreement. a1 = sessions in which the predicate fires.",
+  "runs": {
+    "20260913T0424Z": {
+      "_table": "Table 3 (primary run)",
+      "cells": {
+        "edit-review-vanilla":  {"n": 100, "a1": 100},
+        "plan-execute-vanilla": {"n": 100, "a1": 0},
+        "triage-vanilla":       {"n": 100, "a1": 42}
+      }
+    },
+    "20260913T0150Z": {
+      "_table": "Table 4 (900-session baseline); its vanilla row is also the second of Table 3's further runs",
+      "cells": {
+        "edit-review-vanilla":            {"n": 100, "a1": 100},
+        "edit-review-pessimistic":        {"n": 100, "a1": 0},
+        "edit-review-snapshot_isolation": {"n": 100, "a1": 5},
+        "plan-execute-vanilla":            {"n": 100, "a1": 0},
+        "plan-execute-pessimistic":        {"n": 100, "a1": 0},
+        "plan-execute-snapshot_isolation": {"n": 100, "a1": 0},
+        "triage-vanilla":            {"n": 100, "a1": 48},
+        "triage-pessimistic":        {"n": 100, "a1": 0},
+        "triage-snapshot_isolation": {"n": 100, "a1": 8}
+      }
+    },
+    "20260913T0128Z": {
+      "_table": "Table 3 caption, first of the two further independent runs",
+      "cells": {
+        "edit-review-vanilla":  {"n": 100, "a1": 100},
+        "plan-execute-vanilla": {"n": 100, "a1": 0},
+        "triage-vanilla":       {"n": 100, "a1": 52}
+      }
+    }
+  },
+  "pooled": {
+    "_table": "Table 3 caption, pooled over the three runs",
+    "triage-vanilla":       {"n": 300, "a1": 142},
+    "plan-execute-vanilla": {"n": 300, "a1": 0}
+  },
+  "live": {
+    "_table": "Table 6, live LangGraph 1.2.0, scored under Definition 1; superstep rows are the completion clock",
+    "live_a1_gpt4omini": {
+      "store_vanilla":    {"n": 100, "a1": 60},
+      "store_validated":  {"n": 100, "a1": 0},
+      "store_sequential": {"n": 100, "a1": 0},
+      "superstep":        {"n": 100, "a1": 42}
+    },
+    "live_a1_haiku": {
+      "store_vanilla":    {"n": 100, "a1": 91},
+      "store_validated":  {"n": 100, "a1": 0},
+      "store_sequential": {"n": 100, "a1": 0},
+      "superstep":        {"n": 100, "a1": 72}
+    },
+    "live_a1_llama": {
+      "store_vanilla":    {"n": 100, "a1": 1},
+      "store_validated":  {"n": 100, "a1": 0},
+      "store_sequential": {"n": 100, "a1": 0},
+      "superstep":        {"n": 100, "a1": 26}
+    }
+  }
+}

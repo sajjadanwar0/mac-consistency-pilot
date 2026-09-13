@@ -1,0 +1,17 @@
+{
+  "cells": {
+    "edit-review-vanilla": {
+      "n": 100,
+      "a1_sessions": 100
+    },
+    "plan-execute-vanilla": {
+      "n": 100,
+      "a1_sessions": 0
+    },
+    "triage-vanilla": {
+      "n": 100,
+      "a1_sessions": 42
+    }
+  },
+  "predicate": "Definition 1 (check_tables.sh, independent of rust-analyser)"
+}

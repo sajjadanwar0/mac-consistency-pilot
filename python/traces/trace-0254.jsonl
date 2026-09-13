@@ -1,0 +1,1 @@
+{"agent": "a1", "co": [["task", "complete"]], "io": [["task", "complete"]], "planned_tool": "search", "read_set": ["task"], "read_time": 0, "read_values": {"task": "NULL"}, "tools_used": [], "tools_visible_at_read": ["code", "search"], "write_set": ["task"], "write_time": 1, "write_values": {"task": "complete"}}

@@ -1,0 +1,6 @@
+{"agent_id":"Progress","op_index":0,"read_set":[],"read_values":{},"read_time":0,"write_set":["completed:0"],"write_values":{"completed:0":"{\"raw\": \"0.0%\"}"},"write_time":1,"scenario":"openmanus","session_id":"OpenManus_14"}
+{"agent_id":"Error","op_index":1,"read_set":[],"read_values":{},"read_time":2,"write_set":["error:0"],"write_values":{"error:0":"{\"raw\": \"Page.navigate\"}"},"write_time":3,"scenario":"openmanus","session_id":"OpenManus_14"}
+{"agent_id":"Error","op_index":2,"read_set":[],"read_values":{},"read_time":4,"write_set":["prace:0"],"write_values":{"prace:0":"{\"raw\": \"2000\"}"},"write_time":5,"scenario":"openmanus","session_id":"OpenManus_14"}
+{"agent_id":"Error","op_index":3,"read_set":[],"read_values":{},"read_time":6,"write_set":["error:1"],"write_values":{"error:1":"{\"raw\": \"Page.navigate\"}"},"write_time":7,"scenario":"openmanus","session_id":"OpenManus_14"}
+{"agent_id":"Step 9","op_index":4,"read_set":[],"read_values":{},"read_time":8,"write_set":["prace:1"],"write_values":{"prace:1":"{\"raw\": \"2000\"}"},"write_time":9,"scenario":"openmanus","session_id":"OpenManus_14"}
+{"agent_id":"Terminated","op_index":5,"read_set":[],"read_values":{},"read_time":10,"write_set":["steps:0"],"write_values":{"steps:0":"{\"raw\": \"20\"}"},"write_time":11,"scenario":"openmanus","session_id":"OpenManus_14"}

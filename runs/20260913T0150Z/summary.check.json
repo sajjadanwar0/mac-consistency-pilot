@@ -1,0 +1,41 @@
+{
+  "cells": {
+    "edit-review-vanilla": {
+      "n": 100,
+      "a1_sessions": 100
+    },
+    "edit-review-pessimistic": {
+      "n": 100,
+      "a1_sessions": 0
+    },
+    "edit-review-snapshot_isolation": {
+      "n": 100,
+      "a1_sessions": 5
+    },
+    "plan-execute-vanilla": {
+      "n": 100,
+      "a1_sessions": 0
+    },
+    "plan-execute-pessimistic": {
+      "n": 100,
+      "a1_sessions": 0
+    },
+    "plan-execute-snapshot_isolation": {
+      "n": 100,
+      "a1_sessions": 0
+    },
+    "triage-vanilla": {
+      "n": 100,
+      "a1_sessions": 48
+    },
+    "triage-pessimistic": {
+      "n": 100,
+      "a1_sessions": 0
+    },
+    "triage-snapshot_isolation": {
+      "n": 100,
+      "a1_sessions": 8
+    }
+  },
+  "predicate": "Definition 1 (check_tables.sh, independent of rust-analyser)"
+}

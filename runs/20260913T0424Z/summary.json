@@ -1,0 +1,38 @@
+{
+  "cells": {
+    "edit-review-vanilla": {
+      "n": 100,
+      "a1_sessions": 100,
+      "a1_occurrences": 100,
+      "op_mismatch": 0,
+      "a1_rate": 1.0,
+      "ci95": [
+        0.9637833073548235,
+        1.0
+      ]
+    },
+    "plan-execute-vanilla": {
+      "n": 100,
+      "a1_sessions": 0,
+      "a1_occurrences": 0,
+      "op_mismatch": 0,
+      "a1_rate": 0.0,
+      "ci95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    "triage-vanilla": {
+      "n": 100,
+      "a1_sessions": 42,
+      "a1_occurrences": 48,
+      "op_mismatch": 0,
+      "a1_rate": 0.42,
+      "ci95": [
+        0.3219855393547969,
+        0.5228808042760862
+      ]
+    }
+  },
+  "predicate": "Definition 1 (rust-analyser detect_a1)"
+}

@@ -1,0 +1,1 @@
+{"agent_id":"mathproxyagent","op_index":0,"read_set":[],"read_values":{},"read_time":0,"write_set":["day:0"],"write_values":{"day:0":"{\"raw\": \"doubled\"}"},"write_time":1,"scenario":"ag2","session_id":"AG2_8"}
