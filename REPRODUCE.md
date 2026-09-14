@@ -93,3 +93,5 @@ invisible for two rounds because `python/.gitignore` carried two rules
 nobody had read. Ignore files inside already-ignored directories (`.idea/`,
 `.venv/`, `verus-count-clone/`) are shadowed and are reported as such, not
 counted.
+| S 6.3 interrupt() probe | `python/interrupt_probe_results.json` | `python/langgraph_interrupt_probe.py` |
+| S 6.3 CrewAI shape probe | `python/crewai_shape_results.json` | `python/crewai_shape_probe.py` |

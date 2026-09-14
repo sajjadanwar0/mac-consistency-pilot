@@ -1,0 +1,36 @@
+{
+ "crewai": "1.15.21",
+ "cells": {
+  "async_context_async": [
+   "REJECTED",
+   "async-context rule"
+  ],
+  "async_async_no_edge": [
+   "CONSTRUCTED",
+   null
+  ],
+  "async_sync_async_context": [
+   "CONSTRUCTED",
+   null
+  ]
+ },
+ "memory_surface": [
+  "Any",
+  "MemoryMatch",
+  "MemoryRecord",
+  "MemoryScope",
+  "MemorySlice",
+  "ScopeInfo",
+  "analyze",
+  "annotations",
+  "compute_composite_score",
+  "embed_text",
+  "embed_texts",
+  "memory_scope",
+  "storage",
+  "types",
+  "unified_memory",
+  "utils"
+ ],
+ "keyed_mutable_cell": false
+}

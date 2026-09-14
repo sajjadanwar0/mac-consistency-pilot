@@ -1,0 +1,24 @@
+{
+ "langgraph": "1.2.0",
+ "window_open_graph_state": false,
+ "window_open_basestore": false,
+ "runs_effect_before": 2,
+ "effects_before": [
+  "EMAIL 14 June",
+  "EMAIL 21 June"
+ ],
+ "runs_effect_after": 2,
+ "effects_after": [
+  "EMAIL 21 June"
+ ],
+ "runs_no_revision": 2,
+ "effects_no_revision": [
+  "EMAIL 14 June",
+  "EMAIL 14 June"
+ ],
+ "no_interrupt_runs": [
+  "a",
+  "b"
+ ],
+ "effects_diverge": true
+}
