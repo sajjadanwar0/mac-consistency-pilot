@@ -2,6 +2,14 @@
 use vstd::prelude::*;
 
 verus! {
+
+// 2026-09-14  vstd migration (Verus 0.2026.09.xx). Map::new went
+// `open spec` -> `uninterp`, so proofs that relied on it unfolding need
+// lemma_map_new_domain / lemma_map_new_index; Set::new now returns Option
+// because Set is finite-only. Every domain in this file was already a set
+// expression written as a lambda, so the call sites became Set algebra and
+// no finiteness obligation arises.
+broadcast use vstd::map::group_map_lemmas, vstd::set::group_set_lemmas;
 pub type CellId = int;
 pub type AgentId = int;
 pub type Value = int;
@@ -100,7 +108,7 @@ pub open spec fn locks_with_released(
     to_remove: Set<CellId>,
 ) -> Map<CellId, AgentId> {
     Map::new(
-        |c: CellId| base.contains_key(c) && !to_remove.contains(c),
+        base.dom().difference(to_remove),
         |c: CellId| base[c],
     )
 }
@@ -331,7 +339,7 @@ pub open spec fn commit_step(
         write_time: new_clock,
     };
     let new_cells = Map::new(
-        |c: CellId| s.cells.contains_key(c) || write_kv.contains_key(c),
+        s.cells.dom().union(write_kv.dom()),
         |c: CellId| if write_kv.contains_key(c) { write_kv[c] } else { s.cells[c] },
     );
     let agent_locks = if s.holds.contains_key(agent) {

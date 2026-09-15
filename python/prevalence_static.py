@@ -55,7 +55,12 @@ import argparse
 import json
 from dataclasses import dataclass, field
 
-from prevalence_harness import compute_layers
+# 2026-09-14 round 1: compute_layers is defined in
+# prevalence_dynamic_run.py, not prevalence_harness.py. The wrong import
+# made this module raise ImportError on a clean clone while every gate
+# stayed green, because check_tables.sh's MAP gate tested that a path
+# EXISTS, not that it loads. python/check_imports.py now gates that.
+from prevalence_dynamic_run import compute_layers
 
 START = "__start__"
 END = "__end__"

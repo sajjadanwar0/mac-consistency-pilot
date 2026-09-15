@@ -2,6 +2,14 @@
 use vstd::prelude::*;
 
 verus! {
+
+// 2026-09-14  vstd migration (Verus 0.2026.09.xx). Map::new went
+// `open spec` -> `uninterp`, so proofs that relied on it unfolding need
+// lemma_map_new_domain / lemma_map_new_index; Set::new now returns Option
+// because Set is finite-only. Every domain in this file was already a set
+// expression written as a lambda, so the call sites became Set algebra and
+// no finiteness obligation arises.
+broadcast use vstd::map::group_map_lemmas, vstd::set::group_set_lemmas;
 pub type CellId = int;
 pub type AgentId = int;
 pub type Value = int;
@@ -75,7 +83,7 @@ pub open spec fn last_write_after_commit(
     new_clock: Time,
 ) -> Map<CellId, Time> {
     Map::new(
-        |c: CellId| base.contains_key(c) || write_set.contains(c),
+        base.dom().union(write_set),
         |c: CellId| if write_set.contains(c) { new_clock }
                     else if base.contains_key(c) { base[c] }
                     else { 0 },
@@ -88,7 +96,7 @@ pub open spec fn store_after_commit(
     write_values: Map<CellId, Value>,
 ) -> Map<CellId, Value> {
     Map::new(
-        |c: CellId| base.contains_key(c) || write_set.contains(c),
+        base.dom().union(write_set),
         |c: CellId| if write_set.contains(c) && write_values.contains_key(c) {
                         write_values[c]
                     } else if base.contains_key(c) {
@@ -104,7 +112,7 @@ pub open spec fn read_values_snapshot(
     read_cells: Set<CellId>,
 ) -> Map<CellId, Value> {
     Map::new(
-        |c: CellId| read_cells.contains(c),
+        read_cells,
         |c: CellId| if store.contains_key(c) { store[c] } else { null_value() },
     )
 }

@@ -29,6 +29,25 @@ use vstd::prelude::*;
 
 verus! {
 
+// 2026-09-14  vstd migration (Verus 0.2026.09.xx). Map::new went
+// `open spec` -> `uninterp`, so proofs that relied on it unfolding need
+// lemma_map_new_domain / lemma_map_new_index; Set::new now returns Option
+// because Set is finite-only. Every domain in this file was already a set
+// expression written as a lambda, so the call sites became Set algebra and
+// no finiteness obligation arises.
+//
+// FOUR groups, not two. Set::map lives in set_lib, not set, so its
+// membership lemma Set::lemma_map_contains is in group_set_lib_default and
+// NOT in group_set_lemmas. Importing only the latter left every
+// `.map(f).contains(b)` opaque, which is what failed the 5 assertions in
+// lib_refinement_ssi_chain and 6 of the 8 in lib_l2_exec. Seq::to_set is
+// likewise closed, with Seq::to_set_ensures in group_seq_lib_default.
+broadcast use
+    vstd::map::group_map_lemmas,
+    vstd::set::group_set_lemmas,
+    vstd::set_lib::group_set_lib_default,
+    vstd::seq_lib::group_seq_lib_default;
+
 // =====================================================================
 // Section 1: Carriers
 // =====================================================================
@@ -240,7 +259,7 @@ pub open spec fn concrete_versions_after_commit(
     new_clock: ConcreteTime,
 ) -> Map<ConcreteCellId, VersionChain> {
     Map::new(
-        |cc: ConcreteCellId| base.contains_key(cc) || write_set.contains(cc),
+        base.dom().union(write_set),
         |cc: ConcreteCellId|
             if write_set.contains(cc) && write_values.contains_key(cc) {
                 let base_chain = if base.contains_key(cc) { base[cc] }
@@ -369,7 +388,7 @@ pub open spec fn abstract_store_after_commit(
     write_values: Map<AbstractCellId, AbstractValue>,
 ) -> Map<AbstractCellId, AbstractValue> {
     Map::new(
-        |c: AbstractCellId| base.contains_key(c) || write_set.contains(c),
+        base.dom().union(write_set),
         |c: AbstractCellId| if write_set.contains(c) && write_values.contains_key(c) {
                                 write_values[c]
                             } else if base.contains_key(c) {
@@ -386,7 +405,7 @@ pub open spec fn abstract_last_write_after_commit(
     new_clock: AbstractTime,
 ) -> Map<AbstractCellId, AbstractTime> {
     Map::new(
-        |c: AbstractCellId| base.contains_key(c) || write_set.contains(c),
+        base.dom().union(write_set),
         |c: AbstractCellId| if write_set.contains(c) { new_clock }
                             else if base.contains_key(c) { base[c] }
                             else { 0 },
@@ -480,8 +499,7 @@ pub open spec fn abstract_store_from_chain(versions: Map<ConcreteCellId, Version
     -> Map<AbstractCellId, AbstractValue>
 {
     Map::new(
-        |c: AbstractCellId| exists |cc: ConcreteCellId|
-            #[trigger] versions.contains_key(cc) && versions[cc].len() > 0 && cell_alpha(cc) == c,
+        versions.dom().filter(|cc: ConcreteCellId| versions[cc].len() > 0).map(|cc: ConcreteCellId| cell_alpha(cc)),
         |c: AbstractCellId| {
             let cc = choose |cc: ConcreteCellId|
                 #[trigger] versions.contains_key(cc) && versions[cc].len() > 0 && cell_alpha(cc) == c;
@@ -494,8 +512,7 @@ pub open spec fn abstract_last_write_from_chain(versions: Map<ConcreteCellId, Ve
     -> Map<AbstractCellId, AbstractTime>
 {
     Map::new(
-        |c: AbstractCellId| exists |cc: ConcreteCellId|
-            #[trigger] versions.contains_key(cc) && versions[cc].len() > 0 && cell_alpha(cc) == c,
+        versions.dom().filter(|cc: ConcreteCellId| versions[cc].len() > 0).map(|cc: ConcreteCellId| cell_alpha(cc)),
         |c: AbstractCellId| {
             let cc = choose |cc: ConcreteCellId|
                 #[trigger] versions.contains_key(cc) && versions[cc].len() > 0 && cell_alpha(cc) == c;
@@ -504,12 +521,123 @@ pub open spec fn abstract_last_write_from_chain(versions: Map<ConcreteCellId, Ve
     )
 }
 
+// 2026-09-14  vstd migration bridge.
+// Map::new was `open spec` and unfolded, so `X.dom().contains(c)` literally
+// WAS the domain predicate and the `by` blocks below discharge it by
+// asserting the witness in predicate form. Map::new is `uninterp` now and
+// Set::map / Set::filter are `closed`, so that goal is opaque. These two
+// lemmas are triggered on exactly the term those assertions use and conclude
+// the old predicate, leaving every proof body unchanged.
+pub broadcast proof fn lemma_abstract_store_dom(
+    versions: Map<ConcreteCellId, VersionChain>,
+    c: AbstractCellId,
+)
+    ensures
+        #[trigger] abstract_store_from_chain(versions).dom().contains(c)
+        <==> (exists |cc: ConcreteCellId|
+                #[trigger] versions.contains_key(cc)
+                && versions[cc].len() > 0 && cell_alpha(cc) == c),
+{
+    broadcast use vstd::map::group_map_lemmas;
+
+    // Map::new(s, fv).dom() == s
+    assert(abstract_store_from_chain(versions).dom()
+           =~= versions.dom()
+                 .filter(|cc: ConcreteCellId| versions[cc].len() > 0)
+                 .map(|cc: ConcreteCellId| cell_alpha(cc)));
+
+    // Set::map is closed; this is the only way through it.
+    versions.dom()
+        .filter(|cc: ConcreteCellId| versions[cc].len() > 0)
+        .lemma_map_contains(|cc: ConcreteCellId| cell_alpha(cc), c);
+
+    // ==> direction
+    if versions.dom()
+        .filter(|cc: ConcreteCellId| versions[cc].len() > 0)
+        .map(|cc: ConcreteCellId| cell_alpha(cc)).contains(c)
+    {
+        let a = choose |a: ConcreteCellId|
+            versions.dom().filter(|cc: ConcreteCellId| versions[cc].len() > 0).contains(a)
+            && c == cell_alpha(a);
+        vstd::set::lemma_set_filter(
+            versions.dom(), |cc: ConcreteCellId| versions[cc].len() > 0, a);
+        assert(versions.contains_key(a) && versions[a].len() > 0 && cell_alpha(a) == c);
+    }
+
+    // <== direction
+    if exists |cc: ConcreteCellId|
+        #[trigger] versions.contains_key(cc)
+        && versions[cc].len() > 0 && cell_alpha(cc) == c
+    {
+        let cc0 = choose |cc: ConcreteCellId|
+            #[trigger] versions.contains_key(cc)
+            && versions[cc].len() > 0 && cell_alpha(cc) == c;
+        vstd::set::lemma_set_filter(
+            versions.dom(), |cc: ConcreteCellId| versions[cc].len() > 0, cc0);
+        assert(versions.dom()
+            .filter(|cc: ConcreteCellId| versions[cc].len() > 0).contains(cc0));
+        assert(c == cell_alpha(cc0));
+    }
+}
+
+pub broadcast proof fn lemma_abstract_last_write_dom(
+    versions: Map<ConcreteCellId, VersionChain>,
+    c: AbstractCellId,
+)
+    ensures
+        #[trigger] abstract_last_write_from_chain(versions).dom().contains(c)
+        <==> (exists |cc: ConcreteCellId|
+                #[trigger] versions.contains_key(cc)
+                && versions[cc].len() > 0 && cell_alpha(cc) == c),
+{
+    broadcast use vstd::map::group_map_lemmas;
+
+    assert(abstract_last_write_from_chain(versions).dom()
+           =~= versions.dom()
+                 .filter(|cc: ConcreteCellId| versions[cc].len() > 0)
+                 .map(|cc: ConcreteCellId| cell_alpha(cc)));
+
+    versions.dom()
+        .filter(|cc: ConcreteCellId| versions[cc].len() > 0)
+        .lemma_map_contains(|cc: ConcreteCellId| cell_alpha(cc), c);
+
+    if versions.dom()
+        .filter(|cc: ConcreteCellId| versions[cc].len() > 0)
+        .map(|cc: ConcreteCellId| cell_alpha(cc)).contains(c)
+    {
+        let a = choose |a: ConcreteCellId|
+            versions.dom().filter(|cc: ConcreteCellId| versions[cc].len() > 0).contains(a)
+            && c == cell_alpha(a);
+        vstd::set::lemma_set_filter(
+            versions.dom(), |cc: ConcreteCellId| versions[cc].len() > 0, a);
+        assert(versions.contains_key(a) && versions[a].len() > 0 && cell_alpha(a) == c);
+    }
+
+    if exists |cc: ConcreteCellId|
+        #[trigger] versions.contains_key(cc)
+        && versions[cc].len() > 0 && cell_alpha(cc) == c
+    {
+        let cc0 = choose |cc: ConcreteCellId|
+            #[trigger] versions.contains_key(cc)
+            && versions[cc].len() > 0 && cell_alpha(cc) == c;
+        vstd::set::lemma_set_filter(
+            versions.dom(), |cc: ConcreteCellId| versions[cc].len() > 0, cc0);
+        assert(versions.dom()
+            .filter(|cc: ConcreteCellId| versions[cc].len() > 0).contains(cc0));
+        assert(c == cell_alpha(cc0));
+    }
+}
+
+pub broadcast group group_chain_bridge {
+    lemma_abstract_store_dom,
+    lemma_abstract_last_write_dom,
+}
+
 pub open spec fn abstract_data(d: Map<ConcreteCellId, ConcreteValue>)
     -> Map<AbstractCellId, AbstractValue>
 {
     Map::new(
-        |c: AbstractCellId| exists |cc: ConcreteCellId|
-            #[trigger] d.contains_key(cc) && cell_alpha(cc) == c,
+        d.dom().map(|cc: ConcreteCellId| cell_alpha(cc)),
         |c: AbstractCellId| {
             let cc = choose |cc: ConcreteCellId|
                 #[trigger] d.contains_key(cc) && cell_alpha(cc) == c;
@@ -522,8 +650,7 @@ pub open spec fn abstract_pending(cs: CallerSnapshotMap)
     -> Map<AbstractAgentId, AbstractPendingSnapshot>
 {
     Map::new(
-        |a: AbstractAgentId| exists |ca: ConcreteAgentId|
-            #[trigger] cs.contains_key(ca) && agent_alpha(ca) == a,
+        cs.dom().map(|ca: ConcreteAgentId| agent_alpha(ca)),
         |a: AbstractAgentId| {
             let ca = choose |ca: ConcreteAgentId|
                 #[trigger] cs.contains_key(ca) && agent_alpha(ca) == a;
@@ -648,6 +775,7 @@ pub proof fn lemma_abstract_data_insert(
         == abstract_data(base).insert(cell_alpha(k), value_alpha(v))
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
 
     let lhs = abstract_data(base.insert(k, v));
     let rhs = abstract_data(base).insert(cell_alpha(k), value_alpha(v));
@@ -711,6 +839,7 @@ pub proof fn lemma_abstract_pending_insert(
         )
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
 
     let lhs = abstract_pending(base.insert(a, snap));
     let rhs = abstract_pending(base).insert(
@@ -773,6 +902,7 @@ pub proof fn lemma_abstract_pending_remove(
         == abstract_pending(base).remove(agent_alpha(a))
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
 
     let lhs = abstract_pending(base.remove(a));
     let rhs = abstract_pending(base).remove(agent_alpha(a));
@@ -870,6 +1000,7 @@ pub proof fn lemma_snapshot_commutes(
     decreases cells.len()
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
     broadcast use axiom_null_sentinel;
 
     let abs_store = abstract_store_from_chain(versions);
@@ -975,6 +1106,7 @@ pub proof fn lemma_validation_passes_corresponds(
     })
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
 
     let s = abstract_of_chain(*c, *cs);
     let agent_a = agent_alpha(agent);
@@ -1042,6 +1174,7 @@ pub proof fn lemma_chain_store_commutes(
         )
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
     broadcast use axiom_null_sentinel;
 
     let new_versions = concrete_versions_after_commit(base, write_set, write_values, new_clock);
@@ -1167,6 +1300,7 @@ pub proof fn lemma_chain_last_write_commutes(
         )
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
 
     let new_versions = concrete_versions_after_commit(base, write_set, write_values, new_clock);
     let lhs = abstract_last_write_from_chain(new_versions);
@@ -1267,6 +1401,7 @@ pub proof fn lemma_ssi_chain_begin_refines(
     )
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
 
     let s = abstract_of_chain(*c, *cs);
     let s_new = abstract_of_chain(*c_new, *cs_new);
@@ -1330,6 +1465,7 @@ pub proof fn lemma_ssi_chain_commit_success_refines(
     )
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
 
     let s = abstract_of_chain(*c, *cs);
     let s_new = abstract_of_chain(*c_new, *cs_new);
@@ -1428,6 +1564,7 @@ pub proof fn lemma_ssi_chain_commit_abort_refines(
     )
 {
     broadcast use axiom_string_to_int_injective;
+    broadcast use group_chain_bridge;
 
     let s = abstract_of_chain(*c, *cs);
     let s_new = abstract_of_chain(*c_new, *cs_new);

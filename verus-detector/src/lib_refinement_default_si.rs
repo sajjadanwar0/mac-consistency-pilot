@@ -41,6 +41,14 @@ use vstd::prelude::*;
 
 verus! {
 
+// 2026-09-14  vstd migration (Verus 0.2026.09.xx). Map::new went
+// `open spec` -> `uninterp`, so proofs that relied on it unfolding need
+// lemma_map_new_domain / lemma_map_new_index; Set::new now returns Option
+// because Set is finite-only. Every domain in this file was already a set
+// expression written as a lambda, so the call sites became Set algebra and
+// no finiteness obligation arises.
+broadcast use vstd::map::group_map_lemmas, vstd::set::group_set_lemmas;
+
 // =====================================================================
 // Section 1: Carriers
 // =====================================================================
@@ -211,7 +219,7 @@ pub open spec fn concrete_store_after_commit(
     write_values: Map<ConcreteCellId, ConcreteValue>,
 ) -> Map<ConcreteCellId, ConcreteValue> {
     Map::new(
-        |cc: ConcreteCellId| base.contains_key(cc) || write_set.contains(cc),
+        base.dom().union(write_set),
         |cc: ConcreteCellId| if write_set.contains(cc) && write_values.contains_key(cc) {
                                  write_values[cc]
                              } else if base.contains_key(cc) {
@@ -228,7 +236,7 @@ pub open spec fn concrete_last_write_after_commit(
     new_clock: ConcreteTime,
 ) -> Map<ConcreteCellId, ConcreteTime> {
     Map::new(
-        |cc: ConcreteCellId| base.contains_key(cc) || write_set.contains(cc),
+        base.dom().union(write_set),
         |cc: ConcreteCellId| if write_set.contains(cc) { new_clock }
                              else if base.contains_key(cc) { base[cc] }
                              else { 0 },
@@ -380,7 +388,7 @@ pub open spec fn abstract_store_after_commit(
     write_values: Map<AbstractCellId, AbstractValue>,
 ) -> Map<AbstractCellId, AbstractValue> {
     Map::new(
-        |c: AbstractCellId| base.contains_key(c) || write_set.contains(c),
+        base.dom().union(write_set),
         |c: AbstractCellId| if write_set.contains(c) && write_values.contains_key(c) {
                                 write_values[c]
                             } else if base.contains_key(c) {
@@ -397,7 +405,7 @@ pub open spec fn abstract_last_write_after_commit(
     new_clock: AbstractTime,
 ) -> Map<AbstractCellId, AbstractTime> {
     Map::new(
-        |c: AbstractCellId| base.contains_key(c) || write_set.contains(c),
+        base.dom().union(write_set),
         |c: AbstractCellId| if write_set.contains(c) { new_clock }
                             else if base.contains_key(c) { base[c] }
                             else { 0 },
@@ -513,8 +521,7 @@ pub open spec fn abstract_data(d: Map<ConcreteCellId, ConcreteValue>)
     -> Map<AbstractCellId, AbstractValue>
 {
     Map::new(
-        |c: AbstractCellId| exists |cc: ConcreteCellId|
-            #[trigger] d.contains_key(cc) && cell_alpha(cc) == c,
+        d.dom().map(|cc: ConcreteCellId| cell_alpha(cc)),
         |c: AbstractCellId| {
             let cc = choose |cc: ConcreteCellId|
                 #[trigger] d.contains_key(cc) && cell_alpha(cc) == c;
@@ -527,8 +534,7 @@ pub open spec fn abstract_last_write_map(lw: Map<ConcreteCellId, ConcreteTime>)
     -> Map<AbstractCellId, AbstractTime>
 {
     Map::new(
-        |c: AbstractCellId| exists |cc: ConcreteCellId|
-            #[trigger] lw.contains_key(cc) && cell_alpha(cc) == c,
+        lw.dom().map(|cc: ConcreteCellId| cell_alpha(cc)),
         |c: AbstractCellId| {
             let cc = choose |cc: ConcreteCellId|
                 #[trigger] lw.contains_key(cc) && cell_alpha(cc) == c;
@@ -541,8 +547,7 @@ pub open spec fn abstract_pending(cs: CallerSnapshotMap)
     -> Map<AbstractAgentId, AbstractPendingSnapshot>
 {
     Map::new(
-        |a: AbstractAgentId| exists |ca: ConcreteAgentId|
-            #[trigger] cs.contains_key(ca) && agent_alpha(ca) == a,
+        cs.dom().map(|ca: ConcreteAgentId| agent_alpha(ca)),
         |a: AbstractAgentId| {
             let ca = choose |ca: ConcreteAgentId|
                 #[trigger] cs.contains_key(ca) && agent_alpha(ca) == a;

@@ -14,6 +14,14 @@ use vstd::prelude::*;
 
 verus! {
 
+// 2026-09-14  vstd migration (Verus 0.2026.09.xx). Map::new went
+// `open spec` -> `uninterp`, so proofs that relied on it unfolding need
+// lemma_map_new_domain / lemma_map_new_index; Set::new now returns Option
+// because Set is finite-only. Every domain in this file was already a set
+// expression written as a lambda, so the call sites became Set algebra and
+// no finiteness obligation arises.
+broadcast use vstd::map::group_map_lemmas, vstd::set::group_set_lemmas;
+
 // =====================================================================
 // Section 1: Carriers
 // =====================================================================
@@ -374,7 +382,7 @@ pub open spec fn abstract_commit_step(
             write_time: new_clock,
         };
         let new_cells = Map::new(
-            |c: AbstractCellId| s.cells.contains_key(c) || write_kv.contains_key(c),
+            s.cells.dom().union(write_kv.dom()),
             |c: AbstractCellId| if write_kv.contains_key(c) { write_kv[c] }
                                 else { s.cells[c] },
         );
@@ -384,7 +392,7 @@ pub open spec fn abstract_commit_step(
             Set::<AbstractCellId>::empty()
         };
         let new_locks = Map::new(
-            |c: AbstractCellId| s.locks.contains_key(c) && !agent_locks.contains(c),
+            s.locks.dom().difference(agent_locks),
             |c: AbstractCellId| s.locks[c],
         );
 
@@ -405,8 +413,7 @@ pub open spec fn abstract_data(d: Map<ConcreteCellId, ConcreteValue>)
     -> Map<AbstractCellId, AbstractValue>
 {
     Map::new(
-        |c: AbstractCellId| exists |cc: ConcreteCellId|
-            #[trigger] d.contains_key(cc) && cell_alpha(cc) == c,
+        d.dom().map(|cc: ConcreteCellId| cell_alpha(cc)),
         |c: AbstractCellId| {
             let cc = choose |cc: ConcreteCellId|
                 #[trigger] d.contains_key(cc) && cell_alpha(cc) == c;
@@ -419,8 +426,7 @@ pub open spec fn abstract_locks(ch: Map<ConcreteCellId, ConcreteAgentId>)
     -> Map<AbstractCellId, AbstractAgentId>
 {
     Map::new(
-        |c: AbstractCellId| exists |cc: ConcreteCellId|
-            #[trigger] ch.contains_key(cc) && cell_alpha(cc) == c,
+        ch.dom().map(|cc: ConcreteCellId| cell_alpha(cc)),
         |c: AbstractCellId| {
             let cc = choose |cc: ConcreteCellId|
                 #[trigger] ch.contains_key(cc) && cell_alpha(cc) == c;
@@ -433,8 +439,7 @@ pub open spec fn abstract_holds(ah: Map<ConcreteAgentId, Set<ConcreteCellId>>)
     -> Map<AbstractAgentId, Set<AbstractCellId>>
 {
     Map::new(
-        |a: AbstractAgentId| exists |ca: ConcreteAgentId|
-            #[trigger] ah.contains_key(ca) && agent_alpha(ca) == a,
+        ah.dom().map(|ca: ConcreteAgentId| agent_alpha(ca)),
         |a: AbstractAgentId| {
             let ca = choose |ca: ConcreteAgentId|
                 #[trigger] ah.contains_key(ca) && agent_alpha(ca) == a;
@@ -469,8 +474,7 @@ pub open spec fn abstract_pending(cs: CallerSnapshotMap)
     -> Map<AbstractAgentId, AbstractPending>
 {
     Map::new(
-        |a: AbstractAgentId| exists |ca: ConcreteAgentId|
-            #[trigger] cs.contains_key(ca) && agent_alpha(ca) == a,
+        cs.dom().map(|ca: ConcreteAgentId| agent_alpha(ca)),
         |a: AbstractAgentId| {
             let ca = choose |ca: ConcreteAgentId|
                 #[trigger] cs.contains_key(ca) && agent_alpha(ca) == a;
@@ -1530,14 +1534,13 @@ pub open spec fn concrete_commit_step(
     && writes.dom().finite()
     && writes.dom().subset_of(c.agent_holds[agent])
     && c_new.data == Map::new(
-        |cc: ConcreteCellId| c.data.contains_key(cc) || writes.contains_key(cc),
+        c.data.dom().union(writes.dom()),
         |cc: ConcreteCellId| if writes.contains_key(cc) { writes[cc] }
                              else { c.data[cc] },
     )
     && c_new.clock == (c.clock + 1) as nat
     && c_new.cell_holders == Map::new(
-        |cc: ConcreteCellId| c.cell_holders.contains_key(cc)
-            && !c.agent_holds[agent].contains(cc),
+        c.cell_holders.dom().difference(c.agent_holds[agent]),
         |cc: ConcreteCellId| c.cell_holders[cc],
     )
     && c_new.agent_holds == c.agent_holds.insert(agent, Set::<ConcreteCellId>::empty())
@@ -1653,13 +1656,12 @@ pub proof fn lemma_abstract_data_update(
     writes: Map<ConcreteCellId, ConcreteValue>,
 )
     ensures abstract_data(Map::new(
-                |cc: ConcreteCellId| base.contains_key(cc) || writes.contains_key(cc),
+                base.dom().union(writes.dom()),
                 |cc: ConcreteCellId| if writes.contains_key(cc) { writes[cc] }
                                      else { base[cc] },
             ))
         == Map::new(
-                |c: AbstractCellId| abstract_data(base).contains_key(c)
-                                    || abstract_data(writes).contains_key(c),
+                abstract_data(base).dom().union(abstract_data(writes).dom()),
                 |c: AbstractCellId| if abstract_data(writes).contains_key(c) {
                                         abstract_data(writes)[c]
                                     } else {
@@ -1670,14 +1672,13 @@ pub proof fn lemma_abstract_data_update(
     broadcast use axiom_string_to_int_injective;
 
     let merged_concrete = Map::new(
-        |cc: ConcreteCellId| base.contains_key(cc) || writes.contains_key(cc),
+        base.dom().union(writes.dom()),
         |cc: ConcreteCellId| if writes.contains_key(cc) { writes[cc] }
                              else { base[cc] },
     );
     let lhs = abstract_data(merged_concrete);
     let rhs = Map::new(
-        |c: AbstractCellId| abstract_data(base).contains_key(c)
-                            || abstract_data(writes).contains_key(c),
+        abstract_data(base).dom().union(abstract_data(writes).dom()),
         |c: AbstractCellId| if abstract_data(writes).contains_key(c) {
                                 abstract_data(writes)[c]
                             } else {
@@ -1780,26 +1781,24 @@ pub proof fn lemma_abstract_locks_release(
     to_remove: Set<ConcreteCellId>,
 )
     ensures abstract_locks(Map::new(
-                |cc: ConcreteCellId| base.contains_key(cc) && !to_remove.contains(cc),
+                base.dom().difference(to_remove),
                 |cc: ConcreteCellId| base[cc],
             ))
         == Map::new(
-                |c: AbstractCellId| abstract_locks(base).contains_key(c)
-                                    && !to_remove.map(|cc: ConcreteCellId| cell_alpha(cc)).contains(c),
+                abstract_locks(base).dom().difference(to_remove.map(|cc: ConcreteCellId| cell_alpha(cc))),
                 |c: AbstractCellId| abstract_locks(base)[c],
             )
 {
     broadcast use axiom_string_to_int_injective;
 
     let filtered_concrete = Map::new(
-        |cc: ConcreteCellId| base.contains_key(cc) && !to_remove.contains(cc),
+        base.dom().difference(to_remove),
         |cc: ConcreteCellId| base[cc],
     );
     let removed_abstract = to_remove.map(|cc: ConcreteCellId| cell_alpha(cc));
     let lhs = abstract_locks(filtered_concrete);
     let rhs = Map::new(
-        |c: AbstractCellId| abstract_locks(base).contains_key(c)
-                            && !removed_abstract.contains(c),
+        abstract_locks(base).dom().difference(removed_abstract),
         |c: AbstractCellId| abstract_locks(base)[c],
     );
 

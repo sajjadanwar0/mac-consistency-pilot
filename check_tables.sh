@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =====================================================================
-# check_tables.sh -- three gates.
+# check_tables.sh -- four gates.
 #
 #   CELLS    Score the committed traces under Definition 1 and fail if
 #            any published cell disagrees with expected.json.  This is a
@@ -18,6 +18,16 @@
 #            invisible for two rounds because a nested ignore file went
 #            unread.
 #
+#   IMPORTS  Every intra-repo `from M import n` in a file REPRODUCE.md cites
+#            must resolve (./python/check_imports.py).  The MAP gate above
+#            tests that a path EXISTS; it cannot tell a loadable analyzer
+#            from a dead one.  python/prevalence_static.py -- the analyzer
+#            that produces the k-of-N topology bound, named by filename in
+#            the appendix -- imported compute_layers from the wrong module
+#            and raised ImportError on a clean clone with all three gates
+#            green.  A file REPRODUCE.md does not cite is reported as a
+#            warning and does not gate.
+#
 #   ./check_tables.sh          all three gates, per-cell detail
 #   ./check_tables.sh --quiet  verdict only
 #
@@ -31,6 +41,15 @@ if [ -x ./check_ignores.sh ]; then
     ./check_ignores.sh --quiet >/dev/null || { echo "FAIL: ignore-file gate"; ./check_ignores.sh; exit 1; }
   else
     ./check_ignores.sh || exit 1
+  fi
+fi
+
+if [ -f ./python/check_imports.py ]; then
+  if [ "${1:-}" = "--quiet" ]; then
+    python3 ./python/check_imports.py --quiet >/dev/null \
+      || { echo "FAIL: import gate"; python3 ./python/check_imports.py; exit 1; }
+  else
+    python3 ./python/check_imports.py || exit 1
   fi
 fi
 

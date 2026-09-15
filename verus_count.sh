@@ -177,6 +177,36 @@ fi
 [ -d "$VDET/src" ] || { echo "verus-detector/src not found at $VDET" >&2; exit 1; }
 have "$VERUS" || { echo "verus not on PATH (set VERUS=)" >&2; exit 1; }
 
+# ---- toolchain pin -------------------------------------------------
+# These proofs are checked against a SPECIFIC Verus build. vstd's API moves,
+# and a newer verifier makes files stop COMPILING (E0308 and friends) rather
+# than makes a proof fail -- which surfaces as "no verification summary" on
+# ten files and an INCOMPLETE total, with nothing to say the cause is the
+# toolchain. Observed 2026-09-14: 0.2026.09.13 turns the 331 into 148.
+# verus-version.txt records the build the headline was measured with; a
+# mismatch is a loud warning, never a silent wrong number.
+PINFILE="$VDET/verus-version.txt"
+if [ -f "$PINFILE" ]; then
+    PIN_VER="$(grep -oE '^verus[[:space:]]*=[[:space:]]*\S+' "$PINFILE" | head -1 | sed -E 's/.*=[[:space:]]*//')"
+    PIN_TC="$(grep -oE '^toolchain[[:space:]]*=[[:space:]]*\S+' "$PINFILE" | head -1 | sed -E 's/.*=[[:space:]]*//')"
+    GOT_VER="$("$VERUS" --version 2>/dev/null | grep -oE 'Version:[[:space:]]*\S+' | sed -E 's/.*:[[:space:]]*//')"
+    GOT_TC="$("$VERUS" --version 2>/dev/null | grep -oE 'Toolchain:[[:space:]]*\S+' | sed -E 's/.*:[[:space:]]*//')"
+    printf "  verus: %s (pinned %s)\n" "${GOT_VER:-unknown}" "${PIN_VER:-unset}"
+    if [ -n "$PIN_VER" ] && [ -n "$GOT_VER" ] && [ "$PIN_VER" != "$GOT_VER" ]; then
+        printf '\033[1;33m  !! VERUS VERSION MISMATCH\033[0m\n' >&2
+        printf "     pinned   %s  (toolchain %s)\n" "$PIN_VER" "${PIN_TC:-?}" >&2
+        printf "     running  %s  (toolchain %s)\n" "$GOT_VER" "${GOT_TC:-?}" >&2
+        printf "     Files that fail to COMPILE under a different vstd are reported\n" >&2
+        printf "     below as 'no verification summary'. That is a toolchain result,\n" >&2
+        printf "     not a proof result. Install the pinned build before treating any\n" >&2
+        printf "     total here as the paper's figure. See %s.\n" "$PINFILE" >&2
+        VERSION_MISMATCH=1
+    fi
+else
+    printf "  verus: %s (no pin recorded)\n" "$("$VERUS" --version 2>/dev/null | grep -oE 'Version:[[:space:]]*\S+' | sed -E 's/.*:[[:space:]]*//')"
+fi
+VERSION_MISMATCH="${VERSION_MISMATCH:-0}"
+
 cd "$VDET"
 declare -A COUNT       # basename -> verified count (only when 0 errors)
 declare -A STATUS      # basename -> ok|ERR
@@ -306,6 +336,14 @@ printf "  DISTINCT obligation total             %s\n" "$DISTINCT"
 echo
 if [ "$INCOMPLETE" -eq 1 ]; then
     err "One or more files failed to verify — DISTINCT total is INCOMPLETE."
+    if [ "$VERSION_MISMATCH" -eq 1 ]; then
+        err "and the Verus version does not match the pin — check that FIRST."
+    fi
+    exit 1
+fi
+if [ "$VERSION_MISMATCH" -eq 1 ]; then
+    err "every file verified, but under a Verus that is not the pinned build;"
+    err "this total is not the paper's figure unless the pin is restored."
     exit 1
 fi
 ok "All counted files verified at 0 errors."

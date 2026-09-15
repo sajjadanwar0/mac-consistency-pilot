@@ -191,6 +191,65 @@ class SessionRecorder:
             self._fh = None
 
 
+START = "__start__"
+END = "__end__"
+
+
+def instrument_layered(rec: SessionRecorder,
+                       node_fns: dict[str, Callable],
+                       edges: list,
+                       agents: dict[str, str] | None = None,
+                       start: str = START,
+                       end: str = END) -> dict[str, Callable]:
+    """Wrap every node of a graph so each records at its TOPOLOGICAL LAYER.
+
+    This is the layered form of SessionRecorder.instrument: instead of the
+    caller assigning a superstep per node by hand, the layer is derived from
+    the graph's own edges, which is what makes the harness pointable at a
+    graph somebody else wrote.
+
+    WHY IT FAILS LOUDLY. A node whose name does not appear in `edges` has no
+    derivable layer. Defaulting it to 0 would silently place it in the first
+    superstep alongside every other unlayered node, and the superstep-form
+    detector fires on a co-superstep cross-agent write of a different value --
+    so an unlayered node manufactures firings. This function raises instead.
+    The same reasoning applies to a node whose callable is missing: a graph
+    partially instrumented records a partial history, and a history missing
+    the writer of a cell cannot witness supersession of that cell, which is a
+    silent FALSE NEGATIVE. Both are errors, not warnings.
+
+    `compute_layers` is imported from prevalence_dynamic_run rather than
+    re-implemented here, so there is exactly one layering in the tree.
+    """
+    from prevalence_dynamic_run import compute_layers
+
+    layers = compute_layers(edges, start, end)
+    named = set()
+    for a, b in edges:
+        named.add(a)
+        named.add(b)
+    named.discard(start)
+    named.discard(end)
+
+    missing_layer = sorted(n for n in node_fns if n not in layers)
+    if missing_layer:
+        raise ValueError(
+            f"instrument_layered: {missing_layer} appear in node_fns but not "
+            f"in edges, so their superstep cannot be derived. Add their edges; "
+            f"defaulting them to superstep 0 would manufacture firings.")
+    missing_fn = sorted(n for n in named if n not in node_fns)
+    if missing_fn:
+        raise ValueError(
+            f"instrument_layered: {missing_fn} appear in edges but have no "
+            f"callable in node_fns, so their writes would go unrecorded and "
+            f"supersession of the cells they write could not be witnessed.")
+
+    agents = agents or {}
+    return {name: rec.instrument(fn, agent_id=agents.get(name, name),
+                                 superstep=layers[name])
+            for name, fn in node_fns.items()}
+
+
 def a1_firings(records: list[OpRecord]) -> list[dict]:
     """Cross-agent A_1 witnesses under the superstep model that LangGraph (and
     CrewAI's parallel steps) actually use: a node always reads the latest

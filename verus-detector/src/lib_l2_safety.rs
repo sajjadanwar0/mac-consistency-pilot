@@ -3,6 +3,14 @@
 use vstd::prelude::*;
 
 verus! {
+
+// 2026-09-14  vstd migration (Verus 0.2026.09.xx). Map::new went
+// `open spec` -> `uninterp`, so proofs that relied on it unfolding need
+// lemma_map_new_domain / lemma_map_new_index; Set::new now returns Option
+// because Set is finite-only. Every domain in this file was already a set
+// expression written as a lambda, so the call sites became Set algebra and
+// no finiteness obligation arises.
+broadcast use vstd::map::group_map_lemmas, vstd::set::group_set_lemmas;
 pub type CellId  = int;
 pub type TxnId   = int;
 pub type Value   = int;
@@ -178,7 +186,7 @@ pub open spec fn publish_writes(
     wv: Map<CellId, Value>,
 ) -> Map<CellId, Value> {
     Map::new(
-        |c: CellId| ws.contains(c) || cv.contains_key(c),
+        ws.union(cv.dom()),
         |c: CellId| if ws.contains(c) { wv[c] } else { cv[c] },
     )
 }
@@ -189,7 +197,7 @@ pub open spec fn publish_writer(
     t: TxnId,
 ) -> Map<CellId, TxnId> {
     Map::new(
-        |c: CellId| ws.contains(c) || cw.contains_key(c),
+        ws.union(cw.dom()),
         |c: CellId| if ws.contains(c) { t } else { cw[c] },
     )
 }
@@ -210,7 +218,7 @@ pub open spec fn cascade_abort(
     t: TxnId,
 ) -> Map<TxnId, TxnState> {
     Map::new(
-        |id: TxnId| txns.contains_key(id),
+        txns.dom(),
         |id: TxnId| {
             let txn = txns[id];
             if txn.predecessors.contains(t) {
