@@ -56,6 +56,19 @@ repositories are what was sampled.
     python3 python/langgraph_census.py --frame --out DIR  # NETWORK: build a frame into DIR (never the tracked one)
     python3 python/langgraph_census.py --sample 60 --out DIR   # NETWORK: draw, fetch, analyse into DIR
 
+2026-09-19 round 37, A NAMED POPULATION. The random frame answers "how is public
+code written"; it cannot answer "what do graphs look like WHERE PARALLELISM IS
+KNOWN TO EXIST". github_corpus_survey.py already names such a population: the
+third-party repositories whose issues or pull requests quote LangGraph's
+co-superstep writer/writer error, i.e. projects that demonstrably ran two
+writers of one key in one superstep. `--population` turns any such list into a
+one-band frame and `--all` reads every member, so the same instrument and the
+same bounds apply. It is an ENRICHED sample, not a prevalence estimate, and its
+results live in their own directory (python/langgraph_census_errorstring).
+    python3 python/langgraph_census.py --population NAME --repos-json FILE --json-key a.b --out DIR   # offline: build the frame
+    python3 python/langgraph_census.py --sample 1 --all --out DIR                                     # NETWORK: read every member
+    python3 python/langgraph_census.py --summary --dir DIR
+
 Exit codes: 0 ok, 1 a check disagreed, 4 a network failure (one line, no traceback).
 Standard library only.
 """
@@ -173,6 +186,25 @@ def build_frame(out):
     print("wrote %s/frame.json" % out)
 
 
+def build_population(name, repos_json, json_key, out):
+    """A one-band frame from a list of repositories somebody else's method produced."""
+    with open(repos_json) as fh:
+        d = json.load(fh)
+    for part in json_key.split("."):
+        d = d[part]
+    repos = sorted({r for r in d if isinstance(r, str) and r.count("/") == 1 and r.split("/")[0] not in EXCLUDED_OWNERS})
+    frame = {"query": "population: %s (%s, key %s)" % (name, repos_json, json_key),
+             "retrieved_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "pages_per_band": 0,
+             "excluded_owners": sorted(EXCLUDED_OWNERS),
+             "bands": [{"band": name, "qualifier": "listed", "band_size": len(repos),
+                        "returned": [{"full_name": r, "stars": -1, "branch": "HEAD"} for r in repos]}]}
+    os.makedirs(out, exist_ok=True)
+    with open(os.path.join(out, "frame.json"), "w") as fh:
+        json.dump(frame, fh, indent=1, sort_keys=True)
+        fh.write("\n")
+    print("wrote %s/frame.json (%d repositories)" % (out, len(repos)))
+
+
 # -------------------------------------------------------------------- fetch
 def analyse_sources(files):
     graphs = []
@@ -215,16 +247,27 @@ def analyse_repo(full_name, ref):
     return status, sha, analyse_sources(files)
 
 
-def draw_sample(n, out):
+def refuses(out, overwrite):
+    """True when `out` already holds results and --overwrite-tracked was not given."""
+    holds = os.path.abspath(out) == os.path.abspath(TRACKED) or os.path.exists(os.path.join(out, "summary.json"))
+    return holds and not overwrite
+
+
+def pick(pool, n, take_all, rng):
+    """The seeded draw: uniform without replacement from the name-sorted pool."""
+    pool, picks = sorted(pool, key=lambda r: r["full_name"]), []
+    while pool and (take_all or len(picks) < n):
+        picks.append(pool.pop(int(rng.random() * len(pool))))
+    return picks
+
+
+def draw_sample(n, out, take_all=False):
     with open(os.path.join(out, "frame.json")) as fh:
         frame = json.load(fh)
     rng = random.Random(SEED)
     sample, facts = {"seed": SEED, "per_band": n, "repos": []}, []
     for band in frame["bands"]:
-        pool = sorted(band["returned"], key=lambda r: r["full_name"])
-        picks = []
-        while pool and len(picks) < n:
-            picks.append(pool.pop(int(rng.random() * len(pool))))
+        picks = pick(band["returned"], n, take_all, rng)
         for i, r in enumerate(picks):
             cache = os.environ.get("CENSUS_CACHE")          # resumable fetch; never shipped
             cfile = os.path.join(cache, r["full_name"].replace("/", "__") + ".json") if cache else None
@@ -387,34 +430,68 @@ def selftest():
     expect("upper counts unknown sites", (b["graphs_upper"], b["repos_upper"]["k"]), (1, 1))
     expect("wide adds unresolved routing", (b["graphs_upper_wide"], b["repos_upper_wide"]["k"]), (2, 2))
     expect("parallel is a site with a pair", b["graphs_parallel"], 1)
+    pool = [{"full_name": "o/%d" % i} for i in range(5)]
+    expect("a draw of 2 takes 2", len(pick(pool, 2, False, random.Random(1))), 2)
+    expect("--all takes every member", sorted(r["full_name"] for r in pick(pool, 1, True, random.Random(1))), ["o/0", "o/1", "o/2", "o/3", "o/4"])
+    expect("the draw is seeded", [r["full_name"] for r in pick(pool, 3, False, random.Random(7))],
+           [r["full_name"] for r in pick(list(reversed(pool)), 3, False, random.Random(7))])
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        src = os.path.join(tmp, "list.json")
+        with open(src, "w") as fh:
+            json.dump({"union": {"third_party": ["b/two", "a/one", "langchain-ai/langgraph", "not-a-repo", "a/one"]}}, fh)
+        import contextlib
+        import io
+        with contextlib.redirect_stdout(io.StringIO()):
+            build_population("named", src, "union.third_party", os.path.join(tmp, "out"))
+        with open(os.path.join(tmp, "out", "frame.json")) as fh:
+            fr = json.load(fh)
+        expect("a population is one band of the listed third-party repositories, de-duplicated",
+               [r["full_name"] for r in fr["bands"][0]["returned"]], ["a/one", "b/two"])
+        expect("a population's band size is its length", fr["bands"][0]["band_size"], 2)
+        held = os.path.join(tmp, "held")
+        os.makedirs(held)
+        open(os.path.join(held, "summary.json"), "w").close()
+        expect("a directory holding results is refused", refuses(held, False), True)
+        expect("unless overwriting is asked for", refuses(held, True), False)
+        expect("an empty directory is accepted", refuses(os.path.join(tmp, "out2"), False), False)
+    expect("the tracked random census is refused even if its summary were missing", refuses(TRACKED, False), True)
     for f in fails:
         print("SELFTEST FAIL  " + f)
-    print("selftest: 14 checks, %d failed" % len(fails))
+    print("selftest: 23 checks, %d failed" % len(fails))
     return 1 if fails else 0
 
 
 def main():
     ap = argparse.ArgumentParser()
-    for flag in ("--frame", "--summary", "--write", "--check", "--hits", "--selftest", "--overwrite-tracked"):
+    for flag in ("--frame", "--summary", "--write", "--check", "--hits", "--selftest", "--overwrite-tracked", "--all"):
         ap.add_argument(flag, action="store_true")
     ap.add_argument("--sample", type=int)
     ap.add_argument("--refetch", type=int)
     ap.add_argument("--out", help="directory the NETWORK modes write into (required for --frame and --sample)")
     ap.add_argument("--dir", default=TRACKED, help="directory the offline modes read (default: the tracked results)")
+    ap.add_argument("--population", help="name of a listed population (with --repos-json, --json-key, --out)")
+    ap.add_argument("--repos-json")
+    ap.add_argument("--json-key", default="")
     a = ap.parse_args()
     if a.selftest:
         return selftest()
-    if a.frame or a.sample:
+    if a.frame or a.sample or a.population:
         if not a.out:
             print("REFUSED: --frame and --sample write results; name a directory with --out DIR (the tracked results in %s are not a default)" % TRACKED)
             return 1
-        if os.path.abspath(a.out) == os.path.abspath(TRACKED) and not a.overwrite_tracked:
-            print("REFUSED: %s holds the tracked results the paper cites; add --overwrite-tracked if replacing them is what you mean" % TRACKED)
+        if refuses(a.out, a.overwrite_tracked):
+            print("REFUSED: %s holds tracked results the paper cites; add --overwrite-tracked if replacing them is what you mean" % a.out)
             return 1
+        if a.population:
+            if not a.repos_json:
+                print("REFUSED: --population needs --repos-json FILE (and --json-key for a nested list)")
+                return 1
+            build_population(a.population, a.repos_json, a.json_key, a.out)
         if a.frame:
             build_frame(a.out)
         if a.sample:
-            draw_sample(a.sample, a.out)
+            draw_sample(a.sample, a.out, take_all=a.all)
         return 0
     if a.refetch:
         _, sample, graphs = load(a.dir)

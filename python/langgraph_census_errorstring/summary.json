@@ -1,0 +1,217 @@
+{
+ "bands": {
+  "ALL": {
+   "band_size": 34,
+   "co_scheduled_ww_pairs_on_a_plain_channel": 1,
+   "frame_returned": 34,
+   "graph_sites": 391,
+   "graphs_by_status": {
+    "parallel_clean": 30,
+    "sequential": 344,
+    "unknown": 17
+   },
+   "graphs_parallel": 47,
+   "graphs_rw_plain_lower": 0,
+   "graphs_send_fanout": 13,
+   "graphs_unparsed": 0,
+   "graphs_unresolved_routing": 28,
+   "graphs_upper": 17,
+   "graphs_upper_wide": 53,
+   "repos_fetched": 33,
+   "repos_not_fetched": [
+    "realbits-lab/thothy-v1 (fetch_error:HTTPError)"
+   ],
+   "repos_parallel": {
+    "k": 12,
+    "share": 0.4615,
+    "wilson95": [
+     0.2876,
+     0.6454
+    ]
+   },
+   "repos_rw_plain_lower": {
+    "k": 0,
+    "share": 0.0,
+    "wilson95": [
+     0.0,
+     0.1287
+    ]
+   },
+   "repos_sampled": 34,
+   "repos_upper": {
+    "k": 9,
+    "share": 0.3462,
+    "wilson95": [
+     0.1941,
+     0.5378
+    ]
+   },
+   "repos_upper_wide": {
+    "k": 19,
+    "share": 0.7308,
+    "wilson95": [
+     0.5392,
+     0.863
+    ]
+   },
+   "repos_with_a_graph": 26
+  },
+  "quoted the co-superstep writer/writer error": {
+   "band_size": 34,
+   "co_scheduled_ww_pairs_on_a_plain_channel": 1,
+   "frame_returned": 34,
+   "graph_sites": 391,
+   "graphs_by_status": {
+    "parallel_clean": 30,
+    "sequential": 344,
+    "unknown": 17
+   },
+   "graphs_parallel": 47,
+   "graphs_rw_plain_lower": 0,
+   "graphs_send_fanout": 13,
+   "graphs_unparsed": 0,
+   "graphs_unresolved_routing": 28,
+   "graphs_upper": 17,
+   "graphs_upper_wide": 53,
+   "repos_fetched": 33,
+   "repos_not_fetched": [
+    "realbits-lab/thothy-v1 (fetch_error:HTTPError)"
+   ],
+   "repos_parallel": {
+    "k": 12,
+    "share": 0.4615,
+    "wilson95": [
+     0.2876,
+     0.6454
+    ]
+   },
+   "repos_rw_plain_lower": {
+    "k": 0,
+    "share": 0.0,
+    "wilson95": [
+     0.0,
+     0.1287
+    ]
+   },
+   "repos_sampled": 34,
+   "repos_upper": {
+    "k": 9,
+    "share": 0.3462,
+    "wilson95": [
+     0.1941,
+     0.5378
+    ]
+   },
+   "repos_upper_wide": {
+    "k": 19,
+    "share": 0.7308,
+    "wilson95": [
+     0.5392,
+     0.863
+    ]
+   },
+   "repos_with_a_graph": 26
+  }
+ },
+ "by_path_class": {
+  "auxiliary": {
+   "co_scheduled_ww_pairs_on_a_plain_channel": 0,
+   "graph_sites": 93,
+   "graphs_by_status": {
+    "parallel_clean": 5,
+    "sequential": 85,
+    "unknown": 3
+   },
+   "graphs_parallel": 8,
+   "graphs_rw_plain_lower": 0,
+   "graphs_send_fanout": 2,
+   "graphs_unresolved_routing": 4,
+   "graphs_upper": 3,
+   "graphs_upper_wide": 9,
+   "repos_parallel": {
+    "k": 4,
+    "share": 0.5,
+    "wilson95": [
+     0.2152,
+     0.7848
+    ]
+   },
+   "repos_rw_plain_lower": {
+    "k": 0,
+    "share": 0.0,
+    "wilson95": [
+     0.0,
+     0.3244
+    ]
+   },
+   "repos_upper": {
+    "k": 2,
+    "share": 0.25,
+    "wilson95": [
+     0.0715,
+     0.5907
+    ]
+   },
+   "repos_upper_wide": {
+    "k": 6,
+    "share": 0.75,
+    "wilson95": [
+     0.4093,
+     0.9285
+    ]
+   },
+   "repos_with_a_graph": 8
+  },
+  "source": {
+   "co_scheduled_ww_pairs_on_a_plain_channel": 1,
+   "graph_sites": 298,
+   "graphs_by_status": {
+    "parallel_clean": 25,
+    "sequential": 259,
+    "unknown": 14
+   },
+   "graphs_parallel": 39,
+   "graphs_rw_plain_lower": 0,
+   "graphs_send_fanout": 11,
+   "graphs_unresolved_routing": 24,
+   "graphs_upper": 14,
+   "graphs_upper_wide": 44,
+   "repos_parallel": {
+    "k": 10,
+    "share": 0.4348,
+    "wilson95": [
+     0.2563,
+     0.6319
+    ]
+   },
+   "repos_rw_plain_lower": {
+    "k": 0,
+    "share": 0.0,
+    "wilson95": [
+     0.0,
+     0.1431
+    ]
+   },
+   "repos_upper": {
+    "k": 8,
+    "share": 0.3478,
+    "wilson95": [
+     0.1881,
+     0.5511
+    ]
+   },
+   "repos_upper_wide": {
+    "k": 15,
+    "share": 0.6522,
+    "wilson95": [
+     0.4489,
+     0.8119
+    ]
+   },
+   "repos_with_a_graph": 23
+  }
+ },
+ "query": "population: quoted the co-superstep writer/writer error (python/langgraph_corpus_results.json, key union.third_party_repos)",
+ "retrieved_utc": "2026-09-19T10:58:41Z",
+ "seed": 20260919
+}

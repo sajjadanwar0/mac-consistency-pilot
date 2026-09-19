@@ -1,0 +1,187 @@
+{
+ "bands": [
+  {
+   "band": "quoted the co-superstep writer/writer error",
+   "band_size": 34,
+   "qualifier": "listed",
+   "returned": [
+    {
+     "branch": "HEAD",
+     "full_name": "0xMoat/job-hunter-agent",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "AdnanAbdulKhaliq/BerkshireBot",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "Cohort-based-Learning/cohort12",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "CopilotKit/CopilotKit",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "FlowiseAI/Flowise",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "Hiwot-Beyene/TRP1-Automatos-Auditor",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "KDT-Final-4/Final-AI",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "PurpleAILAB/Decepticon",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "SU-AgenticAI-26/AI-project",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "Sla7f-EL-Ninja/Judge-Assistant",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "Sumit-07/swarm-traders",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "The-Obstacle-Is-The-Way/vibe-check",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "VirtualPatientEngine/AIAgents4Pharma",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "anchapin/portkit",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "aucontraire/cognivault",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "bytedance/deer-flow",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "davidelaverga/Sophia-Agent",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "dsobczynski88/aiswre",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "eco2-team/backend",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "gdemoni/AI-PR-Review-Assistant",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "hakimomarseif-bot/Judge-Assistant",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "hwfengcs/SDYJ_Multi_Agents",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "jingchengdeng/JobTracker",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "kr1shna-exe/Testing",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "kreodevs/theforge",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "liam-hq/liam",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "mifunedev/orchestra",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "odanree/semantic-media-pipeline",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "realbits-lab/thothy-v1",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "sbpak1/Grogi-Ai",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "shashamalone/2025_shcard_bigcontest",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "sumsam-ali-sac/code-to-documentation-and-diagram",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "taucad/tau",
+     "stars": -1
+    },
+    {
+     "branch": "HEAD",
+     "full_name": "thc1006/competitionops-agent",
+     "stars": -1
+    }
+   ]
+  }
+ ],
+ "excluded_owners": [
+  "langchain-ai"
+ ],
+ "pages_per_band": 0,
+ "query": "population: quoted the co-superstep writer/writer error (python/langgraph_corpus_results.json, key union.third_party_repos)",
+ "retrieved_utc": "2026-09-19T10:58:41Z"
+}
