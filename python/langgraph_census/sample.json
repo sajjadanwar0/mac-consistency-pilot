@@ -1,0 +1,1446 @@
+{
+ "per_band": 60,
+ "repos": [
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "junjiezhang207/fulfillops-agent",
+   "graphs": 4,
+   "sha": "61e2896d1166f795274048978a9eecf8053493a4",
+   "stars": 229
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "redis-developer/langgraph-redis",
+   "graphs": 24,
+   "sha": "32de20776e4dd4128b2c9eeafeea9742dc7a819b",
+   "stars": 239
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "Jianqiuer/Awesome6DPoseEstimation",
+   "graphs": 0,
+   "sha": "2d646d48c7081a1f31bbe3b5966f47088433f100",
+   "stars": 321
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "kulkarnirohit123/cra-agent",
+   "graphs": 1,
+   "sha": "4d819a56d825ca14013997958eeb3d0e13ab7ebb",
+   "stars": 617
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "zenml-io/kitaru",
+   "graphs": 3,
+   "sha": "8c1cf1b05f14d370253e2e76a6cd305c3d429f35",
+   "stars": 292
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "olaxbt/ai-market-maker",
+   "graphs": 1,
+   "sha": "dd711507690450e9c4c9b170829b01f1e7d7f1b6",
+   "stars": 2102
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "bcefghj/ai-agent-interview-guide",
+   "graphs": 0,
+   "sha": "9a987322f2d82ddabe4c1aabc7b4795749fa90a2",
+   "stars": 2659
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "haoruilee/awesome-agent-native-services",
+   "graphs": 0,
+   "sha": "3b5a89f5c8d72276216f5ab48471dfb7f8114285",
+   "stars": 472
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "ChaitanyaEswarRajeshJakki/gemini-youtube-automation",
+   "graphs": 0,
+   "sha": "debffb4b374d824fabb6b55d820215ab672b3edd",
+   "stars": 345
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "DinobaseHQ/dinobase",
+   "graphs": 0,
+   "sha": "2dd06369fc333cd51663c27b7d47a21a7946757b",
+   "stars": 264
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "GoogleCloudPlatform/agent-starter-pack",
+   "graphs": 1,
+   "sha": "659f047742457bd55e5db0edd088cf678b6f0669",
+   "stars": 6558
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "Annyfee/agent-craft",
+   "graphs": 12,
+   "sha": "f54de7f1ed504ddc977704ed7642032814b84922",
+   "stars": 487
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "aegra/aegra",
+   "graphs": 9,
+   "sha": "c07ad0d24164a18e139537ac3ab0e05358a990eb",
+   "stars": 1206
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "wesammustafa/Claude-Code-Everything-You-Need-to-Know",
+   "graphs": 0,
+   "sha": "d9e93740193aeae2cd661c7ddf6f0c8f8989860b",
+   "stars": 3025
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "ArcadeAI/blueprint-mcp",
+   "graphs": 0,
+   "sha": "ac6928d7b7f5c5147d5b1ad37d9dade47727b8f3",
+   "stars": 730
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "51bitquant/ai-hedge-fund-crypto",
+   "graphs": 1,
+   "sha": "c6750e0041cb2e528856864783585427c45cc34d",
+   "stars": 623
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "liangdabiao/langgraph_multi-agent-rag-customer-support",
+   "graphs": 1,
+   "sha": "a30f9646fb1df73b7b5547b86ce3035765034176",
+   "stars": 325
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "esxr/langgraph-mcp",
+   "graphs": 3,
+   "sha": "16944242d980bafe56876f78224982efd2c1c074",
+   "stars": 587
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "xeronsh/openOii",
+   "graphs": 1,
+   "sha": "227da9d2375cd960626f4843e52a00a5ae3ccb78",
+   "stars": 398
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "PrismorSec/prismor",
+   "graphs": 0,
+   "sha": "ca9d4f7c5f0d29d53fcd4adc13669dc65a1dba69",
+   "stars": 351
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "Arize-ai/phoenix",
+   "graphs": 6,
+   "sha": "767847c3386492f9783b623cf78e3eee47d0cea3",
+   "stars": 11538
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "sagar-n/deepagents",
+   "graphs": 0,
+   "sha": "775233628863bb315248b287a24101cb2cfc51d4",
+   "stars": 951
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "girijesh-ai/ai-interview-codex",
+   "graphs": 1,
+   "sha": "9d46d6c32772afcb72bb726fd2783c8d838a691e",
+   "stars": 519
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "martimfasantos/ai-agents-frameworks",
+   "graphs": 42,
+   "sha": "f82ee5eb54fd47cc430815f3853253bd8d10567d",
+   "stars": 640
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "agentstack-ai/AgentStack",
+   "graphs": 3,
+   "sha": "8f79b9decb3bc5e19cdf4e8934befa996e7ac689",
+   "stars": 2192
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "Haohao-end/openagent",
+   "graphs": 2,
+   "sha": "4013ab216b543372c214855e6fe1ce4aeb6db5cc",
+   "stars": 810
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "Hmbown/aleph",
+   "graphs": 0,
+   "sha": "7c756d38964f587b73496290dec88bb47cb2ed5a",
+   "stars": 217
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "too_large",
+   "full_name": "souvikmajumder26/Multi-Agent-Medical-Assistant",
+   "graphs": 0,
+   "sha": null,
+   "stars": 974
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "too_large",
+   "full_name": "AgentOps-AI/agentops",
+   "graphs": 0,
+   "sha": null,
+   "stars": 5828
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "Negai-ai/AgentClaw",
+   "graphs": 0,
+   "sha": "034efd10375f5f7ca7f59e9ee50c1e398ed894e7",
+   "stars": 343
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "too_large",
+   "full_name": "Sumanth077/Hands-On-AI-Engineering",
+   "graphs": 0,
+   "sha": null,
+   "stars": 3646
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "runagent-dev/runagent",
+   "graphs": 3,
+   "sha": "aaf9d338fd9d7737bb002fc4b0d3d6bdbeb1753b",
+   "stars": 482
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "too_large",
+   "full_name": "mlflow/mlflow",
+   "graphs": 0,
+   "sha": null,
+   "stars": 28036
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "ashishpatel26/500-AI-Agents-Projects",
+   "graphs": 3,
+   "sha": "9beeb721c2af551bacaab827a76bddaecaa0ca5e",
+   "stars": 37848
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "too_large",
+   "full_name": "Shubhamsaboo/awesome-llm-apps",
+   "graphs": 0,
+   "sha": null,
+   "stars": 138884
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "nicoladisabato/MultiAgenticRAG",
+   "graphs": 2,
+   "sha": "05cc844d6cdf5451ba4d5e0d001faacd3651d1a8",
+   "stars": 239
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "liyuan24/nanoDeepResearch",
+   "graphs": 0,
+   "sha": "4c3a9f9cba5141c8e6f917688921203a1ae12348",
+   "stars": 222
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "brainqub3/jar3d_meta_expert",
+   "graphs": 3,
+   "sha": "3403118db9765938400f5f8311d7085a5740c547",
+   "stars": 408
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "huggingface/Repo2RLEnv",
+   "graphs": 1,
+   "sha": "4422c1c04074b5a49db3a4e78fa49fd641f199f0",
+   "stars": 657
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "oracle/agent-spec",
+   "graphs": 10,
+   "sha": "1362da5e8e9eb253f595a811632e99281767a123",
+   "stars": 420
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "Pan-Chera/Multi-Agent-CAD",
+   "graphs": 3,
+   "sha": "4771428b418a941fe5aa8929a9da523585804c2f",
+   "stars": 992
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "FareedKhan-dev/production-grade-agentic-system",
+   "graphs": 1,
+   "sha": "20def050e099d12c079f501aa6e85b48fe8783bc",
+   "stars": 966
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "GoogleCloudPlatform/cymbal-air-toolbox-demo",
+   "graphs": 0,
+   "sha": "7a405212542aac30c130250946dfb47552410fce",
+   "stars": 349
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "oxbshw/LLM-Agents-Ecosystem-Handbook",
+   "graphs": 0,
+   "sha": "7f8ee3c327bdb818db875844700b2394f09e7031",
+   "stars": 550
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "NVIDIA-NeMo/Gym",
+   "graphs": 4,
+   "sha": "dba68bb458f006f445926be51356cf37e813e4e2",
+   "stars": 1196
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "confident-ai/deepeval",
+   "graphs": 21,
+   "sha": "23901cfc5fe4f61c3ca745f67748e00699d0484f",
+   "stars": 18331
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "tablegpt/tablegpt-agent",
+   "graphs": 3,
+   "sha": "26bc576bb21fc1c296d829e863c97290e92bfd8e",
+   "stars": 636
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "owainlewis/awesome-artificial-intelligence",
+   "graphs": 0,
+   "sha": "ab1c3cceef8ab906586505a7a7a293f434280862",
+   "stars": 16500
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "OpenPipe/ART",
+   "graphs": 0,
+   "sha": "44bc5d4c839f3cb8a71c83ec2a56f16fa10ba255",
+   "stars": 10752
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "NVIDIA/NeMo-Agent-Toolkit",
+   "graphs": 11,
+   "sha": "013255a4dfdf6afe89e80729caba0b2c3bc9513d",
+   "stars": 2637
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "yizhiyanhua-ai/fireworks-tech-graph",
+   "graphs": 0,
+   "sha": "31fea364eda5f1852b1175f3d9e29ea31d22dcb4",
+   "stars": 11466
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "modelscope/easydistill",
+   "graphs": 1,
+   "sha": "aeb8ca3eab8b2a82f754c01c3d1f59ad276268c3",
+   "stars": 475
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "too_large",
+   "full_name": "didilili/ai-agents-from-zero",
+   "graphs": 0,
+   "sha": null,
+   "stars": 4733
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "too_large",
+   "full_name": "skygazer42/MimirQ",
+   "graphs": 0,
+   "sha": null,
+   "stars": 549
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "guy-hartstein/company-research-agent",
+   "graphs": 1,
+   "sha": "b7a57a96d3b717987e631ebd5d47598671e53da7",
+   "stars": 2283
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "nuglifeleoji/Options-Analytics-Agent",
+   "graphs": 10,
+   "sha": "9de22c3184598440ae2209be87bcd764bd1349af",
+   "stars": 642
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "ComposioHQ/awesome-claude-skills",
+   "graphs": 0,
+   "sha": "be2a406907dbc61b73e6827ded415c96139d13a2",
+   "stars": 75304
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "wshobson/financial-chat",
+   "graphs": 1,
+   "sha": "55a12290cee8046462bf3c2be91875de3011318c",
+   "stars": 238
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "hwchase17/langchain-streamlit-template",
+   "graphs": 0,
+   "sha": "3c676a670d1f69bcc4c76b692126db1922101d5f",
+   "stars": 298
+  },
+  {
+   "band": "stars>=200",
+   "fetch": "ok",
+   "full_name": "agenticloops-ai/agentic-ai-engineering",
+   "graphs": 0,
+   "sha": "401dc0f7f1fa09ac09eebbd7dacc04d1c34bd743",
+   "stars": 341
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "rekursiv-ai/sagent",
+   "graphs": 0,
+   "sha": "3f4ab75d99742a0e161ecd12c0c5cbe94160bb1e",
+   "stars": 53
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "buntys2010/awesome-ai-agents",
+   "graphs": 0,
+   "sha": "89ca2b29d72d8b18d55ec8fd8781a9e90818183b",
+   "stars": 26
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "kejun/blogpost",
+   "graphs": 0,
+   "sha": "429c4113c92f3b13a81e584bf570018b2bba9143",
+   "stars": 10
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "MichaelS1011/ephemora-cell",
+   "graphs": 1,
+   "sha": "69928b8b912a136c16a1eec1bf834abec62a0507",
+   "stars": 40
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "Correia-jpv/fucking-awesome-python",
+   "graphs": 0,
+   "sha": "253920f4accc7de7b89278b9b6f8896fe0683a6f",
+   "stars": 22
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "mal-lang/mal-toolbox",
+   "graphs": 0,
+   "sha": "fb696be8f876e9bcd4485f752f6a0171f89abd16",
+   "stars": 10
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "phillipclapham/anneal-memory",
+   "graphs": 0,
+   "sha": "bb63238d7313e913a0ca9240e929ce4d62f0549d",
+   "stars": 11
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "kryvokhyzha/langgraph-agent-toolkit",
+   "graphs": 37,
+   "sha": "4530772c268a1eb564a2e049baebaf70bc38f8a3",
+   "stars": 13
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "generative-computing/mellea-skills-compiler",
+   "graphs": 0,
+   "sha": "92576bc03c0c67220db28a6bded4db3629615db0",
+   "stars": 50
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "google/cybernetic-agent-governance-engine",
+   "graphs": 3,
+   "sha": "50b12e7d983db0e3d7faf206ac6aa600294f33ac",
+   "stars": 26
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "amahi2001/python-token-killer",
+   "graphs": 0,
+   "sha": "973db91411511eb62cfb75ab9f0925fc06b6c092",
+   "stars": 14
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "Carer-Healthcare-AI/Hospilot",
+   "graphs": 3,
+   "sha": "b9cec3b86f7d0a85720a873f0b3cb6f562f618f4",
+   "stars": 13
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "band-ai/band-sdk-python",
+   "graphs": 10,
+   "sha": "b76befe8ca66a1998cb152fb2c3f2373ed690334",
+   "stars": 12
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "To3akaRin/VLMForge",
+   "graphs": 2,
+   "sha": "9e48d3e69ecfe04ac6aa06f46088fd1985239299",
+   "stars": 111
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "identArk/identark",
+   "graphs": 2,
+   "sha": "3cb2944ddd106d7f1f98ce7766f6e2092af3b5b2",
+   "stars": 11
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "automateyournetwork/pyATS_MCP",
+   "graphs": 0,
+   "sha": "d4971436328369ef0a581ca5359dc8700fb2939b",
+   "stars": 86
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "xpc1024/hanflow",
+   "graphs": 1,
+   "sha": "2517360912931d8a5b342762c8c22f401386afe4",
+   "stars": 27
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "MockLoop/mockloop-mcp",
+   "graphs": 0,
+   "sha": "41388f68d1cdf09a6634c86a1d50c61ee15f743c",
+   "stars": 17
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "Conchlikewater/enterprise-knowledge-assistant",
+   "graphs": 0,
+   "sha": "6a196ee3ffaa4391a2297b118aa1e6825ebfbff9",
+   "stars": 10
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "shangguanyunji663/Aegis-agent",
+   "graphs": 1,
+   "sha": "3ea77f3bf6c4ce90524411d7e2e6dd1c0310a643",
+   "stars": 102
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "Devanik21/Devanik21",
+   "graphs": 0,
+   "sha": "95cafafbc6d26b9ad4b19b33d2d1c7853caa1a60",
+   "stars": 10
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "seanpedrick-case/doc_redaction",
+   "graphs": 0,
+   "sha": "33165c5eaee43056ba9444214fbc47dea6d3c4c4",
+   "stars": 61
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "MuhammadHasbiAshshiddieqy/OpenClawn",
+   "graphs": 0,
+   "sha": "44f839690a3335fe4ee206faedd00bf23169ac75",
+   "stars": 16
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "finos-labs/open-eago",
+   "graphs": 3,
+   "sha": "c31b6ed5233b52906de1a126272f75b0f8f53c0a",
+   "stars": 21
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "moonlight-lupin/agent-skills",
+   "graphs": 0,
+   "sha": "88289ce4a5a7d8a14a9e2ffb0daf016cf1074f10",
+   "stars": 75
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "meshkovQA/Eval-ai-library",
+   "graphs": 0,
+   "sha": "481c7f55dcb2f6b52655b271b58c53b1b280aec4",
+   "stars": 57
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "Tendo33/IdeaGo",
+   "graphs": 1,
+   "sha": "5070f3bdecda2ed559858141b8d010f6350082fb",
+   "stars": 45
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "too_large",
+   "full_name": "martymcenroe/AssemblyZero",
+   "graphs": 0,
+   "sha": null,
+   "stars": 112
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "stdapi-ai/stdapi.ai",
+   "graphs": 0,
+   "sha": "e45183c8feafa4cb47aa25b34b422163c064299b",
+   "stars": 24
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "vouch-protocol/vouch",
+   "graphs": 0,
+   "sha": "497c80e264b93671a40d30f9bdc9ad2e3a463733",
+   "stars": 27
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "clouisle/Clouisle",
+   "graphs": 0,
+   "sha": "9020f7160238a4b2450dac4dff6dc56d45c5ea84",
+   "stars": 18
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "CognicellAI/Cognition",
+   "graphs": 2,
+   "sha": "a73deb9e1f9df1d5844ffea40c9e855c044eaba9",
+   "stars": 11
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "mphinance/momentum-mcp",
+   "graphs": 0,
+   "sha": "4892483e5de7faff8aa0b07cb70062fa03be23fa",
+   "stars": 27
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "ADW-19/build_a_product_agent",
+   "graphs": 0,
+   "sha": "82c2ad4c5a3b2202d22b4a1d1a2777f056bbeb81",
+   "stars": 109
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "cayu-dev/cayu",
+   "graphs": 0,
+   "sha": "8355cca9f8783adae5ebd2bf42643827ccd24eec",
+   "stars": 69
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "rainmana/awesome-rainmana",
+   "graphs": 0,
+   "sha": "d0eb2f384aa80532ee5ff5e608543972144b5c39",
+   "stars": 44
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "AammarTufail/eleven_ai_agents_for_begineers_to_advance_level_developers",
+   "graphs": 11,
+   "sha": "007a90fea01f883c96c6ab2a51259fceef2126cf",
+   "stars": 21
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "limenagent/prodagent",
+   "graphs": 0,
+   "sha": "a81f0b0006064adb8a154389c3a0ffb9c9503813",
+   "stars": 82
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "too_large",
+   "full_name": "binrogithub/1-3-Cloud-Adoption-Skills",
+   "graphs": 0,
+   "sha": null,
+   "stars": 11
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "zapsyq/tracord_release",
+   "graphs": 1,
+   "sha": "ba33c35520e88544d88d57f093154ec4f56c34ee",
+   "stars": 10
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "WSzP/cv-warlock",
+   "graphs": 1,
+   "sha": "7d9a921e3c03eb90fe912705af2d83fe228615aa",
+   "stars": 12
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "ndrezn/ts-browser-agent",
+   "graphs": 0,
+   "sha": "0d17ac8d6a591d7fb966fa0439080d7d90bd93bc",
+   "stars": 13
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "sattyamjjain/agent-airlock",
+   "graphs": 3,
+   "sha": "28373b07cbacc72d3dac24f96b662654996812fc",
+   "stars": 15
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "alyf-de/ask_alyf",
+   "graphs": 3,
+   "sha": "7e9681ed0bd0f6f51b7d0aac36da5c60124303a7",
+   "stars": 27
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "too_large",
+   "full_name": "PINNeAPPle-Labs/pinnaitor",
+   "graphs": 0,
+   "sha": null,
+   "stars": 22
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "yeongseon/azure-functions-logging-python",
+   "graphs": 0,
+   "sha": "376fc8f1ea43aebd4090534a393a064562b49459",
+   "stars": 14
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "BedtimeNewsStudio/BedtimeNews-Agent",
+   "graphs": 1,
+   "sha": "79e70b9d10b78f99a13ef4480fb41b4b8a4f662b",
+   "stars": 14
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "too_large",
+   "full_name": "LuxUmbra697/AI-PPT-Report-Slides-Studio-v2",
+   "graphs": 0,
+   "sha": null,
+   "stars": 43
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "too_large",
+   "full_name": "arthurpanhku/DocSentinel",
+   "graphs": 0,
+   "sha": null,
+   "stars": 87
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "PavelShaura/review_ducktective",
+   "graphs": 0,
+   "sha": "5d44f569052982cde4daf162c63c0599cc1e7795",
+   "stars": 10
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "hiydavid/databricks-genai-examples",
+   "graphs": 3,
+   "sha": "f59f31bbe964668b4e1309a398ab4ca8cf95753a",
+   "stars": 12
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "yanchun2530/WAS-WebAgentSwarm",
+   "graphs": 0,
+   "sha": "cf8341204ae59c9bf3a3487f06d2c672ce39334f",
+   "stars": 18
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "low-hands/MyCareer",
+   "graphs": 3,
+   "sha": "8e741bf6a1fe2426c971ef045ccc1438cd14d3fb",
+   "stars": 33
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "ndjordjevic/agentic-ai-wiki",
+   "graphs": 0,
+   "sha": "765025a009b2c183d5c5a64fa429c8126cc001ea",
+   "stars": 13
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "too_large",
+   "full_name": "shouzhuoshouzhuo/FloatTrip",
+   "graphs": 0,
+   "sha": null,
+   "stars": 76
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "hoangsonww/Agentic-AI-Pipeline",
+   "graphs": 1,
+   "sha": "443716a7d227b0d36cd73b82f134ccf00aa34185",
+   "stars": 83
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "Gauntlet-HQ/prod-evals-cookbook",
+   "graphs": 1,
+   "sha": "5adb9b0f1a8c7595eadc147810de305d3f8c7ca0",
+   "stars": 59
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "Kyle-liu888/langgraph-trip-planner",
+   "graphs": 1,
+   "sha": "04508887af99760be7b6ef759c7ca17021f61804",
+   "stars": 119
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "mphinance/alpha-skills",
+   "graphs": 0,
+   "sha": "dc38d201a6b80cfc8e65251eb4a5ead419ac3048",
+   "stars": 24
+  },
+  {
+   "band": "stars 10-199",
+   "fetch": "ok",
+   "full_name": "ThreeMoonsLab/agents-shipgate",
+   "graphs": 0,
+   "sha": "eb7304c92a413e01e44eb6eacff8bb2718487bce",
+   "stars": 89
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "too_large",
+   "full_name": "Hungcb123/CTU-Chat_bot",
+   "graphs": 0,
+   "sha": null,
+   "stars": 5
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Ghostfusion/TradingAgents",
+   "graphs": 8,
+   "sha": "5452710d013546be53d76f096a0a7d962216734d",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "alykapasi/guru-alt",
+   "graphs": 5,
+   "sha": "b56db035792228221f3dfc3ae27a394c21a09d43",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Kavisho-o/Kavisho-o",
+   "graphs": 0,
+   "sha": "af87935050a37ff4aa210b9e8dda3f8f85012d29",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "cwal8202/findit",
+   "graphs": 1,
+   "sha": "b4d5a33f9adb49bbde5a451627f0cdf4bb106ef5",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "sujalkushwaha747-coder/Multi-Agent-AI-Collaboration-Framework",
+   "graphs": 1,
+   "sha": "ff11863c04371ed4411294eb3d34873d6c607553",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Spinmoodiness1112/HackSmarter_Swarm",
+   "graphs": 1,
+   "sha": "e0fdf3a339641445ca539689d2b51f05491e4918",
+   "stars": 2
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "KashouMMT/llm-system",
+   "graphs": 1,
+   "sha": "e9d7582501451925cee03cfef0689cf22cc44fdc",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "vallabUpdated/prefectOSUpdated",
+   "graphs": 1,
+   "sha": "d5da9aea8190816c9416cd97fbd69fe5c0e1b6e6",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Balakumarvelks/Scalable-Agentic-System-for-Multi-Tool-API-Management",
+   "graphs": 0,
+   "sha": "359ada2c723a6b8aec9f6833180386f5c915263a",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "SANTHOSH-B80/RCA-MODEL",
+   "graphs": 1,
+   "sha": "d1bb53b71c434aa481da83eb0f60d85fe6b70aa8",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "donglongjun886/product-review-agent",
+   "graphs": 0,
+   "sha": "2b7a557279cbc2d2c172256dd72fec73f93d50c6",
+   "stars": 1
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "pratiksatpai2013/Job-search-and-scoring-agent",
+   "graphs": 1,
+   "sha": "7bc723fcde6efbb67c617d3cffddf96c3ba33840",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Fortyone58/travel-agent",
+   "graphs": 0,
+   "sha": "3656656e7d81734d17c32e67011095ace49ff923",
+   "stars": 1
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "manavpatel571/anti-trading-agent",
+   "graphs": 1,
+   "sha": "eae94e58e16a902593fca4a0dc007eb371e29a63",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Joyeljames/hms_ai",
+   "graphs": 2,
+   "sha": "7c373d8c8590dcd1c1bbebc6ed836098878f02a1",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "CaioOlivieri/QAbot",
+   "graphs": 0,
+   "sha": "dd60fa3c180a4b5e9d7e82f3aa5a8523d865b4cf",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Anouo1023/TradingAgent-Taiwan-version",
+   "graphs": 0,
+   "sha": "388f56c19804b13412b074aa977ba72d817b3b50",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "ayushkale06/Nexus-AI-Research-Agent",
+   "graphs": 0,
+   "sha": "570c9f02019ce734a3c27e77b6b3a27652e6f572",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "1Dhiraj/adaptive-ai-orchestrator",
+   "graphs": 0,
+   "sha": "d0e846507df3dc6c3c90720761ad8624fecfde83",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "amananurag20/amananurag20",
+   "graphs": 0,
+   "sha": "74de250e9e1d1e1ba0a0736e444ec65fcd0fbbf3",
+   "stars": 1
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "THIRD-I-AI/AURA",
+   "graphs": 2,
+   "sha": "4726a3e3c6a9f417bc243f158aa00119550cf94d",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Ashish8668/Ashish8668",
+   "graphs": 0,
+   "sha": "9dae972165192b62d816ae993e3a79ad3640b551",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Pratiksha-git-bit/Fraudshield",
+   "graphs": 1,
+   "sha": "000d358debdf5e82f4619fd5894fd41c79b00944",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "mngaonkar/declarative_agent_sdk",
+   "graphs": 0,
+   "sha": "403582367838f45c52ef42df623c5f81bcde55f3",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "zzh200215/AI-job-assistant",
+   "graphs": 0,
+   "sha": "42f46c11450493817c3bbcfc8f61ab2da616181b",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "agentskillexchange/agent-skills-resources",
+   "graphs": 0,
+   "sha": "605f273f703d758e1129edc68e96df5d088bc7ee",
+   "stars": 1
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "subham3604/applied",
+   "graphs": 1,
+   "sha": "80f0e1f3c5019c00456c35c37af29de930c6f2bc",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "akane321/MealCraft",
+   "graphs": 1,
+   "sha": "2cc62bfeeccba9483df1d0141ec10a48fd7ea549",
+   "stars": 1
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "eric-stone-plus/MOTOKO",
+   "graphs": 0,
+   "sha": "094d4c5faa7b8c88dd8c170c5591bbe1375a8df9",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Daisuke134/life-manager",
+   "graphs": 0,
+   "sha": "748beabc8db81638954ec4a480d9755a6ae8ffcd",
+   "stars": 8
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "bharat3645/bharat3645",
+   "graphs": 0,
+   "sha": "32939c6b17c77f01c348a06ed067bba96e838102",
+   "stars": 1
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Marwan-badr543/Razyyn-AI-Odoo",
+   "graphs": 0,
+   "sha": "368dab451fc26e0b6e9577a0c50cdd970a2e81a8",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "455-dIAO/claude-code-skills-zh-marketplace",
+   "graphs": 0,
+   "sha": "3b073adb93c325cace0193ebff20ed4b8eb43d2c",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "too_large",
+   "full_name": "zhangfang2741/deepalpha-club-ai",
+   "graphs": 0,
+   "sha": null,
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "CoderDongHuang/Mneme",
+   "graphs": 1,
+   "sha": "5d9c81401d7c3f027518963c56024e834462592c",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "MetaphyKing/living-repo-catalog",
+   "graphs": 0,
+   "sha": "a92fdab5d674cb292bf03a23186be425405eb396",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "ravurumanoj/rm-agent",
+   "graphs": 0,
+   "sha": "bee2bae6f52b59b45e23e557bfef554c500f62d4",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "PT-Andara-Rejo-Makmur/genesis-ai",
+   "graphs": 0,
+   "sha": "1ef09fbd6c5f1ab5dcdff63398d8d0c9335c2e39",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "prabhasupriya/Multi-Agent_AI_Orchestration_System_with_LangChain_FastAPI_and_React",
+   "graphs": 1,
+   "sha": "8c44e5aeb73efbc65bc83d5f8e2b4f6d1f40dad6",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "lihaozhen-max/QueryForge",
+   "graphs": 2,
+   "sha": "c55cdbe243fe03450a24c73e1f81fb6ca6713993",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Loreen1119/mcp-rag-hub",
+   "graphs": 1,
+   "sha": "ac8d393d3e60fc5172c54b9cd04288165cc935e8",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "wdfwdf666/jobpilot-agent",
+   "graphs": 1,
+   "sha": "cf76ec2c7ecc39ffdc666b6204d8fae3516b3f5a",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "RayyanStudiosTM/Policy-Aware-Multi-Agent-RAG-Claim-Decision-Engine",
+   "graphs": 1,
+   "sha": "b68985b875047ef9d31a4696f9137b8f71f60e49",
+   "stars": 1
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "archit-singhania/VAE",
+   "graphs": 1,
+   "sha": "37809ef537e5354bb6b2f673a856c4fe6aaa6318",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "igorsavinkin/agentic-data-engineering-platform",
+   "graphs": 0,
+   "sha": "5b823078a68bf24f0ab42b5d3ab98a7b81900833",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Ayanshefeek/react_copilot",
+   "graphs": 0,
+   "sha": "4f64849319cb88a87cdf372c93c7e51c1edd278c",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "msamir-17/Ai_job_hunter",
+   "graphs": 0,
+   "sha": "b04738b79a056e831885aa432335c74f476ed949",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "satheesh732005-commits/scalable-agentic-system",
+   "graphs": 0,
+   "sha": "2df1bd17aeb81e3c68a406bfab691f6f7060aded",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "yu8833/SanHuTradingAgents",
+   "graphs": 1,
+   "sha": "910195fa70885dbfa073583ecf42296f830bf1c0",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Sanika-Gajarishi/Multi-Agent-Debate-System",
+   "graphs": 1,
+   "sha": "a40afdecd4ced673c737cc10436039b5df80fd98",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "himanshuvidyarthi/4.10-The-Cost-Problem",
+   "graphs": 1,
+   "sha": "bfb73cbf5d51e209d18369576ed4b0e296609582",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Ashuto321/All-About-LangGraph-with-Demos",
+   "graphs": 1,
+   "sha": "8dc75f038ce8fdb63a85d6326992ee78558f3582",
+   "stars": 2
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "gostgmaer/Customer-Support-Workflow",
+   "graphs": 1,
+   "sha": "bb4cc5b079426959860d924638930796f5b0d8b6",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Wilyu-45/creatoragent",
+   "graphs": 1,
+   "sha": "74df3d3bc3c4e823e9ecbe8bea3492751f9987df",
+   "stars": 1
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "wtjjacobj/ai-scout",
+   "graphs": 0,
+   "sha": "f640bdf7a01d24286575587a4ae9848e507398e3",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Kukilbharadwaj/Kukilbharadwaj",
+   "graphs": 0,
+   "sha": "ab9bd83f04b1efb7fb6a41b72df6dcec29328000",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "studioraga/portable-agentic-ai-governance",
+   "graphs": 0,
+   "sha": "d3c9d8bdb5cf3fe67db5fe079f5d673f546ad6b5",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "Wuaomo/AI-Web-Form-Agent",
+   "graphs": 3,
+   "sha": "6f34a3a2d18bcdb05610094238ed53eac851ca64",
+   "stars": 0
+  },
+  {
+   "band": "stars 0-9",
+   "fetch": "ok",
+   "full_name": "aFunnyStrange/apply-project-engineering-style",
+   "graphs": 0,
+   "sha": "20277a729407c0bacdd2ae63d1cb97b086aca9b8",
+   "stars": 0
+  }
+ ],
+ "seed": 20260919
+}

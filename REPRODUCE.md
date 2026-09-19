@@ -36,6 +36,7 @@ implementation scoring itself would not be.
 | S 5.8 corpus projection | `mast_oprecords`, `python/mast_rates.json` | `python/mast_adapter.py` |
 | S 5.8 own-executor racy check | `python/oprecords`, `python/rates.json` | `python/prevalence_harness.py` -- see the predicate note below |
 | S 5.8 topological susceptibility (k of N) | `python/prevalence_static.py` | `python3 python/prevalence_static.py` |
+| S 5.8 census of public LangGraph repositories (stated frame, seeded sample, static front end; no third-party code is imported or run) | `python/langgraph_census/frame.json`, `python/langgraph_census/sample.json`, `python/langgraph_census/graphs.jsonl`, `python/langgraph_census/summary.json` | `python3 python/langgraph_census.py --check` (offline); `python3 python/langgraph_static.py --selftest`; `python3 python/langgraph_static.py --oracle` (needs langgraph: static must equal executed); `python3 python/langgraph_census.py --refetch 10` (network: pinned commits must give the same facts) |
 | S 5.8 extraction precision (what a real front end recovers) | `python/langgraph_extract.py` | `python3 python/langgraph_extract.py` (needs langgraph) |
 | S 4.8 L1 refinement, simulation check | `verus-detector/src/lib_ssi.rs`, `verus-detector/src/lib_si_concurrent.rs` | `python3 python/l1_refinement_mock.py` |
 | S 4.8 L1 invariant (inductiveness) | `verus-detector/src/lib_ssi.rs`, `verus-detector/src/lib_si_concurrent.rs` | `python3 python/l1_invariant_mock.py` |

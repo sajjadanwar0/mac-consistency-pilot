@@ -1,0 +1,6901 @@
+{
+ "bands": [
+  {
+   "band": "stars>=200",
+   "band_size": 413,
+   "qualifier": "stars:>=200",
+   "returned": [
+    {
+     "branch": "main",
+     "full_name": "aneasystone/github-trending",
+     "stars": 205
+    },
+    {
+     "branch": "main",
+     "full_name": "Shubhamsaboo/awesome-llm-apps",
+     "stars": 138884
+    },
+    {
+     "branch": "master",
+     "full_name": "mlflow/mlflow",
+     "stars": 28036
+    },
+    {
+     "branch": "main",
+     "full_name": "doobidoo/mcp-memory-service",
+     "stars": 1951
+    },
+    {
+     "branch": "main",
+     "full_name": "BerriAI/litellm",
+     "stars": 59126
+    },
+    {
+     "branch": "main",
+     "full_name": "semantica-agi/semantica",
+     "stars": 13232
+    },
+    {
+     "branch": "main",
+     "full_name": "LearningCircuit/local-deep-research",
+     "stars": 9106
+    },
+    {
+     "branch": "main",
+     "full_name": "bytedance/deer-flow",
+     "stars": 82673
+    },
+    {
+     "branch": "master",
+     "full_name": "flypythoncom/python",
+     "stars": 4137
+    },
+    {
+     "branch": "main",
+     "full_name": "alvinreal/awesome-opensource-ai",
+     "stars": 4751
+    },
+    {
+     "branch": "main",
+     "full_name": "laolaoshiren/claude-code-skills-zh",
+     "stars": 857
+    },
+    {
+     "branch": "main",
+     "full_name": "raullenchai/Rapid-MLX",
+     "stars": 3790
+    },
+    {
+     "branch": "main",
+     "full_name": "opensandbox-group/OpenSandbox",
+     "stars": 15398
+    },
+    {
+     "branch": "main",
+     "full_name": "yibie/awesome-jev",
+     "stars": 226
+    },
+    {
+     "branch": "main",
+     "full_name": "NVIDIA-NeMo/Gym",
+     "stars": 1196
+    },
+    {
+     "branch": "main",
+     "full_name": "RongleCat/awesome-grok-bot",
+     "stars": 318
+    },
+    {
+     "branch": "develop",
+     "full_name": "Yanyutin753/LambChat",
+     "stars": 221
+    },
+    {
+     "branch": "main",
+     "full_name": "viktorbezdek/awesome-github-projects",
+     "stars": 832
+    },
+    {
+     "branch": "main",
+     "full_name": "professorpalmer/Puppetmaster",
+     "stars": 444
+    },
+    {
+     "branch": "main",
+     "full_name": "ranxi2001/zero2Agent",
+     "stars": 484
+    },
+    {
+     "branch": "main",
+     "full_name": "comet-ml/opik",
+     "stars": 22127
+    },
+    {
+     "branch": "main",
+     "full_name": "OpenPipe/ART",
+     "stars": 10752
+    },
+    {
+     "branch": "main",
+     "full_name": "responsibleai/ASSERT",
+     "stars": 247
+    },
+    {
+     "branch": "main",
+     "full_name": "garylab/MakeMoneyWithAI",
+     "stars": 943
+    },
+    {
+     "branch": "main",
+     "full_name": "ginlix-ai/LangAlpha",
+     "stars": 1756
+    },
+    {
+     "branch": "main",
+     "full_name": "vince-lam/awesome-local-llms",
+     "stars": 808
+    },
+    {
+     "branch": "master",
+     "full_name": "davidjurgens/potato",
+     "stars": 423
+    },
+    {
+     "branch": "main",
+     "full_name": "NabidAlam/road-to-machine-learning",
+     "stars": 1261
+    },
+    {
+     "branch": "main",
+     "full_name": "microsoft/agent-governance-toolkit",
+     "stars": 6288
+    },
+    {
+     "branch": "main",
+     "full_name": "goruck/home-generative-agent",
+     "stars": 301
+    },
+    {
+     "branch": "main",
+     "full_name": "mem0ai/mem0",
+     "stars": 65625
+    },
+    {
+     "branch": "main",
+     "full_name": "axoviq-ai/synthadoc",
+     "stars": 1226
+    },
+    {
+     "branch": "main",
+     "full_name": "MemMachine/MemMachine",
+     "stars": 3222
+    },
+    {
+     "branch": "main",
+     "full_name": "monocle2ai/monocle",
+     "stars": 340
+    },
+    {
+     "branch": "main",
+     "full_name": "vectorize-io/hindsight",
+     "stars": 23927
+    },
+    {
+     "branch": "main",
+     "full_name": "Arize-ai/phoenix",
+     "stars": 11538
+    },
+    {
+     "branch": "main",
+     "full_name": "awslabs/agentcore-samples",
+     "stars": 3382
+    },
+    {
+     "branch": "master",
+     "full_name": "vinta/awesome-python",
+     "stars": 321614
+    },
+    {
+     "branch": "main",
+     "full_name": "i-am-bee/agentstack",
+     "stars": 1161
+    },
+    {
+     "branch": "master",
+     "full_name": "theexperiencecompany/gaia",
+     "stars": 297
+    },
+    {
+     "branch": "main",
+     "full_name": "Floe-Labs/floe-guard",
+     "stars": 361
+    },
+    {
+     "branch": "main",
+     "full_name": "TeleAI-UAGI/Awesome-Agent-Memory",
+     "stars": 640
+    },
+    {
+     "branch": "master",
+     "full_name": "samugit83/redamon",
+     "stars": 2482
+    },
+    {
+     "branch": "main",
+     "full_name": "taishi-i/awesome-ChatGPT-repositories",
+     "stars": 3254
+    },
+    {
+     "branch": "main",
+     "full_name": "nvidia-isaac/video_to_data",
+     "stars": 681
+    },
+    {
+     "branch": "develop",
+     "full_name": "nexi-lab/nexus",
+     "stars": 210
+    },
+    {
+     "branch": "main",
+     "full_name": "future-agi/future-agi",
+     "stars": 2036
+    },
+    {
+     "branch": "main",
+     "full_name": "confident-ai/deepeval",
+     "stars": 18331
+    },
+    {
+     "branch": "main",
+     "full_name": "xerrors/Yuxi",
+     "stars": 7106
+    },
+    {
+     "branch": "main",
+     "full_name": "luml-ai/luml",
+     "stars": 210
+    },
+    {
+     "branch": "main",
+     "full_name": "HKUDS/Vibe-Trading",
+     "stars": 33671
+    },
+    {
+     "branch": "main",
+     "full_name": "datawhalechina/hello-agents",
+     "stars": 79835
+    },
+    {
+     "branch": "main",
+     "full_name": "Arvo-AI/aurora",
+     "stars": 420
+    },
+    {
+     "branch": "main",
+     "full_name": "Tswoen/Paper-Agent",
+     "stars": 461
+    },
+    {
+     "branch": "main",
+     "full_name": "neopen/story-shot-agent",
+     "stars": 203
+    },
+    {
+     "branch": "master",
+     "full_name": "oceanbase/powercontext",
+     "stars": 1088
+    },
+    {
+     "branch": "main",
+     "full_name": "EvoScientist/EvoScientist",
+     "stars": 4921
+    },
+    {
+     "branch": "main",
+     "full_name": "ChaitanyaEswarRajeshJakki/gemini-youtube-automation",
+     "stars": 345
+    },
+    {
+     "branch": "main",
+     "full_name": "martian56/redcell",
+     "stars": 308
+    },
+    {
+     "branch": "develop",
+     "full_name": "zenml-io/kitaru",
+     "stars": 292
+    },
+    {
+     "branch": "main",
+     "full_name": "NVIDIA/SkillSpector",
+     "stars": 17792
+    },
+    {
+     "branch": "main",
+     "full_name": "rush86999/atom",
+     "stars": 900
+    },
+    {
+     "branch": "main",
+     "full_name": "Canner/WrenAI",
+     "stars": 17686
+    },
+    {
+     "branch": "main",
+     "full_name": "siddsachar/row-bot",
+     "stars": 1493
+    },
+    {
+     "branch": "main",
+     "full_name": "benjaminasterA/antigravity-awesome-skills",
+     "stars": 302
+    },
+    {
+     "branch": "main",
+     "full_name": "Arindam200/awesome-ai-apps",
+     "stars": 15638
+    },
+    {
+     "branch": "main",
+     "full_name": "aiteachme/AITeachMe",
+     "stars": 596
+    },
+    {
+     "branch": "main",
+     "full_name": "zenml-io/zenml",
+     "stars": 5583
+    },
+    {
+     "branch": "main",
+     "full_name": "truera/trulens",
+     "stars": 3563
+    },
+    {
+     "branch": "main",
+     "full_name": "ai-boost/awesome-harness-engineering",
+     "stars": 4381
+    },
+    {
+     "branch": "main",
+     "full_name": "Kohaku-Lab/KohakuTerrarium",
+     "stars": 504
+    },
+    {
+     "branch": "main",
+     "full_name": "PrismorSec/prismor",
+     "stars": 351
+    },
+    {
+     "branch": "master",
+     "full_name": "ComposioHQ/awesome-claude-skills",
+     "stars": 75304
+    },
+    {
+     "branch": "main",
+     "full_name": "Azure-Samples/chat-with-your-data-solution-accelerator",
+     "stars": 1179
+    },
+    {
+     "branch": "main",
+     "full_name": "Sumanth077/Hands-On-AI-Engineering",
+     "stars": 3646
+    },
+    {
+     "branch": "main",
+     "full_name": "TauricResearch/TradingAgents",
+     "stars": 107527
+    },
+    {
+     "branch": "master",
+     "full_name": "CronusL-1141/AI-company",
+     "stars": 361
+    },
+    {
+     "branch": "main",
+     "full_name": "ikaijua/Awesome-AITools",
+     "stars": 6187
+    },
+    {
+     "branch": "master",
+     "full_name": "Jianqiuer/Awesome6DPoseEstimation",
+     "stars": 321
+    },
+    {
+     "branch": "main",
+     "full_name": "EvovexAI/EvoFlow",
+     "stars": 260
+    },
+    {
+     "branch": "main",
+     "full_name": "wshobson/maverick-mcp",
+     "stars": 675
+    },
+    {
+     "branch": "main",
+     "full_name": "aws/bedrock-agentcore-sdk-python",
+     "stars": 764
+    },
+    {
+     "branch": "main",
+     "full_name": "aws/bedrock-agentcore-starter-toolkit",
+     "stars": 510
+    },
+    {
+     "branch": "main",
+     "full_name": "getzep/zep",
+     "stars": 4920
+    },
+    {
+     "branch": "main",
+     "full_name": "freeCodeCamp/awesome-quincy-larson-emails",
+     "stars": 1183
+    },
+    {
+     "branch": "main",
+     "full_name": "traceloop/openllmetry",
+     "stars": 7442
+    },
+    {
+     "branch": "main",
+     "full_name": "cuga-project/cuga-agent",
+     "stars": 879
+    },
+    {
+     "branch": "master",
+     "full_name": "josephmisiti/awesome-machine-learning",
+     "stars": 74371
+    },
+    {
+     "branch": "main",
+     "full_name": "haoruilee/awesome-agent-native-services",
+     "stars": 472
+    },
+    {
+     "branch": "main",
+     "full_name": "huggingface/Repo2RLEnv",
+     "stars": 657
+    },
+    {
+     "branch": "main",
+     "full_name": "getzep/graphiti",
+     "stars": 31000
+    },
+    {
+     "branch": "main",
+     "full_name": "xuiltul/animaworks",
+     "stars": 262
+    },
+    {
+     "branch": "main",
+     "full_name": "awarexone/Agentic-Bug-Hunter",
+     "stars": 4994
+    },
+    {
+     "branch": "main",
+     "full_name": "verl-project/verl-recipe",
+     "stars": 334
+    },
+    {
+     "branch": "main",
+     "full_name": "simonlin1212/TradingAgents-astock",
+     "stars": 3374
+    },
+    {
+     "branch": "main",
+     "full_name": "growgraph/ontocast",
+     "stars": 239
+    },
+    {
+     "branch": "main",
+     "full_name": "temporalio/samples-python",
+     "stars": 367
+    },
+    {
+     "branch": "main",
+     "full_name": "skygazer42/MimirQ",
+     "stars": 549
+    },
+    {
+     "branch": "main",
+     "full_name": "guy-hartstein/company-research-agent",
+     "stars": 2283
+    },
+    {
+     "branch": "main",
+     "full_name": "Pan-Chera/Multi-Agent-CAD",
+     "stars": 992
+    },
+    {
+     "branch": "main",
+     "full_name": "vstorm-co/full-stack-ai-agent-template",
+     "stars": 1903
+    },
+    {
+     "branch": "master",
+     "full_name": "Jwuthri/Tracely-ai",
+     "stars": 1347
+    },
+    {
+     "branch": "main",
+     "full_name": "zi-yue-1129/DATAGEN",
+     "stars": 1803
+    },
+    {
+     "branch": "main",
+     "full_name": "icey1287/SuperMew",
+     "stars": 867
+    },
+    {
+     "branch": "main",
+     "full_name": "Emiyaaaaa/HiveMind",
+     "stars": 1100
+    },
+    {
+     "branch": "v3.0.0",
+     "full_name": "lintsinghua/DeepAudit",
+     "stars": 7043
+    },
+    {
+     "branch": "main",
+     "full_name": "InftyAI/Awesome-LLMOps",
+     "stars": 262
+    },
+    {
+     "branch": "main",
+     "full_name": "bytedance/agentkit-samples",
+     "stars": 460
+    },
+    {
+     "branch": "main",
+     "full_name": "awslabs/fullstack-solution-template-for-agentcore",
+     "stars": 592
+    },
+    {
+     "branch": "main",
+     "full_name": "JudgmentLabs/judgeval",
+     "stars": 1063
+    },
+    {
+     "branch": "main",
+     "full_name": "KodyKendall/LlamaBot",
+     "stars": 241
+    },
+    {
+     "branch": "main",
+     "full_name": "vstorm-co/pydantic-deepagents",
+     "stars": 1067
+    },
+    {
+     "branch": "main",
+     "full_name": "dapr/python-sdk",
+     "stars": 272
+    },
+    {
+     "branch": "main",
+     "full_name": "secureagentics/Adrian",
+     "stars": 568
+    },
+    {
+     "branch": "main",
+     "full_name": "typedef-ai/fenic",
+     "stars": 671
+    },
+    {
+     "branch": "main",
+     "full_name": "flet-dev/awesome-flet",
+     "stars": 294
+    },
+    {
+     "branch": "main",
+     "full_name": "scadastrangelove/awesome-ai-security-tools",
+     "stars": 1236
+    },
+    {
+     "branch": "main",
+     "full_name": "RyanAlberts/best-of-Agent-Harnesses",
+     "stars": 902
+    },
+    {
+     "branch": "main",
+     "full_name": "Picrew/awesome-agent-harness",
+     "stars": 1773
+    },
+    {
+     "branch": "main",
+     "full_name": "handsome-rich/Awesome-Auto-Research-Tools",
+     "stars": 1196
+    },
+    {
+     "branch": "main",
+     "full_name": "NVlabs/SpatialClaw",
+     "stars": 383
+    },
+    {
+     "branch": "main",
+     "full_name": "bradAGI/awesome-cli-coding-agents",
+     "stars": 1239
+    },
+    {
+     "branch": "main",
+     "full_name": "martimfasantos/ai-agents-frameworks",
+     "stars": 640
+    },
+    {
+     "branch": "main",
+     "full_name": "plurai-ai/intellagent",
+     "stars": 1259
+    },
+    {
+     "branch": "main",
+     "full_name": "xeronsh/openOii",
+     "stars": 398
+    },
+    {
+     "branch": "main",
+     "full_name": "BUPT-GAMMA/MASFactory",
+     "stars": 555
+    },
+    {
+     "branch": "main",
+     "full_name": "beenuar/AiSOC",
+     "stars": 2354
+    },
+    {
+     "branch": "main",
+     "full_name": "vndee/llm-sandbox",
+     "stars": 1122
+    },
+    {
+     "branch": "main",
+     "full_name": "judahpaul16/gpt-home",
+     "stars": 649
+    },
+    {
+     "branch": "main",
+     "full_name": "oracle/agent-spec",
+     "stars": 420
+    },
+    {
+     "branch": "main",
+     "full_name": "InternLM/lagent",
+     "stars": 2281
+    },
+    {
+     "branch": "main",
+     "full_name": "yolo-hyl/medical-rag",
+     "stars": 303
+    },
+    {
+     "branch": "main",
+     "full_name": "aegra/aegra",
+     "stars": 1206
+    },
+    {
+     "branch": "main",
+     "full_name": "Zijian-Ni/awesome-ai-agents-2026",
+     "stars": 246
+    },
+    {
+     "branch": "main",
+     "full_name": "rllm-org/rllm",
+     "stars": 5828
+    },
+    {
+     "branch": "main",
+     "full_name": "qualixar/superlocalmemory",
+     "stars": 225
+    },
+    {
+     "branch": "main",
+     "full_name": "ai-forever/giga_agent",
+     "stars": 202
+    },
+    {
+     "branch": "main",
+     "full_name": "AgentEra/Agently",
+     "stars": 1652
+    },
+    {
+     "branch": "main",
+     "full_name": "apache/burr",
+     "stars": 2553
+    },
+    {
+     "branch": "main",
+     "full_name": "zhongyu09/openchatbi",
+     "stars": 650
+    },
+    {
+     "branch": "main",
+     "full_name": "tingaicompass/AI-Compass",
+     "stars": 949
+    },
+    {
+     "branch": "develop",
+     "full_name": "NVIDIA/NeMo-Agent-Toolkit",
+     "stars": 2637
+    },
+    {
+     "branch": "main",
+     "full_name": "Yigtwxx/awesome-rag-production",
+     "stars": 263
+    },
+    {
+     "branch": "main",
+     "full_name": "tavily-ai/meeting-prep-agent",
+     "stars": 203
+    },
+    {
+     "branch": "main",
+     "full_name": "ttguy0707/CyberClaw",
+     "stars": 332
+    },
+    {
+     "branch": "main",
+     "full_name": "zjunlp/SkillNet",
+     "stars": 1264
+    },
+    {
+     "branch": "main",
+     "full_name": "tutu-zzz/zhilv-yuntu",
+     "stars": 322
+    },
+    {
+     "branch": "main",
+     "full_name": "didilili/ai-agents-from-zero",
+     "stars": 4733
+    },
+    {
+     "branch": "main",
+     "full_name": "wuyoscar/GPT-Image2-Skill",
+     "stars": 5456
+    },
+    {
+     "branch": "develop",
+     "full_name": "NVIDIA-AI-Blueprints/vulnerability-analysis",
+     "stars": 244
+    },
+    {
+     "branch": "master",
+     "full_name": "psyray/oasis",
+     "stars": 554
+    },
+    {
+     "branch": "release",
+     "full_name": "jarrycyx/openlens-ai",
+     "stars": 282
+    },
+    {
+     "branch": "main",
+     "full_name": "jd-opensource/JoySafeter",
+     "stars": 311
+    },
+    {
+     "branch": "main",
+     "full_name": "ohdearquant/lionagi",
+     "stars": 409
+    },
+    {
+     "branch": "main",
+     "full_name": "datawhalechina/easy-langent",
+     "stars": 496
+    },
+    {
+     "branch": "main",
+     "full_name": "lemony-ai/cascadeflow",
+     "stars": 3948
+    },
+    {
+     "branch": "main",
+     "full_name": "ishandutta2007/Top-AI-repos",
+     "stars": 442
+    },
+    {
+     "branch": "main",
+     "full_name": "bentoml/BentoML",
+     "stars": 8853
+    },
+    {
+     "branch": "main",
+     "full_name": "cft0808/edict",
+     "stars": 16898
+    },
+    {
+     "branch": "main",
+     "full_name": "JoshuaC215/agent-service-toolkit",
+     "stars": 4495
+    },
+    {
+     "branch": "main",
+     "full_name": "GetBindu/Bindu",
+     "stars": 9833
+    },
+    {
+     "branch": "main",
+     "full_name": "idwts/Crayotter",
+     "stars": 240
+    },
+    {
+     "branch": "main",
+     "full_name": "juliepy/AI-Engineer-from-scrach",
+     "stars": 376
+    },
+    {
+     "branch": "main",
+     "full_name": "neo4j-labs/create-context-graph",
+     "stars": 726
+    },
+    {
+     "branch": "main",
+     "full_name": "huygiatrng/AlpacaTradingAgent",
+     "stars": 268
+    },
+    {
+     "branch": "main",
+     "full_name": "yizhiyanhua-ai/fireworks-tech-graph",
+     "stars": 11466
+    },
+    {
+     "branch": "main",
+     "full_name": "hongbo-miao/hongbomiao.com",
+     "stars": 299
+    },
+    {
+     "branch": "main",
+     "full_name": "mfmezger/conversational-agent-langchain",
+     "stars": 255
+    },
+    {
+     "branch": "main",
+     "full_name": "junjiezhang207/fulfillops-agent",
+     "stars": 229
+    },
+    {
+     "branch": "main",
+     "full_name": "sbhooley/ainativelang",
+     "stars": 652
+    },
+    {
+     "branch": "main",
+     "full_name": "guangshu100/BidMaster-Pro",
+     "stars": 309
+    },
+    {
+     "branch": "main",
+     "full_name": "SecurityClaw/SecurityClaw",
+     "stars": 272
+    },
+    {
+     "branch": "main",
+     "full_name": "NVIDIA-AI-Blueprints/rag",
+     "stars": 767
+    },
+    {
+     "branch": "develop",
+     "full_name": "NVIDIA-AI-Blueprints/aiq",
+     "stars": 869
+    },
+    {
+     "branch": "main",
+     "full_name": "Bessouat40/RAGLight",
+     "stars": 673
+    },
+    {
+     "branch": "main",
+     "full_name": "fetchai/innovation-lab-examples",
+     "stars": 1144
+    },
+    {
+     "branch": "main",
+     "full_name": "LvcidPsyche/auto-browser",
+     "stars": 792
+    },
+    {
+     "branch": "main",
+     "full_name": "BitterSecurity/Decepticon",
+     "stars": 5550
+    },
+    {
+     "branch": "main",
+     "full_name": "kobejiasuoer/awesome-agent-engineering",
+     "stars": 209
+    },
+    {
+     "branch": "develop",
+     "full_name": "skygazer42/GustoBot",
+     "stars": 400
+    },
+    {
+     "branch": "main",
+     "full_name": "LayerLens/stratix-python",
+     "stars": 257
+    },
+    {
+     "branch": "main",
+     "full_name": "IatomicreactorI/FOVEA",
+     "stars": 700
+    },
+    {
+     "branch": "main",
+     "full_name": "assafelovic/gpt-researcher",
+     "stars": 29521
+    },
+    {
+     "branch": "master",
+     "full_name": "MGdaasLab/WHartTest",
+     "stars": 1042
+    },
+    {
+     "branch": "main",
+     "full_name": "chirpz-ai/pandaprobe",
+     "stars": 787
+    },
+    {
+     "branch": "main",
+     "full_name": "steel-dev/awesome-web-agents",
+     "stars": 1572
+    },
+    {
+     "branch": "main",
+     "full_name": "erpipe-org/mcp-odoo",
+     "stars": 414
+    },
+    {
+     "branch": "main",
+     "full_name": "victordibia/designing-multiagent-systems",
+     "stars": 1303
+    },
+    {
+     "branch": "main",
+     "full_name": "thiswillbeyourgithub/wdoc",
+     "stars": 543
+    },
+    {
+     "branch": "main",
+     "full_name": "NVIDIA-AI-IOT/remembr",
+     "stars": 357
+    },
+    {
+     "branch": "main",
+     "full_name": "jia-gao/leanctx",
+     "stars": 326
+    },
+    {
+     "branch": "main",
+     "full_name": "HKUSTDial/DeepEar",
+     "stars": 285
+    },
+    {
+     "branch": "main",
+     "full_name": "Fullive-AI/Anima",
+     "stars": 1038
+    },
+    {
+     "branch": "main",
+     "full_name": "olaxbt/ai-market-maker",
+     "stars": 2102
+    },
+    {
+     "branch": "main",
+     "full_name": "ahmadvh/octochains",
+     "stars": 373
+    },
+    {
+     "branch": "main",
+     "full_name": "redis-developer/langgraph-redis",
+     "stars": 239
+    },
+    {
+     "branch": "main",
+     "full_name": "datawhalechina/vibe-blog",
+     "stars": 257
+    },
+    {
+     "branch": "main",
+     "full_name": "Sri-Krishna-V/awesome-adk-agents",
+     "stars": 342
+    },
+    {
+     "branch": "main",
+     "full_name": "tyxben/AI_novel",
+     "stars": 274
+    },
+    {
+     "branch": "main",
+     "full_name": "Annyfee/agent-craft",
+     "stars": 487
+    },
+    {
+     "branch": "main",
+     "full_name": "modelscope/easydistill",
+     "stars": 475
+    },
+    {
+     "branch": "main",
+     "full_name": "santosomar/AI-agents-for-cybersecurity",
+     "stars": 230
+    },
+    {
+     "branch": "master",
+     "full_name": "wassim249/fastapi-langgraph-agent-production-ready-template",
+     "stars": 2668
+    },
+    {
+     "branch": "main",
+     "full_name": "ioteverythin/OpenDocs",
+     "stars": 230
+    },
+    {
+     "branch": "main",
+     "full_name": "EuniAI/Prometheus",
+     "stars": 1128
+    },
+    {
+     "branch": "main",
+     "full_name": "kulkarnirohit123/cra-agent",
+     "stars": 617
+    },
+    {
+     "branch": "master",
+     "full_name": "owainlewis/awesome-artificial-intelligence",
+     "stars": 16500
+    },
+    {
+     "branch": "main",
+     "full_name": "GoogleCloudPlatform/cymbal-air-toolbox-demo",
+     "stars": 349
+    },
+    {
+     "branch": "main",
+     "full_name": "csml-rpi/Foam-Agent",
+     "stars": 322
+    },
+    {
+     "branch": "main",
+     "full_name": "jamwithai/observable-job-agent",
+     "stars": 292
+    },
+    {
+     "branch": "main",
+     "full_name": "maze-agent/Maze",
+     "stars": 611
+    },
+    {
+     "branch": "main",
+     "full_name": "Jasper-zh/Multi-Agent-Playground",
+     "stars": 238
+    },
+    {
+     "branch": "main",
+     "full_name": "agenticloops-ai/agentic-ai-engineering",
+     "stars": 341
+    },
+    {
+     "branch": "master",
+     "full_name": "Gracker/awesome-android-ai-dev-sources",
+     "stars": 1898
+    },
+    {
+     "branch": "main",
+     "full_name": "lc2panda/alphastream",
+     "stars": 893
+    },
+    {
+     "branch": "main",
+     "full_name": "Idun-Group/idun-agent-platform",
+     "stars": 201
+    },
+    {
+     "branch": "master",
+     "full_name": "LycheeMem/LycheeMem",
+     "stars": 1091
+    },
+    {
+     "branch": "main",
+     "full_name": "Jeomon/Web-Use",
+     "stars": 299
+    },
+    {
+     "branch": "main",
+     "full_name": "amrzv/awesome-colab-notebooks",
+     "stars": 1660
+    },
+    {
+     "branch": "main",
+     "full_name": "arklexai/arksim",
+     "stars": 229
+    },
+    {
+     "branch": "main",
+     "full_name": "global-fde/awesome-fde-resources",
+     "stars": 271
+    },
+    {
+     "branch": "main",
+     "full_name": "test-zeus-ai/testzeus-hercules",
+     "stars": 1162
+    },
+    {
+     "branch": "master",
+     "full_name": "yanshengjia/ml-road",
+     "stars": 4938
+    },
+    {
+     "branch": "main",
+     "full_name": "tablegpt/tablegpt-agent",
+     "stars": 636
+    },
+    {
+     "branch": "main",
+     "full_name": "lvy010/X-Plore",
+     "stars": 1557
+    },
+    {
+     "branch": "Main",
+     "full_name": "Lyra-stellAI/BYO-LLM-WIKI",
+     "stars": 281
+    },
+    {
+     "branch": "master",
+     "full_name": "HezaoHezao/poirot",
+     "stars": 234
+    },
+    {
+     "branch": "main",
+     "full_name": "wesammustafa/Claude-Code-Everything-You-Need-to-Know",
+     "stars": 3025
+    },
+    {
+     "branch": "main",
+     "full_name": "ashishpatel26/500-AI-Agents-Projects",
+     "stars": 37848
+    },
+    {
+     "branch": "main",
+     "full_name": "The-Pocket/PocketFlow",
+     "stars": 11181
+    },
+    {
+     "branch": "main",
+     "full_name": "ilsilfverskiold/Awesome-LLM-Resources-List",
+     "stars": 551
+    },
+    {
+     "branch": "main",
+     "full_name": "ArcadeAI/blueprint-mcp",
+     "stars": 730
+    },
+    {
+     "branch": "main",
+     "full_name": "GoogleCloudPlatform/agent-starter-pack",
+     "stars": 6558
+    },
+    {
+     "branch": "main",
+     "full_name": "Haohao-end/openagent",
+     "stars": 810
+    },
+    {
+     "branch": "main",
+     "full_name": "agulli/atlas-agents",
+     "stars": 524
+    },
+    {
+     "branch": "main",
+     "full_name": "EthanXiang777/circuit-framework",
+     "stars": 279
+    },
+    {
+     "branch": "main",
+     "full_name": "jank/curiosity",
+     "stars": 206
+    },
+    {
+     "branch": "master",
+     "full_name": "aymericdamien/TopDeepLearning",
+     "stars": 6354
+    },
+    {
+     "branch": "main",
+     "full_name": "AgnetLabs/Laddr",
+     "stars": 343
+    },
+    {
+     "branch": "main",
+     "full_name": "LangGraph-GUI/CrewAI-GUI-Qt",
+     "stars": 209
+    },
+    {
+     "branch": "develop",
+     "full_name": "emcie-co/parlant",
+     "stars": 18289
+    },
+    {
+     "branch": "master",
+     "full_name": "hoodini/ai-agents-skills",
+     "stars": 280
+    },
+    {
+     "branch": "main",
+     "full_name": "liangdabiao/langgraph_multi-agent-rag-customer-support",
+     "stars": 325
+    },
+    {
+     "branch": "master",
+     "full_name": "Moh4696/build-ai-agents-free",
+     "stars": 337
+    },
+    {
+     "branch": "main",
+     "full_name": "billy-enrizky/openbrowser-ai",
+     "stars": 244
+    },
+    {
+     "branch": "main",
+     "full_name": "MetapriseAI/OrgKernel",
+     "stars": 2693
+    },
+    {
+     "branch": "main",
+     "full_name": "DinobaseHQ/dinobase",
+     "stars": 264
+    },
+    {
+     "branch": "main",
+     "full_name": "oxbshw/LLM-Agents-Ecosystem-Handbook",
+     "stars": 550
+    },
+    {
+     "branch": "main",
+     "full_name": "runagent-dev/runagent",
+     "stars": 482
+    },
+    {
+     "branch": "main",
+     "full_name": "AgentOps-AI/agentops",
+     "stars": 5828
+    },
+    {
+     "branch": "main",
+     "full_name": "alirezadir/Agentic-AI-Systems",
+     "stars": 474
+    },
+    {
+     "branch": "feature/interactive-website",
+     "full_name": "fzy2012/rhzl-Agentic-Design-Patterns-cn",
+     "stars": 378
+    },
+    {
+     "branch": "master",
+     "full_name": "Wood-Q/MokioAgent",
+     "stars": 271
+    },
+    {
+     "branch": "main",
+     "full_name": "massgen/MassGen",
+     "stars": 1131
+    },
+    {
+     "branch": "main",
+     "full_name": "QVerisAI/QVerisFlow",
+     "stars": 1371
+    },
+    {
+     "branch": "main",
+     "full_name": "quarqlabs/argus",
+     "stars": 277
+    },
+    {
+     "branch": "main",
+     "full_name": "Negai-ai/AgentClaw",
+     "stars": 343
+    },
+    {
+     "branch": "main",
+     "full_name": "jamwithai/production-agentic-rag-course",
+     "stars": 8934
+    },
+    {
+     "branch": "main",
+     "full_name": "ferdinandobons/AWSBedrockAgentCoreSkill",
+     "stars": 209
+    },
+    {
+     "branch": "main",
+     "full_name": "agentscope-ai/agentscope-runtime",
+     "stars": 868
+    },
+    {
+     "branch": "main",
+     "full_name": "shihongDev/evalyn",
+     "stars": 258
+    },
+    {
+     "branch": "main",
+     "full_name": "XortexAI/XMem",
+     "stars": 234
+    },
+    {
+     "branch": "main",
+     "full_name": "SalesforceAIResearch/enterprise-deep-research",
+     "stars": 1211
+    },
+    {
+     "branch": "main",
+     "full_name": "NVIDIA-AI-Blueprints/ai-virtual-assistant",
+     "stars": 277
+    },
+    {
+     "branch": "main",
+     "full_name": "Y-Research-SBU/PosterGen",
+     "stars": 257
+    },
+    {
+     "branch": "main",
+     "full_name": "The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
+     "stars": 12670
+    },
+    {
+     "branch": "master",
+     "full_name": "Jennyee1/AcademicAgent",
+     "stars": 342
+    },
+    {
+     "branch": "main",
+     "full_name": "Mason-zy/Langchain1.0-Study",
+     "stars": 319
+    },
+    {
+     "branch": "main",
+     "full_name": "Trusera/ai-bom",
+     "stars": 331
+    },
+    {
+     "branch": "main",
+     "full_name": "oxbshw/Open-Workflow-Library",
+     "stars": 553
+    },
+    {
+     "branch": "main",
+     "full_name": "yycyyv/M-Cube",
+     "stars": 211
+    },
+    {
+     "branch": "main",
+     "full_name": "didilili/deepsearch-agents",
+     "stars": 240
+    },
+    {
+     "branch": "main",
+     "full_name": "didilili/shopkeeper-agent",
+     "stars": 397
+    },
+    {
+     "branch": "main",
+     "full_name": "pettingllms-ai/PettingLLMs",
+     "stars": 219
+    },
+    {
+     "branch": "master",
+     "full_name": "XD-MHLOO/Osintgraph",
+     "stars": 957
+    },
+    {
+     "branch": "main",
+     "full_name": "lhh737/LangChain-ReAct-Agent",
+     "stars": 371
+    },
+    {
+     "branch": "master",
+     "full_name": "AgentTeam-TaichuAI/ScienceClaw",
+     "stars": 668
+    },
+    {
+     "branch": "main",
+     "full_name": "Gen-Future/ExcelMind",
+     "stars": 220
+    },
+    {
+     "branch": "main",
+     "full_name": "summerjava/Awesome_Agent_Dev",
+     "stars": 261
+    },
+    {
+     "branch": "main",
+     "full_name": "YutoTerashima/agent-safety-eval-lab",
+     "stars": 309
+    },
+    {
+     "branch": "main",
+     "full_name": "rokbenko/ai-playground",
+     "stars": 320
+    },
+    {
+     "branch": "main",
+     "full_name": "iternal-technologies-partners/blockify-agentic-data-optimization",
+     "stars": 313
+    },
+    {
+     "branch": "main",
+     "full_name": "ATaC-team/ATaC",
+     "stars": 309
+    },
+    {
+     "branch": "main",
+     "full_name": "rcortx/kiwiq",
+     "stars": 2223
+    },
+    {
+     "branch": "main",
+     "full_name": "Hmbown/aleph",
+     "stars": 217
+    },
+    {
+     "branch": "main",
+     "full_name": "aakriti1318/multi-agent-generator",
+     "stars": 221
+    },
+    {
+     "branch": "main",
+     "full_name": "agentscope-ai/agentscope-samples",
+     "stars": 345
+    },
+    {
+     "branch": "main",
+     "full_name": "Narwhal-Lab/MagicSkills",
+     "stars": 317
+    },
+    {
+     "branch": "master",
+     "full_name": "lingxi-agent/Lingxi",
+     "stars": 258
+    },
+    {
+     "branch": "main",
+     "full_name": "bcefghj/multi-agent-travel-planner",
+     "stars": 317
+    },
+    {
+     "branch": "main",
+     "full_name": "bcefghj/smart-cs-multi-agent",
+     "stars": 427
+    },
+    {
+     "branch": "main",
+     "full_name": "bcefghj/multi-agent-ecommerce-system",
+     "stars": 580
+    },
+    {
+     "branch": "main",
+     "full_name": "bcefghj/multi-agent-aiops",
+     "stars": 359
+    },
+    {
+     "branch": "main",
+     "full_name": "aiming-lab/AutoHarness",
+     "stars": 377
+    },
+    {
+     "branch": "main",
+     "full_name": "bcefghj/ai-agent-interview-guide",
+     "stars": 2659
+    },
+    {
+     "branch": "main",
+     "full_name": "langtalks/swe-agent",
+     "stars": 641
+    },
+    {
+     "branch": "main",
+     "full_name": "OpenDemon/Pilipili-AutoVideo",
+     "stars": 206
+    },
+    {
+     "branch": "main",
+     "full_name": "stophobia/deerflow2.0-enhanced",
+     "stars": 791
+    },
+    {
+     "branch": "main",
+     "full_name": "HKUSTDial/DeepFund",
+     "stars": 295
+    },
+    {
+     "branch": "main",
+     "full_name": "dhruvsinghal09/Adaptive-Rag",
+     "stars": 300
+    },
+    {
+     "branch": "main",
+     "full_name": "NicholasGoh/fastapi-mcp-langgraph-template",
+     "stars": 558
+    },
+    {
+     "branch": "main",
+     "full_name": "fzn0x/watchtower",
+     "stars": 212
+    },
+    {
+     "branch": "main",
+     "full_name": "vibesurf-ai/VibeSurf",
+     "stars": 481
+    },
+    {
+     "branch": "master",
+     "full_name": "kmeanskaran/stock-agent-ops",
+     "stars": 306
+    },
+    {
+     "branch": "develop",
+     "full_name": "skygazer42/pokemon-chat",
+     "stars": 408
+    },
+    {
+     "branch": "master",
+     "full_name": "IatomicreactorI/CSGOTrading",
+     "stars": 577
+    },
+    {
+     "branch": "master",
+     "full_name": "ai-christianson/RA.Aid",
+     "stars": 2219
+    },
+    {
+     "branch": "main",
+     "full_name": "Chen-zexi/open-ptc-agent",
+     "stars": 731
+    },
+    {
+     "branch": "main",
+     "full_name": "girijesh-ai/ai-interview-codex",
+     "stars": 519
+    },
+    {
+     "branch": "main",
+     "full_name": "eosho/langchain_data_agent",
+     "stars": 236
+    },
+    {
+     "branch": "main",
+     "full_name": "ivebotunac/PrimoAgent",
+     "stars": 346
+    },
+    {
+     "branch": "main",
+     "full_name": "BrandPeng/Langchain1.0-Langgraph1.0-Learning",
+     "stars": 663
+    },
+    {
+     "branch": "main",
+     "full_name": "jkmaina/LangGraphProjects",
+     "stars": 215
+    },
+    {
+     "branch": "main",
+     "full_name": "NanGePlus/ReActAgentsTest",
+     "stars": 364
+    },
+    {
+     "branch": "master",
+     "full_name": "Sean-V-Dev/HMLR-Agentic-AI-Memory-System",
+     "stars": 383
+    },
+    {
+     "branch": "main",
+     "full_name": "ScrapeGraphAI/scrapecraft",
+     "stars": 698
+    },
+    {
+     "branch": "main",
+     "full_name": "liangdabiao/claude-data-analysis",
+     "stars": 440
+    },
+    {
+     "branch": "master",
+     "full_name": "FareedKhan-dev/production-grade-agentic-system",
+     "stars": 966
+    },
+    {
+     "branch": "main",
+     "full_name": "ServiceNow/TapeAgents",
+     "stars": 318
+    },
+    {
+     "branch": "main",
+     "full_name": "nuglifeleoji/Options-Analytics-Agent",
+     "stars": 642
+    },
+    {
+     "branch": "main",
+     "full_name": "leonyangdev/lc-studylab",
+     "stars": 399
+    },
+    {
+     "branch": "master",
+     "full_name": "dtquocbao/ai-market",
+     "stars": 374
+    },
+    {
+     "branch": "main",
+     "full_name": "lkpAgent/openAgent",
+     "stars": 241
+    },
+    {
+     "branch": "main",
+     "full_name": "splx-ai/agentic-radar",
+     "stars": 1054
+    },
+    {
+     "branch": "main",
+     "full_name": "ZhangJinHaHaHa/FinchainAgent",
+     "stars": 201
+    },
+    {
+     "branch": "main",
+     "full_name": "zamalali/langchain-code",
+     "stars": 439
+    },
+    {
+     "branch": "main",
+     "full_name": "sagar-n/deepagents",
+     "stars": 951
+    },
+    {
+     "branch": "main",
+     "full_name": "louisgthier/decompai",
+     "stars": 227
+    },
+    {
+     "branch": "main",
+     "full_name": "muratcankoylan/readwren",
+     "stars": 204
+    },
+    {
+     "branch": "master",
+     "full_name": "1517005260/graph-rag-agent",
+     "stars": 2340
+    },
+    {
+     "branch": "master",
+     "full_name": "Repello-AI/Agent-Wiz",
+     "stars": 397
+    },
+    {
+     "branch": "main",
+     "full_name": "bowang-lab/MedRAX",
+     "stars": 1231
+    },
+    {
+     "branch": "main",
+     "full_name": "michaelalbada/BuildingApplicationsWithAIAgents",
+     "stars": 563
+    },
+    {
+     "branch": "main",
+     "full_name": "lucifertrj/Awesome-RAG",
+     "stars": 284
+    },
+    {
+     "branch": "main",
+     "full_name": "neural-maze/philoagents-course",
+     "stars": 1546
+    },
+    {
+     "branch": "main",
+     "full_name": "neural-maze/ava-whatsapp-agent-course",
+     "stars": 1677
+    },
+    {
+     "branch": "master",
+     "full_name": "bernatsampera/event-deep-research",
+     "stars": 253
+    },
+    {
+     "branch": "main",
+     "full_name": "davialabs/davia-app-builder-py",
+     "stars": 569
+    },
+    {
+     "branch": "main",
+     "full_name": "slavakurilyak/awesome-ai-agents",
+     "stars": 2218
+    },
+    {
+     "branch": "main",
+     "full_name": "51bitquant/ai-hedge-fund-crypto",
+     "stars": 623
+    },
+    {
+     "branch": "main",
+     "full_name": "nirbar1985/ai-travel-agent",
+     "stars": 800
+    },
+    {
+     "branch": "main",
+     "full_name": "wshobson/financial-chat",
+     "stars": 238
+    },
+    {
+     "branch": "main",
+     "full_name": "hinthornw/trustcall",
+     "stars": 1089
+    },
+    {
+     "branch": "main",
+     "full_name": "AGI-Edgerunners/LLM-Agents-Papers",
+     "stars": 2345
+    },
+    {
+     "branch": "main",
+     "full_name": "agentstack-ai/AgentStack",
+     "stars": 2192
+    },
+    {
+     "branch": "main",
+     "full_name": "isoftstone-data-intelligence-ai/efflux-backend",
+     "stars": 722
+    },
+    {
+     "branch": "main",
+     "full_name": "lgesuellip/langgraph-whatsapp-agent",
+     "stars": 241
+    },
+    {
+     "branch": "main",
+     "full_name": "liyuan24/nanoDeepResearch",
+     "stars": 222
+    },
+    {
+     "branch": "main",
+     "full_name": "foreveryh/mentis",
+     "stars": 296
+    },
+    {
+     "branch": "main",
+     "full_name": "GenseeAI/cognify",
+     "stars": 279
+    },
+    {
+     "branch": "main",
+     "full_name": "souvikmajumder26/Multi-Agent-Medical-Assistant",
+     "stars": 974
+    },
+    {
+     "branch": "main",
+     "full_name": "NapthaAI/automcp",
+     "stars": 302
+    },
+    {
+     "branch": "main",
+     "full_name": "togethercomputer/open_deep_research",
+     "stars": 376
+    },
+    {
+     "branch": "main",
+     "full_name": "Westlake-AGI-Lab/AppAgentX",
+     "stars": 673
+    },
+    {
+     "branch": "master",
+     "full_name": "braincrew-lab/langgraph-mcp-agents",
+     "stars": 716
+    },
+    {
+     "branch": "main",
+     "full_name": "NanGePlus/LangGraphChatBot",
+     "stars": 476
+    },
+    {
+     "branch": "main",
+     "full_name": "wjayesh/mahilo",
+     "stars": 480
+    },
+    {
+     "branch": "main",
+     "full_name": "rlancemartin/llmstxt_architect",
+     "stars": 254
+    },
+    {
+     "branch": "master",
+     "full_name": "wassim249/YT-Navigator",
+     "stars": 605
+    },
+    {
+     "branch": "main",
+     "full_name": "darwin-lau/langmanus",
+     "stars": 1317
+    },
+    {
+     "branch": "main",
+     "full_name": "parthmodi152/alpha-gpt",
+     "stars": 223
+    },
+    {
+     "branch": "main",
+     "full_name": "esxr/langgraph-mcp",
+     "stars": 587
+    },
+    {
+     "branch": "main",
+     "full_name": "hrithikkoduri/WebRover",
+     "stars": 1023
+    },
+    {
+     "branch": "main",
+     "full_name": "kaymen99/langgraph-email-automation",
+     "stars": 274
+    },
+    {
+     "branch": "main",
+     "full_name": "kennethreitz/simplemind",
+     "stars": 537
+    },
+    {
+     "branch": "main",
+     "full_name": "kaymen99/sales-outreach-automation-langgraph",
+     "stars": 388
+    },
+    {
+     "branch": "master",
+     "full_name": "hwchase17/langchain-streamlit-template",
+     "stars": 298
+    },
+    {
+     "branch": "main",
+     "full_name": "nicoladisabato/MultiAgenticRAG",
+     "stars": 239
+    },
+    {
+     "branch": "main",
+     "full_name": "Yonom/assistant-ui-langgraph-fastapi",
+     "stars": 211
+    },
+    {
+     "branch": "main",
+     "full_name": "vinay-gatech/stocks-insights-ai-agent",
+     "stars": 750
+    },
+    {
+     "branch": "main",
+     "full_name": "cnunescoelho/kiroku",
+     "stars": 353
+    },
+    {
+     "branch": "master",
+     "full_name": "artnoage/Podcast",
+     "stars": 260
+    },
+    {
+     "branch": "main",
+     "full_name": "amanv1906/GENAI-CareerAssistant-Multiagent",
+     "stars": 375
+    },
+    {
+     "branch": "main",
+     "full_name": "Nachoeigu/agentic-customer-service-medical-clinic",
+     "stars": 218
+    },
+    {
+     "branch": "main",
+     "full_name": "brainqub3/jar3d_meta_expert",
+     "stars": 408
+    },
+    {
+     "branch": "main",
+     "full_name": "samwit/agent_tutorials",
+     "stars": 271
+    },
+    {
+     "branch": "master",
+     "full_name": "mikekelly/AgentK",
+     "stars": 971
+    },
+    {
+     "branch": "main",
+     "full_name": "kturung/langgraph_streamlit_codeassistant",
+     "stars": 497
+    },
+    {
+     "branch": "main",
+     "full_name": "hfhoffman1144/langchain_neo4j_rag_app",
+     "stars": 250
+    },
+    {
+     "branch": "main",
+     "full_name": "andyz245/LanguageAgentTreeSearch",
+     "stars": 862
+    },
+    {
+     "branch": "main",
+     "full_name": "SqueezeAILab/LLMCompiler",
+     "stars": 1885
+    },
+    {
+     "branch": "main",
+     "full_name": "jwa91/LangGraph-Expense-Tracker",
+     "stars": 219
+    },
+    {
+     "branch": "master",
+     "full_name": "rotemweiss57/gpt-newspaper",
+     "stars": 1470
+    },
+    {
+     "branch": "main",
+     "full_name": "john-adeojo/graph_websearch_agent",
+     "stars": 403
+    }
+   ]
+  },
+  {
+   "band": "stars 10-199",
+   "band_size": 2544,
+   "qualifier": "stars:10..199",
+   "returned": [
+    {
+     "branch": "main",
+     "full_name": "CocoRoF/Geny",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "ZXTLQQ/FactorGPT",
+     "stars": 10
+    },
+    {
+     "branch": "master",
+     "full_name": "linny006/prompt-tools-live",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "XAIHT/Tlamatini",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "Devanik21/Devanik21",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "ndjordjevic/agentic-ai-wiki",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "memtomem/memtomem",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "rekursiv-ai/sagent",
+     "stars": 53
+    },
+    {
+     "branch": "main",
+     "full_name": "Cyrax321/CONTINUUM",
+     "stars": 28
+    },
+    {
+     "branch": "main",
+     "full_name": "LunaticLegacy/angelus",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "raia-live/amfs",
+     "stars": 76
+    },
+    {
+     "branch": "main",
+     "full_name": "flyersworder/agentic-data-contracts",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "ZonghaoLi777/githubTrending",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "DennisDRX/Faraday-Web-Researcher-Agent",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "aetna000/atmem",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "wodrake/ERP-AGENT-open-source",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "the911fund/skill-of-skills",
+     "stars": 38
+    },
+    {
+     "branch": "main",
+     "full_name": "PramodDutta/AITesterBlueprint3x",
+     "stars": 20
+    },
+    {
+     "branch": "master",
+     "full_name": "alexander-kastil/skills-collection",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "SourceShift/mini-ork",
+     "stars": 28
+    },
+    {
+     "branch": "main",
+     "full_name": "theagentplane/chronicle",
+     "stars": 22
+    },
+    {
+     "branch": "development",
+     "full_name": "codeforstartups/dynavec",
+     "stars": 25
+    },
+    {
+     "branch": "main",
+     "full_name": "Rodert/awesome-mcp",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "SynapseKit/SynapseKit",
+     "stars": 23
+    },
+    {
+     "branch": "main",
+     "full_name": "Frosty-Jackal/ArtiControlNet",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "datarobot-oss/datarobot-agent-skills",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "OpenSourceAGI/ai-broker-investing-agent",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "zengzzzzz/golang-trending-archive",
+     "stars": 25
+    },
+    {
+     "branch": "main",
+     "full_name": "brcampidelli/chimera-agent",
+     "stars": 26
+    },
+    {
+     "branch": "main",
+     "full_name": "sattyamjjain/agent-airlock",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "magnus919/agent-skills",
+     "stars": 85
+    },
+    {
+     "branch": "main",
+     "full_name": "shouzhuoshouzhuo/FloatTrip",
+     "stars": 76
+    },
+    {
+     "branch": "main",
+     "full_name": "tya5/reyn",
+     "stars": 11
+    },
+    {
+     "branch": "master",
+     "full_name": "ExDragine/frontier",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "NVIDIA-NeMo/nemo-platform",
+     "stars": 78
+    },
+    {
+     "branch": "master",
+     "full_name": "scszcoder/eCan.ai",
+     "stars": 20
+    },
+    {
+     "branch": "master",
+     "full_name": "pandengzhe123/deep-research-platform",
+     "stars": 22
+    },
+    {
+     "branch": "master",
+     "full_name": "Blake-Jiang/ad-arxiv-daily",
+     "stars": 57
+    },
+    {
+     "branch": "main",
+     "full_name": "papadopouloskyriakos/agentic-chatops",
+     "stars": 107
+    },
+    {
+     "branch": "main",
+     "full_name": "UiPath/skills",
+     "stars": 161
+    },
+    {
+     "branch": "main",
+     "full_name": "kaikai52125/NeoTutor",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "seehiong/autonomous-hdb-deepagents",
+     "stars": 25
+    },
+    {
+     "branch": "main",
+     "full_name": "skynetcmd/m3-memory",
+     "stars": 25
+    },
+    {
+     "branch": "main",
+     "full_name": "JinNing6/CyberHuaTuo",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "ChaoYue0307/awesome-loop-engineering",
+     "stars": 58
+    },
+    {
+     "branch": "main",
+     "full_name": "NY1024/AgentSafety-Papers",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "MockLoop/mockloop-mcp",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "mehd-io/duckdb-extension-radar",
+     "stars": 117
+    },
+    {
+     "branch": "main",
+     "full_name": "IntensiveCoLearning/GoogleAIAgent25Days",
+     "stars": 35
+    },
+    {
+     "branch": "main",
+     "full_name": "google/cybernetic-agent-governance-engine",
+     "stars": 26
+    },
+    {
+     "branch": "main",
+     "full_name": "liwusen/FaustBot-llm-vtuber",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "OWASP/www-project-agent-memory-guard",
+     "stars": 178
+    },
+    {
+     "branch": "main",
+     "full_name": "mlflow/skills",
+     "stars": 78
+    },
+    {
+     "branch": "main",
+     "full_name": "oracle/langchain-oracle",
+     "stars": 60
+    },
+    {
+     "branch": "main",
+     "full_name": "synaptent/aragora",
+     "stars": 11
+    },
+    {
+     "branch": "master",
+     "full_name": "rainmana/awesome-rainmana",
+     "stars": 44
+    },
+    {
+     "branch": "develop",
+     "full_name": "NuGuardAI/nuguard",
+     "stars": 49
+    },
+    {
+     "branch": "main",
+     "full_name": "stdapi-ai/stdapi.ai",
+     "stars": 24
+    },
+    {
+     "branch": "main",
+     "full_name": "langhost/langhost",
+     "stars": 56
+    },
+    {
+     "branch": "main",
+     "full_name": "kejun/blogpost",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "databricks/databricks-ai-bridge",
+     "stars": 103
+    },
+    {
+     "branch": "main",
+     "full_name": "arcjet/arcjet-py",
+     "stars": 32
+    },
+    {
+     "branch": "main",
+     "full_name": "AgentEra/Agently-Skills",
+     "stars": 26
+    },
+    {
+     "branch": "main",
+     "full_name": "protoLabsAI/protoAgent",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "NVIDIA/NeMo-Fabric",
+     "stars": 39
+    },
+    {
+     "branch": "main",
+     "full_name": "nisargpatel28/AgenticPlayground",
+     "stars": 19
+    },
+    {
+     "branch": "main",
+     "full_name": "vstorm-co/agenticos",
+     "stars": 41
+    },
+    {
+     "branch": "main",
+     "full_name": "team-telnyx/telnyx-code-examples",
+     "stars": 157
+    },
+    {
+     "branch": "main",
+     "full_name": "ilkersigirci/langgraph-openai-serve",
+     "stars": 24
+    },
+    {
+     "branch": "main",
+     "full_name": "MichaelS1011/ephemora-cell",
+     "stars": 40
+    },
+    {
+     "branch": "main",
+     "full_name": "NVIDIA-AI-Blueprints/Multi-Agent-Intelligent-Warehouse",
+     "stars": 130
+    },
+    {
+     "branch": "main",
+     "full_name": "matheusht/redthread",
+     "stars": 50
+    },
+    {
+     "branch": "master",
+     "full_name": "blitzcrieg1/agentmetry",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "suiflex/suitest",
+     "stars": 34
+    },
+    {
+     "branch": "main",
+     "full_name": "apiad/aegis",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "wri/project-zeno",
+     "stars": 32
+    },
+    {
+     "branch": "main",
+     "full_name": "datarobot-oss/datarobot-genai",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "argonne-lcf/ChemGraph",
+     "stars": 157
+    },
+    {
+     "branch": "main",
+     "full_name": "ndrezn/ts-browser-agent",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "OSSDrop/OSSDrop",
+     "stars": 102
+    },
+    {
+     "branch": "main",
+     "full_name": "aiqualitylab/ai-natural-language-tests",
+     "stars": 23
+    },
+    {
+     "branch": "main",
+     "full_name": "jgouviergmail/LIA-Assistant",
+     "stars": 51
+    },
+    {
+     "branch": "main",
+     "full_name": "awslabs/hcls-agent-skills",
+     "stars": 42
+    },
+    {
+     "branch": "main",
+     "full_name": "Francis1998/scholar-rag-agent",
+     "stars": 147
+    },
+    {
+     "branch": "main",
+     "full_name": "buffer121328/vibe-coding-and-agents",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "botextractai/ai-langgraph-multi-agent",
+     "stars": 32
+    },
+    {
+     "branch": "main",
+     "full_name": "Francis1998/multi-bot-agentic",
+     "stars": 12
+    },
+    {
+     "branch": "master",
+     "full_name": "Certora/AutoProver",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "johe123qwe/github-trending",
+     "stars": 62
+    },
+    {
+     "branch": "master",
+     "full_name": "CarlosCaPe/octorato",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "pic-standard/pic-standard",
+     "stars": 31
+    },
+    {
+     "branch": "main",
+     "full_name": "roedyrustam/vibes-plug",
+     "stars": 68
+    },
+    {
+     "branch": "main",
+     "full_name": "sambanova/agents",
+     "stars": 58
+    },
+    {
+     "branch": "main",
+     "full_name": "HexamindOrganisation/hexgate",
+     "stars": 18
+    },
+    {
+     "branch": "master",
+     "full_name": "robiteame/easy_comic_agent",
+     "stars": 34
+    },
+    {
+     "branch": "main",
+     "full_name": "LegalQuants/lq-ai",
+     "stars": 144
+    },
+    {
+     "branch": "main",
+     "full_name": "javded-itres/Holix",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "agntcy/coffeeAgntcy",
+     "stars": 112
+    },
+    {
+     "branch": "master",
+     "full_name": "zzm921/agent-lab",
+     "stars": 11
+    },
+    {
+     "branch": "master",
+     "full_name": "apify/apify-sdk-python",
+     "stars": 178
+    },
+    {
+     "branch": "main",
+     "full_name": "SynapseLayer/synapse-layer",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "memgraph/ai-toolkit",
+     "stars": 112
+    },
+    {
+     "branch": "main",
+     "full_name": "MuhammadHasbiAshshiddieqy/OpenClawn",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "UiPath/uipath-python",
+     "stars": 97
+    },
+    {
+     "branch": "main",
+     "full_name": "airbone42/360-data-athlete",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "jersobh/epochdb",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "skamalj/langgraph_checkpoint_firestore",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "dshakes/distil",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "codemie-ai/codemie",
+     "stars": 19
+    },
+    {
+     "branch": "main",
+     "full_name": "yfge/ai-video-studio",
+     "stars": 63
+    },
+    {
+     "branch": "main",
+     "full_name": "UiPath/uipath-langchain-python",
+     "stars": 74
+    },
+    {
+     "branch": "main",
+     "full_name": "Agent-Ship/agent-ship",
+     "stars": 24
+    },
+    {
+     "branch": "main",
+     "full_name": "clouisle/Clouisle",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "moshehbenavraham/Ultimate-Agent-Directory",
+     "stars": 70
+    },
+    {
+     "branch": "main",
+     "full_name": "eliornl/rolemule",
+     "stars": 37
+    },
+    {
+     "branch": "main",
+     "full_name": "limenagent/prodagent",
+     "stars": 82
+    },
+    {
+     "branch": "master",
+     "full_name": "JianFeiGan/agent_part",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "phillipclapham/anneal-memory",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "PxA-Labs/AutoMaintainer",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "BedtimeNewsStudio/BedtimeNews-Agent",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "conceptworksx/Artha-Analytics",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "snath-ai/lar",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "zgsddzwj/advanced_rag",
+     "stars": 21
+    },
+    {
+     "branch": "develop",
+     "full_name": "yaalalabs/agent-kernel",
+     "stars": 190
+    },
+    {
+     "branch": "main",
+     "full_name": "Leonxu6/datasteward",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "kingsoftcloud/ksadk-python",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "oracle/ai-optimizer",
+     "stars": 101
+    },
+    {
+     "branch": "main",
+     "full_name": "07XYGIN/Aura",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "Leonxu6/wakeupagent",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "dynatrace-oss/dynatrace-ai-agent-instrumentation-examples",
+     "stars": 89
+    },
+    {
+     "branch": "main",
+     "full_name": "Hassaan146/Hassaan146",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "smaramwbc/statewave-multi-agent-memory",
+     "stars": 29
+    },
+    {
+     "branch": "main",
+     "full_name": "kyopark2014/agent-wiki",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "kyopark2014/agent-manus",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "18534516725/llm-api-setup-guides",
+     "stars": 164
+    },
+    {
+     "branch": "main",
+     "full_name": "OrangeLatte/OHnews",
+     "stars": 20
+    },
+    {
+     "branch": "main",
+     "full_name": "Hyper-AI-Lab/cyber-ai-team",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "ngoanpv/DeepInterview",
+     "stars": 44
+    },
+    {
+     "branch": "master",
+     "full_name": "nupsea/luminary",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "mann1x/claude-hooks",
+     "stars": 26
+    },
+    {
+     "branch": "main",
+     "full_name": "arthurpanhku/DocSentinel",
+     "stars": 87
+    },
+    {
+     "branch": "main",
+     "full_name": "ProvablyAI/sourcerykit",
+     "stars": 20
+    },
+    {
+     "branch": "main",
+     "full_name": "INFOKOM-KI/Wazuh-MCP-Server",
+     "stars": 58
+    },
+    {
+     "branch": "main",
+     "full_name": "Correia-jpv/fucking-awesome-machine-learning",
+     "stars": 18
+    },
+    {
+     "branch": "master",
+     "full_name": "luwhano/fastapi-langgraph-agent-production-ready-template",
+     "stars": 33
+    },
+    {
+     "branch": "main",
+     "full_name": "rh-ai-quickstart/it-self-service-agent",
+     "stars": 20
+    },
+    {
+     "branch": "main",
+     "full_name": "tubecreate/tubecli",
+     "stars": 170
+    },
+    {
+     "branch": "main",
+     "full_name": "jhd3197/Prompture",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "bonigarcia/context-engineering",
+     "stars": 155
+    },
+    {
+     "branch": "main",
+     "full_name": "Aura-DAU/aura",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "long-safe-accont-4567-uvwxyz-9876/xiaoda-agent",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "atoncooper/MindBase",
+     "stars": 33
+    },
+    {
+     "branch": "main",
+     "full_name": "zxj-2023/my-pi-agent",
+     "stars": 29
+    },
+    {
+     "branch": "main",
+     "full_name": "ADW-19/build_a_product_agent",
+     "stars": 109
+    },
+    {
+     "branch": "main",
+     "full_name": "Correia-jpv/fucking-awesome-python",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "trpc-group/trpc-agent-python",
+     "stars": 144
+    },
+    {
+     "branch": "main",
+     "full_name": "DAT4RIAN/OpenVigil",
+     "stars": 144
+    },
+    {
+     "branch": "main",
+     "full_name": "humblemat810/kogwistar",
+     "stars": 24
+    },
+    {
+     "branch": "main",
+     "full_name": "yeongseon/azure-functions-validation-python",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "draco-agent/tech-news-digest",
+     "stars": 75
+    },
+    {
+     "branch": "main",
+     "full_name": "FranciscoOssian/cveck",
+     "stars": 19
+    },
+    {
+     "branch": "main",
+     "full_name": "drussell23/JARVIS",
+     "stars": 31
+    },
+    {
+     "branch": "main",
+     "full_name": "ikaruscareer/SafeAI",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "temporal-community/temporal-agent-harness",
+     "stars": 52
+    },
+    {
+     "branch": "main",
+     "full_name": "kdcube/kdcube",
+     "stars": 25
+    },
+    {
+     "branch": "dev",
+     "full_name": "agencyenterprise/draft-detective",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "srtab/daiv",
+     "stars": 23
+    },
+    {
+     "branch": "main",
+     "full_name": "neo4j-labs/neocarta",
+     "stars": 134
+    },
+    {
+     "branch": "main",
+     "full_name": "band-ai/band-sdk-python",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "ThreeMoonsLab/agents-shipgate",
+     "stars": 89
+    },
+    {
+     "branch": "main",
+     "full_name": "aws-samples/sample-agentic-platform",
+     "stars": 134
+    },
+    {
+     "branch": "main",
+     "full_name": "twilio/twilio-agent-connect-aws",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "lac5q/beastmode",
+     "stars": 20
+    },
+    {
+     "branch": "main",
+     "full_name": "CyberStrategyInstitute/ai-safe2-framework",
+     "stars": 141
+    },
+    {
+     "branch": "main",
+     "full_name": "mtrnix/metronix-memory",
+     "stars": 102
+    },
+    {
+     "branch": "main",
+     "full_name": "ChaoYue0307/awesome-graph-engineering",
+     "stars": 39
+    },
+    {
+     "branch": "main",
+     "full_name": "yeongseon/azure-functions-langgraph-python",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "Agnuxo1/Unified-Holographic-Neural-Network",
+     "stars": 30
+    },
+    {
+     "branch": "main",
+     "full_name": "boluodaixue/paperpilot",
+     "stars": 94
+    },
+    {
+     "branch": "dev",
+     "full_name": "worldbank/data360-mcp",
+     "stars": 37
+    },
+    {
+     "branch": "main",
+     "full_name": "low-hands/MyCareer",
+     "stars": 33
+    },
+    {
+     "branch": "main",
+     "full_name": "Sheep1433/Noesis",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "mycelium-labs/mycelium",
+     "stars": 26
+    },
+    {
+     "branch": "main",
+     "full_name": "sands-lab/nika",
+     "stars": 59
+    },
+    {
+     "branch": "main",
+     "full_name": "LiUshin/OpenJellyfish",
+     "stars": 31
+    },
+    {
+     "branch": "main",
+     "full_name": "MusaIslamFahad/road-to-ai-engineer",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "dueros-mcp/dueros-mcp",
+     "stars": 19
+    },
+    {
+     "branch": "main",
+     "full_name": "6Asmile/AI_interview",
+     "stars": 26
+    },
+    {
+     "branch": "main",
+     "full_name": "redhat-community-ai-tools/UnifAI",
+     "stars": 45
+    },
+    {
+     "branch": "master",
+     "full_name": "Uyouii/Reading",
+     "stars": 10
+    },
+    {
+     "branch": "python",
+     "full_name": "luyi14-bits/jig",
+     "stars": 195
+    },
+    {
+     "branch": "master",
+     "full_name": "G-Pegasus/LoreSmith",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "eighteendreamer/Ai_Test_Agent",
+     "stars": 44
+    },
+    {
+     "branch": "main",
+     "full_name": "hrabanazviking/Heathen-Emergent-Reality-Engine-Thoughtform-Intelligence-Companion",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "asago-ai/midojo",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "beyonai/by-framework-python",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "BrightbeamAI/chap",
+     "stars": 102
+    },
+    {
+     "branch": "main",
+     "full_name": "weijt606/ai-agent-map",
+     "stars": 66
+    },
+    {
+     "branch": "main",
+     "full_name": "yanchun2530/WAS-WebAgentSwarm",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "LuxUmbra697/ai-knowledge-learning-miniapp",
+     "stars": 37
+    },
+    {
+     "branch": "main",
+     "full_name": "samouraiworld/awesome-mistral",
+     "stars": 46
+    },
+    {
+     "branch": "main",
+     "full_name": "mangowhoiscloud/geode",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "Anorlx/Agentic_RAG",
+     "stars": 61
+    },
+    {
+     "branch": "main",
+     "full_name": "neatlogs/neatlogs",
+     "stars": 89
+    },
+    {
+     "branch": "main",
+     "full_name": "informatique-cdc/retro-doc",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "zeronezer/bidcraft",
+     "stars": 10
+    },
+    {
+     "branch": "master",
+     "full_name": "ArgusLabs-ai/ARGUS",
+     "stars": 31
+    },
+    {
+     "branch": "main",
+     "full_name": "yeongseon/azure-functions-openapi-python",
+     "stars": 30
+    },
+    {
+     "branch": "main",
+     "full_name": "multivon-ai/multivon-eval",
+     "stars": 25
+    },
+    {
+     "branch": "main",
+     "full_name": "afiodorov/hn-search",
+     "stars": 73
+    },
+    {
+     "branch": "main",
+     "full_name": "yeongseon/azure-functions-logging-python",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "cubeplexai/cubeloop",
+     "stars": 59
+    },
+    {
+     "branch": "main",
+     "full_name": "amahi2001/python-token-killer",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "dns-aid/dns-aid-core",
+     "stars": 68
+    },
+    {
+     "branch": "main",
+     "full_name": "Caprista/KarvyLoop",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "the-omics-os/lobster",
+     "stars": 46
+    },
+    {
+     "branch": "main",
+     "full_name": "okahu-demos/lg-travel-agent",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "woshidacongming12300/PowerTrade-LLM-Agent",
+     "stars": 10
+    },
+    {
+     "branch": "master",
+     "full_name": "cccaballero/manolo_bot",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "restrok/biometric-ai-platform",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "red-hat-data-services/agentic-starter-kits",
+     "stars": 33
+    },
+    {
+     "branch": "main",
+     "full_name": "LuxUmbra697/AI-PPT-Report-Slides-Studio-v2",
+     "stars": 43
+    },
+    {
+     "branch": "main",
+     "full_name": "KylinShinlyLin/QozeCode",
+     "stars": 118
+    },
+    {
+     "branch": "main",
+     "full_name": "yzhao062/awesome-auditable-ai",
+     "stars": 147
+    },
+    {
+     "branch": "main",
+     "full_name": "najeed/ai-agent-eval-harness",
+     "stars": 44
+    },
+    {
+     "branch": "dev",
+     "full_name": "mpesavento/swarmbus",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "yeongseon/azure-functions-db-python",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "NVIDIA-AI-Blueprints/retail-shopping-assistant",
+     "stars": 98
+    },
+    {
+     "branch": "main",
+     "full_name": "CTRLRun/ctrlrun",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "star-ga/mind-mem",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "yigitkonur/skills-by-yigitkonur",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "MSKazemi/kubeintellect",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "automateyournetwork/pyATS_MCP",
+     "stars": 86
+    },
+    {
+     "branch": "main",
+     "full_name": "rgoerwit/ai-investment-agent",
+     "stars": 72
+    },
+    {
+     "branch": "main",
+     "full_name": "ABrain-One/nn-gpt",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "Open-Probe/Open-Probe",
+     "stars": 23
+    },
+    {
+     "branch": "main",
+     "full_name": "AdilShamim8/Agentic-AI-Roadmap-with-Notes-and-Projects",
+     "stars": 22
+    },
+    {
+     "branch": "master",
+     "full_name": "pnnl/BEM-AI",
+     "stars": 29
+    },
+    {
+     "branch": "main",
+     "full_name": "redhat-data-and-ai/template-agent",
+     "stars": 38
+    },
+    {
+     "branch": "main",
+     "full_name": "agntcy/observe",
+     "stars": 58
+    },
+    {
+     "branch": "main",
+     "full_name": "timbal-ai/timbal",
+     "stars": 45
+    },
+    {
+     "branch": "main",
+     "full_name": "Gauntlet-HQ/prod-evals-cookbook",
+     "stars": 59
+    },
+    {
+     "branch": "main",
+     "full_name": "lihor-hub/news-dashboard",
+     "stars": 33
+    },
+    {
+     "branch": "main",
+     "full_name": "Bucha11/axor-core",
+     "stars": 29
+    },
+    {
+     "branch": "master",
+     "full_name": "libowenhemonesy-svg/cross-border-ai",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "topoteretes/cognee-integrations",
+     "stars": 89
+    },
+    {
+     "branch": "main",
+     "full_name": "mp-ac/verifica-ai",
+     "stars": 40
+    },
+    {
+     "branch": "main",
+     "full_name": "AronAxe/Token-Terminator",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "generative-computing/mellea-skills-compiler",
+     "stars": 50
+    },
+    {
+     "branch": "master",
+     "full_name": "8pig/llm-ops",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "nowledge-co/community",
+     "stars": 176
+    },
+    {
+     "branch": "main",
+     "full_name": "MengC-OvO/easy-teaching",
+     "stars": 61
+    },
+    {
+     "branch": "main",
+     "full_name": "KRATSZ/LabScript-AI",
+     "stars": 130
+    },
+    {
+     "branch": "main",
+     "full_name": "Vectorlink-Labs/coalent",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "yuyuanweb/ai-picture-editor",
+     "stars": 191
+    },
+    {
+     "branch": "main",
+     "full_name": "agentveil-protocol/agentveil-sdk",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "yuyuanweb/ai-ppt-generator",
+     "stars": 149
+    },
+    {
+     "branch": "main",
+     "full_name": "neopen/video-clip-agent",
+     "stars": 37
+    },
+    {
+     "branch": "main",
+     "full_name": "maximem-ai/maximem_synap_sdk",
+     "stars": 70
+    },
+    {
+     "branch": "main",
+     "full_name": "mystiafly/Touhou_Pet",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "neo4j-labs/neo4j-agent-integrations",
+     "stars": 24
+    },
+    {
+     "branch": "main",
+     "full_name": "GU-Cryptography/anykb",
+     "stars": 170
+    },
+    {
+     "branch": "main",
+     "full_name": "hiydavid/databricks-genai-examples",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "cayu-dev/cayu",
+     "stars": 69
+    },
+    {
+     "branch": "main",
+     "full_name": "CyberYozh-data/yozh-scraper",
+     "stars": 88
+    },
+    {
+     "branch": "main",
+     "full_name": "martymcenroe/AssemblyZero",
+     "stars": 112
+    },
+    {
+     "branch": "main",
+     "full_name": "blaxel-ai/sdk-python",
+     "stars": 25
+    },
+    {
+     "branch": "main",
+     "full_name": "dunetrace/dunetrace",
+     "stars": 64
+    },
+    {
+     "branch": "main",
+     "full_name": "jstuart0/project-athena-oss",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "Helixar-AI/HDP",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "googleapis/langchain-google-alloydb-pg-python",
+     "stars": 39
+    },
+    {
+     "branch": "main",
+     "full_name": "PavelShaura/review_ducktective",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "bkuan001/halo-record",
+     "stars": 80
+    },
+    {
+     "branch": "main",
+     "full_name": "arniesaha/agentweave",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "lightonai/lighton-python-sdk",
+     "stars": 15
+    },
+    {
+     "branch": "master",
+     "full_name": "Lanerra/saga",
+     "stars": 110
+    },
+    {
+     "branch": "main",
+     "full_name": "keurcien/auxilia",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "The-AI-Disclosures-Project/Open-Memory-Protocol",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "tinkerfin-ai/tinkerfin-harness",
+     "stars": 34
+    },
+    {
+     "branch": "main",
+     "full_name": "WSzP/cv-warlock",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "forge-sdlc/forge",
+     "stars": 19
+    },
+    {
+     "branch": "main",
+     "full_name": "datahub-project/analytics-agent",
+     "stars": 51
+    },
+    {
+     "branch": "main",
+     "full_name": "googleapis/mcp-toolbox-sdk-python",
+     "stars": 192
+    },
+    {
+     "branch": "main",
+     "full_name": "Komagon/hermes-production-patterns",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "authzed/workshops",
+     "stars": 12
+    },
+    {
+     "branch": "master",
+     "full_name": "5zjk5/prompt-engineering",
+     "stars": 127
+    },
+    {
+     "branch": "main",
+     "full_name": "mishrasanjeev/agentic-org",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "agentevals-dev/agentevals",
+     "stars": 160
+    },
+    {
+     "branch": "main",
+     "full_name": "buffer121328/assistant",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "beneadie/deep_dog_2",
+     "stars": 26
+    },
+    {
+     "branch": "main",
+     "full_name": "metorial/metorial-python",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "joonlab/joonlab-claudecode-setting-for-share",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "smsolutionsva-byte/VEDA",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "yangskin/Memory",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "dxx/agent-template",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "SuperGODOG/ai-agent-interview-240",
+     "stars": 40
+    },
+    {
+     "branch": "main",
+     "full_name": "wangyuxun6699/learn_claude_code_langchain",
+     "stars": 52
+    },
+    {
+     "branch": "main",
+     "full_name": "SaravananJaichandar/world-model-mcp",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "DeepAgentLabs/agenticlens",
+     "stars": 60
+    },
+    {
+     "branch": "main",
+     "full_name": "mare-retrieval/MARE",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "zgsddzwj/intelligent_consultation",
+     "stars": 57
+    },
+    {
+     "branch": "main",
+     "full_name": "tam159/next-role",
+     "stars": 57
+    },
+    {
+     "branch": "main",
+     "full_name": "Agentic-Analyst/stock-analyst",
+     "stars": 126
+    },
+    {
+     "branch": "main",
+     "full_name": "PristineStream/ChatGPT-Chinese-Tutorial",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "maida-ai/maida",
+     "stars": 32
+    },
+    {
+     "branch": "main",
+     "full_name": "Tangliheng-tt/Miniclaw",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "miao4ai/open_recruiter",
+     "stars": 32
+    },
+    {
+     "branch": "master",
+     "full_name": "Harvey-cream/Langchain_DG",
+     "stars": 32
+    },
+    {
+     "branch": "master",
+     "full_name": "Harvey-cream/accountings",
+     "stars": 51
+    },
+    {
+     "branch": "main",
+     "full_name": "remete618/widemem-ai",
+     "stars": 49
+    },
+    {
+     "branch": "develop",
+     "full_name": "alyf-de/ask_alyf",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "datarobot-community/datarobot-agent-application",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "johnxie/awesome-code-docs",
+     "stars": 58
+    },
+    {
+     "branch": "main",
+     "full_name": "RickZee/ai-team",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "NC-DIT-Open-Source/Public-Comment-Analyzer",
+     "stars": 12
+    },
+    {
+     "branch": "master",
+     "full_name": "tk-fantasy/fantasy",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "kakuibeyond/talent-eval-agents",
+     "stars": 23
+    },
+    {
+     "branch": "master",
+     "full_name": "caura-ai/caura-build-fleet",
+     "stars": 36
+    },
+    {
+     "branch": "main",
+     "full_name": "vouch-protocol/vouch",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "SheikhSarvar/pyrag-core",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "orq-ai/evaluatorq",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "AzureCosmosDB/travel-multi-agent-workshop",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "78percent/LangGraph_Trip_Planner",
+     "stars": 14
+    },
+    {
+     "branch": "master",
+     "full_name": "kyle103/medical_agent",
+     "stars": 23
+    },
+    {
+     "branch": "develop",
+     "full_name": "oceanbase/langchain-oceanbase",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "superxi-s/sac-agent-skill-assurance",
+     "stars": 20
+    },
+    {
+     "branch": "main",
+     "full_name": "brycewang-stanford/Auto-Research-Skills",
+     "stars": 164
+    },
+    {
+     "branch": "main",
+     "full_name": "buntys2010/awesome-ai-agents",
+     "stars": 26
+    },
+    {
+     "branch": "master",
+     "full_name": "Yuvasee/samocode",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "nikhilprasad-data/pii-compliance-gateway-api",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "yementechcollective/aweasome-yemeni-open-source",
+     "stars": 38
+    },
+    {
+     "branch": "main",
+     "full_name": "confident-ai/confident-trace",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "senda-labs/DQIII8",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "Alex8791-cyber/cognithor",
+     "stars": 155
+    },
+    {
+     "branch": "main",
+     "full_name": "atwmarshall/dead-reckoning",
+     "stars": 34
+    },
+    {
+     "branch": "main",
+     "full_name": "Harmeet10000/AgentNexus-LangChain-FastAPI",
+     "stars": 47
+    },
+    {
+     "branch": "main",
+     "full_name": "edictum-ai/edictum",
+     "stars": 31
+    },
+    {
+     "branch": "main",
+     "full_name": "GGBond121211/CodeInsight",
+     "stars": 97
+    },
+    {
+     "branch": "main",
+     "full_name": "ljxpython/ai-agent-platform",
+     "stars": 130
+    },
+    {
+     "branch": "main",
+     "full_name": "QuesmaOrg/awesome-ai-tokenomics",
+     "stars": 184
+    },
+    {
+     "branch": "main",
+     "full_name": "nwk0112-collab/Open-ChatBI",
+     "stars": 17
+    },
+    {
+     "branch": "Agent",
+     "full_name": "qiaojoin586-droid/RAG_LearnLittleCode",
+     "stars": 157
+    },
+    {
+     "branch": "main",
+     "full_name": "wds1996/Tiny-Agent",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "alibaba/loongsuite-python",
+     "stars": 135
+    },
+    {
+     "branch": "master",
+     "full_name": "Secure-Vector/securevector-ai-threat-monitor",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "redhat-data-and-ai/template-mcp-server",
+     "stars": 66
+    },
+    {
+     "branch": "main",
+     "full_name": "FalkorDB/langchain-falkordb",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "huaweicloud/agentarts-sdk-python",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "WZB1320/A-Shares-ResearchV2.0",
+     "stars": 10
+    },
+    {
+     "branch": "development",
+     "full_name": "mifunedev/orchestra",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "PINNeAPPle-Labs/pinnaitor",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "Terminal-Research/aion-python-sdk",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "sandeepmb/agent-governor",
+     "stars": 17
+    },
+    {
+     "branch": "master",
+     "full_name": "Fame510/SHACKLE",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "frankxai/claude-skills-library",
+     "stars": 40
+    },
+    {
+     "branch": "main",
+     "full_name": "mphinance/momentum-mcp",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "mphinance/alpha-skills",
+     "stars": 24
+    },
+    {
+     "branch": "main",
+     "full_name": "saasvista/aibom-scanner",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "Carer-Healthcare-AI/Hospilot",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "madara88645/Compiler",
+     "stars": 26
+    },
+    {
+     "branch": "main",
+     "full_name": "WhitzardAgent/AgentGuard",
+     "stars": 140
+    },
+    {
+     "branch": "main",
+     "full_name": "Shweta-Mishra-ai/tokenmizer",
+     "stars": 32
+    },
+    {
+     "branch": "main",
+     "full_name": "letmeow/spark-arc-studio",
+     "stars": 64
+    },
+    {
+     "branch": "main",
+     "full_name": "MehdiZare/fmp-data",
+     "stars": 30
+    },
+    {
+     "branch": "main",
+     "full_name": "AryanSharma9917/kubepilot",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "omerbsezer/Fast-LLM-Agent-MCP",
+     "stars": 90
+    },
+    {
+     "branch": "main",
+     "full_name": "lxcxjxhx/HOS-LS",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "ivyfan-toowell/Traveling",
+     "stars": 21
+    },
+    {
+     "branch": "master",
+     "full_name": "charlie-chann/ai-agent-langgraph-main",
+     "stars": 120
+    },
+    {
+     "branch": "main",
+     "full_name": "kryvokhyzha/langgraph-agent-toolkit",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "AammarTufail/eleven_ai_agents_for_begineers_to_advance_level_developers",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "Masoudjafaripour/Vibe_CADing",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "neul-labs/fast-litellm",
+     "stars": 47
+    },
+    {
+     "branch": "main",
+     "full_name": "zhangrldndx/offerclaw",
+     "stars": 98
+    },
+    {
+     "branch": "main",
+     "full_name": "CognicellAI/Cognition",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "ivyfan-toowell/IvyClaw",
+     "stars": 64
+    },
+    {
+     "branch": "master",
+     "full_name": "wyh201816/taichu",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "tyang816/Awesome-TCM-LLM",
+     "stars": 109
+    },
+    {
+     "branch": "master",
+     "full_name": "yql210/ontology-driven-agent",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "yeongseon/azure-functions-doctor-python",
+     "stars": 24
+    },
+    {
+     "branch": "main",
+     "full_name": "facebookexperimental/coresmith",
+     "stars": 42
+    },
+    {
+     "branch": "main",
+     "full_name": "x1jiang/clawagents_py",
+     "stars": 18
+    },
+    {
+     "branch": "master",
+     "full_name": "Cyrax321/SNAGLINE",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "SDETBMan/qa-automation-portfolio",
+     "stars": 35
+    },
+    {
+     "branch": "main",
+     "full_name": "zh-efimenko/tech-tutorials",
+     "stars": 19
+    },
+    {
+     "branch": "main",
+     "full_name": "Miso2233/SonettoHere",
+     "stars": 70
+    },
+    {
+     "branch": "master",
+     "full_name": "waseens/deep-search-pro",
+     "stars": 167
+    },
+    {
+     "branch": "main",
+     "full_name": "blurryface13/asteria-agent",
+     "stars": 43
+    },
+    {
+     "branch": "main",
+     "full_name": "moonlight-lupin/agent-skills",
+     "stars": 75
+    },
+    {
+     "branch": "main",
+     "full_name": "future-agi/agent-learning-kit",
+     "stars": 119
+    },
+    {
+     "branch": "main",
+     "full_name": "hyf020908/langgraph-agentops-studio",
+     "stars": 108
+    },
+    {
+     "branch": "main",
+     "full_name": "datamllab/A2E",
+     "stars": 42
+    },
+    {
+     "branch": "main",
+     "full_name": "pigz2538/RoadMan-Public",
+     "stars": 35
+    },
+    {
+     "branch": "main",
+     "full_name": "databricks-industry-solutions/dbxmetagen",
+     "stars": 40
+    },
+    {
+     "branch": "main",
+     "full_name": "traccia-ai/traccia-py",
+     "stars": 127
+    },
+    {
+     "branch": "main",
+     "full_name": "jwwelbor/AgentMap",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "c2siorg/acf-sdk",
+     "stars": 19
+    },
+    {
+     "branch": "main",
+     "full_name": "alizahidraja/isnad",
+     "stars": 42
+    },
+    {
+     "branch": "main",
+     "full_name": "GGUFloader/gguf-loader",
+     "stars": 65
+    },
+    {
+     "branch": "master",
+     "full_name": "myriade-ai/agentlys",
+     "stars": 31
+    },
+    {
+     "branch": "main",
+     "full_name": "amd/AMD-PACE",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "hgsanyang/SoulTuner-Agent",
+     "stars": 23
+    },
+    {
+     "branch": "main",
+     "full_name": "Noveum/noveum-trace",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "BSTester/TradingAgentsWeb",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "liuliu-arch/FinAgen",
+     "stars": 40
+    },
+    {
+     "branch": "main",
+     "full_name": "zapsyq/tracord_release",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "realshubhamraut/SQL-Snowflake-chat",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "udaysharmadev/Ai-Roadmap",
+     "stars": 50
+    },
+    {
+     "branch": "main",
+     "full_name": "Conchlikewater/enterprise-knowledge-assistant",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "harsh-aranga/ai-engineering-bootcamp",
+     "stars": 76
+    },
+    {
+     "branch": "main",
+     "full_name": "krinoz/Awesome-biomolecular-design",
+     "stars": 112
+    },
+    {
+     "branch": "main",
+     "full_name": "LangConfig/langconfig",
+     "stars": 69
+    },
+    {
+     "branch": "main",
+     "full_name": "TensorOpsAI/agent-scrum",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "pockanoodles/Mahoraga",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "austinchennn/cold-email",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "mongodb-industry-solutions/fsi-aml-fraud-detection",
+     "stars": 14
+    },
+    {
+     "branch": "main",
+     "full_name": "WizTheAgent/IronMesh",
+     "stars": 23
+    },
+    {
+     "branch": "main",
+     "full_name": "abozaralizadeh/SandBox",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "binrogithub/1-3-Cloud-Adoption-Skills",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "conductor-oss/python-sdk",
+     "stars": 104
+    },
+    {
+     "branch": "master",
+     "full_name": "YaokaiZhang/RehabFlow",
+     "stars": 31
+    },
+    {
+     "branch": "main",
+     "full_name": "GraflowAI/graflow",
+     "stars": 41
+    },
+    {
+     "branch": "main",
+     "full_name": "natefleming/dao-ai",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "miaomiao6606/wx-persona-agent",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "tbdavid2019/ai-hedge-fund-API",
+     "stars": 62
+    },
+    {
+     "branch": "master",
+     "full_name": "tbdavid2019/telegram-bot-stock2",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "open-metadata/ai-sdk",
+     "stars": 13
+    },
+    {
+     "branch": "main",
+     "full_name": "emma-sue/AegisOps",
+     "stars": 157
+    },
+    {
+     "branch": "master",
+     "full_name": "amadolid/pybotchi",
+     "stars": 31
+    },
+    {
+     "branch": "master",
+     "full_name": "razr001/audit-mind",
+     "stars": 85
+    },
+    {
+     "branch": "main",
+     "full_name": "ichliebewxy/Agent_Console",
+     "stars": 28
+    },
+    {
+     "branch": "main",
+     "full_name": "Faer-cpu/ai-agent",
+     "stars": 41
+    },
+    {
+     "branch": "main",
+     "full_name": "mal-lang/mal-toolbox",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "Skull-boy/agent-contracts",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "shangguanyunji663/Aegis-agent",
+     "stars": 102
+    },
+    {
+     "branch": "dev",
+     "full_name": "fancy1108/Clutch",
+     "stars": 90
+    },
+    {
+     "branch": "main",
+     "full_name": "lisuhang11/KnowSphere",
+     "stars": 19
+    },
+    {
+     "branch": "master",
+     "full_name": "xhthy00/my-cowork",
+     "stars": 141
+    },
+    {
+     "branch": "main",
+     "full_name": "npci/atom-network-platform",
+     "stars": 26
+    },
+    {
+     "branch": "main",
+     "full_name": "ma-pony/cryptotrader-ai",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "Taxueovo/Shaft-Machining-Planner",
+     "stars": 35
+    },
+    {
+     "branch": "main",
+     "full_name": "vcoderun/acpkit",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "identArk/identark",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "AnshMNSoni/email-agent",
+     "stars": 16
+    },
+    {
+     "branch": "main",
+     "full_name": "sanjaybaarathi-alt/restaurant-reception-agent",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "seanpedrick-case/doc_redaction",
+     "stars": 61
+    },
+    {
+     "branch": "main",
+     "full_name": "csml-rpi/AI-CFD-Scientist",
+     "stars": 51
+    },
+    {
+     "branch": "main",
+     "full_name": "Ore124/QueryNest",
+     "stars": 19
+    },
+    {
+     "branch": "main",
+     "full_name": "wyh22/multi-agent-trading",
+     "stars": 112
+    },
+    {
+     "branch": "main",
+     "full_name": "serpapi/serpapi-search-tools-python",
+     "stars": 11
+    },
+    {
+     "branch": "dev",
+     "full_name": "hunanjay/friday",
+     "stars": 13
+    },
+    {
+     "branch": "master",
+     "full_name": "GhaouiYoussef/GentisAI",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "wen1207/ArxivAgent",
+     "stars": 160
+    },
+    {
+     "branch": "main",
+     "full_name": "givemeadc/mainline-guardian",
+     "stars": 60
+    },
+    {
+     "branch": "main",
+     "full_name": "v-noc/IDE",
+     "stars": 75
+    },
+    {
+     "branch": "master",
+     "full_name": "christianmeurer/Lula",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "LiYiYiMUA/Travel-Agent",
+     "stars": 12
+    },
+    {
+     "branch": "main",
+     "full_name": "Omni-Scientist/Awesome-AI-Scientist",
+     "stars": 98
+    },
+    {
+     "branch": "main",
+     "full_name": "avnlp/agentic-med-diag",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "SheisHershey/Valgenta",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "TheBlewish/Academic-AI-Literature-Reviewer-Ollama",
+     "stars": 34
+    },
+    {
+     "branch": "main",
+     "full_name": "xpc1024/hanflow",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "SichengLong26/deepresearch_agent_harness",
+     "stars": 70
+    },
+    {
+     "branch": "main",
+     "full_name": "kyopark2014/mcp",
+     "stars": 41
+    },
+    {
+     "branch": "main",
+     "full_name": "To3akaRin/VLMForge",
+     "stars": 111
+    },
+    {
+     "branch": "master",
+     "full_name": "anthony-chaudhary/dos-kernel",
+     "stars": 19
+    },
+    {
+     "branch": "main",
+     "full_name": "prove-ai/agentpulse",
+     "stars": 11
+    },
+    {
+     "branch": "master",
+     "full_name": "couchbaselabs/agent-catalog",
+     "stars": 18
+    },
+    {
+     "branch": "main",
+     "full_name": "Kyle-liu888/langgraph-trip-planner",
+     "stars": 119
+    },
+    {
+     "branch": "main",
+     "full_name": "avnlp/rag-pipelines",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "finos-labs/open-eago",
+     "stars": 21
+    },
+    {
+     "branch": "main",
+     "full_name": "radical-cybertools/rhapsody",
+     "stars": 10
+    },
+    {
+     "branch": "main",
+     "full_name": "c2siorg/b0bot",
+     "stars": 45
+    },
+    {
+     "branch": "main",
+     "full_name": "Tendo33/IdeaGo",
+     "stars": 45
+    },
+    {
+     "branch": "main",
+     "full_name": "fabceolin/the_edge_agent",
+     "stars": 30
+    },
+    {
+     "branch": "main",
+     "full_name": "LindaHaviv/second-brain",
+     "stars": 11
+    },
+    {
+     "branch": "main",
+     "full_name": "zebir-sir/agentic-rag-paper-assistant",
+     "stars": 68
+    },
+    {
+     "branch": "main",
+     "full_name": "meshkovQA/Eval-ai-library",
+     "stars": 57
+    },
+    {
+     "branch": "main",
+     "full_name": "DeytaHQ/khora",
+     "stars": 100
+    },
+    {
+     "branch": "main",
+     "full_name": "ai-forever/gigachat",
+     "stars": 168
+    },
+    {
+     "branch": "main",
+     "full_name": "roy4222/PawAI",
+     "stars": 15
+    },
+    {
+     "branch": "main",
+     "full_name": "yzhao062/auditable",
+     "stars": 25
+    },
+    {
+     "branch": "main",
+     "full_name": "Yourdaylight/stock_datasource",
+     "stars": 186
+    },
+    {
+     "branch": "main",
+     "full_name": "kyopark2014/agent-runtime",
+     "stars": 15
+    },
+    {
+     "branch": "master",
+     "full_name": "hoangsonww/Agentic-AI-Pipeline",
+     "stars": 83
+    },
+    {
+     "branch": "main",
+     "full_name": "antiv/mate",
+     "stars": 92
+    },
+    {
+     "branch": "main",
+     "full_name": "Sibyl-Labs/Sibyl-Memory",
+     "stars": 175
+    },
+    {
+     "branch": "main",
+     "full_name": "Chimera-Protocol/csl-core",
+     "stars": 17
+    },
+    {
+     "branch": "main",
+     "full_name": "Mfrostbutter/ageniusdesk-ce",
+     "stars": 30
+    },
+    {
+     "branch": "main",
+     "full_name": "WangWeiqiang-UCAS/E-commerce-Smart-Agent",
+     "stars": 136
+    },
+    {
+     "branch": "main",
+     "full_name": "geo-kit/GeoView",
+     "stars": 22
+    },
+    {
+     "branch": "main",
+     "full_name": "future-agi/cookbooks",
+     "stars": 27
+    },
+    {
+     "branch": "main",
+     "full_name": "Alan-LJ/HealthDesk_Agent",
+     "stars": 12
+    }
+   ]
+  },
+  {
+   "band": "stars 0-9",
+   "band_size": 213092,
+   "qualifier": "stars:0..9",
+   "returned": [
+    {
+     "branch": "main",
+     "full_name": "Je5s1e/ResearchFlow",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "naveen457/RL-based-adaptive-MAS",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ShubhamPandey020525/Interview_Coach",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Aniruddh5502/momobot",
+     "stars": 1
+    },
+    {
+     "branch": "master",
+     "full_name": "Ganron007/WinRE",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "socksninja/sable-agent-reliability",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "rakshaanagendra/ai-redteam-harness",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Sabit-pradhan/ecommerce-shopping-assistant-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Tervigon-Collective/Seleric_Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "thyn-ai/algenta-integrations",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "SibgathKhan777/NoMeshOps",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Rayablepy/Charles",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "nteja13/candidate-repo-scoring",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Anouo1023/TradingAgent-Taiwan-version",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "vallabUpdated/prefectOSUpdated",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "1Dhiraj/adaptive-ai-orchestrator",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "4ciki/arbiter-mcp",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "jie4578/antibody-risk-assessment",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "dev-prathap/ATTEST",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Ashish8668/Ashish8668",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "luongducthangDS/DocuMindAI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "FORIFOR/Multibot",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "PANDeveloper001/openai-agents-nano-x402",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "PlateerLab/xgen-agent-runtime",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "zzh200215/AI-job-assistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "lv-xiaoke/enterprise-rag-qa",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "approfile/mindbridge-py",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "TaxteamDVS/dvs_tax_project",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "curviooffical-gif/MindCore",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "HansOhByeongho/national-ai-orchestrator",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "MohanAddanki25/AgenticPM",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "melvin93-glich/RoleFlow-Agentic-AI-Based-Talent-Discovery-Internal-Mobility",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "NirlepSanap/NirlepSanap",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "AshokSingodia-Codes/FinAdvisor-Voice",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "marcin119a/langgraph_kubernetes",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "balloty777/divav1",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "s-samarth/which-model",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "rakshaanagendra/agent-chaos-mesh",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Kavisho-o/Kavisho-o",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "skyzizhu/sky-agent-mvp-stu",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "yerouguozi/multimodal-asset-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Almbki/DAMN",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "2026-genai-ar-tourism-data-rpg/dokkaebi-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "iAakash1/miniAladdin",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Hariprakash-d/DoctorAppointmentCoordinator",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "LIWED/MentorHub",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "hemaharshini-dev/sentinel-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "juanclv01/tfm-scoring",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "delivstat/swarmkit",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "Hungcb123/CTU-Chat_bot",
+     "stars": 5
+    },
+    {
+     "branch": "main",
+     "full_name": "VTongTV/VTongTV",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "kogu1988/clarere",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "open-assistants-lab/assistant",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "moongoby-GO100/aads-server",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "Soucieux/Wellspent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "heweidong-ecco/fastapi-rag-agent",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "gostgmaer/Customer-Support-Workflow",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "nirobnk/kfoodagent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "utkarshgupta14/research-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "PPACT/mini_rag_agent_1.0",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "dgonz10152/hack2thon",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Eugene1774/big-data-course-work",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "KeerthiSingamsetti/ai-study-companion",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "adikusumaa/BIthere-NLQ-Business-Intelligence-Dashboard-Generative",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "mirasoth/soothe-nano",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "srmty09/portfolio-copilot",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "tamannasharma-ai/AGENTIC-AI-MULTIFAMLY-LEASING-CONCIERGE",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "LikX-1019/tmt_service",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "8fqycwdt8v-oss/Chemclaw3",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "longhan1106/Enterprise-Knowledge-Base",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "zhaokai-mgzn/migao",
+     "stars": 4
+    },
+    {
+     "branch": "main",
+     "full_name": "skchiew-bot/daythree-ai-world",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "CaioOlivieri/QAbot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "subham3604/applied",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "raghobaa/market_analysis_agentic_ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "PraveenMistry/ai-engineering-roadmap",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Kaililili/bubble",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "PrakalTech/Ai-battery-energy-arbitrage",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "belykben/belykben",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "felipeofdev-ai/felipeofdev-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Anaskhnxx/Tripmate-AI---A-Multi-Agent-Travel-Planner-With-Langgraph",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "amananurag20/amananurag20",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "leiak/Lumen-AI-Support-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Mythreyee26/Kubernetes-Troubleshooting-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Tanmay-262/Meridian-AI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "suriyanath-23/scalable-agentic-system",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ultronop592/Meeting-Intelligence-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Ali0lo/AUSA-app",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "pareelamre/analyzing-llm-rationale",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "TerceroMaster/dashboard-agentes-ia",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "badrpk/sophyane",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "BOringuserN4/ai-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "VivekMane57/finsight-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "wgd753/awesome-dsh-plugin",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "roraks24/genai-learning-journey",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "tarun1-github/EnterpriseAgenticAIforVoiceopsAssistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Sowmyanagarajan2/SkillPilot-AI-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ritupriya20/Corrective_RAG",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "akane321/MealCraft",
+     "stars": 1
+    },
+    {
+     "branch": "master",
+     "full_name": "linny006/vector-db-live",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "toniton/ml-crypto-trading",
+     "stars": 4
+    },
+    {
+     "branch": "master",
+     "full_name": "linny006/llm-agents-radar",
+     "stars": 9
+    },
+    {
+     "branch": "master",
+     "full_name": "linny006/rag-radar",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "996Code/llm-to-modeler",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "A3lxq/Cavendex",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Sd474/Sd474",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "cwal8202/findit",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "RaktheshTG/RaktheshTG",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "SANTHOSH-B80/RCA-MODEL",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "aqkprogrammer/agent-orchestrator",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Halina213/rag-agent-student-employment",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "saurabhsinghwork/SiteBrain",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "shiowbah/Building-Autonomous-AI-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ayushkale06/Nexus-AI-Research-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "HackIndiaXYZ/hackindia-spark-12-jaipur-rajasthan-north-india-region-innovative20",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "Pulashya1/Data-Pilot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "jrechet/theswarm",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "nhatminh-115/Personal",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "chakri0176/WealthAdvisorAIAgent",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "manavpatel571/anti-trading-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "libilk/mtpagent",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "fabiomorena/FabBot",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "usama29shahid/ai-nexusflow",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "richakumari0311/Food-Delivery-Strategy-Agents",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "sjsu-masters-projects/medi-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "alinglingg/personal-research-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Touqeer3417/corrective-rag-",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ahmee20/voxyl-resume-parser",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "salt-me/careerAgent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "vihaaaaan17/neo-test-2",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "kunal111219/financial-doc-intelligence-app",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "DefuzeX-AI/AgentBehaviorBench",
+     "stars": 7
+    },
+    {
+     "branch": "main",
+     "full_name": "aminazimi42-coder/aegis-agent",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "abhinavsrivastava3232-ctrl/Agentic_Rag_project",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "himanshuvidyarthi/4.10-The-Cost-Problem",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Loreen1119/mcp-rag-hub",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "itsPremkumar/alpha",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "lidan1213/research-assistant-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ssshhhubh/ad-intelligence-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ravurumanoj/rm-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "roznet/flyfun-weather",
+     "stars": 4
+    },
+    {
+     "branch": "main",
+     "full_name": "marthiram4878/norma-ai-agent-platform",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "zeropage-onryo/video-pipeline",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "VANDANAPUSATHWIKHSAI/Argus",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "balagopalS/vehicle-modification-engine",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "SIDMINUL/AutoStream-AI-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "mkhlsokolenko-ai/ai-product-engineer",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "GNS-Foundation/grafomem",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "xiaoxzl777/-2",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "msamir-17/Ai_job_hunter",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "projectedanx/AlAgents",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "Ashitpatel001/Cortexheal",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "mudassar2224/Multimodal_RAGSystem_DOC_MIND",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "buhuiquming12/Desktop-Smart-File-Butler",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "PoorviVinayakBhat/Agentic-RAG",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Yanagi-0912/CARE",
+     "stars": 4
+    },
+    {
+     "branch": "main",
+     "full_name": "max66782/AI-Engineering-Training",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Wilyu-45/creatoragent",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "poirotw66/teams-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "1fawwaz/marketlens-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "BSaiCharan-GH/RAG-Document-Assistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Epsilon-Alpha-Beta/deepscout",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Spinmoodiness1112/HackSmarter_Swarm",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "huazi258/DevSuppoert-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "contactgleamsphere-afk/grok-system",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "chaitanyamean/rca-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "sh0redry/hku-agentic-knowledge-assistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ant747756/smart-cs-multi-agent",
+     "stars": 5
+    },
+    {
+     "branch": "main",
+     "full_name": "Ninjanho/Sapti_AI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "lzsusc2019/agent-platform",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "anived19/VDD-Automation",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "wtjjacobj/ai-scout",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Jonnyton/TinyAssets",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "IsaiTamilselvan/AI-mini-projects",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "SamadhanEkad/financial-intelligence-multi-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Kukilbharadwaj/Kukilbharadwaj",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "pmlpl/CrawAgent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "gvlpedro/technical_meeting_rag",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "openbtk/openbtk-core",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "AliAnsari21/LangGraph-Chatbot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "kratos0718/codehound",
+     "stars": 9
+    },
+    {
+     "branch": "main",
+     "full_name": "abhimakkena1937-lgtm/Langgraph-mcp-chatbot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "lavanya0505/lavanya0505",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "wdfwdf666/jobpilot-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Daisuke134/life-manager",
+     "stars": 8
+    },
+    {
+     "branch": "main",
+     "full_name": "RayyanStudiosTM/Policy-Aware-Multi-Agent-RAG-Claim-Decision-Engine",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "Henrywzh/alternative-data",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "BlitzKrieg1337/Logistics-SLA-Copilot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Guts0820/meetgraph",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "chipolataarmybase650/numcraft",
+     "stars": 3
+    },
+    {
+     "branch": "master",
+     "full_name": "AdityaSingh0008/workflowai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "pinsdev24/career-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ujjwaltyagi2000/feedbackIQ",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "agentskillexchange/agent-skills-resources",
+     "stars": 1
+    },
+    {
+     "branch": "master",
+     "full_name": "dongjb741280/ai-onco-chain",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "Deepali-34/enterprise-rag-platform",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Bali-Zero/Teman2",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "AIMiracleMag/ai-miracle",
+     "stars": 2
+    },
+    {
+     "branch": "master",
+     "full_name": "PPI-ppi/ai-competency-eva",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "THIRD-I-AI/AURA",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Snipy19/multi-agent-incident-response-system",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Kartikeysharma1972/Kartikeysharma1972",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "atiquemahar/generative-ai-engineering",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "JameryW/XhsGrowthAgent",
+     "stars": 6
+    },
+    {
+     "branch": "main",
+     "full_name": "Renugasri-1/datazoic-scalable-agentic-system",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "MfmRifath/MfmRifath",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "NandaKishore2424/integronix",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "zhoudirac-C/learning-investment-strategies",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "Balakumarvelks/Scalable-Agentic-System-for-Multi-Tool-API-Management",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "vinayak533/vinayak533",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "WhaleChao/ai-fork-catalog",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "TheVJ0000/SupportPilot-AI",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "2076703026/Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "mittalashu1/QTXpert_AgentDesign",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "duzhi5368/FKPentestFramework",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "prabhasupriya/Multi-Agent_AI_Orchestration_System_with_LangChain_FastAPI_and_React",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "Roman-Kov/OtusAIProject",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Q1anyii/Mitta",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "Sravya186/AI-document-intelligence-agent",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "xuqingan91-creator/job-research-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "pragatheesvar-A/Maestro-AI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Greeshma-babu/AI-Career-Intelligence-Platform",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "231001027/SIH-165-project",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Mayank-Sati-07/ShadowNet",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "agentgavel/agentgavel",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "Aniketchavan7/Rag_system",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "DharamVeer970/DharamVeer970",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "soeltanakbar/opentulpa",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "fastaifoundry/fastaiagent-sdk",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "CodeWithMoin/CodeWithMoin",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "KashouMMT/llm-system",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "iamsrishanth/iamsrishanth",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "aFunnyStrange/apply-project-engineering-style",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ANAGHAKTP/agentic-ai-rag",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Xalzeroph/Noetrium",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "studioraga/portable-agentic-ai-governance",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Gaincontrol-Pte-Ltd/quin-agent-scanner",
+     "stars": 5
+    },
+    {
+     "branch": "main",
+     "full_name": "rohithkandula19/rohithkandula19",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "sujalkushwaha747-coder/Multi-Agent-AI-Collaboration-Framework",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "louisdevzz/crag",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "VigneshVS2005/Vectorshield",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Sonitmehta/Paytm-Merchant-AI",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "Geobatpo07/Geobatpo07",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "TC9905/multi-agent-platform",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "qliu3344-art/Enterprise-Data-Intelligent-Assistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "CoderDongHuang/Mneme",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "karodhandha/karodhandha",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ramhany-coder/Advanced-multi-model-Safety-Eng.-RAG-project",
+     "stars": 1
+    },
+    {
+     "branch": "master",
+     "full_name": "tarinigithub/week02-langchain-tools-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "sakthiMurugan03/patchcourt",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "rainbowyuyu/ai_engineer",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Chestnuts-Sisyphus/hippocampus",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "satheesh732005-commits/scalable-agentic-system",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "piyushgargog/ai-document-assistant",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "agent-memory-lab/agent-memory",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "alykapasi/guru-alt",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "divy-jn/Customer_support_agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "RajGehlot28/Team-X",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Kevil12856/Delta-Hacks-12",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "Fortyone58/travel-agent",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "stickyptyltd-glitch/enterprise_jarvis",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "kwankhaosiva-repo/RAG_Local_Law-old",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Afrazz54/agent-os",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "nvmtamm/nvmtamm",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "lancyu/enterprise-rag-multi-agent",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "Roelvy14/cascade-detector",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "son261103/chakra_rag",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "codingiswine/law11",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "G-aUr-aV/managed-deep-agents.research-assistant",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "wardex-labs/wardex-sdk",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "RahulKumarsingh2001/AI-Engineer",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "IoTProber/IoTProber",
+     "stars": 4
+    },
+    {
+     "branch": "main",
+     "full_name": "jagadeesh-waran/error-budget-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Lukaa1507/langchain-runner",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "namangoyal186/enterprise-agentic-rag-kubernetes",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "gagan-devv/docusage",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Anusha3104/Agentic_AI_code_reviewer",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Ahmed1-Rebai/Postmortem-Autopilot",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "Vardhangollapalli87/weather-risk-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ranjeetkesh16/Utility-Tool-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "jamesdanas/regnaija",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "pratiksatpai2013/Job-search-and-scoring-agent",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "srxly888-creator/ai-agent-learning-hub",
+     "stars": 5
+    },
+    {
+     "branch": "main",
+     "full_name": "SaiDevaHarshaR/Athentech",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "Torchman005/SciDirector",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Fukuchan77/pydantic-ai-agentic-patterns",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "youkm1/note-taker",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "vishal1211/RAG-LAB",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "iliakhosravi/github_agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "nithansantiago021/biodiversity-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "lamhotsiagian/agentic-evals-labs",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "donglongjun886/product-review-agent",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "ChethakaLiyanage/Mutli_Agentic_System",
+     "stars": 0
+    },
+    {
+     "branch": "cursor/auto_upgrade",
+     "full_name": "xuhang113/llgraph",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "SauravCoder69/Policy-Aware-Multi-Agent-RAG-Claim-Decision-Engine",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Ayushi0448/claim",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ericsj1998/up_and_down_invest_public",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "CausalAgent-team/CausalAgent-temp",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "anhb1/sales-outreach-automation-langgraph",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "Taral92/auto_pr",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "gokila0/python-project",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "RKiding/deepear",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "DeyvidGC/cognitive-os-backend",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "archit-singhania/VAE",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "prakash2871/secureAi",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "12ATHARAV/terra-mind",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "48bebrikov/YaHo-chat",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "clanker25/deer-flow",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "nadeem1971/safewatch-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Edge-Explorer/Tracepass",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "RobinMillford/FrameIQ",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "MusadiqUrRahman/whaagent",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "ErBharatMalhotra/open-source-ai-radar",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "winterhdsec-cmd/FraudLens",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "relatadb/sdk-python",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "Toxic-Joker/redteam-ai-framework",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Tyrant336/Enjoy",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Haideransari444/Haideransari444",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Mrpooool/ai-health-assistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Luminthrive/MiniCode",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "VedantJadhav701/VedantJadhav701",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "igorsavinkin/agentic-data-engineering-platform",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "HaroPh/YOUdoo-assistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "minghwee8288-droid/Minghwee_chatbot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Shanu1110/Report-Building-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "shauryaman28/tripplanner-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "sukesh-006/EKIP_Project",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "CharleGutierrez/tagisan",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "IamLegendChamp/governed-um-policy-rag",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "zhaoxiaoha/github-trending",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "brandon-wsc/unhinted-marketing",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "MohammedMaaz06/MohammedMaaz06",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "tpxbps/sober-alone",
+     "stars": 3
+    },
+    {
+     "branch": "master",
+     "full_name": "Wuaomo/AI-Web-Form-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Muneeb-ur-Rehman-code/Law_Agent_Backend",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "brianpelow/IncidentPilot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "syamn132/genai-60day-roadmap",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "MetaphyKing/living-repo-catalog",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Top-Celestial-Company-Ltd/DROS-VEP-lite",
+     "stars": 9
+    },
+    {
+     "branch": "main",
+     "full_name": "Kartheekgv/Sprint-Sarthi",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "vvarmaaddanki/ai-autonomous-code-review-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "madatef/madatef",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Marsh-Yan/NutriGenie",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Ayanshefeek/react_copilot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Vidhate/engine-benchmarking-system",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "wangzi2124/AgentSuper",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "abdulahad565/Halalify-TypeSense",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Mikehade/safeground",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Creeperw/tiaozhanbei",
+     "stars": 7
+    },
+    {
+     "branch": "master",
+     "full_name": "mark-oori/mcpserve",
+     "stars": 4
+    },
+    {
+     "branch": "main",
+     "full_name": "Subrat2196/RegulaFlow",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "CrayJThiemsert/vero-lite",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ayeshakhan0804/Student_database_backend",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "0xrameshh/agentflow",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "gx0mang/Agent_Program",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ankushkumar14092-dot/SKILLBRIDGE-AWS",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Popy21/ai-infra-nuclei",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ofinke/consul",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "455-dIAO/claude-code-skills-zh-marketplace",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "shixiongyang-svg/financial-agent-spdd",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "0xSnow-1/Occlusion",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "mdosama8435/Darukaa-Biodiversity-Chatbot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "jyotirjoshi/cyber-",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "surajkumarnavodya/text-to-sql-agent-langgraph",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "Aarthi289312/Datazoic_Agentic_System_",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Ashuto321/All-About-LangGraph-with-Demos",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "ievgen-borysenko/ask-your-library",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "chen0206a/agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "namanjain221995/personal-LLM-Chabot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Srimonchaari/Srimonchaari",
+     "stars": 0
+    },
+    {
+     "branch": "Razyyn-AI-Odoo-v17",
+     "full_name": "Marwan-badr543/Razyyn-AI-Odoo",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "lasertsole/sherry_agent",
+     "stars": 4
+    },
+    {
+     "branch": "main",
+     "full_name": "Mook-Industries/JARVISEO",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "xiaoxiaoming668/vibe-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "MakersNeedMore-MnM/Round2-UNIT---108",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Sanika-Gajarishi/Multi-Agent-Debate-System",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "nik-kale/awesome-autonomous-ops",
+     "stars": 5
+    },
+    {
+     "branch": "main",
+     "full_name": "rohansingh1008/Autonomous-Code-Remediation-Compliance-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "gqy20/TrendPluse",
+     "stars": 3
+    },
+    {
+     "branch": "main",
+     "full_name": "prabhattripathi-11/Ai_analyst",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "droidbee/TravelMateAI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Gurumurthy30/ML_agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Wyn-zerothree/deep_research",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Wyn-zerothree/cloud_agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "AadarshSu/visa-research-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "LSA888/RAG_Project",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ArunJp0/youtube-agentic-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "shubhagrawal8999/mini_manus_2",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "praneeth-7606/Complete_Bank_Statement_Code",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Shubhampal24/pulsetrace",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "prachie05/ai-bug-hunter",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Roarpeng/ResearchOS",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "2739673455/dataagent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "JKalonewolf/Fin-Guard-AI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "bharat3645/bharat3645",
+     "stars": 1
+    },
+    {
+     "branch": "master",
+     "full_name": "sudipbhaumik/ClaimContext",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "seungwon-sw/aive-scenario-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "YogeshRajasekhar/JARVIS",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "tvu990034-create/chatbot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Abhiman12406/LearniVerse-AI",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "aathi-11/Fact-arena",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "k-Rohit/Joblyst",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "krish1236/lodestar",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Alka709/Agentic-RAG",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "EgitiGuruVenkataKrishna/Duel-Layer-Legal-RAG",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "singhaashu/Wanderly-AI-Travel-Planner",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Glad-Labs/poindexter",
+     "stars": 5
+    },
+    {
+     "branch": "master",
+     "full_name": "amperie/researcher_framework",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "PT-Andara-Rejo-Makmur/genesis-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Jeetendra17/ai-resume-assistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Atishaygang/LangGraph",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "cloud-itonami/jukyu",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "tzw-luansha/mini-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "akkalanagendra/Study-Assistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "amirzakaria-sf/autoReviewer",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "may1102-1909/TARA",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Caser-86/athena-research-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "zhaishichao/EnergyInternet",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "badrulHM/Insights_Chat_Agent_D-grafy",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "zh-hanlabs/Trading",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Floxbk/financial-chat",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "aryxn-builds/ResearchPilot-AI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "JerryZhang0751/sunpowerNova",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "souradipdey166/iterative-rag-benchmark",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Joyeljames/hms_ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "DigiDARATechnologies/final-digidara-ai-agents",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ztc123-ok/my-trip-planner",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Jesssullivan/Jesssullivan",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "ayushb3/BubblyChef",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "haimocode/car-insurance-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "f2094450386-cloud/MindCare",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "yu8833/SanHuTradingAgents",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "imusmanjd/Fibrion-AI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "chain-engine/x-XiChuang",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "JDeun/growwise",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Hsanli060/TravelAssistant",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "valuein/valuein",
+     "stars": 2
+    },
+    {
+     "branch": "master",
+     "full_name": "LautaroLasorsa/technologies-practices",
+     "stars": 2
+    },
+    {
+     "branch": "main",
+     "full_name": "Jayanthgowda33/ai-customer-support-platform",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "Udayscode/storeops-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "SairajMN/siliconboard",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "LAKSHMINARASIMHATM/autotest",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "theyash920/Appening",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "ramhany-coder/Drug-assistant-agent",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "bgggggh/careerpilot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "simi-rawat/AI-Software-Engineer",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "agenticaiengineer11/LangGraph",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Pratiksha-git-bit/Fraudshield",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "lihaozhen-max/QueryForge",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Anushi-204/Scalable_Agentic_System",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Binary-Poet/MediRAG",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "samiransari0786/Production-RAG-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "255856/Smart-Desktop-Pet",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ZhongZiYao/agent-develop",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "PavanTalluri45/AI-Agent-Bus-Ticket-Booking-Application",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Hooman1996/RagBot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "priyalearner26-maker/Hackthon2",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "SNIGDHO652/stock-agent-platform-render",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "rahulramachandran-labs/reconmind",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "jyuvaraj03/aggregator",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Ghostfusion/TradingAgents",
+     "stars": 0
+    },
+    {
+     "branch": "develop",
+     "full_name": "Aaron1374/AI_helpdesk",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "madhukar-gautam/python-ai-engineering-lab",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "DeveloperAvik/Agent_pentester",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Sonalibiradar/-Enterprise-LangGraph-Chatbot-with-MCP-Tools",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "gaowanyu2027/Retail_assistant_v4",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "6691a/finance",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ADanMan/agentic-frontier",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "ak0000007/Advance_RAG_MultiDoc_Chatbot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Iitian-shivansh/ResearchPilot-Agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "luongducthangDS/data_analysis_ai_agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Rudraa995/RAG-chatbot",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "aditya-coder07/SatQuery_AI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "phuc-nt/my-crew",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "1175257573-boop/Agent_azhen",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "digital-tricksters001/cursor-rules-pro-agent-vault-2026",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "DeathKnight2539569991/Ticketmind",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "zhangfang2741/deepalpha-club-ai",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "mappedsky/seizu",
+     "stars": 5
+    },
+    {
+     "branch": "main",
+     "full_name": "gaurav4040/Multi-Agent-System-using-LangGraph-MCP-Supervisor-Guardrails-HITL-main",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "eric-stone-plus/MOTOKO",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "mngaonkar/declarative_agent_sdk",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "AkshitRampershad/IncidentLab",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "chandu5t/insightflow-ai",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Sandjab/clio",
+     "stars": 0
+    },
+    {
+     "branch": "master",
+     "full_name": "bemihai/pour-decisions",
+     "stars": 0
+    },
+    {
+     "branch": "develop",
+     "full_name": "rahim-sa/equity-research-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Rohith-Kumar-RK/Adversarial-Research-Council",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Thazg/knowledge-intelligence-platform",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "jeetsinghbhati7773/blog-writing-multi-agent",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "saisanthosharyan/AutonomousAI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "stauntonjr/scifact-rag",
+     "stars": 1
+    },
+    {
+     "branch": "main",
+     "full_name": "Manic585/Wander-AI",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "Susil-commits/Veritas",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "cheslav-zhur/smart-city-os",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "vamshimohan-777/Arbiter_Engine",
+     "stars": 0
+    },
+    {
+     "branch": "main",
+     "full_name": "jsb2085/workout-agent",
+     "stars": 0
+    }
+   ]
+  }
+ ],
+ "excluded_owners": [
+  "langchain-ai"
+ ],
+ "pages_per_band": 5,
+ "query": "langgraph in:name,description,readme language:python",
+ "retrieved_utc": "2026-09-19T07:57:18Z"
+}
