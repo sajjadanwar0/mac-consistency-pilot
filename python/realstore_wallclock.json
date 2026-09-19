@@ -1,0 +1,550 @@
+{
+ "margin": 0.1,
+ "metric": "span_s",
+ "resamples": 5000,
+ "runs": {
+  "claude-sonnet-4-5": {
+   "cells": {
+    "edit-review-pessimistic": {
+     "calls_per_session": 5.0,
+     "ci95": [
+      13.1751,
+      13.7792
+     ],
+     "mean": 13.4649,
+     "median": 13.0565,
+     "n": 100,
+     "window_utc": [
+      "2026-05-11T11:45:13Z",
+      "2026-05-11T12:07:44Z"
+     ]
+    },
+    "edit-review-snapshot_isolation": {
+     "calls_per_session": 5.0,
+     "ci95": [
+      13.5869,
+      33.4603
+     ],
+     "mean": 20.4998,
+     "median": 13.0415,
+     "n": 100,
+     "window_utc": [
+      "2026-05-11T13:00:03Z",
+      "2026-05-11T13:34:17Z"
+     ]
+    },
+    "edit-review-vanilla": {
+     "calls_per_session": 5.0,
+     "ci95": [
+      13.1458,
+      13.9792
+     ],
+     "mean": 13.5545,
+     "median": 13.1145,
+     "n": 100,
+     "window_utc": [
+      "2026-05-11T10:50:43Z",
+      "2026-05-11T11:13:21Z"
+     ]
+    },
+    "plan-execute-pessimistic": {
+     "calls_per_session": 3.0,
+     "ci95": [
+      7.6625,
+      8.1613
+     ],
+     "mean": 7.9036,
+     "median": 7.54,
+     "n": 100,
+     "window_utc": [
+      "2026-05-11T12:07:45Z",
+      "2026-05-11T12:21:00Z"
+     ]
+    },
+    "plan-execute-snapshot_isolation": {
+     "calls_per_session": 3.0,
+     "ci95": [
+      8.6129,
+      9.2114
+     ],
+     "mean": 8.8919,
+     "median": 8.6875,
+     "n": 100,
+     "window_utc": [
+      "2026-05-11T13:34:18Z",
+      "2026-05-11T13:49:10Z"
+     ]
+    },
+    "plan-execute-vanilla": {
+     "calls_per_session": 3.0,
+     "ci95": [
+      7.568,
+      8.1341
+     ],
+     "mean": 7.8327,
+     "median": 7.452,
+     "n": 100,
+     "window_utc": [
+      "2026-05-11T11:13:23Z",
+      "2026-05-11T11:26:30Z"
+     ]
+    },
+    "triage-pessimistic": {
+     "calls_per_session": 7.75,
+     "ci95": [
+      21.799,
+      25.1016
+     ],
+     "mean": 23.3547,
+     "median": 21.3895,
+     "n": 100,
+     "window_utc": [
+      "2026-05-11T12:21:01Z",
+      "2026-05-11T13:00:01Z"
+     ]
+    },
+    "triage-snapshot_isolation": {
+     "calls_per_session": 4.0,
+     "ci95": [
+      11.3013,
+      11.9536
+     ],
+     "mean": 11.6212,
+     "median": 11.234,
+     "n": 100,
+     "window_utc": [
+      "2026-05-11T13:49:11Z",
+      "2026-05-11T14:08:36Z"
+     ]
+    },
+    "triage-vanilla": {
+     "calls_per_session": 4.0,
+     "ci95": [
+      10.8249,
+      11.5035
+     ],
+     "mean": 11.1508,
+     "median": 10.508,
+     "n": 100,
+     "window_utc": [
+      "2026-05-11T11:26:32Z",
+      "2026-05-11T11:45:11Z"
+     ]
+    }
+   },
+   "null_band": {
+    "basis": "plan-execute: no runtime aborts and all three do the same work, so its overheads are drift between cells",
+    "median": 0.1658,
+    "value": 0.1352
+   },
+   "overheads": {
+    "edit-review-pessimistic": {
+     "ci90": [
+      -0.0366,
+      0.0253
+     ],
+     "ci95": [
+      -0.0423,
+      0.0316
+     ],
+     "equivalent_within_margin": true,
+     "mde": 0.0543,
+     "outside_null_band": false,
+     "p_holm": 1.0,
+     "p_perm": 0.7419,
+     "per_session": -0.0066,
+     "per_session_median": -0.0044
+    },
+    "edit-review-snapshot_isolation": {
+     "ci90": [
+      0.0112,
+      1.4079
+     ],
+     "ci95": [
+      0.0018,
+      1.4972
+     ],
+     "equivalent_within_margin": false,
+     "mde": 1.2562,
+     "outside_null_band": false,
+     "p_holm": 0.3047,
+     "p_perm": 0.1016,
+     "per_session": 0.5124,
+     "per_session_median": -0.0056
+    },
+    "plan-execute-pessimistic": {
+     "ci90": [
+      -0.0309,
+      0.0496
+     ],
+     "ci95": [
+      -0.0381,
+      0.0585
+     ],
+     "equivalent_within_margin": true,
+     "mde": 0.0691,
+     "outside_null_band": false,
+     "p_holm": 1.0,
+     "p_perm": 0.7217,
+     "per_session": 0.0091,
+     "per_session_median": 0.0118
+    },
+    "plan-execute-snapshot_isolation": {
+     "ci90": [
+      0.0885,
+      0.1822
+     ],
+     "ci95": [
+      0.0795,
+      0.1909
+     ],
+     "equivalent_within_margin": false,
+     "mde": 0.0751,
+     "outside_null_band": false,
+     "p_holm": 0.0012,
+     "p_perm": 0.0002,
+     "per_session": 0.1352,
+     "per_session_median": 0.1658
+    },
+    "triage-pessimistic": {
+     "ci90": [
+      0.9601,
+      1.2346
+     ],
+     "ci95": [
+      0.9393,
+      1.2648
+     ],
+     "equivalent_within_margin": false,
+     "mde": 0.2204,
+     "outside_null_band": true,
+     "p_holm": 0.0012,
+     "p_perm": 0.0002,
+     "per_session": 1.0945,
+     "per_session_median": 1.0355
+    },
+    "triage-snapshot_isolation": {
+     "ci90": [
+      0.007,
+      0.0786
+     ],
+     "ci95": [
+      0.0006,
+      0.0848
+     ],
+     "equivalent_within_margin": true,
+     "mde": 0.0601,
+     "outside_null_band": false,
+     "p_holm": 0.1912,
+     "p_perm": 0.0478,
+     "per_session": 0.0422,
+     "per_session_median": 0.0691
+    }
+   }
+  },
+  "gpt-4o": {
+   "cells": {
+    "edit-review-pessimistic": {
+     "calls_per_session": 5.14,
+     "ci95": [
+      4.9328,
+      5.5147
+     ],
+     "mean": 5.2001,
+     "median": 4.7305,
+     "n": 100,
+     "window_utc": [
+      "2026-09-13T02:12:48Z",
+      "2026-09-13T02:21:32Z"
+     ]
+    },
+    "edit-review-snapshot_isolation": {
+     "calls_per_session": 5.0,
+     "ci95": [
+      4.3285,
+      4.4376
+     ],
+     "mean": 4.3816,
+     "median": 4.3345,
+     "n": 100,
+     "window_utc": [
+      "2026-09-13T02:38:58Z",
+      "2026-09-13T02:46:21Z"
+     ]
+    },
+    "edit-review-vanilla": {
+     "calls_per_session": 5.0,
+     "ci95": [
+      4.3971,
+      4.5152
+     ],
+     "mean": 4.4547,
+     "median": 4.4425,
+     "n": 100,
+     "window_utc": [
+      "2026-09-13T01:50:55Z",
+      "2026-09-13T01:58:25Z"
+     ]
+    },
+    "plan-execute-pessimistic": {
+     "calls_per_session": 3.0,
+     "ci95": [
+      2.671,
+      2.8019
+     ],
+     "mean": 2.7295,
+     "median": 2.6615,
+     "n": 100,
+     "window_utc": [
+      "2026-09-13T02:21:34Z",
+      "2026-09-13T02:26:12Z"
+     ]
+    },
+    "plan-execute-snapshot_isolation": {
+     "calls_per_session": 2.98,
+     "ci95": [
+      2.6719,
+      2.7601
+     ],
+     "mean": 2.7166,
+     "median": 2.7005,
+     "n": 100,
+     "window_utc": [
+      "2026-09-13T02:46:23Z",
+      "2026-09-13T02:50:58Z"
+     ]
+    },
+    "plan-execute-vanilla": {
+     "calls_per_session": 2.98,
+     "ci95": [
+      2.7975,
+      2.9209
+     ],
+     "mean": 2.8573,
+     "median": 2.8205,
+     "n": 100,
+     "window_utc": [
+      "2026-09-13T01:58:27Z",
+      "2026-09-13T02:03:18Z"
+     ]
+    },
+    "triage-pessimistic": {
+     "calls_per_session": 7.82,
+     "ci95": [
+      7.339,
+      7.8277
+     ],
+     "mean": 7.5857,
+     "median": 7.461,
+     "n": 100,
+     "window_utc": [
+      "2026-09-13T02:26:13Z",
+      "2026-09-13T02:38:57Z"
+     ]
+    },
+    "triage-snapshot_isolation": {
+     "calls_per_session": 5.65,
+     "ci95": [
+      5.2991,
+      6.0152
+     ],
+     "mean": 5.6469,
+     "median": 4.8515,
+     "n": 100,
+     "window_utc": [
+      "2026-09-13T02:51:00Z",
+      "2026-09-13T03:00:29Z"
+     ]
+    },
+    "triage-vanilla": {
+     "calls_per_session": 5.6,
+     "ci95": [
+      5.2051,
+      6.0885
+     ],
+     "mean": 5.6219,
+     "median": 4.4705,
+     "n": 100,
+     "window_utc": [
+      "2026-09-13T02:03:19Z",
+      "2026-09-13T02:12:46Z"
+     ]
+    }
+   },
+   "null_band": {
+    "basis": "plan-execute: no runtime aborts and all three do the same work, so its overheads are drift between cells",
+    "median": 0.0564,
+    "value": 0.0492
+   },
+   "overheads": {
+    "edit-review-pessimistic": {
+     "ci90": [
+      0.1143,
+      0.2256
+     ],
+     "ci95": [
+      0.1053,
+      0.2372
+     ],
+     "equivalent_within_margin": false,
+     "mde": 0.0974,
+     "outside_null_band": true,
+     "p_holm": 0.0012,
+     "p_perm": 0.0002,
+     "per_commit": 1.4502,
+     "per_commit_ci95": [
+      1.2888,
+      1.6324
+     ],
+     "per_session": 0.1673,
+     "per_session_median": 0.0648,
+     "per_sound_commit": 0.2945,
+     "per_sound_commit_ci95": [
+      0.1884,
+      0.4149
+     ]
+    },
+    "edit-review-snapshot_isolation": {
+     "ci90": [
+      -0.0317,
+      -0.001
+     ],
+     "ci95": [
+      -0.0344,
+      0.0019
+     ],
+     "equivalent_within_margin": true,
+     "mde": 0.0262,
+     "outside_null_band": false,
+     "p_holm": 0.1624,
+     "p_perm": 0.0812,
+     "per_commit": 0.8956,
+     "per_commit_ci95": [
+      0.7238,
+      1.0639
+     ],
+     "per_session": -0.0164,
+     "per_session_median": -0.0243,
+     "per_sound_commit": 0.0492,
+     "per_sound_commit_ci95": [
+      -0.0283,
+      0.1345
+     ]
+    },
+    "plan-execute-pessimistic": {
+     "ci90": [
+      -0.0694,
+      -0.0184
+     ],
+     "ci95": [
+      -0.0737,
+      -0.0136
+     ],
+     "equivalent_within_margin": true,
+     "mde": 0.0452,
+     "outside_null_band": false,
+     "p_holm": 0.0144,
+     "p_perm": 0.0048,
+     "per_commit": -0.0495,
+     "per_commit_ci95": [
+      -0.0769,
+      -0.0199
+     ],
+     "per_session": -0.0447,
+     "per_session_median": -0.0564,
+     "per_sound_commit": -0.0495,
+     "per_sound_commit_ci95": [
+      -0.0768,
+      -0.0181
+     ]
+    },
+    "plan-execute-snapshot_isolation": {
+     "ci90": [
+      -0.0711,
+      -0.028
+     ],
+     "ci95": [
+      -0.0756,
+      -0.0236
+     ],
+     "equivalent_within_margin": true,
+     "mde": 0.0386,
+     "outside_null_band": false,
+     "p_holm": 0.0024,
+     "p_perm": 0.0006,
+     "per_commit": -0.0492,
+     "per_commit_ci95": [
+      -0.071,
+      -0.0269
+     ],
+     "per_session": -0.0492,
+     "per_session_median": -0.0425,
+     "per_sound_commit": -0.0492,
+     "per_sound_commit_ci95": [
+      -0.071,
+      -0.0271
+     ]
+    },
+    "triage-pessimistic": {
+     "ci90": [
+      0.2546,
+      0.4477
+     ],
+     "ci95": [
+      0.2364,
+      0.4687
+     ],
+     "equivalent_within_margin": false,
+     "mde": 0.129,
+     "outside_null_band": true,
+     "p_holm": 0.0012,
+     "p_perm": 0.0002,
+     "per_commit": 1.205,
+     "per_commit_ci95": [
+      1.052,
+      1.3711
+     ],
+     "per_session": 0.3493,
+     "per_session_median": 0.6689,
+     "per_sound_commit": 0.8627,
+     "per_sound_commit_ci95": [
+      0.6935,
+      1.0451
+     ]
+    },
+    "triage-snapshot_isolation": {
+     "ci90": [
+      -0.0771,
+      0.092
+     ],
+     "ci95": [
+      -0.0907,
+      0.1117
+     ],
+     "equivalent_within_margin": true,
+     "mde": 0.1448,
+     "outside_null_band": false,
+     "p_holm": 0.9338,
+     "p_perm": 0.9338,
+     "per_commit": 0.2556,
+     "per_commit_ci95": [
+      0.115,
+      0.423
+     ],
+     "per_session": 0.0045,
+     "per_session_median": 0.0852,
+     "per_sound_commit": 0.1104,
+     "per_sound_commit_ci95": [
+      -0.025,
+      0.2612
+     ]
+    }
+   }
+  }
+ },
+ "seed": 20260919,
+ "timestamp_reading": {
+  "end_of_call_fit": 1.0,
+  "start_of_call_fit": 0.4144
+ }
+}

@@ -1,5 +1,20 @@
 """
-wallclock_cost_study.py - Within-model wall-clock cost comparison
+wallclock_cost_study.py - an INJECTED-ABORT sensitivity study.
+
+2026-09-19 round 34. READ THIS FIRST. This script does not run the stores.
+Each "strategy" is simulated by wrapping the workload's tools so that a write
+fails with a FIXED probability and is retried -- pessimistic 0.20, SSI 0.05,
+vanilla 0 (see `prob` in run_session_mock and wrap_for_abort below) --
+independently of contention. It therefore prices a retry at abort rates we
+chose. It does not measure the abort rate either discipline produces, and no
+comparison between the two strategies' overheads can be read from it: the 20%
+and 5% are inputs. Wall-clock on the REAL stores is measured, with no new
+inference, by python/realstore_metrics.py over the committed real-store runs.
+OVERRULED (rounds <= 33): the description below, which presented this as a
+comparison "across three runtime strategies".
+
+Original description, kept for the record:
+Within-model wall-clock cost comparison
 across three runtime strategies (vanilla, pessimistic, SSI) on the
 SAME model. Closes R2's concern that the cross-model cost analysis
 is confounded by tokenization, pricing, and serialisation

@@ -46,7 +46,9 @@ implementation scoring itself would not be.
 | S 6.3 interrupt() probe | `python/interrupt_probe_results.json` | `python/langgraph_interrupt_probe.py` |
 | S 6.3 CrewAI shape probe | `python/crewai_shape_results.json` | `python/crewai_shape_probe.py` |
 | predicate cross-check, all three forms | `python/dynamic_oprecords`, `python/oprecords`, `python/mast_oprecords` | `python3 python/predicate_matrix.py` |
-| S 5.10 wall-clock study | `python/wallclock_results.json` | `python/wallclock_cost_study.py` |
+| S 5.6 Finding 6, Table 5 (price per sound commit) | `runs/20260913T0150Z` | `python3 python/workcost.py`; `python3 python/realstore_metrics.py --metric usd --tex` must print the same body |
+| S 5.10 wall-clock on the REAL stores (1,800 committed sessions, no new inference) | `runs/20260913T0150Z`, `pilot_tokens_claude`, `python/realstore_wallclock.json` | `python3 python/realstore_metrics.py --check` (recomputes and compares); `python3 python/realstore_metrics.py` prints the tables |
+| S 5.10 injected-abort sensitivity study (aborts injected at fixed 0.20 / 0.05, the stores do not run) | `python/wallclock_results.json` | `python/wallclock_cost_study.py` |
 | S 5.12 ToolNode A6 | `python/langgraph_a6_out`, `python/langgraph_a6_natural` | `python/langgraph_a6_experiment.py`, `python/langgraph_a6_experiment_natural.py`, `python/toolnode_a6_fix.py` |
 | S 4.17 sixteen-point matrix | `../mac-consistency/tla/lattice16_results.reference.json` (sibling repo; not gated here) | `../mac-consistency/tla/lattice16.sh` |
 | S 4.8 obligation counts | `verus-detector` | `./verus_count.sh`, `./verus_count.sh --full`; the Verus build is pinned in `verus-detector/verus-version.txt` |
