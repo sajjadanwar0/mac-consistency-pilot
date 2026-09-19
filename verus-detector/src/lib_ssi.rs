@@ -21,6 +21,15 @@ use vstd::prelude::*;
 
 verus! {
 
+// 2026-09-15  round 21  vstd migration (Verus 0.2026.09.13.671956e). Map::new
+// went `open spec` -> `uninterp` and takes a Set<K> domain; Set is finite-only.
+// Every domain in this file was already a set expression written as a lambda,
+// so the three call sites become Set algebra with no finiteness obligation.
+// The three spec fns are byte-identical to lib_default_si.rs's, and this is
+// the same rewrite, site for site, that file received and verified under
+// 0.2026.09.13.671956e. lib_ssi.rs was left out of that migration.
+broadcast use vstd::map::group_map_lemmas, vstd::set::group_set_lemmas;
+
 // =====================================================================
 // Section 1: Abstract trace model
 // =====================================================================
@@ -101,7 +110,7 @@ pub open spec fn last_write_after_commit(
     new_clock: Time,
 ) -> Map<CellId, Time> {
     Map::new(
-        |c: CellId| base.contains_key(c) || write_set.contains(c),
+        base.dom().union(write_set),
         |c: CellId| if write_set.contains(c) { new_clock }
                     else if base.contains_key(c) { base[c] }
                     else { 0 },
@@ -114,7 +123,7 @@ pub open spec fn store_after_commit(
     write_values: Map<CellId, Value>,
 ) -> Map<CellId, Value> {
     Map::new(
-        |c: CellId| base.contains_key(c) || write_set.contains(c),
+        base.dom().union(write_set),
         |c: CellId| if write_set.contains(c) && write_values.contains_key(c) {
                         write_values[c]
                     } else if base.contains_key(c) {
@@ -130,7 +139,7 @@ pub open spec fn read_values_snapshot(
     read_cells: Set<CellId>,
 ) -> Map<CellId, Value> {
     Map::new(
-        |c: CellId| read_cells.contains(c),
+        read_cells,
         |c: CellId| if store.contains_key(c) { store[c] } else { null_value() },
     )
 }

@@ -1,41 +1,38 @@
 // =====================================================================
-// Verus proof: L_4 safety theorem for a registry-snapshot-isolation
-// runtime that prevents A_2 (phantom-tool) on top of L_3's saga
-// discipline and L_2's causal tracking.
+// Verus proof: L_4 safety for a registry-validating runtime that
+// prevents A_2 (phantom tool) under arbitrary registry churn.
 //
 // COMPILE
 //   verus --crate-type=lib src/lib_l4_safety.rs
 //
-// MOTIVATION
-//   L_1 prevents A_1, L_2 adds A_3, L_3 adds A_6. The final named
-//   lattice point L_4 additionally prevents A_2 (phantom-tool): an
-//   operation that plans a tool call against the registry it
-//   observed at read time, but by call time the tool has been
-//   removed or its signature has changed, so the call dispatches
-//   against a tool that no longer matches the plan. Until now L_4
-//   was the only named lattice point left as paper design; this
-//   file closes it, so that L_0 through L_4 are each backed by a
-//   mechanically-verified realising runtime.
+// A_2 (phantom tool): an operation plans a call against the registry it
+// observed, and by the time the call is dispatched the tool has been
+// revoked or re-signed, so the call reaches a tool that no longer matches
+// the plan. It is a property of the DISPATCH, so each operation records
+// what the live registry held for its planned tool at the instant it
+// dispatched (its commit). This is the TLA+ predicate
+// (Anomalies.tla PhantomTool: planned tool in read_registry, not in
+// write_registry, the registry recorded at commit), with re-signing added
+// because a signature change is the same hazard as a removal.
 //
-// CONSTRUCTION
-//   The runtime carries a live tool registry (a map from tool id to
-//   signature) and, per operation, the signature it pinned for its
-//   planned tool at read time. Two prevention disciplines are
-//   modelled:
-//     (a) Validation (optimistic): an operation commits only if the
-//         planned tool is still present in the live registry with
-//         the pinned signature; otherwise it aborts. No committed
-//         operation is a phantom at its commit instant.
-//     (b) Snapshot isolation (by construction): an operation reads
-//         its tool binding from a pinned snapshot of the registry,
-//         so concurrent registry mutation cannot change what the
-//         operation dispatches against. A_2 cannot fire regardless
-//         of registry churn.
-//   We also exhibit, constructively, that WITHOUT isolation a
-//   phantom-tool witness exists, so the prevention is non-vacuous.
+// 2026-09-16  round 29 (audit finding G2). OVERRULED, all of the previous
+// contents of this file:
+//   - L_4b ("snapshot isolation suppresses A_2 by construction") compared
+//     resolve_via_snapshot(so) with pinned_sig_of(so), the same expression,
+//     with an empty proof body. It said nothing about the registry.
+//   - a2_witness read the CURRENT live registry, so any later revocation
+//     turned an old, correctly dispatched operation into a "phantom"; the
+//     model had no registry mutation at all, which is why that never showed.
+//   - L_4a held only at the commit instant, and L_4c, L_4d, L_4e restated
+//     their preconditions. None was a statement about executions.
+// Now: registry churn (register, re-sign, revoke) is a step; validation at
+// dispatch is an inductive invariant preserved by every step; an unvalidated
+// dispatch reaches A_2 in a concrete four-step execution; and resolving the
+// binding from a pinned snapshot -- the old L_4b discipline -- also reaches
+// A_2, because the snapshot changes what the operation believes, not what
+// its call reaches.
 //
-// SCORECARD
-//   5 obligations, 0 axioms (purely structural).
+// TRUST BASE: zero axioms, zero external_body, zero assume, zero admit.
 
 #![allow(unused_imports)]
 #![allow(dead_code)]
@@ -43,43 +40,24 @@ use vstd::prelude::*;
 
 verus! {
 
-// =====================================================================
-// Section 1: Carriers
-// =====================================================================
-
 pub type ToolId    = int;
-pub type Signature = int;   // abstract signature hash of a tool
+pub type Signature = int;
 pub type OpId      = int;
 pub type Time      = int;
 
-// =====================================================================
-// Section 2: Operation and registry state
-// =====================================================================
-
-/// An operation that plans and calls a tool. `pinned_sig` is the
-/// signature the operation observed for `planned_tool` at the time
-/// it pinned its registry view (read time).
 pub struct Operation {
-    pub op:           OpId,
-    pub started:      bool,
-    pub planned_tool: ToolId,
-    pub pinned_sig:   Signature,
-    pub committed:    bool,
-    pub aborted:      bool,
+    pub started:          bool,
+    pub planned_tool:     ToolId,
+    /// the live signature of the planned tool when the operation planned
+    pub pinned_sig:       Signature,
+    pub committed:        bool,
+    pub aborted:          bool,
+    /// recorded at dispatch: the planned tool was in the live registry
+    pub dispatch_present: bool,
+    /// recorded at dispatch: its live signature then (when present)
+    pub dispatch_sig:     Signature,
 }
 
-pub open spec fn empty_op() -> Operation {
-    Operation {
-        op:           0,
-        started:      false,
-        planned_tool: 0,
-        pinned_sig:   0,
-        committed:    false,
-        aborted:      false,
-    }
-}
-
-/// The runtime state: a live tool registry and a set of operations.
 pub struct RegistryState {
     pub now:      Time,
     pub registry: Map<ToolId, Signature>,
@@ -87,225 +65,309 @@ pub struct RegistryState {
 }
 
 pub open spec fn initial_state() -> RegistryState {
-    RegistryState {
-        now:      0,
-        registry: Map::empty(),
-        ops:      Map::empty(),
-    }
+    RegistryState { now: 0, registry: Map::empty(), ops: Map::empty() }
 }
 
-// =====================================================================
-// Section 3: The A_2 (phantom-tool) predicate
-// =====================================================================
-
-/// A_2 fires for a committed operation `o` if, against the live
-/// registry, its planned tool is either absent or carries a
-/// signature different from the one the operation pinned. That is,
-/// the operation committed a call against a tool that no longer
-/// matches what it planned.
+/// A_2: a dispatched (committed, unaborted) operation whose call reached a
+/// revoked tool or a tool re-signed since it planned.
 pub open spec fn a2_witness(s: RegistryState, o: OpId) -> bool {
-    s.ops.contains_key(o)
-    && s.ops[o].committed
-    && !s.ops[o].aborted
-    && (!s.registry.contains_key(s.ops[o].planned_tool)
-        || s.registry[s.ops[o].planned_tool] != s.ops[o].pinned_sig)
+    &&& s.ops.contains_key(o)
+    &&& s.ops[o].committed
+    &&& !s.ops[o].aborted
+    &&& (!s.ops[o].dispatch_present || s.ops[o].dispatch_sig != s.ops[o].pinned_sig)
 }
 
-// =====================================================================
-// Section 4: Validation discipline (optimistic)
-// =====================================================================
+// ---------------------------------------------------------------------
+// Steps
+// ---------------------------------------------------------------------
 
-/// An operation's commit is L_4-valid iff its planned tool is still
-/// present in the live registry with the pinned signature. This is
-/// the operational phantom-tool check performed at commit time.
-pub open spec fn commit_valid(s: RegistryState, o: OpId) -> bool {
-    s.ops.contains_key(o)
-    && s.ops[o].started
-    && !s.ops[o].committed
-    && !s.ops[o].aborted
-    && s.registry.contains_key(s.ops[o].planned_tool)
-    && s.registry[s.ops[o].planned_tool] == s.ops[o].pinned_sig
+pub open spec fn begin_valid(s: RegistryState, o: OpId, t: ToolId) -> bool {
+    !s.ops.contains_key(o) && s.registry.contains_key(t)
 }
 
-/// Commit transition: enabled only when commit_valid holds.
-pub open spec fn step_commit(s: RegistryState, o: OpId) -> RegistryState
-    recommends commit_valid(s, o)
+/// plan: the operation pins the live signature of its planned tool
+pub open spec fn step_begin(s: RegistryState, o: OpId, t: ToolId) -> RegistryState
+    recommends begin_valid(s, o, t)
 {
     RegistryState {
         now: s.now + 1,
-        ops: s.ops.insert(o, Operation { committed: true, ..s.ops[o] }),
+        ops: s.ops.insert(o, Operation {
+            started:          true,
+            planned_tool:     t,
+            pinned_sig:       s.registry[t],
+            committed:        false,
+            aborted:          false,
+            dispatch_present: false,
+            dispatch_sig:     0,
+        }),
         ..s
     }
 }
 
-/// THEOREM L_4a (validation prevents A_2 at commit). If the commit
-/// transition for `o` is enabled, then in the post-commit state the
-/// planned tool is present in the live registry with the pinned
-/// signature: the just-committed operation is not a phantom at its
-/// commit instant.
-pub proof fn lemma_commit_valid_no_a2_at_commit(s: RegistryState, o: OpId)
-    requires commit_valid(s, o),
-    ensures
-        ({
-            let s2 = step_commit(s, o);
-            &&& s2.registry.contains_key(s2.ops[o].planned_tool)
-            &&& s2.registry[s2.ops[o].planned_tool] == s2.ops[o].pinned_sig
-            &&& !a2_witness(s2, o)
-        }),
-{
-    let s2 = step_commit(s, o);
-    // The commit transition does not modify the registry, and o's
-    // planned_tool / pinned_sig are unchanged.
-    assert(s2.registry == s.registry);
-    assert(s2.ops[o].planned_tool == s.ops[o].planned_tool);
-    assert(s2.ops[o].pinned_sig == s.ops[o].pinned_sig);
-    // commit_valid gives presence and signature match in s, hence s2.
-    assert(s2.registry.contains_key(s2.ops[o].planned_tool));
-    assert(s2.registry[s2.ops[o].planned_tool] == s2.ops[o].pinned_sig);
-    // Therefore the a2_witness disjunction is false for o.
+/// churn: publish a tool or re-sign it
+pub open spec fn step_register(s: RegistryState, t: ToolId, sig: Signature) -> RegistryState {
+    RegistryState { now: s.now + 1, registry: s.registry.insert(t, sig), ..s }
 }
 
-// =====================================================================
-// Section 5: Snapshot-isolation discipline (by construction)
-// =====================================================================
+/// churn: revoke a tool
+pub open spec fn step_unregister(s: RegistryState, t: ToolId) -> RegistryState {
+    RegistryState { now: s.now + 1, registry: s.registry.remove(t), ..s }
+}
 
-/// A snapshot-isolated operation carries its own pinned copy of the
-/// registry. The tool binding it dispatches against is resolved from
-/// this snapshot, not from the live registry, so concurrent registry
-/// mutation cannot affect it.
+/// the record an operation carries after dispatching against `live`
+pub open spec fn dispatched(op: Operation, live: Map<ToolId, Signature>) -> Operation {
+    Operation {
+        committed:        true,
+        dispatch_present: live.contains_key(op.planned_tool),
+        dispatch_sig:     if live.contains_key(op.planned_tool) { live[op.planned_tool] } else { op.dispatch_sig },
+        ..op
+    }
+}
+
+/// L_4's discipline: dispatch only if the planned tool is still live with
+/// the signature the operation planned against.
+pub open spec fn commit_valid(s: RegistryState, o: OpId) -> bool {
+    &&& s.ops.contains_key(o)
+    &&& s.ops[o].started
+    &&& !s.ops[o].committed
+    &&& !s.ops[o].aborted
+    &&& s.registry.contains_key(s.ops[o].planned_tool)
+    &&& s.registry[s.ops[o].planned_tool] == s.ops[o].pinned_sig
+}
+
+/// dispatch (commit) against the live registry. The L_4 runtime takes this
+/// step only under commit_valid; a runtime without validation takes it for
+/// any open operation.
+pub open spec fn step_commit(s: RegistryState, o: OpId) -> RegistryState {
+    RegistryState { now: s.now + 1, ops: s.ops.insert(o, dispatched(s.ops[o], s.registry)), ..s }
+}
+
+pub open spec fn abort_valid(s: RegistryState, o: OpId) -> bool {
+    s.ops.contains_key(o) && !s.ops[o].committed && !s.ops[o].aborted
+}
+
+pub open spec fn step_abort(s: RegistryState, o: OpId) -> RegistryState {
+    RegistryState { now: s.now + 1, ops: s.ops.insert(o, Operation { aborted: true, ..s.ops[o] }), ..s }
+}
+
+// ---------------------------------------------------------------------
+// The invariant and its preservation by every step
+// ---------------------------------------------------------------------
+
+pub open spec fn inv_l4(s: RegistryState) -> bool {
+    forall |o: OpId| #![trigger s.ops[o]]
+        s.ops.contains_key(o) && s.ops[o].committed && !s.ops[o].aborted
+        ==> s.ops[o].dispatch_present && s.ops[o].dispatch_sig == s.ops[o].pinned_sig
+}
+
+pub proof fn lemma_initial_inv_l4()
+    ensures inv_l4(initial_state()),
+{
+    assert(initial_state().ops =~= Map::<OpId, Operation>::empty());
+}
+
+pub proof fn lemma_begin_preserves_inv_l4(s: RegistryState, o: OpId, t: ToolId)
+    requires inv_l4(s), begin_valid(s, o, t),
+    ensures inv_l4(step_begin(s, o, t)),
+{
+    let s2 = step_begin(s, o, t);
+    assert forall |x: OpId| #![trigger s2.ops[x]]
+        s2.ops.contains_key(x) && s2.ops[x].committed && !s2.ops[x].aborted
+        implies s2.ops[x].dispatch_present && s2.ops[x].dispatch_sig == s2.ops[x].pinned_sig
+    by {
+        if x == o {
+            assert(!s2.ops[x].committed);
+        } else {
+            assert(s2.ops[x] == s.ops[x]);
+            assert(s.ops.contains_key(x));
+        }
+    }
+}
+
+/// Registry churn cannot create A_2: A_2 is about what a dispatch reached,
+/// and churn changes no dispatch record.
+pub proof fn lemma_register_preserves_inv_l4(s: RegistryState, t: ToolId, sig: Signature)
+    requires inv_l4(s),
+    ensures inv_l4(step_register(s, t, sig)),
+{
+    let s2 = step_register(s, t, sig);
+    assert forall |x: OpId| #![trigger s2.ops[x]]
+        s2.ops.contains_key(x) && s2.ops[x].committed && !s2.ops[x].aborted
+        implies s2.ops[x].dispatch_present && s2.ops[x].dispatch_sig == s2.ops[x].pinned_sig
+    by {
+        assert(s2.ops[x] == s.ops[x]);
+        assert(s.ops.contains_key(x));
+    }
+}
+
+pub proof fn lemma_unregister_preserves_inv_l4(s: RegistryState, t: ToolId)
+    requires inv_l4(s),
+    ensures inv_l4(step_unregister(s, t)),
+{
+    let s2 = step_unregister(s, t);
+    assert forall |x: OpId| #![trigger s2.ops[x]]
+        s2.ops.contains_key(x) && s2.ops[x].committed && !s2.ops[x].aborted
+        implies s2.ops[x].dispatch_present && s2.ops[x].dispatch_sig == s2.ops[x].pinned_sig
+    by {
+        assert(s2.ops[x] == s.ops[x]);
+        assert(s.ops.contains_key(x));
+    }
+}
+
+pub proof fn lemma_commit_preserves_inv_l4(s: RegistryState, o: OpId)
+    requires inv_l4(s), commit_valid(s, o),
+    ensures inv_l4(step_commit(s, o)),
+{
+    let s2 = step_commit(s, o);
+    assert forall |x: OpId| #![trigger s2.ops[x]]
+        s2.ops.contains_key(x) && s2.ops[x].committed && !s2.ops[x].aborted
+        implies s2.ops[x].dispatch_present && s2.ops[x].dispatch_sig == s2.ops[x].pinned_sig
+    by {
+        if x == o {
+            assert(s2.ops[o] == dispatched(s.ops[o], s.registry));
+            assert(s.registry.contains_key(s.ops[o].planned_tool));
+            assert(s2.ops[o].planned_tool == s.ops[o].planned_tool);
+            assert(s2.ops[o].pinned_sig == s.ops[o].pinned_sig);
+            assert(s2.ops[o].dispatch_present);
+            assert(s2.ops[o].dispatch_sig == s.registry[s.ops[o].planned_tool]);
+        } else {
+            assert(s2.ops[x] == s.ops[x]);
+            assert(s.ops.contains_key(x));
+        }
+    }
+}
+
+pub proof fn lemma_abort_preserves_inv_l4(s: RegistryState, o: OpId)
+    requires inv_l4(s), abort_valid(s, o),
+    ensures inv_l4(step_abort(s, o)),
+{
+    let s2 = step_abort(s, o);
+    assert forall |x: OpId| #![trigger s2.ops[x]]
+        s2.ops.contains_key(x) && s2.ops[x].committed && !s2.ops[x].aborted
+        implies s2.ops[x].dispatch_present && s2.ops[x].dispatch_sig == s2.ops[x].pinned_sig
+    by {
+        if x == o {
+            assert(s2.ops[x].aborted);
+        } else {
+            assert(s2.ops[x] == s.ops[x]);
+            assert(s.ops.contains_key(x));
+        }
+    }
+}
+
+/// THEOREM L_4: every state the validating runtime reaches from
+/// initial_state -- through any interleaving of plans, dispatches, aborts,
+/// and registry churn -- satisfies inv_l4 (the lemmas above), and no
+/// operation in such a state is an A_2 witness.
+pub proof fn lemma_l4_no_a2(s: RegistryState)
+    requires inv_l4(s),
+    ensures forall |o: OpId| #![trigger a2_witness(s, o)] !a2_witness(s, o),
+{
+    assert forall |o: OpId| #![trigger a2_witness(s, o)] !a2_witness(s, o) by {
+        if s.ops.contains_key(o) && s.ops[o].committed && !s.ops[o].aborted {
+            assert(s.ops[o].dispatch_present && s.ops[o].dispatch_sig == s.ops[o].pinned_sig);
+        }
+    }
+}
+
+// ---------------------------------------------------------------------
+// Non-vacuity: concrete executions that reach A_2 without validation
+// ---------------------------------------------------------------------
+
+/// Publish tool 7, plan against it, re-sign it, dispatch without validation.
+/// Validation would have refused (and the abort that replaces the dispatch
+/// keeps the invariant); the unvalidated dispatch is an A_2 witness.
+pub proof fn lemma_unvalidated_dispatch_reaches_a2()
+    ensures ({
+        let s1 = step_register(initial_state(), 7, 1);
+        let s2 = step_begin(s1, 0, 7);
+        let s3 = step_register(s2, 7, 2);
+        &&& begin_valid(s1, 0, 7)
+        &&& inv_l4(s3)
+        &&& !commit_valid(s3, 0)
+        &&& abort_valid(s3, 0)
+        &&& a2_witness(step_commit(s3, 0), 0)
+    }),
+{
+    let s0 = initial_state();
+    let s1 = step_register(s0, 7, 1);
+    assert(s1.registry.contains_key(7) && s1.registry[7] == 1);
+    assert(s1.ops == s0.ops);
+    assert(!s1.ops.contains_key(0));
+    let s2 = step_begin(s1, 0, 7);
+    assert(s2.ops.contains_key(0));
+    assert(s2.ops[0].pinned_sig == 1);
+    assert(s2.ops[0].planned_tool == 7);
+    assert(s2.ops[0].started && !s2.ops[0].committed && !s2.ops[0].aborted);
+    let s3 = step_register(s2, 7, 2);
+    assert(s3.ops == s2.ops);
+    assert(s3.registry.contains_key(7) && s3.registry[7] == 2);
+    assert(!commit_valid(s3, 0));
+    assert forall |x: OpId| #![trigger s3.ops[x]]
+        s3.ops.contains_key(x) && s3.ops[x].committed && !s3.ops[x].aborted
+        implies s3.ops[x].dispatch_present && s3.ops[x].dispatch_sig == s3.ops[x].pinned_sig
+    by {
+        assert(x == 0);
+        assert(!s3.ops[x].committed);
+    }
+    let s4 = step_commit(s3, 0);
+    assert(s4.ops[0] == dispatched(s3.ops[0], s3.registry));
+    assert(s4.ops[0].dispatch_present);
+    assert(s4.ops[0].dispatch_sig == 2);
+    assert(s4.ops[0].pinned_sig == 1);
+    assert(s4.ops[0].committed && !s4.ops[0].aborted);
+    assert(a2_witness(s4, 0));
+}
+
+/// The OVERRULED L_4b discipline: an operation that resolves its tool binding
+/// from a pinned snapshot of the registry.
 pub struct SnapshotOp {
-    pub op:           OpId,
     pub planned_tool: ToolId,
     pub snapshot:     Map<ToolId, Signature>,
 }
 
-/// The signature the operation resolves at call time: a lookup in
-/// its pinned snapshot. Well-formed only when the planned tool is in
-/// the snapshot (guaranteed at pin time).
 pub open spec fn resolve_via_snapshot(so: SnapshotOp) -> Signature
     recommends so.snapshot.contains_key(so.planned_tool)
 {
     so.snapshot[so.planned_tool]
 }
 
-/// The pinned (planned) signature is, by definition, the snapshot
-/// value for the planned tool recorded at pin time.
-pub open spec fn pinned_sig_of(so: SnapshotOp) -> Signature
-    recommends so.snapshot.contains_key(so.planned_tool)
+/// What L_4b proved still holds here -- the snapshot resolves to the pinned
+/// signature -- and A_2 fires anyway: the tool is revoked between plan and
+/// dispatch, and the call reaches the live registry, not the snapshot.
+pub proof fn lemma_snapshot_resolution_does_not_prevent_a2()
+    ensures ({
+        let s1 = step_register(initial_state(), 7, 1);
+        let so = SnapshotOp { planned_tool: 7, snapshot: s1.registry };
+        let s2 = step_begin(s1, 0, 7);
+        let s3 = step_unregister(s2, 7);
+        &&& begin_valid(s1, 0, 7)
+        &&& resolve_via_snapshot(so) == s2.ops[0].pinned_sig
+        &&& !commit_valid(s3, 0)
+        &&& a2_witness(step_commit(s3, 0), 0)
+    }),
 {
-    so.snapshot[so.planned_tool]
-}
-
-/// A_2 against the snapshot-resolved signature: fires if the
-/// operation dispatches against a signature different from the one
-/// it planned. Under snapshot isolation both are snapshot lookups
-/// of the same key, so the predicate is identically false.
-pub open spec fn a2_witness_snapshot(so: SnapshotOp) -> bool {
-    so.snapshot.contains_key(so.planned_tool)
-    && resolve_via_snapshot(so) != pinned_sig_of(so)
-}
-
-/// THEOREM L_4b (snapshot isolation suppresses A_2 by construction).
-/// An operation that resolves its tool binding from its pinned
-/// snapshot can never exhibit a phantom-tool witness, regardless of
-/// how the live registry is mutated by concurrent operations,
-/// because both the planned and the dispatched signature are the
-/// same snapshot lookup.
-pub proof fn lemma_snapshot_isolation_suppresses_a2(so: SnapshotOp)
-    ensures !a2_witness_snapshot(so),
-{
-    // resolve_via_snapshot(so) and pinned_sig_of(so) are the same
-    // expression, so they are equal whenever the key is present.
-}
-
-// =====================================================================
-// Section 6: Non-vacuity --- without isolation, A_2 can fire
-// =====================================================================
-
-/// THEOREM L_4c (no isolation admits A_2). If a committed operation
-/// reads the live registry at call time and the registry has been
-/// mutated so that the planned tool's live signature differs from
-/// the pinned signature, an A_2 witness exists. This shows the
-/// prevention disciplines above are non-vacuous: the anomaly is
-/// genuinely reachable when neither validation nor snapshot
-/// isolation is applied.
-pub proof fn lemma_no_isolation_admits_a2(s: RegistryState, o: OpId)
-    requires
-        s.ops.contains_key(o),
-        s.ops[o].committed,
-        !s.ops[o].aborted,
-        s.registry.contains_key(s.ops[o].planned_tool),
-        s.registry[s.ops[o].planned_tool] != s.ops[o].pinned_sig,
-    ensures a2_witness(s, o),
-{
-    // The signature-mismatch disjunct of a2_witness holds directly.
-}
-
-// =====================================================================
-// Section 7: Composition with L_3 and lattice placement
-// =====================================================================
-
-/// L_4 = L_3 + no A_2. The A_2 prevention operates on the tool
-/// registry domain, while L_3's saga discipline operates on the
-/// external-effect-call domain and L_2's causal tracking on the
-/// read/write/predecessor domain. The three domains are orthogonal,
-/// so a runtime applying all three prevents A_1, A_2, A_3, and A_6
-/// simultaneously. We record the L_4 contribution: a
-/// commit-validating runtime adds A_2 prevention to whatever lower
-/// level it already realises.
-pub open spec fn satisfies_l4_commit(s: RegistryState, o: OpId) -> bool {
-    s.ops.contains_key(o)
-    && s.ops[o].committed
-    && !s.ops[o].aborted
-    && s.registry.contains_key(s.ops[o].planned_tool)
-    && s.registry[s.ops[o].planned_tool] == s.ops[o].pinned_sig
-}
-
-/// THEOREM L_4d (L_4-commit operations have no A_2 witness). An
-/// operation satisfying the L_4 commit predicate does not exhibit
-/// A_2 in the current state.
-pub proof fn lemma_l4_commit_no_a2(s: RegistryState, o: OpId)
-    requires satisfies_l4_commit(s, o),
-    ensures !a2_witness(s, o),
-{
-    // The registry contains the planned tool with the pinned
-    // signature, so both disjuncts of a2_witness are false.
-}
-
-/// THEOREM L_4e (lattice placement). The conjunction of the L_4
-/// commit predicate over all committed operations is exactly the
-/// statement that the state has no A_2 witness among committed
-/// operations. This ties the runtime discipline to the lattice
-/// point: a runtime maintaining the L_4 invariant occupies the
-/// lattice point that additionally excludes A_2 (the not-A_2
-/// level).
-pub open spec fn no_a2_anywhere(s: RegistryState) -> bool {
-    forall |o: OpId| #![trigger s.ops[o]]
-        s.ops.contains_key(o)
-        && s.ops[o].committed
-        && !s.ops[o].aborted
-        ==> satisfies_l4_commit(s, o)
-}
-
-pub proof fn lemma_l4_invariant_implies_no_a2(s: RegistryState)
-    requires no_a2_anywhere(s),
-    ensures
-        forall |o: OpId| #![trigger s.ops[o]]
-            s.ops.contains_key(o)
-            && s.ops[o].committed
-            && !s.ops[o].aborted
-            ==> !a2_witness(s, o),
-{
-    assert forall |o: OpId| #![trigger a2_witness(s, o)]
-        s.ops.contains_key(o)
-        && s.ops[o].committed
-        && !s.ops[o].aborted
-        implies !a2_witness(s, o)
-    by {
-        // no_a2_anywhere gives satisfies_l4_commit(s, o); apply L_4d.
-        assert(satisfies_l4_commit(s, o));
-        lemma_l4_commit_no_a2(s, o);
-    }
+    let s0 = initial_state();
+    let s1 = step_register(s0, 7, 1);
+    assert(s1.registry.contains_key(7) && s1.registry[7] == 1);
+    assert(s1.ops == s0.ops);
+    assert(!s1.ops.contains_key(0));
+    let so = SnapshotOp { planned_tool: 7, snapshot: s1.registry };
+    assert(resolve_via_snapshot(so) == 1);
+    let s2 = step_begin(s1, 0, 7);
+    assert(s2.ops.contains_key(0));
+    assert(s2.ops[0].pinned_sig == 1);
+    assert(s2.ops[0].planned_tool == 7);
+    assert(!s2.ops[0].committed && !s2.ops[0].aborted);
+    let s3 = step_unregister(s2, 7);
+    assert(s3.ops == s2.ops);
+    assert(!s3.registry.contains_key(7));
+    assert(!commit_valid(s3, 0));
+    let s4 = step_commit(s3, 0);
+    assert(s4.ops[0] == dispatched(s3.ops[0], s3.registry));
+    assert(!s4.ops[0].dispatch_present);
+    assert(s4.ops[0].committed && !s4.ops[0].aborted);
+    assert(a2_witness(s4, 0));
 }
 
 } // verus!

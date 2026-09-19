@@ -10,15 +10,19 @@ pub mod lib_l4_safety;
 // step_commit, Time, ...), so we import ONLY the items the composition needs,
 // each qualified by its module. Nothing imported here collides.
 use crate::lib_l2_safety::{
-    RuntimeState, TxnId, CellId, inv_l2, a3_witness,
+    RuntimeState, TxnId, CellId, inv_l2, inv_output_commit, a3_witness,
     lemma_l2_reachable_no_a3, lemma_l2_reads_supported,
 };
 use crate::lib_l3_safety::{SagaRecord, satisfies_l3, a6_witness, lemma_l3_implies_no_a6};
-use crate::lib_l4_safety::{
-    RegistryState, OpId, no_a2_anywhere, a2_witness, lemma_l4_invariant_implies_no_a2,
-};
+use crate::lib_l4_safety::{RegistryState, OpId, inv_l4, a2_witness, lemma_l4_no_a2};
 
 verus! {
+// 2026-09-15  round 24: the L2 component carries inv_output_commit, and its A3
+// is the externalized predicate (lib_l2_safety.rs).
+// 2026-09-16  round 29: the L4 component carries inv_l4, validation at dispatch
+// preserved by every step including registry churn, and its A2 is the dispatch
+// record (lib_l4_safety.rs). OVERRULED: no_a2_anywhere, which restated A2's
+// negation over the current registry.
 pub struct Lattice {
     pub l2: RuntimeState,
     pub l3: SagaRecord,
@@ -27,14 +31,15 @@ pub struct Lattice {
 
 pub open spec fn lattice_inv(x: Lattice) -> bool {
     &&& inv_l2(x.l2)
+    &&& inv_output_commit(x.l2)
     &&& satisfies_l3(x.l3)
-    &&& no_a2_anywhere(x.l4)
+    &&& inv_l4(x.l4)
 }
 
 pub proof fn lemma_lattice_jointly_safe(x: Lattice)
     requires lattice_inv(x),
     ensures
-        forall |t: TxnId| #![trigger x.l2.txns[t].committed] !a3_witness(x.l2, t),
+        forall |t: TxnId| #![trigger a3_witness(x.l2, t)] !a3_witness(x.l2, t),
         forall |t: TxnId, c: CellId|
             (x.l2.txns.contains_key(t) && x.l2.txns[t].committed && !x.l2.txns[t].aborted
              && x.l2.txns[t].read_set.contains(c))
@@ -43,18 +48,16 @@ pub proof fn lemma_lattice_jointly_safe(x: Lattice)
                 && x.l2.txns[w].write_set.contains(c)
                 && x.l2.txns[w].write_values[c] == x.l2.txns[t].read_values[c],
         !a6_witness(x.l3),
-        forall |o: OpId| #![trigger x.l4.ops[o]]
-            (x.l4.ops.contains_key(o) && x.l4.ops[o].committed && !x.l4.ops[o].aborted)
-            ==> !a2_witness(x.l4, o),
+        forall |o: OpId| #![trigger a2_witness(x.l4, o)] !a2_witness(x.l4, o),
 {
     lemma_l2_reachable_no_a3(x.l2);
     lemma_l2_reads_supported(x.l2);
     lemma_l3_implies_no_a6(x.l3);
-    lemma_l4_invariant_implies_no_a2(x.l4);
+    lemma_l4_no_a2(x.l4);
 }
 
 pub proof fn lemma_frame_l2(x: Lattice, l2new: RuntimeState)
-    requires lattice_inv(x), inv_l2(l2new),
+    requires lattice_inv(x), inv_l2(l2new), inv_output_commit(l2new),
     ensures lattice_inv(Lattice { l2: l2new, ..x }),
 { }
 
@@ -65,19 +68,17 @@ pub proof fn lemma_frame_l3(x: Lattice, l3new: SagaRecord)
 }
 
 pub proof fn lemma_frame_l4(x: Lattice, l4new: RegistryState)
-    requires lattice_inv(x), no_a2_anywhere(l4new),
+    requires lattice_inv(x), inv_l4(l4new),
     ensures lattice_inv(Lattice { l4: l4new, ..x }),
 {
 }
 
 pub proof fn lemma_l2_step_keeps_jointly_safe(x: Lattice, l2new: RuntimeState)
-    requires lattice_inv(x), inv_l2(l2new),
+    requires lattice_inv(x), inv_l2(l2new), inv_output_commit(l2new),
     ensures
-        forall |t: TxnId| #![trigger l2new.txns[t].committed] !a3_witness(l2new, t),
+        forall |t: TxnId| #![trigger a3_witness(l2new, t)] !a3_witness(l2new, t),
         !a6_witness(x.l3),
-        forall |o: OpId| #![trigger x.l4.ops[o]]
-            (x.l4.ops.contains_key(o) && x.l4.ops[o].committed && !x.l4.ops[o].aborted)
-            ==> !a2_witness(x.l4, o),
+        forall |o: OpId| #![trigger a2_witness(x.l4, o)] !a2_witness(x.l4, o),
 {
     let x2 = Lattice { l2: l2new, ..x };
     lemma_frame_l2(x, l2new);

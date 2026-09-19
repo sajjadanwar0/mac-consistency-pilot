@@ -65,6 +65,18 @@
 #   clone it DIFFS the clone's file list against the local tree and fails if the
 #   local tree has a src/*.rs the clone does not.
 #
+# 2026-09-15 note (round 22): the pin moved to 0.2026.09.13.671956e in round 21.
+#   In a shell whose `verus` was still the old build, a plain `./verus_count.sh
+#   --full` then printed the mismatch banner and an INCOMPLETE 169, because the
+#   ten migrated files cannot compile under the old vstd. When VERUS is not set
+#   and `verus` on PATH is not the pinned version, the script now looks for the
+#   pinned build under ~/.local/opt (*/verus, */*/verus), checks each
+#   candidate's --version, and uses the first that matches, saying so.
+#   VERUS=... is honoured exactly as given, and with no matching build the
+#   banner is unchanged. Under the pin, round 21 measured curated 331 -> 338 and
+#   full 352 -> 359 (lib_l2_exec.rs 54 -> 59, lib_refinement_ssi_chain.rs
+#   17 -> 19; lib_ssi.rs migrated, still 8).
+#
 # Usage:
 #   ./verus_count.sh                 # count the LOCAL verus-detector (curated total)
 #   ./verus_count.sh --full          # empty EXCLUDE: full distinct total
@@ -79,6 +91,7 @@
 set -uo pipefail   # deliberately NOT -e: we continue past per-file errors
 
 GITHUB_USER="sajjadanwar0"
+VERUS_EXPLICIT="${VERUS:+1}"   # VERUS=... is honoured exactly as given
 VERUS="${VERUS:-verus}"
 LOCAL_BASE=""
 FULL=0
@@ -175,6 +188,27 @@ else
 fi
 
 [ -d "$VDET/src" ] || { echo "verus-detector/src not found at $VDET" >&2; exit 1; }
+
+# ---- which verus (round 22) ------------------------------------------
+# The pin names a version; PATH names whatever was installed last. Unless
+# VERUS is given, a PATH verus that is not the pinned version is replaced by the
+# first build under ~/.local/opt whose --version is the pinned one.
+ver_of() { "$1" --version 2>/dev/null | grep -oE 'Version:[[:space:]]*\S+' | head -1 | sed -E 's/.*:[[:space:]]*//'; }
+PINFILE="$VDET/verus-version.txt"
+PIN_WANT=""
+[ -f "$PINFILE" ] && PIN_WANT="$(grep -oE '^verus[[:space:]]*=[[:space:]]*\S+' "$PINFILE" | head -1 | sed -E 's/.*=[[:space:]]*//')"
+if [ -z "$VERUS_EXPLICIT" ] && [ -n "$PIN_WANT" ] && [ "$(ver_of "$VERUS")" != "$PIN_WANT" ]; then
+    shopt -s nullglob
+    for cand in "$HOME"/.local/opt/*/verus "$HOME"/.local/opt/*/*/verus; do
+        [ -f "$cand" ] && [ -x "$cand" ] || continue
+        if [ "$(ver_of "$cand")" = "$PIN_WANT" ]; then
+            printf "  verus on PATH is not the pinned %s; using %s\n" "$PIN_WANT" "$cand"
+            VERUS="$cand"
+            break
+        fi
+    done
+    shopt -u nullglob
+fi
 have "$VERUS" || { echo "verus not on PATH (set VERUS=)" >&2; exit 1; }
 
 # ---- toolchain pin -------------------------------------------------
@@ -185,7 +219,6 @@ have "$VERUS" || { echo "verus not on PATH (set VERUS=)" >&2; exit 1; }
 # toolchain. Observed 2026-09-14: 0.2026.09.13 turns the 331 into 148.
 # verus-version.txt records the build the headline was measured with; a
 # mismatch is a loud warning, never a silent wrong number.
-PINFILE="$VDET/verus-version.txt"
 if [ -f "$PINFILE" ]; then
     PIN_VER="$(grep -oE '^verus[[:space:]]*=[[:space:]]*\S+' "$PINFILE" | head -1 | sed -E 's/.*=[[:space:]]*//')"
     PIN_TC="$(grep -oE '^toolchain[[:space:]]*=[[:space:]]*\S+' "$PINFILE" | head -1 | sed -E 's/.*=[[:space:]]*//')"
