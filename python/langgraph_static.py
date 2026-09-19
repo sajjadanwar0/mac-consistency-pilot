@@ -41,6 +41,19 @@ bound, not imputed.
     python3 python/langgraph_static.py --oracle      # the same fixtures EXECUTED on real
                                                      # LangGraph: static must equal dynamic
 
+The oracle's exit code says WHICH thing happened (2026-09-19 round 36):
+    0  every executed fixture agrees with the static analysis
+    1  a DISAGREEMENT: the front end is wrong about a fixture
+    2  NOT RUN: langgraph cannot be imported by this python3 -- says nothing
+       about the front end
+    3  a fixture could not be EXECUTED: an environment failure, not a disagreement
+Round 35 caught only ImportError. A pydantic / pydantic-core mismatch on AB's
+machine raised SystemError deep inside the import, which surfaced as a traceback
+here and, in that round's fix script, as the false verdict "the static front end
+disagrees with real LangGraph execution". OVERRULED (round 35): one failure code
+for three different failures. To get langgraph, use a virtual environment; never
+install into an interpreter other tools share.
+
 Standard library only (the oracle needs langgraph). No network.
 """
 import ast
@@ -627,7 +640,31 @@ def selftest():
             fails += 1
             print("SELFTEST FAIL  %s: statuses %r (want %r), pairs %r (want %r)" % (
                 name, [g["status"] for g in gs], want, got_pairs, want_pairs))
-    print("selftest: %d fixtures, %d failed" % (len(FIXTURES), fails))
+    # a dependency mismatch raises SystemError, not ImportError: the probe must absorb it
+    def boom():
+        raise SystemError("pydantic-core mismatch")
+    try:
+        got = probe_langgraph(boom)
+    except BaseException as e:  # noqa: BLE001
+        got = ("ESCAPED", type(e).__name__)
+    if got != (False, "SystemError: pydantic-core mismatch"):
+        fails += 1
+        print("SELFTEST FAIL  the import probe let a non-ImportError through or misreported it: %r" % (got,))
+    # an unimportable langgraph must be reported as NOT RUN (2), never as a disagreement (1)
+    import contextlib
+    import io
+    real = globals()["probe_langgraph"]
+    globals()["probe_langgraph"] = lambda: (False, "SystemError: simulated dependency mismatch")
+    buf = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(buf):
+            code = oracle()
+    finally:
+        globals()["probe_langgraph"] = real
+    if code != ORACLE_NOT_RUN or "NOT RUN" not in buf.getvalue():
+        fails += 1
+        print("SELFTEST FAIL  oracle on an unimportable langgraph: exit %r, output %r (want exit 2 and NOT RUN)" % (code, buf.getvalue()[:80]))
+    print("selftest: %d fixtures and 2 oracle-mode checks, %d failed" % (len(FIXTURES), fails))
     return 1 if fails else 0
 
 
@@ -647,15 +684,38 @@ class _Rec(dict):
         return super().get(k, d)
 
 
+ORACLE_AGREE, ORACLE_DISAGREE, ORACLE_NOT_RUN, ORACLE_FIXTURE_ERROR = 0, 1, 2, 3
+
+
+def _import_langgraph():
+    from langgraph.graph import END, START, StateGraph  # noqa: F401
+    import importlib.metadata as md
+    return md.version("langgraph")
+
+
+def probe_langgraph(importer=_import_langgraph):
+    """(ok, version or reason). ANY failure while importing counts: a broken
+    dependency raises SystemError or AttributeError inside the import, not
+    ImportError."""
+    try:
+        return True, importer()
+    except KeyboardInterrupt:
+        raise
+    except BaseException as e:  # noqa: BLE001
+        first = (str(e).splitlines() or [""])[0][:160]
+        return False, "%s: %s" % (type(e).__name__, first)
+
+
 def oracle():
     """Execute each runnable fixture on real LangGraph and demand static == dynamic:
     the pairs that ran in one superstep, and each node's read and written keys."""
-    try:
-        import langgraph  # noqa: F401
-    except ImportError:
-        print("oracle: langgraph is not importable here -- cannot run (pip install langgraph)")
-        return 2
+    ok, info = probe_langgraph()
+    if not ok:
+        print("oracle: NOT RUN -- langgraph cannot be imported by this python3 (%s). "
+              "That is an environment failure and says nothing about the front end." % info)
+        return ORACLE_NOT_RUN
     fails = 0
+    errors = 0
     ran = 0
     for name, src, _, want_pairs, runnable in FIXTURES:
         if not runnable:
@@ -663,11 +723,17 @@ def oracle():
         ran += 1
         static = extract(src, name)[0]
         env = {}
-        exec(compile(src, name, "exec"), env)
         steps = {}
-        for ev in env["GRAPH"].stream(env["INPUT"], stream_mode="debug"):
-            if ev.get("type") == "task" and not ev["payload"]["name"].startswith("__"):
-                steps.setdefault(ev["step"], set()).add(ev["payload"]["name"])
+        try:
+            exec(compile(src, name, "exec"), env)
+            for ev in env["GRAPH"].stream(env["INPUT"], stream_mode="debug"):
+                if ev.get("type") == "task" and not ev["payload"]["name"].startswith("__"):
+                    steps.setdefault(ev["step"], set()).add(ev["payload"]["name"])
+        except Exception as e:  # noqa: BLE001
+            errors += 1
+            print("ORACLE ERROR  %s could not be executed (%s: %s) -- an environment failure, not a disagreement" % (
+                name, type(e).__name__, (str(e).splitlines() or [""])[0][:140]))
+            continue
         dyn_pairs = sorted(tuple(sorted((a, b))) for s in steps.values() for a in s for b in s if a < b)
         st_pairs = sorted((p["a"], p["b"]) for p in static["pairs"])
         if dyn_pairs != st_pairs:
@@ -684,10 +750,9 @@ def oracle():
                 fails += 1
                 print("ORACLE FAIL  %s.%s: reads static %r executed %r; writes static %r executed %r" % (
                     name, node, facts["reads"], sorted(rec.read), facts["writes"], sorted(out)))
-    import importlib.metadata as md
-    print("oracle: %d fixtures executed on langgraph %s, %d disagreement(s) between static and executed" % (
-        ran, md.version("langgraph"), fails))
-    return 1 if fails else 0
+    print("oracle: %d fixtures executed on langgraph %s, %d disagreement(s) between static and executed, %d could not be executed" % (
+        ran - errors, info, fails, errors))
+    return ORACLE_DISAGREE if fails else ORACLE_FIXTURE_ERROR if errors else ORACLE_AGREE
 
 
 def main():

@@ -219,18 +219,18 @@
   },
   {
    "band": "stars>=200",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "souvikmajumder26/Multi-Agent-Medical-Assistant",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 1,
+   "sha": "dee00a4df4d7142186c30bf2893406a0074faa51",
    "stars": 974
   },
   {
    "band": "stars>=200",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "AgentOps-AI/agentops",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 1,
+   "sha": "f8e907b92dabe47232978023fdcb01e2a7d4b752",
    "stars": 5828
   },
   {
@@ -243,10 +243,10 @@
   },
   {
    "band": "stars>=200",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "Sumanth077/Hands-On-AI-Engineering",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 5,
+   "sha": "8363f6c989a3f2ed48695d9d5f8784acfff09c06",
    "stars": 3646
   },
   {
@@ -259,10 +259,10 @@
   },
   {
    "band": "stars>=200",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "mlflow/mlflow",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 5,
+   "sha": "215b274dc702a10147c86e48dfff692f1350bf30",
    "stars": 28036
   },
   {
@@ -275,10 +275,10 @@
   },
   {
    "band": "stars>=200",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "Shubhamsaboo/awesome-llm-apps",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 3,
+   "sha": "22a91e2a64bee40277477988d5ac5e786555cf01",
    "stars": 138884
   },
   {
@@ -419,18 +419,18 @@
   },
   {
    "band": "stars>=200",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "didilili/ai-agents-from-zero",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 39,
+   "sha": "ea7f28ffe0b2c2650e3936f3bb591560225702b3",
    "stars": 4733
   },
   {
    "band": "stars>=200",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "skygazer42/MimirQ",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 4,
+   "sha": "5d08b54beb8011a17ce274319fb79a5f121568c9",
    "stars": 549
   },
   {
@@ -699,10 +699,10 @@
   },
   {
    "band": "stars 10-199",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "martymcenroe/AssemblyZero",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 5,
+   "sha": "4326d3a1d718f6e9a8ab85281606fa078dc6fd62",
    "stars": 112
   },
   {
@@ -787,10 +787,10 @@
   },
   {
    "band": "stars 10-199",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "binrogithub/1-3-Cloud-Adoption-Skills",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 1,
+   "sha": "29c67881d970aec3ecd2421f202c39b7c0662ced",
    "stars": 11
   },
   {
@@ -835,10 +835,10 @@
   },
   {
    "band": "stars 10-199",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "PINNeAPPle-Labs/pinnaitor",
    "graphs": 0,
-   "sha": null,
+   "sha": "1f58a40108b2cdcac3b2b84502128a289d643aab",
    "stars": 22
   },
   {
@@ -859,18 +859,18 @@
   },
   {
    "band": "stars 10-199",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "LuxUmbra697/AI-PPT-Report-Slides-Studio-v2",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 3,
+   "sha": "db887edf9068041ceac3a03b158a4034b65ef9f4",
    "stars": 43
   },
   {
    "band": "stars 10-199",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "arthurpanhku/DocSentinel",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 4,
+   "sha": "55c5dbd5ab468bce0f4ba2c3919e7e1dca08b999",
    "stars": 87
   },
   {
@@ -915,10 +915,10 @@
   },
   {
    "band": "stars 10-199",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "shouzhuoshouzhuo/FloatTrip",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 5,
+   "sha": "54a765690461e84df9231c64ea06690fe4242508",
    "stars": 76
   },
   {
@@ -963,10 +963,10 @@
   },
   {
    "band": "stars 0-9",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "Hungcb123/CTU-Chat_bot",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 1,
+   "sha": "d9c87c7cf88a5bf84ffa6289154e83067b7b20a0",
    "stars": 5
   },
   {
@@ -1235,10 +1235,10 @@
   },
   {
    "band": "stars 0-9",
-   "fetch": "too_large",
+   "fetch": "ok",
    "full_name": "zhangfang2741/deepalpha-club-ai",
-   "graphs": 0,
-   "sha": null,
+   "graphs": 2,
+   "sha": "0f856e68fe7a465fb58ba7878962fa1b3770bf56",
    "stars": 0
   },
   {

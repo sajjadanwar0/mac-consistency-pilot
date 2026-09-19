@@ -4,27 +4,28 @@
    "band_size": 216049,
    "co_scheduled_ww_pairs_on_a_plain_channel": 0,
    "frame_returned": 1374,
-   "graph_sites": 328,
+   "graph_sites": 407,
    "graphs_by_status": {
-    "parallel_clean": 2,
+    "parallel_clean": 5,
     "rw_reducer_only": 2,
-    "sequential": 316,
+    "sequential": 392,
     "unknown": 8
    },
-   "graphs_parallel": 12,
+   "graphs_parallel": 15,
    "graphs_rw_plain_lower": 0,
    "graphs_send_fanout": 7,
    "graphs_unparsed": 5,
-   "graphs_unresolved_routing": 74,
+   "graphs_unresolved_routing": 82,
    "graphs_upper": 8,
-   "graphs_upper_wide": 86,
-   "repos_fetched": 165,
+   "graphs_upper_wide": 94,
+   "repos_fetched": 180,
+   "repos_not_fetched": [],
    "repos_parallel": {
-    "k": 10,
-    "share": 0.119,
+    "k": 11,
+    "share": 0.1122,
     "wilson95": [
-     0.066,
-     0.2054
+     0.0638,
+     0.1899
     ]
    },
    "repos_rw_plain_lower": {
@@ -32,51 +33,52 @@
     "share": 0.0,
     "wilson95": [
      0.0,
-     0.0437
+     0.0377
     ]
    },
    "repos_sampled": 180,
    "repos_upper": {
     "k": 8,
-    "share": 0.0952,
+    "share": 0.0816,
     "wilson95": [
-     0.0491,
-     0.1768
+     0.0419,
+     0.1529
     ]
    },
    "repos_upper_wide": {
-    "k": 43,
-    "share": 0.5119,
+    "k": 50,
+    "share": 0.5102,
     "wilson95": [
-     0.4069,
-     0.6159
+     0.4127,
+     0.6069
     ]
    },
-   "repos_with_a_graph": 84
+   "repos_with_a_graph": 98
   },
   "stars 0-9": {
    "band_size": 213092,
    "co_scheduled_ww_pairs_on_a_plain_channel": 0,
    "frame_returned": 497,
-   "graph_sites": 45,
+   "graph_sites": 48,
    "graphs_by_status": {
-    "sequential": 42,
+    "sequential": 45,
     "unknown": 3
    },
    "graphs_parallel": 3,
    "graphs_rw_plain_lower": 0,
    "graphs_send_fanout": 0,
    "graphs_unparsed": 0,
-   "graphs_unresolved_routing": 9,
+   "graphs_unresolved_routing": 11,
    "graphs_upper": 3,
-   "graphs_upper_wide": 12,
-   "repos_fetched": 58,
+   "graphs_upper_wide": 14,
+   "repos_fetched": 60,
+   "repos_not_fetched": [],
    "repos_parallel": {
     "k": 3,
-    "share": 0.1034,
+    "share": 0.0968,
     "wilson95": [
-     0.0358,
-     0.2639
+     0.0335,
+     0.249
     ]
    },
    "repos_rw_plain_lower": {
@@ -84,51 +86,52 @@
     "share": 0.0,
     "wilson95": [
      0.0,
-     0.117
+     0.1103
     ]
    },
    "repos_sampled": 60,
    "repos_upper": {
     "k": 3,
-    "share": 0.1034,
+    "share": 0.0968,
     "wilson95": [
-     0.0358,
-     0.2639
+     0.0335,
+     0.249
     ]
    },
    "repos_upper_wide": {
-    "k": 10,
-    "share": 0.3448,
+    "k": 12,
+    "share": 0.3871,
     "wilson95": [
-     0.1994,
-     0.5265
+     0.2373,
+     0.5618
     ]
    },
-   "repos_with_a_graph": 29
+   "repos_with_a_graph": 31
   },
   "stars 10-199": {
    "band_size": 2544,
    "co_scheduled_ww_pairs_on_a_plain_channel": 0,
    "frame_returned": 493,
-   "graph_sites": 93,
+   "graph_sites": 111,
    "graphs_by_status": {
-    "sequential": 92,
+    "sequential": 110,
     "unknown": 1
    },
    "graphs_parallel": 1,
    "graphs_rw_plain_lower": 0,
    "graphs_send_fanout": 2,
    "graphs_unparsed": 2,
-   "graphs_unresolved_routing": 27,
+   "graphs_unresolved_routing": 29,
    "graphs_upper": 1,
-   "graphs_upper_wide": 30,
-   "repos_fetched": 54,
+   "graphs_upper_wide": 32,
+   "repos_fetched": 60,
+   "repos_not_fetched": [],
    "repos_parallel": {
     "k": 1,
-    "share": 0.0435,
+    "share": 0.0357,
     "wilson95": [
-     0.0077,
-     0.2099
+     0.0063,
+     0.1771
     ]
    },
    "repos_rw_plain_lower": {
@@ -136,53 +139,54 @@
     "share": 0.0,
     "wilson95": [
      0.0,
-     0.1431
+     0.1206
     ]
    },
    "repos_sampled": 60,
    "repos_upper": {
     "k": 1,
-    "share": 0.0435,
+    "share": 0.0357,
     "wilson95": [
-     0.0077,
-     0.2099
+     0.0063,
+     0.1771
     ]
    },
    "repos_upper_wide": {
-    "k": 12,
-    "share": 0.5217,
+    "k": 14,
+    "share": 0.5,
     "wilson95": [
-     0.3296,
-     0.7076
+     0.3263,
+     0.6737
     ]
    },
-   "repos_with_a_graph": 23
+   "repos_with_a_graph": 28
   },
   "stars>=200": {
    "band_size": 413,
    "co_scheduled_ww_pairs_on_a_plain_channel": 0,
    "frame_returned": 384,
-   "graph_sites": 190,
+   "graph_sites": 248,
    "graphs_by_status": {
-    "parallel_clean": 2,
+    "parallel_clean": 5,
     "rw_reducer_only": 2,
-    "sequential": 182,
+    "sequential": 237,
     "unknown": 4
    },
-   "graphs_parallel": 8,
+   "graphs_parallel": 11,
    "graphs_rw_plain_lower": 0,
    "graphs_send_fanout": 5,
    "graphs_unparsed": 3,
-   "graphs_unresolved_routing": 38,
+   "graphs_unresolved_routing": 42,
    "graphs_upper": 4,
-   "graphs_upper_wide": 44,
-   "repos_fetched": 53,
+   "graphs_upper_wide": 48,
+   "repos_fetched": 60,
+   "repos_not_fetched": [],
    "repos_parallel": {
-    "k": 6,
-    "share": 0.1875,
+    "k": 7,
+    "share": 0.1795,
     "wilson95": [
-     0.0889,
-     0.3531
+     0.0898,
+     0.3267
     ]
    },
    "repos_rw_plain_lower": {
@@ -190,27 +194,127 @@
     "share": 0.0,
     "wilson95": [
      0.0,
-     0.1072
+     0.0897
     ]
    },
    "repos_sampled": 60,
    "repos_upper": {
     "k": 4,
-    "share": 0.125,
+    "share": 0.1026,
     "wilson95": [
-     0.0497,
-     0.2807
+     0.0406,
+     0.2358
     ]
    },
    "repos_upper_wide": {
-    "k": 21,
-    "share": 0.6562,
+    "k": 24,
+    "share": 0.6154,
     "wilson95": [
-     0.4831,
-     0.7959
+     0.459,
+     0.7511
     ]
    },
-   "repos_with_a_graph": 32
+   "repos_with_a_graph": 39
+  }
+ },
+ "by_path_class": {
+  "auxiliary": {
+   "co_scheduled_ww_pairs_on_a_plain_channel": 0,
+   "graph_sites": 156,
+   "graphs_by_status": {
+    "parallel_clean": 1,
+    "rw_reducer_only": 1,
+    "sequential": 153,
+    "unknown": 1
+   },
+   "graphs_parallel": 3,
+   "graphs_rw_plain_lower": 0,
+   "graphs_send_fanout": 1,
+   "graphs_unresolved_routing": 12,
+   "graphs_upper": 1,
+   "graphs_upper_wide": 14,
+   "repos_parallel": {
+    "k": 3,
+    "share": 0.125,
+    "wilson95": [
+     0.0434,
+     0.31
+    ]
+   },
+   "repos_rw_plain_lower": {
+    "k": 0,
+    "share": 0.0,
+    "wilson95": [
+     0.0,
+     0.138
+    ]
+   },
+   "repos_upper": {
+    "k": 1,
+    "share": 0.0417,
+    "wilson95": [
+     0.0074,
+     0.2024
+    ]
+   },
+   "repos_upper_wide": {
+    "k": 8,
+    "share": 0.3333,
+    "wilson95": [
+     0.1797,
+     0.5329
+    ]
+   },
+   "repos_with_a_graph": 24
+  },
+  "source": {
+   "co_scheduled_ww_pairs_on_a_plain_channel": 0,
+   "graph_sites": 251,
+   "graphs_by_status": {
+    "parallel_clean": 4,
+    "rw_reducer_only": 1,
+    "sequential": 239,
+    "unknown": 7
+   },
+   "graphs_parallel": 12,
+   "graphs_rw_plain_lower": 0,
+   "graphs_send_fanout": 6,
+   "graphs_unresolved_routing": 70,
+   "graphs_upper": 7,
+   "graphs_upper_wide": 80,
+   "repos_parallel": {
+    "k": 9,
+    "share": 0.1111,
+    "wilson95": [
+     0.0596,
+     0.1979
+    ]
+   },
+   "repos_rw_plain_lower": {
+    "k": 0,
+    "share": 0.0,
+    "wilson95": [
+     0.0,
+     0.0453
+    ]
+   },
+   "repos_upper": {
+    "k": 7,
+    "share": 0.0864,
+    "wilson95": [
+     0.0425,
+     0.1678
+    ]
+   },
+   "repos_upper_wide": {
+    "k": 45,
+    "share": 0.5556,
+    "wilson95": [
+     0.4473,
+     0.6588
+    ]
+   },
+   "repos_with_a_graph": 81
   }
  },
  "query": "langgraph in:name,description,readme language:python",
